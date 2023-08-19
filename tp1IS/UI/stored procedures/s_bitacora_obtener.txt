@@ -1,0 +1,35 @@
+﻿USE [TpIS]
+GO
+/****** Object:  StoredProcedure [dbo].[s_bitacora_obtener]    Script Date: 16/6/2023 11:37:12 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER   procedure [dbo].[s_bitacora_obtener] @username nvarchar(50), @from datetime, @to datetime, @idBitacoraType int, @like nvarchar(255), @PageNumber int
+as
+    DECLARE @RowsOfPage AS INT
+    DECLARE @MaxTablePage  AS FLOAT 
+    SET @RowsOfPage=10
+	SELECT @MaxTablePage = COUNT(*) FROM bitacora
+    SET @MaxTablePage = CEILING(@MaxTablePage/@RowsOfPage)
+    WHILE @MaxTablePage >= @PageNumber
+begin
+	if @like is null select @like = '%'
+	select @like = '%' + @like + '%'
+
+	select	* 
+	from	[Bitacora] a
+	where	(a.username = @username or @username is null)
+			and convert(date,a.time) between convert(date,@from) and convert(date,@to)
+			and (a.tipo = @idBitacoraType or @idBitacoraType is null)
+			and 
+			(
+				a.username like @like
+				or a.action like @like
+			)
+	ORDER BY id 
+	 OFFSET (@PageNumber-1)*@RowsOfPage ROWS
+     FETCH NEXT @RowsOfPage ROWS ONLY
+     SET @PageNumber = @PageNumber + 1
+END
+	

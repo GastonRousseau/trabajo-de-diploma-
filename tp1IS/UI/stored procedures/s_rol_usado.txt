@@ -1,0 +1,15 @@
+﻿USE [TpIS]
+GO
+/****** Object:  StoredProcedure [dbo].[s_rol_usado]    Script Date: 16/6/2023 11:47:24 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[s_rol_usado](
+	@rol  numeric(18,0)
+)
+
+AS SET NOCOUNT ON
+
+	SELECT  * FROM permiso_usuario 
+WHERE id_rol = @rol

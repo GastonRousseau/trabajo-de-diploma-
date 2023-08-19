@@ -1,0 +1,12 @@
+﻿USE [TpIS]
+GO
+/****** Object:  StoredProcedure [dbo].[s_buscar_permisos]    Script Date: 16/6/2023 11:40:33 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[s_buscar_permisos]
+
+AS SET NOCOUNT ON
+
+	SELECT * FROM permiso WHERE es_patente = 1

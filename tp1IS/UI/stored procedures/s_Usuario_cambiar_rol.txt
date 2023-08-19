@@ -1,0 +1,15 @@
+﻿USE [TpIS]
+GO
+/****** Object:  StoredProcedure [dbo].[s_Usuario_cambiar_rol]    Script Date: 16/6/2023 11:51:38 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[s_Usuario_cambiar_rol](
+	@id numeric(18,0),
+	@rol numeric(18,0)
+	)
+
+AS SET NOCOUNT ON
+
+	UPDATE Usuario SET rol = @rol where id=@id

@@ -1,0 +1,26 @@
+﻿USE [TpIS]
+GO
+/****** Object:  StoredProcedure [dbo].[S_Crear_Traduccion]    Script Date: 16/6/2023 11:44:52 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+create PROCEDURE [dbo].[S_Crear_Traduccion]
+	-- Add the parameters for the stored procedure here
+	@IDidioma int,
+	@IDpalabra int,
+	@traduccion nvarchar(50)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	insert into Traduccion(IDidioma,IDpalabra,traduccion)values(@IDidioma,@IDpalabra,@traduccion)
+END

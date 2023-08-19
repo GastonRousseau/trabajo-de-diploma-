@@ -1,0 +1,15 @@
+﻿USE [TpIS]
+GO
+/****** Object:  StoredProcedure [dbo].[s_Usuario_porid]    Script Date: 16/6/2023 11:54:34 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[s_Usuario_porid](
+	@id numeric(18,0)
+)
+
+AS SET NOCOUNT ON
+
+	SELECT  * FROM dbo.Usuario 
+WHERE id = @id 

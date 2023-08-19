@@ -1,0 +1,17 @@
+﻿USE [TpIS]
+GO
+/****** Object:  StoredProcedure [dbo].[s_bitacora_crear]    Script Date: 16/6/2023 11:36:38 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[s_bitacora_crear](
+	@user nvarchar(50),
+	@time nvarchar(50),
+	@action nvarchar(50),
+	@tipo numeric (18,0)
+	)
+
+AS SET NOCOUNT ON
+
+	INSERT INTO dbo.bitacora(username, time, action, tipo) values (@user, @time, @action, @tipo)

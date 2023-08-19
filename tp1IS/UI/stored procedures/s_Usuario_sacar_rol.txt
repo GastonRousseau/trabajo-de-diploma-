@@ -1,0 +1,24 @@
+﻿USE [TpIS]
+GO
+/****** Object:  StoredProcedure [dbo].[s_Usuario_sacar_rol]    Script Date: 16/6/2023 11:55:24 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[s_Usuario_sacar_rol](
+	@id numeric(18,0),
+	@rol numeric(18,0)
+	)
+
+AS SET NOCOUNT ON
+
+	
+	if (SELECT count (*) from permiso_usuario where id_usuario = @id AND id_rol = @rol) = 0 
+	BEGIN 
+	select 0
+	END
+	else 
+	BEGIN
+	DELETE FROM permiso_usuario where id_usuario = @id AND id_rol = @rol
+	select 1
+	END

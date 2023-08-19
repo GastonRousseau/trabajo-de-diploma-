@@ -1,0 +1,15 @@
+﻿USE [TpIS]
+GO
+/****** Object:  StoredProcedure [dbo].[s_componente_agregar_relacion]    Script Date: 16/6/2023 11:42:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[s_componente_agregar_relacion](
+	@id_permiso_padre numeric(18,0),
+	@id_permiso_hijo numeric(18,0)
+	)
+
+AS SET NOCOUNT ON
+
+	INSERT INTO permiso_permiso (id_permiso_padre, id_permiso_hijo) VALUES (@id_permiso_padre, @id_permiso_hijo)

@@ -1,0 +1,32 @@
+﻿USE [TpIS]
+GO
+/****** Object:  StoredProcedure [dbo].[s_Usuario_historico_crear]    Script Date: 16/6/2023 11:53:21 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[s_Usuario_historico_crear](
+	@id numeric(18,0),
+	@user nvarchar(50),
+	@password nvarchar(50),
+	@active bit,
+	@birthdate nvarchar(50)
+	)
+
+AS
+BEGIN
+	INSERT INTO dbo.Usuario_historico(id, username, password, active, birthdate) values (@id, @user, @password,  @active, @birthdate)
+    IF EXISTS (
+        SELECT id
+        FROM Usuario_historico
+        WHERE id = @id
+        GROUP BY id
+        HAVING COUNT(*) >= 3
+    )
+    BEGIN
+        DELETE TOP(1) FROM Usuario_historico  WHERE id = @id;
+    END
+END
+
+	
+	

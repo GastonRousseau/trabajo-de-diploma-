@@ -1,0 +1,17 @@
+﻿USE [TpIS]
+GO
+/****** Object:  StoredProcedure [dbo].[s_Usuario_dar_admin]    Script Date: 16/6/2023 11:52:42 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[s_Usuario_dar_admin](
+	@id numeric(18,0)
+	)
+
+AS SET NOCOUNT ON
+
+	if (SELECT count (*) from permiso_usuario WHERE id_rol = 5 AND id_usuario =  @id) = 0 
+	BEGIN 
+	INSERT INTO permiso_usuario (id_rol, id_usuario) values (5, @id)
+	END 

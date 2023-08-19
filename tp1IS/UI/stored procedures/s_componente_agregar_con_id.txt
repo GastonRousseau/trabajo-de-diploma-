@@ -1,0 +1,17 @@
+﻿USE [TpIS]
+GO
+/****** Object:  StoredProcedure [dbo].[s_componente_agregar_con_id]    Script Date: 16/6/2023 11:42:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[s_componente_agregar_con_id](
+	@nombre nvarchar(50),
+	@patente bit
+	)
+
+AS SET NOCOUNT ON
+
+	INSERT INTO dbo.permiso( nombre, es_patente) values (@nombre, @patente)
+	SELECT MAX(id) AS MaxValor
+	FROM permiso

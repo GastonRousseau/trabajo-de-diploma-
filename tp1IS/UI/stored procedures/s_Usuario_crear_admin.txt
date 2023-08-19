@@ -1,0 +1,19 @@
+﻿USE [TpIS]
+GO
+/****** Object:  StoredProcedure [dbo].[s_Usuario_crear_admin]    Script Date: 16/6/2023 11:52:24 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[s_Usuario_crear_admin](
+	@id numeric(18,0),
+	@user nvarchar(50),
+	@password nvarchar(50),
+	@active bit,
+	@birthdate nvarchar(50)
+	)
+
+AS SET NOCOUNT ON
+
+	INSERT INTO dbo.Usuario(id, username, password, active, birthdate) values (@id, @user, @password,  @active, @birthdate)
+	INSERT INTO permiso_usuario (id_rol, id_usuario) values (5, @id)

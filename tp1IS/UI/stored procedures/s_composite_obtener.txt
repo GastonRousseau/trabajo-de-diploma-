@@ -1,0 +1,23 @@
+﻿USE [TpIS]
+GO
+/****** Object:  StoredProcedure [dbo].[s_composite_obtener]    Script Date: 16/6/2023 11:43:58 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[s_composite_obtener](
+	@where  numeric(18,0)
+)
+AS BEGIN
+with recursivo as (
+                        select sp2.id_permiso_padre, sp2.id_permiso_hijo  from permiso_permiso SP2
+                        where sp2.id_permiso_padre = @where --acá se va variando la familia que busco
+                        UNION ALL 
+                        select sp.id_permiso_padre, sp.id_permiso_hijo from permiso_permiso sp 
+                        inner join recursivo r on r.id_permiso_hijo= sp.id_permiso_padre
+                        )
+                        select r.id_permiso_padre,r.id_permiso_hijo,p.id,p.nombre, p.es_patente
+                        from recursivo r 
+                        inner join permiso p on r.id_permiso_hijo = p.id 
+
+END

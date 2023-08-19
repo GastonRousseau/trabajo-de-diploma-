@@ -1,0 +1,20 @@
+﻿USE [TpIS]
+GO
+/****** Object:  StoredProcedure [dbo].[s_Usuario_eliminar]    Script Date: 16/6/2023 11:53:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[s_Usuario_eliminar](
+	@id numeric(18,0)
+	)
+
+AS begin
+	DECLARE @username VARCHAR(50)
+	DECLARE @passwordP VARCHAR(50)
+	DECLARE @active int
+	DECLARE @birthdate VARCHAR(50)
+	select  @username=username, @passwordP=password, @active= active, @birthdate= birthdate from Usuario where id = @id
+	UPDATE Usuario SET active = 0 where id=@id
+	exec s_Usuario_historico_crear @id= @id, @user= @username, @password=@passwordP, @active=0, @birthdate=@birthdate
+end

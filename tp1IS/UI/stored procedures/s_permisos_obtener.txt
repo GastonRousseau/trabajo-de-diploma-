@@ -1,0 +1,27 @@
+﻿USE [TpIS]
+GO
+/****** Object:  StoredProcedure [dbo].[s_permisos_obtener]    Script Date: 16/6/2023 11:46:51 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[s_permisos_obtener](
+	@id_user  numeric(18,0)
+)
+AS BEGIN
+DECLARE @ID INT
+DECLARE buscar_permisos CURSOR FOR
+select id_rol from  permiso_usuario where id_usuario = @id_user
+
+open buscar_permisos
+fetch NEXT from buscar_permisos INTO @ID
+
+WHILE @@FETCH_STATUS = 0
+BEGIN
+EXEC s_composite_obtener @ID
+FETCH NEXT from buscar_permisos INTO @ID
+END
+CLOSE buscar_permisos
+DEALLOCATE buscar_permisos
+END
+

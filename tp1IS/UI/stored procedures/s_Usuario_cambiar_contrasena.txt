@@ -1,0 +1,22 @@
+﻿USE [TpIS]
+GO
+/****** Object:  StoredProcedure [dbo].[s_Usuario_cambiar_contrasena]    Script Date: 16/6/2023 11:51:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[s_Usuario_cambiar_contrasena](
+	@id int,
+	@password nvarchar(50)
+	)
+
+AS begin
+	UPDATE Usuario SET password = @password where id=@id
+	DECLARE @username VARCHAR(50)
+	DECLARE @passwordP NVARCHAR(50)
+	DECLARE @active int
+	DECLARE @birthdate NVARCHAR(50)
+	select  @username=username,  @active= active, @birthdate= birthdate from Usuario where id = @id
+	exec s_Usuario_historico_crear  @id= @id, @user= @username, @password=@passwordP, @active=@active, @birthdate=@birthdate
+
+	end

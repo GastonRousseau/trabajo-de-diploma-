@@ -1,0 +1,24 @@
+﻿USE [TpIS]
+GO
+/****** Object:  StoredProcedure [dbo].[S_Traer_UnaPalabra]    Script Date: 16/6/2023 11:48:38 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER PROCEDURE [dbo].[S_Traer_UnaPalabra]
+	-- Add the parameters for the stored procedure here
+@palabra nvarchar(50)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT id , palabra from Palabra where palabra=@palabra
+END

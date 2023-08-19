@@ -1,0 +1,18 @@
+﻿USE [TpIS]
+GO
+/****** Object:  StoredProcedure [dbo].[s_Usuario_listar]    Script Date: 16/6/2023 11:53:39 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[s_Usuario_listar]
+
+AS SET NOCOUNT ON
+
+	SELECT
+	Usuario.id,
+	Usuario.username,
+	Usuario.password,
+	usuario.active,
+	usuario.birthdate
+	from dbo.Usuario

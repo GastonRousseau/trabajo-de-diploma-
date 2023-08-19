@@ -1,0 +1,14 @@
+﻿USE [TpIS]
+GO
+/****** Object:  StoredProcedure [dbo].[s_buscar_permiso]    Script Date: 16/6/2023 11:39:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[s_buscar_permiso](
+	@nombre nvarchar(50)
+	)
+
+AS SET NOCOUNT ON
+
+	SELECT * FROM permiso WHERE nombre = @nombre

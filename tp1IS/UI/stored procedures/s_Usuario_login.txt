@@ -1,0 +1,16 @@
+﻿USE [TpIS]
+GO
+/****** Object:  StoredProcedure [dbo].[s_Usuario_login]    Script Date: 16/6/2023 11:53:57 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[s_Usuario_login](
+	@username  nvarchar(50),
+	@password  nvarchar(50)
+)
+
+AS SET NOCOUNT ON
+
+	SELECT  * FROM dbo.Usuario 
+WHERE username = @username AND password = @password 

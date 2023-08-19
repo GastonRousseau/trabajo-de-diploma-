@@ -1,0 +1,19 @@
+﻿USE [TpIS]
+GO
+/****** Object:  StoredProcedure [dbo].[s_Usuario_restaurar]    Script Date: 16/6/2023 11:54:52 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[s_Usuario_restaurar](
+	@id int,
+	@password nvarchar(50),
+	@username nvarchar(50),
+	@birthdate nvarchar(50),
+	@active bit
+	)
+
+AS SET NOCOUNT ON
+
+	UPDATE Usuario SET password = @password, username = @username, active = @active, birthdate = @birthdate where id=@id
+	exec s_Usuario_historico_crear @id= @id, @user= @username, @password=@password, @active=@active, @birthdate=@birthdate

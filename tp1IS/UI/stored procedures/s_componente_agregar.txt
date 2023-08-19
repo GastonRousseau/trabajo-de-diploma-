@@ -1,0 +1,15 @@
+﻿USE [TpIS]
+GO
+/****** Object:  StoredProcedure [dbo].[s_componente_agregar]    Script Date: 16/6/2023 11:41:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[s_componente_agregar](
+	@nombre nvarchar(50),
+	@patente bit
+	)
+
+AS SET NOCOUNT ON
+
+	INSERT INTO dbo.permiso( nombre, es_patente) values (@nombre, @patente)

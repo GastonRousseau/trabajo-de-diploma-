@@ -1,0 +1,12 @@
+﻿USE [TpIS]
+GO
+/****** Object:  StoredProcedure [dbo].[s_buscar_familia]    Script Date: 16/6/2023 11:38:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[s_buscar_familia]
+
+AS SET NOCOUNT ON
+
+	SELECT * FROM permiso WHERE es_patente = 0

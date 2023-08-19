@@ -1,0 +1,26 @@
+﻿USE [TpIS]
+GO
+/****** Object:  StoredProcedure [dbo].[s_historico_obtener]    Script Date: 16/6/2023 11:45:18 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create   procedure [dbo].[s_historico_obtener] @username nvarchar(50),  @PageNumber int
+as
+    DECLARE @RowsOfPage AS INT
+    DECLARE @MaxTablePage  AS FLOAT 
+    SET @RowsOfPage=10
+	SELECT @MaxTablePage = COUNT(*) FROM bitacora
+    SET @MaxTablePage = CEILING(@MaxTablePage/@RowsOfPage)
+    WHILE @MaxTablePage >= @PageNumber
+begin
+
+	select	* 
+	from	[Usuario_historico] a
+	where	(a.username = @username or @username is null)
+	ORDER BY id 
+	 OFFSET (@PageNumber-1)*@RowsOfPage ROWS
+     FETCH NEXT @RowsOfPage ROWS ONLY
+     SET @PageNumber = @PageNumber + 1
+END
+	

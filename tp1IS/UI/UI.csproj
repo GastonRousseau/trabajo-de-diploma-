@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{704B4E7A-DD30-4374-BA9C-7119C3ADE539}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>UI</RootNamespace>
+    <AssemblyName>UI</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddLenguaje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddLenguaje.Designer.cs">
+      <DependentUpon>AddLenguaje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminHome.Designer.cs">
+      <DependentUpon>AdminHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bitacora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bitacora.Designer.cs">
+      <DependentUpon>Bitacora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="borrarPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="borrarPassword.Designer.cs">
+      <DependentUpon>borrarPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controlCambios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="controlCambios.Designer.cs">
+      <DependentUpon>controlCambios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="crearAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="crearAdmin.Designer.cs">
+      <DependentUpon>crearAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="crearRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="crearRol.Designer.cs">
+      <DependentUpon>crearRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="darAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="darAdmin.Designer.cs">
+      <DependentUpon>darAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="darRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="darRol.Designer.cs">
+      <DependentUpon>darRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="eliminarRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="eliminarRol.Designer.cs">
+      <DependentUpon>eliminarRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorDV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ErrorDV.Designer.cs">
+      <DependentUpon>ErrorDV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modificarTranslation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modificarTranslation.Designer.cs">
+      <DependentUpon>modificarTranslation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SignIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SignIn.Designer.cs">
+      <DependentUpon>SignIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserHome.Designer.cs">
+      <DependentUpon>UserHome.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddLenguaje.resx">
+      <DependentUpon>AddLenguaje.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminHome.resx">
+      <DependentUpon>AdminHome.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bitacora.resx">
+      <DependentUpon>Bitacora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="borrarPassword.resx">
+      <DependentUpon>borrarPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controlCambios.resx">
+      <DependentUpon>controlCambios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crearAdmin.resx">
+      <DependentUpon>crearAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crearRol.resx">
+      <DependentUpon>crearRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="darAdmin.resx">
+      <DependentUpon>darAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="darRol.resx">
+      <DependentUpon>darRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="eliminarRol.resx">
+      <DependentUpon>eliminarRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ErrorDV.resx">
+      <DependentUpon>ErrorDV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modificarTranslation.resx">
+      <DependentUpon>modificarTranslation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="SignIn.resx">
+      <DependentUpon>SignIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserHome.resx">
+      <DependentUpon>UserHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ojoAbierto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ojoCerrado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\abstraccion\abstraccion.csproj">
+      <Project>{fade44a9-3949-4853-932f-9d604a4a0707}</Project>
+      <Name>abstraccion</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BE\BE.csproj">
+      <Project>{f39929bf-2dce-4346-9c4a-c94e1eed36b6}</Project>
+      <Name>BE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{d9f10d82-b835-42c4-8449-d1003cc0ef1a}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\servicios\servicios.csproj">
+      <Project>{7b6b2eed-1774-4747-b947-f13422f733c6}</Project>
+      <Name>servicios</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

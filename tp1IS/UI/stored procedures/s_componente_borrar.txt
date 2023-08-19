@@ -1,0 +1,14 @@
+﻿USE [TpIS]
+GO
+/****** Object:  StoredProcedure [dbo].[s_componente_borrar]    Script Date: 16/6/2023 11:43:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create PROCEDURE [dbo].[s_componente_borrar](
+	@id numeric(18,0)
+	)
+
+AS SET NOCOUNT ON
+	DELETE from permiso where id = @id
+	DELETE from permiso_permiso where id_permiso_padre = @id OR id_permiso_hijo = @id
