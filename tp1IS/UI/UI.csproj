@@ -91,6 +91,12 @@
     <Compile Include="crearAdmin.Designer.cs">
       <DependentUpon>crearAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="CrearProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrearProducto.Designer.cs">
+      <DependentUpon>CrearProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="crearRol.cs">
       <SubType>Form</SubType>
     </Compile>
