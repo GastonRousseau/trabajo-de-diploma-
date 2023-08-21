@@ -85,6 +85,12 @@
     <Compile Include="controlCambios.Designer.cs">
       <DependentUpon>controlCambios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Crear-viaje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Crear-viaje.Designer.cs">
+      <DependentUpon>Crear-viaje.cs</DependentUpon>
+    </Compile>
     <Compile Include="crearAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,12 @@
     <Compile Include="ErrorDV.Designer.cs">
       <DependentUpon>ErrorDV.cs</DependentUpon>
     </Compile>
+    <Compile Include="Historial-de-viajes-Clinte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Historial-de-viajes-Clinte.Designer.cs">
+      <DependentUpon>Historial-de-viajes-Clinte.cs</DependentUpon>
+    </Compile>
     <Compile Include="modificarTranslation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +159,12 @@
     <Compile Include="UserHome.Designer.cs">
       <DependentUpon>UserHome.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViajesCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViajesCliente.Designer.cs">
+      <DependentUpon>ViajesCliente.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddLenguaje.resx">
       <DependentUpon>AddLenguaje.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -164,8 +182,14 @@
     <EmbeddedResource Include="controlCambios.resx">
       <DependentUpon>controlCambios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Crear-viaje.resx">
+      <DependentUpon>Crear-viaje.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="crearAdmin.resx">
       <DependentUpon>crearAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrearProducto.resx">
+      <DependentUpon>CrearProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="crearRol.resx">
       <DependentUpon>crearRol.cs</DependentUpon>
@@ -181,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ErrorDV.resx">
       <DependentUpon>ErrorDV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Historial-de-viajes-Clinte.resx">
+      <DependentUpon>Historial-de-viajes-Clinte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="modificarTranslation.resx">
       <DependentUpon>modificarTranslation.cs</DependentUpon>
@@ -200,6 +227,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserHome.resx">
       <DependentUpon>UserHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViajesCliente.resx">
+      <DependentUpon>ViajesCliente.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

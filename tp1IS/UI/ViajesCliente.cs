@@ -10,14 +10,14 @@ using System.Windows.Forms;
 using MetroFramework;
 namespace UI
 {
-    public partial class CrearProducto : MetroFramework.Forms.MetroForm
+    public partial class ViajesCliente : MetroFramework.Forms.MetroForm
     {
-        public CrearProducto()
+        public ViajesCliente()
         {
             InitializeComponent();
         }
 
-        private void CrearProducto_Load(object sender, EventArgs e)
+        private void ViajesCliente_Load(object sender, EventArgs e)
         {
 
         }

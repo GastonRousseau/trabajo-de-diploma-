@@ -304,5 +304,22 @@ namespace UI
         }
 
         
+        private void button2_Click(object sender, EventArgs e)
+        {
+            CrearProducto form = new CrearProducto();
+            AbrirFormulario(form);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Historial_de_viajes_Clinte form = new Historial_de_viajes_Clinte();
+            AbrirFormulario(form);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Crear_viaje form = new Crear_viaje();
+            AbrirFormulario(form);
+        }
     }
 }
