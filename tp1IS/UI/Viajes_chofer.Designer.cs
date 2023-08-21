@@ -1,7 +1,7 @@
 ﻿
 namespace UI
 {
-    partial class ViajesCliente
+    partial class Viajes_chofer
     {
         /// <summary>
         /// Required designer variable.
@@ -29,80 +29,60 @@ namespace UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
-            this.metroButton3 = new MetroFramework.Controls.MetroButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(112, 117);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(502, 194);
-            this.dataGridView1.TabIndex = 0;
             // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(112, 95);
+            this.metroLabel1.Location = new System.Drawing.Point(108, 136);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(86, 19);
-            this.metroLabel1.TabIndex = 1;
-            this.metroLabel1.Text = "pending trips";
+            this.metroLabel1.Size = new System.Drawing.Size(47, 19);
+            this.metroLabel1.TabIndex = 0;
+            this.metroLabel1.Text = "Travels";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(108, 158);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(480, 150);
+            this.dataGridView1.TabIndex = 1;
             // 
             // metroButton1
             // 
-            this.metroButton1.Location = new System.Drawing.Point(550, 317);
+            this.metroButton1.Location = new System.Drawing.Point(496, 314);
             this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(29, 23);
+            this.metroButton1.Size = new System.Drawing.Size(43, 23);
             this.metroButton1.TabIndex = 2;
             this.metroButton1.Text = "<";
             this.metroButton1.UseSelectable = true;
             // 
             // metroButton2
             // 
-            this.metroButton2.Location = new System.Drawing.Point(585, 317);
+            this.metroButton2.Location = new System.Drawing.Point(545, 314);
             this.metroButton2.Name = "metroButton2";
-            this.metroButton2.Size = new System.Drawing.Size(29, 23);
+            this.metroButton2.Size = new System.Drawing.Size(43, 23);
             this.metroButton2.TabIndex = 3;
             this.metroButton2.Text = ">";
             this.metroButton2.UseSelectable = true;
             // 
-            // metroButton3
-            // 
-            this.metroButton3.Location = new System.Drawing.Point(112, 365);
-            this.metroButton3.Name = "metroButton3";
-            this.metroButton3.Size = new System.Drawing.Size(105, 23);
-            this.metroButton3.TabIndex = 5;
-            this.metroButton3.Text = "Write a message";
-            this.metroButton3.UseSelectable = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(223, 368);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 20);
-            this.textBox1.TabIndex = 6;
-            // 
-            // ViajesCliente
+            // Viajes_chofer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.metroButton3);
             this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.metroButton1);
-            this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "ViajesCliente";
-            this.Text = "my travels";
-            this.Load += new System.EventHandler(this.ViajesCliente_Load);
+            this.Controls.Add(this.metroLabel1);
+            this.Name = "Viajes_chofer";
+            this.Text = "driver\'s trips";
+            this.Load += new System.EventHandler(this.Viajes_chofer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -111,11 +91,9 @@ namespace UI
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
         private MetroFramework.Controls.MetroLabel metroLabel1;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private MetroFramework.Controls.MetroButton metroButton1;
         private MetroFramework.Controls.MetroButton metroButton2;
-        private MetroFramework.Controls.MetroButton metroButton3;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }

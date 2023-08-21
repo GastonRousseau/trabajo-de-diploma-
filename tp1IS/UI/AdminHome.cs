@@ -28,12 +28,22 @@ namespace UI
             groupBox1.Hide();
             es_traductor();
             ajustarControles();
+            es_chofer();
+            es_monitor();
             this.MinimumSize = new System.Drawing.Size(1373,540);
         }
         SessionManager session = SessionManager.GetInstance;
         public void es_traductor()
         {
             if (!SessionManager.tiene_permiso(22) && !SessionManager.tiene_permiso(21)) metroButton11.Hide();
+        }
+        public void es_chofer()
+        {
+            if (!SessionManager.tiene_permiso(23)) metroButton13.Hide();metroButton15.Hide();
+        }
+        public void es_monitor()
+        {
+            if (!SessionManager.tiene_permiso(24)) metroButton14.Hide();metroButton16.Hide();
         }
         BLLUsuario oLog = new BLLUsuario();
         BEUsuario oUsuraio;
@@ -717,6 +727,29 @@ namespace UI
             this.Controls.Add(tableLayoutPanel);*/
             metroButton1.Anchor = AnchorStyles.Right;
            // metroButton1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+        }
+
+        private void metroButton15_Click(object sender, EventArgs e)
+        {
+            Mensajes_Chof form = new Mensajes_Chof();
+            AbrirFormulario(form);
+        }
+
+        private void metroButton13_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void metroButton16_Click(object sender, EventArgs e)
+        {
+            CrearChofer from = new CrearChofer();
+            AbrirFormulario(from);
+        }
+
+        private void metroButton17_Click(object sender, EventArgs e)
+        {
+            ViajesPendientes_Empresa form = new ViajesPendientes_Empresa();
+            AbrirFormulario(form);
         }
     }
 }

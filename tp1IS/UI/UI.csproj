@@ -97,6 +97,12 @@
     <Compile Include="crearAdmin.Designer.cs">
       <DependentUpon>crearAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="CrearChofer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrearChofer.Designer.cs">
+      <DependentUpon>CrearChofer.cs</DependentUpon>
+    </Compile>
     <Compile Include="CrearProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +145,18 @@
     <Compile Include="Historial-de-viajes-Clinte.Designer.cs">
       <DependentUpon>Historial-de-viajes-Clinte.cs</DependentUpon>
     </Compile>
+    <Compile Include="Historial_Viajes_Empresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Historial_Viajes_Empresa.Designer.cs">
+      <DependentUpon>Historial_Viajes_Empresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mensajes_Chof.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mensajes_Chof.Designer.cs">
+      <DependentUpon>Mensajes_Chof.cs</DependentUpon>
+    </Compile>
     <Compile Include="modificarTranslation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +183,18 @@
     <Compile Include="ViajesCliente.Designer.cs">
       <DependentUpon>ViajesCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViajesPendientes-Empresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViajesPendientes-Empresa.Designer.cs">
+      <DependentUpon>ViajesPendientes-Empresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Viajes_chofer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Viajes_chofer.Designer.cs">
+      <DependentUpon>Viajes_chofer.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddLenguaje.resx">
       <DependentUpon>AddLenguaje.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -188,6 +218,9 @@
     <EmbeddedResource Include="crearAdmin.resx">
       <DependentUpon>crearAdmin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrearChofer.resx">
+      <DependentUpon>CrearChofer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrearProducto.resx">
       <DependentUpon>CrearProducto.cs</DependentUpon>
     </EmbeddedResource>
@@ -208,6 +241,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Historial-de-viajes-Clinte.resx">
       <DependentUpon>Historial-de-viajes-Clinte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Historial_Viajes_Empresa.resx">
+      <DependentUpon>Historial_Viajes_Empresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mensajes_Chof.resx">
+      <DependentUpon>Mensajes_Chof.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="modificarTranslation.resx">
       <DependentUpon>modificarTranslation.cs</DependentUpon>
@@ -230,6 +269,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViajesCliente.resx">
       <DependentUpon>ViajesCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViajesPendientes-Empresa.resx">
+      <DependentUpon>ViajesPendientes-Empresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Viajes_chofer.resx">
+      <DependentUpon>Viajes_chofer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
