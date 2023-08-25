@@ -18,6 +18,14 @@ namespace servicios
             }
             catch (Exception ex) { throw ex; }
         }
+
+        public bool patente(string patente)
+        {
+            try
+            {
+                return Regex.IsMatch(patente, @"^[A-Z]{2}\.\d{3}\.[A-Z]{2}$");
+            }catch(Exception ex) { throw ex; }
+        }
         public bool usuario(string usuario)
         {
             try

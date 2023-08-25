@@ -42,10 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLLBitacora.cs" />
+    <Compile Include="BLLCamion.cs" />
     <Compile Include="BLLComposite.cs" />
     <Compile Include="BLLDv.cs" />
+    <Compile Include="BLLMensaje.cs" />
+    <Compile Include="BLLProducto.cs" />
     <Compile Include="BLLTraductor.cs" />
     <Compile Include="BLLUsuario.cs" />
+    <Compile Include="BLLviaje.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

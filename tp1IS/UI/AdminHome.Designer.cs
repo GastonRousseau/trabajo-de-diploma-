@@ -52,6 +52,7 @@
             this.metroButton15 = new MetroFramework.Controls.MetroButton();
             this.metroButton16 = new MetroFramework.Controls.MetroButton();
             this.metroButton17 = new MetroFramework.Controls.MetroButton();
+            this.metroButton18 = new MetroFramework.Controls.MetroButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -465,11 +466,34 @@
             this.metroButton17.UseStyleColors = true;
             this.metroButton17.Click += new System.EventHandler(this.metroButton17_Click);
             // 
+            // metroButton18
+            // 
+            this.metroButton18.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.metroButton18.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.metroButton18.ForeColor = System.Drawing.SystemColors.Info;
+            this.metroButton18.Location = new System.Drawing.Point(347, 209);
+            this.metroButton18.Margin = new System.Windows.Forms.Padding(2);
+            this.metroButton18.Name = "metroButton18";
+            this.metroButton18.Size = new System.Drawing.Size(121, 147);
+            this.metroButton18.Style = MetroFramework.MetroColorStyle.Magenta;
+            this.metroButton18.TabIndex = 19;
+            this.metroButton18.Tag = "create admin";
+            this.metroButton18.Text = "Create Truck";
+            this.metroButton18.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.metroButton18.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroButton18.UseCustomBackColor = true;
+            this.metroButton18.UseCustomForeColor = true;
+            this.metroButton18.UseMnemonic = false;
+            this.metroButton18.UseSelectable = true;
+            this.metroButton18.UseStyleColors = true;
+            this.metroButton18.Click += new System.EventHandler(this.metroButton18_Click);
+            // 
             // AdminHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1373, 540);
+            this.Controls.Add(this.metroButton18);
             this.Controls.Add(this.metroButton17);
             this.Controls.Add(this.metroButton16);
             this.Controls.Add(this.metroButton15);
@@ -526,5 +550,6 @@
         private MetroFramework.Controls.MetroButton metroButton13;
         private MetroFramework.Controls.MetroButton metroButton17;
         private MetroFramework.Controls.MetroButton metroButton16;
+        private MetroFramework.Controls.MetroButton metroButton18;
     }
 }

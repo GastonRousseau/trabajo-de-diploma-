@@ -228,7 +228,7 @@ namespace Negocio
         {
             try
             {
-    
+
                 usuario.password = encriptar.EncriptarConHash(usuario.password);
                 usuario.DV = GenerarVD.generarDigitoVU(usuario);
                 return oUsuario.crear_admin(usuario);
@@ -242,8 +242,31 @@ namespace Negocio
                 throw ex;
             }
         }
-        public bool es_activo(string username)
+
+        public IList<BEUsuario> GetAllConductores(string nombre, int pag)
         {
+            return oUsuario.GetAllConductores(nombre, pag);
+        }
+            public bool crear_conductor(BEUsuario usuario)
+            {
+                try
+                {
+
+                    usuario.password = encriptar.EncriptarConHash(usuario.password);
+                    usuario.DV = GenerarVD.generarDigitoVU(usuario);
+                    return oUsuario.crear_conductor(usuario);
+                }
+                catch (NullReferenceException ex)
+                {
+                    throw ex;
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+            public bool es_activo(string username)
+            {
             try
             {
                 return oUsuario.es_activo(username);

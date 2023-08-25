@@ -308,6 +308,32 @@ namespace MPP
                 throw ex;
             }
         }
+        public bool crear_conductor(BEUsuario usuario)
+        {
+            try
+            {
+                Hdatos = new Hashtable();
+                string Consulta = "S_Usuario_crear_conductor";
+                Hdatos.Add("@id", usuario.id);
+                Hdatos.Add("@user", usuario.user);
+                Hdatos.Add("@password", usuario.password);
+                Hdatos.Add("@active", true);
+                Hdatos.Add("@birthdate", usuario.birthDate);
+                Hdatos.Add("@dv", usuario.DV);
+                string DEncript = servicios.encriptar.Encriptar(Convert.ToString(usuario.Direccion));
+                Hdatos.Add("Direccion", DEncript);
+                oDatos = new Acceso();
+                return oDatos.Escribir(Consulta, Hdatos);
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public bool agregar_rol(int id, int rol)
         {
             try
@@ -386,6 +412,16 @@ namespace MPP
             {
                 throw ex;
             }
+        }
+        public IList<BEUsuario> GetAllConductores(string nombre, int pag)
+        {
+            try
+            {
+                oDatos = new Acceso();
+                return oDatos.TraerConductores(nombre, pag);
+
+            }
+            catch (Exception ex) { throw ex; }
         }
         public IList<BEUsuario> GetAllHistorico(string nombre, int pag)
         {

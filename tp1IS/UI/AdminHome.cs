@@ -29,22 +29,28 @@ namespace UI
             es_traductor();
             ajustarControles();
             es_chofer();
-            es_monitor();
+            //  es_monitor();
+            es_admin();
             this.MinimumSize = new System.Drawing.Size(1373,540);
         }
         SessionManager session = SessionManager.GetInstance;
         public void es_traductor()
         {
-            if (!SessionManager.tiene_permiso(22) && !SessionManager.tiene_permiso(21)) metroButton11.Hide();
+            if (!SessionManager.tiene_permiso(22) && !SessionManager.tiene_permiso(21)) metroButton11.Hide(); //metroButton12.Hide();
         }
         public void es_chofer()
         {
-            if (!SessionManager.tiene_permiso(23)) metroButton13.Hide();metroButton15.Hide();
+            if (SessionManager.tiene_permiso(60)) metroButton16.Hide();metroButton17.Hide();metroButton18.Hide();
         }
-        public void es_monitor()
+        public void es_admin()
         {
-            if (!SessionManager.tiene_permiso(24)) metroButton14.Hide();metroButton16.Hide();
+            if (SessionManager.tiene_permiso(5)) metroButton13.Hide(); metroButton15.Hide();metroButton17.Show(); metroButton18.Show();
         }
+
+        /*  public void es_monitor()
+          {
+              if (!SessionManager.tiene_permiso(7)) metroButton14.Hide();metroButton16.Hide();
+          }*/
         BLLUsuario oLog = new BLLUsuario();
         BEUsuario oUsuraio;
         BLL.BLLDv ODV = new BLLDv();
@@ -749,6 +755,12 @@ namespace UI
         private void metroButton17_Click(object sender, EventArgs e)
         {
             ViajesPendientes_Empresa form = new ViajesPendientes_Empresa();
+            AbrirFormulario(form);
+        }
+
+        private void metroButton18_Click(object sender, EventArgs e)
+        {
+            Camiones form = new Camiones();
             AbrirFormulario(form);
         }
     }

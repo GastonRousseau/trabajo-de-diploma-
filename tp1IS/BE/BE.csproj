@@ -43,9 +43,13 @@
   <ItemGroup>
     <Compile Include="BEBitacora.cs" />
     <Compile Include="BEBitacoraFilters.cs" />
+    <Compile Include="BECamion.cs" />
     <Compile Include="BEComposite.cs" />
     <Compile Include="BEEntidad.cs" />
+    <Compile Include="BEMensaje.cs" />
+    <Compile Include="BEProducto.cs" />
     <Compile Include="BEUsuario.cs" />
+    <Compile Include="BEViaje.cs" />
     <Compile Include="DigitoV.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

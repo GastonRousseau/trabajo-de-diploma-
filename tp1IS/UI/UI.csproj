@@ -79,6 +79,12 @@
     <Compile Include="borrarPassword.Designer.cs">
       <DependentUpon>borrarPassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="Camiones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Camiones.Designer.cs">
+      <DependentUpon>Camiones.cs</DependentUpon>
+    </Compile>
     <Compile Include="controlCambios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="borrarPassword.resx">
       <DependentUpon>borrarPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Camiones.resx">
+      <DependentUpon>Camiones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="controlCambios.resx">
       <DependentUpon>controlCambios.cs</DependentUpon>

@@ -42,10 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MPPBitacora.cs" />
+    <Compile Include="MPPCamion.cs" />
     <Compile Include="MPPDv.cs" />
+    <Compile Include="MPPMensaje.cs" />
+    <Compile Include="MPPProducto.cs" />
     <Compile Include="MPPtraductor.cs" />
     <Compile Include="MPPComposite.cs" />
     <Compile Include="MPPUsuario.cs" />
+    <Compile Include="MPPviaje.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

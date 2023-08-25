@@ -136,7 +136,7 @@ namespace UI
                     if (DV.DigitovBaseDeDatos == DV.DigitovActual)
                     {
 
-                        if (SessionManager.tiene_permiso(5))
+                        if (SessionManager.tiene_permiso(5)|| SessionManager.tiene_permiso(60))
                         {
                            
                             AdminHome home = new AdminHome();

@@ -354,6 +354,137 @@ namespace DAL
 
 
         }
+
+        public IList<BEUsuario> TraerConductores(string nombre,int pag)
+        {
+            try
+            {
+                if (oCnn.State == ConnectionState.Closed)
+                {
+                    oCnn.Open();
+                }
+                var sql = "S_Traer_Conductores";
+                Cmd = new SqlCommand(sql, oCnn);
+                Cmd.CommandType = CommandType.StoredProcedure;
+                Cmd.Parameters.AddWithValue("username", nombre == null ? (object)DBNull.Value : nombre);
+                Cmd.Parameters.AddWithValue("PageNumber", pag);
+
+                var reader = Cmd.ExecuteReader();
+                IList<BEUsuario> usuarios = new List<BEUsuario>();
+                while (reader.Read())
+                {
+                    BEUsuario user = new BEUsuario();
+                    user.user = reader["username"].ToString();
+                    user.password = reader["password"].ToString();
+                    user.id = Convert.ToInt32(reader["id"]);
+                    user.birthDate = reader["birthdate"].ToString();
+                    user.active = Convert.ToInt32(reader["active"]);
+                    string Dencrip = reader["Direccion"].ToString();
+                    user.Direccion = Convert.ToString(encriptar.Desencriptar(Dencrip));
+                    usuarios.Add(user);
+                }
+                reader.Close();
+
+                return usuarios;
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (SqlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
+            finally
+            { oCnn.Close(); }
+
+
+        }
+
+        public IList<BECamion> TraerCamiones(string patente, int pag)
+        {
+            
+            try
+            {
+                if (oCnn.State == ConnectionState.Closed)
+                {
+                    oCnn.Open();
+                }
+                var sql = "S_Traer_Camiones";
+                Cmd = new SqlCommand(sql, oCnn);
+                Cmd.CommandType = CommandType.StoredProcedure;
+                Cmd.Parameters.AddWithValue("patente", patente == null ? (object)DBNull.Value : patente);
+                Cmd.Parameters.AddWithValue("PageNumber", pag);
+
+                var reader = Cmd.ExecuteReader();
+                // IList<BEUsuario> usuarios = new List<BEUsuario>();
+                IList<BECamion> camiones = new List<BECamion>();
+                while (reader.Read())
+                {
+                    BECamion camion = new BECamion();
+                    camion.id = Convert.ToInt32(reader["codigo"]);
+                    camion.patente = reader["patente"].ToString();
+                    camion.tipo=reader["tipo"].ToString();
+                    camion.capacidad_Pallets = Convert.ToInt32(reader["capacidad_pallets"]);
+                //    int codigoConductor = Convert.ToInt32(reader["codigo_Conductor"]);
+                    if (reader["codigo_Conductor"]is DBNull)
+                    {
+                        camiones.Add(camion);
+                    }
+                    else
+                    {
+                        BEUsuario usuario = new BEUsuario();
+                        usuario.id= Convert.ToInt32(reader["codigo_Conductor"]);
+                        camion.conductor = usuario;
+                        camiones.Add(camion);
+                    }
+                  
+                 
+                   
+                }
+                reader.Close();
+                
+                foreach(BECamion camion in camiones)
+                {
+                    if (camion.conductor!=null)
+                    {
+                        var sql2 = "S_Traer_Conductor";
+                        SqlCommand Cmd2 = new SqlCommand(sql2, oCnn);
+                        Cmd2.CommandType = CommandType.StoredProcedure;
+                        Cmd2.Parameters.AddWithValue("@codigo", camion.conductor.id);
+                        var reader2 = Cmd2.ExecuteReader();
+                        while (reader2.Read())
+                        {
+                            BEUsuario user = new BEUsuario();
+                            user.id = camion.conductor.id;
+                            user.user = reader2["username"].ToString();
+                            user.password = reader2["password"].ToString();
+                            user.birthDate = reader2["birthdate"].ToString();
+                            user.active = Convert.ToInt32(reader2["active"]);
+                            string Dencrip = reader2["Direccion"].ToString();
+                            user.Direccion = Convert.ToString(encriptar.Desencriptar(Dencrip));
+                            camion.conductor = user;
+
+                        }
+                        reader2.Close();
+                    }
+                }
+                return camiones;
+                
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (SqlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
+            finally
+            { oCnn.Close(); }
+
+
+        }
         public IList<IBitacora> GetAll(IBitacoraFilters filters, int pag)
         {
             try
@@ -400,6 +531,8 @@ namespace DAL
             { oCnn.Close(); }
 
         }
+
+        
         public IList<BEUsuario> GetAllHistorico(string nombre, int pag)
         {
             try
