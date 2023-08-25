@@ -27,6 +27,10 @@ namespace BLL
         {
             return OMPPCamion.TraerCamiones(patente, pag);
         }
+        public List<BECamion> Camiones_Disponibles(DateTime fecha, int pallets)
+        {
+            return OMPPCamion.Camiones_Disponibles(fecha, pallets);
+        }
         public bool Desvincular_ConductoryCamion(int camion)
         {
             return OMPPCamion.Desvincular_ConductoryCamion(camion);

@@ -8,6 +8,7 @@ using DAL;
 using System.Collections;
 using System.Data;
 using System.Collections;
+using servicios;
 namespace MPP
 {
    public class MPPCamion
@@ -90,6 +91,43 @@ namespace MPP
             {
                 throw ex;
             }
+        }
+
+        public List<BECamion> Camiones_Disponibles(DateTime fecha,int pallets)
+        {
+            string consulta = "S_Traer_Camiones_DIsponibles";
+            Hdatos = new Hashtable();
+            Hdatos.Add("@fecha",fecha);
+            Hdatos.Add("@pallets_deseados",pallets);
+            DataTable DT = Odatos.Leer(consulta, Hdatos);
+            List<BECamion> Camiones = new List<BECamion>();
+            foreach(DataRow fila in DT.Rows)
+            {
+                BECamion camion = new BECamion();
+                camion.id = Convert.ToInt32(fila["codigo"]);
+                camion.patente = fila["patente"].ToString();
+                camion.tipo = fila["tipo"].ToString();
+                camion.capacidad_Pallets = Convert.ToInt32(fila["capacidad_pallets"]);
+                string consulta2 = "S_Traer_Conductor";
+                Hdatos = new Hashtable();
+                Hdatos.Add("@codigo", fila["codigo_conductor"]);
+                DataTable dt2 = Odatos.Leer(consulta2, Hdatos);
+
+                foreach(DataRow reader2 in dt2.Rows)
+                {
+                    BEUsuario user = new BEUsuario();
+                    user.id = Convert.ToInt32(reader2["id"]);
+                    user.user = reader2["username"].ToString();
+                    user.password = reader2["password"].ToString();
+                    user.birthDate = reader2["birthdate"].ToString();
+                    user.active = Convert.ToInt32(reader2["active"]);
+                    string Dencrip = reader2["Direccion"].ToString();
+                    user.Direccion = Convert.ToString(encriptar.Desencriptar(Dencrip));
+                    camion.conductor = user;
+                }
+                Camiones.Add(camion);
+            }
+            return Camiones;
         }
         public bool BorrarCamion(int ID)
         {

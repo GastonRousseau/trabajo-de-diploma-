@@ -87,6 +87,7 @@ namespace UI
             this.metroButton1.TabIndex = 10;
             this.metroButton1.Text = "Request trip";
             this.metroButton1.UseSelectable = true;
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
             // metroButton2
             // 
@@ -191,6 +192,7 @@ namespace UI
             this.metroButton3.TabIndex = 24;
             this.metroButton3.Text = "search trucks";
             this.metroButton3.UseSelectable = true;
+            this.metroButton3.Click += new System.EventHandler(this.metroButton3_Click);
             // 
             // Crear_viaje
             // 
