@@ -53,7 +53,9 @@ namespace UI
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
-            int error=0;
+            int error = 0;
+            BEProducto productoSelect=(BEProducto)dataGridView1.CurrentRow.DataBoundItem;
+
             if (textBox1.Text == string.Empty)
             {
                 error++;
@@ -74,7 +76,7 @@ namespace UI
             {
                 error++;
             }
-            if ((BEProducto)dataGridView1.CurrentRow.DataBoundItem == null)
+            if ((BEProducto)dataGridView1.CurrentRow.DataBoundItem == null || productoSelect.CantPallets<=0 ||productoSelect.CantPallets-Convert.ToInt32(textBox4.Text)<=0)
             {
                 error++;
             }
@@ -88,7 +90,16 @@ namespace UI
                 viaje.camion = (BECamion)dataGridView2.CurrentRow.DataBoundItem;
                 viaje.producto = (BEProducto)dataGridView1.CurrentRow.DataBoundItem;
                 viaje.cantidad_Pallets = Convert.ToInt32(textBox4.Text);
+                viaje.estado = "pendiente";
                 oBLLviaje.guardarViaje(viaje);
+                MessageBox.Show("Se creo el viaje");
+                oBLLproducto.actualizar_Cantidad_Pallets(viaje.cantidad_Pallets, viaje.producto.id);
+                Listar();
+                //actualizar cantidad de pallets;
+            }
+            else
+            {
+                MessageBox.Show("Hubo un error La puta madre");
             }
           
         }

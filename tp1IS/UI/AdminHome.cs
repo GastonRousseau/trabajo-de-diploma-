@@ -40,11 +40,11 @@ namespace UI
         }
         public void es_chofer()
         {
-            if (SessionManager.tiene_permiso(60)) metroButton16.Hide();metroButton17.Hide();metroButton18.Hide();
+            if (SessionManager.tiene_permiso(60)) metroButton16.Hide();metroButton17.Hide();metroButton18.Hide();metroButton15.Show();
         }
         public void es_admin()
         {
-            if (SessionManager.tiene_permiso(5)) metroButton13.Hide(); metroButton15.Hide();metroButton17.Show(); metroButton18.Show();
+            if (SessionManager.tiene_permiso(5)) metroButton13.Hide();/* metroButton15.Hide();*/metroButton17.Show(); metroButton18.Show();
         }
 
         /*  public void es_monitor()
@@ -737,13 +737,15 @@ namespace UI
 
         private void metroButton15_Click(object sender, EventArgs e)
         {
-            Mensajes_Chof form = new Mensajes_Chof();
+            //  Mensajes_Chof form = new Mensajes_Chof();
+            InterfazMensajes form = new InterfazMensajes();
             AbrirFormulario(form);
         }
 
         private void metroButton13_Click(object sender, EventArgs e)
         {
-            
+            Viajes_chofer form = new Viajes_chofer();
+            AbrirFormulario(form);
         }
 
         private void metroButton16_Click(object sender, EventArgs e)

@@ -73,6 +73,20 @@ namespace MPP
             return ListaProducto;
 
         }
+
+        public bool actualizar_Cantidad_Pallets(int numero,int codProducto)
+        {
+
+            string ocnsulta = "S_Actualizar_Pallets";
+            Hdatos = new Hashtable();
+            Hdatos.Add("@codigoProducto",codProducto);
+            Hdatos.Add("@RestaPallets",numero);
+            return oDatos.Escribir(ocnsulta, Hdatos);
+
+        }
+        
+
+        
     }
 
 }

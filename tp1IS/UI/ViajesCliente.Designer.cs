@@ -35,6 +35,9 @@ namespace UI
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.metroButton3 = new MetroFramework.Controls.MetroButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.barrarProgreso1 = new UI.controles.BarrarProgreso();
+            this.userControl11 = new UI.controles.UserControl1();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,6 +48,8 @@ namespace UI
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(502, 194);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.formating);
             // 
             // metroLabel1
             // 
@@ -81,19 +86,57 @@ namespace UI
             this.metroButton3.TabIndex = 5;
             this.metroButton3.Text = "Write a message";
             this.metroButton3.UseSelectable = true;
+            this.metroButton3.Click += new System.EventHandler(this.metroButton3_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(223, 368);
+            this.textBox1.Location = new System.Drawing.Point(479, 373);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(200, 20);
             this.textBox1.TabIndex = 6;
+            // 
+            // barrarProgreso1
+            // 
+            this.barrarProgreso1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.barrarProgreso1.Location = new System.Drawing.Point(660, 132);
+            this.barrarProgreso1.Name = "barrarProgreso1";
+            this.barrarProgreso1.ProgressValue = 0;
+            this.barrarProgreso1.Size = new System.Drawing.Size(243, 32);
+            this.barrarProgreso1.TabIndex = 8;
+            // 
+            // userControl11
+            // 
+            this.userControl11.BackColor = System.Drawing.Color.LightCoral;
+            this.userControl11.BorderColor = System.Drawing.Color.DarkRed;
+            this.userControl11.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.userControl11.BorderSize = 2;
+            this.userControl11.Location = new System.Drawing.Point(223, 365);
+            this.userControl11.Multiline = false;
+            this.userControl11.Name = "userControl11";
+            this.userControl11.Padding = new System.Windows.Forms.Padding(7);
+            this.userControl11.PasswordChar = false;
+            this.userControl11.Size = new System.Drawing.Size(250, 28);
+            this.userControl11.TabIndex = 7;
+            this.userControl11.Texts = "";
+            this.userControl11.UnderlinedStyle = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(657, 116);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(85, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Estado del viaje:";
             // 
             // ViajesCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(942, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.barrarProgreso1);
+            this.Controls.Add(this.userControl11);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.metroButton3);
             this.Controls.Add(this.metroButton2);
@@ -117,5 +160,8 @@ namespace UI
         private MetroFramework.Controls.MetroButton metroButton2;
         private MetroFramework.Controls.MetroButton metroButton3;
         private System.Windows.Forms.TextBox textBox1;
+        private controles.UserControl1 userControl11;
+        private controles.BarrarProgreso barrarProgreso1;
+        private System.Windows.Forms.Label label1;
     }
 }

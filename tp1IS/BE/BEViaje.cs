@@ -17,5 +17,7 @@ namespace BE
         public DateTime fecha { get; set; }
         public string estado { get; set; }
         public int cantidad_Pallets { get; set; }
+
+       public List<BEMensaje> mensajes { get; set; }
     }
 }

@@ -85,11 +85,29 @@
     <Compile Include="Camiones.Designer.cs">
       <DependentUpon>Camiones.cs</DependentUpon>
     </Compile>
+    <Compile Include="Chat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chat.Designer.cs">
+      <DependentUpon>Chat.cs</DependentUpon>
+    </Compile>
     <Compile Include="controlCambios.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="controlCambios.Designer.cs">
       <DependentUpon>controlCambios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controles\BarrarProgreso.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controles\BarrarProgreso.Designer.cs">
+      <DependentUpon>BarrarProgreso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controles\UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="controles\UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
     </Compile>
     <Compile Include="Crear-viaje.cs">
       <SubType>Form</SubType>
@@ -157,6 +175,12 @@
     <Compile Include="Historial_Viajes_Empresa.Designer.cs">
       <DependentUpon>Historial_Viajes_Empresa.cs</DependentUpon>
     </Compile>
+    <Compile Include="InterfazMensajes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InterfazMensajes.Designer.cs">
+      <DependentUpon>InterfazMensajes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mensajes_Chof.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -218,8 +242,17 @@
     <EmbeddedResource Include="Camiones.resx">
       <DependentUpon>Camiones.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Chat.resx">
+      <DependentUpon>Chat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="controlCambios.resx">
       <DependentUpon>controlCambios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controles\BarrarProgreso.resx">
+      <DependentUpon>BarrarProgreso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="controles\UserControl1.resx">
+      <DependentUpon>UserControl1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Crear-viaje.resx">
       <DependentUpon>Crear-viaje.cs</DependentUpon>
@@ -253,6 +286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Historial_Viajes_Empresa.resx">
       <DependentUpon>Historial_Viajes_Empresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfazMensajes.resx">
+      <DependentUpon>InterfazMensajes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mensajes_Chof.resx">
       <DependentUpon>Mensajes_Chof.cs</DependentUpon>

@@ -14,5 +14,9 @@ namespace BE
         public BEUsuario destinatario { get; set; }
         public string mensaje { get; set; }
         public string respuesta { get; set; }
+
+        public DateTime fecha  { get; set;  }
+
+     //   public BEViaje viaje { get; set; }
     }
 }

@@ -280,6 +280,7 @@
             this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 16);
             this.Tag = "welcome";
             this.Text = "Welcome!";
+            this.TransparencyKey = System.Drawing.Color.SkyBlue;
             this.Load += new System.EventHandler(this.SignIn_Load);
             this.SizeChanged += new System.EventHandler(this.sing_SizeChanged);
             this.groupBox1.ResumeLayout(false);

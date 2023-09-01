@@ -28,6 +28,10 @@ namespace BLL
         {
             return OMPPproducto.ListarProducto(ID);
         }
+        public bool actualizar_Cantidad_Pallets(int numero, int codProducto)
+        {
+            return OMPPproducto.actualizar_Cantidad_Pallets(numero, codProducto);
+        }
     }
 }
 

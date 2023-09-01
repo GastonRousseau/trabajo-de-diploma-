@@ -46,6 +46,7 @@ namespace UI
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(446, 163);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // metroTextBox1
             // 
@@ -146,6 +147,7 @@ namespace UI
             this.metroButton2.TabIndex = 6;
             this.metroButton2.Text = "send reply";
             this.metroButton2.UseSelectable = true;
+            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
             // 
             // Mensajes_Chof
             // 

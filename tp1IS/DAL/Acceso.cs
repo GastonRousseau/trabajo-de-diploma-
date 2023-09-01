@@ -531,8 +531,77 @@ namespace DAL
             { oCnn.Close(); }
 
         }
+        public IList<BEViaje> GetAll_Viajes_Conuctores(int id, int pag,string usernameCliente)
+        {
+            try
+            {
+                if (oCnn.State == ConnectionState.Closed)
+                {
+                    oCnn.Open();
+                }
+                var sql = "S_Listar_Viajes_Chofer";
+                Cmd = new SqlCommand(sql, oCnn);
+                Cmd.CommandType = CommandType.StoredProcedure;
+                Cmd.Parameters.AddWithValue("usernameCliente", usernameCliente == null ? (object)DBNull.Value : usernameCliente);
+                Cmd.Parameters.AddWithValue("PageNumber", pag);
+                Cmd.Parameters.AddWithValue("codigoChofer", id);
 
-        
+                var fila = Cmd.ExecuteReader();
+                IList<BEViaje> viajes = new List<BEViaje>();
+               // IList<IBitacora> listBitacora = new List<IBitacora>();
+                while (fila.Read())
+                {
+                    BEViaje viaje = new BEViaje();///////////////////////////////////////
+                    viaje.id = Convert.ToInt32(fila["codigo_viaje"]);
+                    viaje.cantidad_Pallets = Convert.ToInt32(fila["viajes_palets"]);
+                    viaje.cantidad_KM = Convert.ToInt32(fila["distancia"]);
+                    viaje.fecha = Convert.ToDateTime(fila["fecha"]);
+                    viaje.estado = fila["estado"].ToString();
+                    BECamion camion = new BECamion();////////////////////////////////////
+                    camion.id = Convert.ToInt32(fila["codigo_camion"]);
+                    camion.capacidad_Pallets = Convert.ToInt32(fila["capacidad_pallets"]);
+                    camion.patente = fila["patente"].ToString();
+                    camion.tipo = fila["tipo"].ToString();
+                    BEUsuario conuctor = new BEUsuario();////////////////////////////////
+                    conuctor.id = Convert.ToInt32(fila["codigo_conductor"]);
+                    conuctor.user = fila["username"].ToString();
+                    // conuctor.password = fila[""].ToString();
+                    BEUsuario cliente = new BEUsuario();/////////////////////////////////
+                    cliente.id = Convert.ToInt32(fila["codigo_usuario"]);
+                    cliente.user = fila["username"].ToString();
+                    cliente.password = fila["password"].ToString();
+                    BEProducto producto = new BEProducto();//////////////////////////////
+                    producto.id = Convert.ToInt32(fila["codigo_producto"]);
+                    producto.nombre = fila["nombre"].ToString();
+                    producto.CantPallets = Convert.ToInt32(fila["cantidad_pallets"]);
+
+                    /////////////////////////////////////////////////////////////////////
+                    camion.conductor = conuctor;
+                    viaje.camion = camion;
+                    producto.cliente = cliente;
+                    viaje.producto = producto;
+                    viajes.Add(viaje);
+
+                }
+                fila.Close();
+
+                return viajes;
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (SqlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
+            finally
+            { oCnn.Close(); }
+
+        }
+
+
+
         public IList<BEUsuario> GetAllHistorico(string nombre, int pag)
         {
             try

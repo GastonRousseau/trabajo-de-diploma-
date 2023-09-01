@@ -321,5 +321,17 @@ namespace UI
             Crear_viaje form = new Crear_viaje();
             AbrirFormulario(form);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ViajesCliente form = new ViajesCliente();
+            AbrirFormulario(form);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            InterfazMensajes form = new InterfazMensajes();
+            AbrirFormulario(form);
+        }
     }
 }

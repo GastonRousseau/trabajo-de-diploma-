@@ -15,13 +15,21 @@ namespace BLL
         }
         MPPMensaje oMPPmensaje;
 
-        public bool GuardarMensaje(int IDr,int IDd,string mensaje,int IDviaje)
+        public bool GuardarMensaje(BEMensaje mensaje)
         {
-            return oMPPmensaje.Guardar_Mensaje(IDr,IDd,mensaje,IDviaje);
+            return oMPPmensaje.Guardar_Mensaje(mensaje);
         }
-        public bool EliminarMnesaje(int IDmensaje,string respuesta)
+        public bool escribir_Respuesta(int IDmensaje,string respuesta)
         {
             return oMPPmensaje.Escribir_Respesta(IDmensaje, respuesta);
+        }
+        public List<BEMensaje> ObtenerMensajes(int codigoUsuario, BEUsuario codigoChat)
+        {
+            return oMPPmensaje.ObtenerMensajes(codigoUsuario, codigoChat);
+        }
+        public List<BEUsuario> obtenerchats(int codigo)
+        {
+            return oMPPmensaje.obtenerchats(codigo);
         }
     }
 }
