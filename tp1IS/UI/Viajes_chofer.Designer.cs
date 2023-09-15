@@ -35,6 +35,8 @@ namespace UI
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.metroButton3 = new MetroFramework.Controls.MetroButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.metroButton4 = new MetroFramework.Controls.MetroButton();
+            this.metroButton5 = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,6 +57,7 @@ namespace UI
             this.dataGridView1.Size = new System.Drawing.Size(480, 150);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.formato);
+            this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagrid1_changued);
             // 
             // metroButton1
             // 
@@ -93,11 +96,33 @@ namespace UI
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 6;
             // 
+            // metroButton4
+            // 
+            this.metroButton4.Location = new System.Drawing.Point(612, 199);
+            this.metroButton4.Name = "metroButton4";
+            this.metroButton4.Size = new System.Drawing.Size(182, 23);
+            this.metroButton4.TabIndex = 7;
+            this.metroButton4.Text = "Cambiar estado a \"En proceso\"";
+            this.metroButton4.UseSelectable = true;
+            this.metroButton4.Click += new System.EventHandler(this.metroButton4_Click);
+            // 
+            // metroButton5
+            // 
+            this.metroButton5.Location = new System.Drawing.Point(612, 228);
+            this.metroButton5.Name = "metroButton5";
+            this.metroButton5.Size = new System.Drawing.Size(182, 23);
+            this.metroButton5.TabIndex = 8;
+            this.metroButton5.Text = "Cambiar estado a \"Finalizado\"";
+            this.metroButton5.UseSelectable = true;
+            this.metroButton5.Click += new System.EventHandler(this.metroButton5_Click);
+            // 
             // Viajes_chofer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.metroButton5);
+            this.Controls.Add(this.metroButton4);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.metroButton3);
             this.Controls.Add(this.metroButton2);
@@ -121,5 +146,7 @@ namespace UI
         private MetroFramework.Controls.MetroButton metroButton2;
         private MetroFramework.Controls.MetroButton metroButton3;
         private System.Windows.Forms.TextBox textBox1;
+        private MetroFramework.Controls.MetroButton metroButton4;
+        private MetroFramework.Controls.MetroButton metroButton5;
     }
 }

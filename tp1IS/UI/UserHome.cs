@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using servicios.ClasesMultiLenguaje;
+using BLL;
 namespace UI
 {
     public partial class UserHome : MetroFramework.Forms.MetroForm,IdiomaObserver
@@ -20,6 +21,8 @@ namespace UI
         }
         BLL.BLLTraductor Otraductor = new BLL.BLLTraductor();
         BLL.BLLDv ODV = new BLL.BLLDv();
+        BLLMensaje oBLLmensaje = new BLLMensaje();
+        
         private void UserHome_Load(object sender, EventArgs e)
         {
             try
@@ -332,6 +335,67 @@ namespace UI
         {
             InterfazMensajes form = new InterfazMensajes();
             AbrirFormulario(form);
+        }
+
+        FlowLayoutPanel panelMensajes = new FlowLayoutPanel();
+        void mensajes_nuevos()
+        {
+            Dictionary<string, int> datos = new Dictionary<string, int>();
+            datos = oBLLmensaje.Mensajes_Nuevos(SessionManager.GetInstance.Usuario.id);
+            if (datos.Count > 0)
+            {
+
+                // panelMensajes.FlowDirection = FlowDirection.TopDown;
+                // panelMensajes.Dock = DockStyle.Right;
+                //  panelMensajes.AutoScroll = true;
+                panelMensajes.Location = new Point(1222, 375);
+                panelMensajes.Size = new Size(199, 147);
+                panelMensajes.BackColor = Color.NavajoWhite;
+                int contador = 0;
+                foreach (var kvp in datos)
+                {
+                    if (contador < 5)
+                    {
+                        Label label = new Label();
+                        label.BackColor = Color.White;
+                        label.ForeColor = Color.Black;
+                        label.Text = $"{kvp.Key}: {kvp.Value} mensajes nuevos";
+                        panelMensajes.Controls.Add(label);
+                    }
+                    else
+                    {
+                        Label label = new Label();
+                        label.BackColor = Color.Black;
+                        label.Text = "Y muchos mensajes más...";
+                        panelMensajes.Controls.Add(label);
+                        break;  // Salir del bucle si hemos mostrado 5 etiquetas
+                    }
+                    contador++;
+
+                }
+                //    RadioButton boton_Borrar = new System.Windows.Forms.RadioButton();
+                Label boton_Borrar = new Label();
+                boton_Borrar.Text = "X";
+                boton_Borrar.Size = new Size(16, 16);
+                boton_Borrar.Location = new Point(1, 1);
+                boton_Borrar.BackColor = Color.Black;
+                boton_Borrar.ForeColor = Color.White;
+                panelMensajes.Controls.Add(boton_Borrar);
+                boton_Borrar.Click += btnBorrarChat_click;
+                this.Controls.Add(panelMensajes);
+                panelMensajes.Visible = true;
+            }
+            else
+            {
+                panelMensajes.Visible = false;
+            }
+
+        }
+
+        private void btnBorrarChat_click(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+            panelMensajes.Visible = false;
         }
     }
 }

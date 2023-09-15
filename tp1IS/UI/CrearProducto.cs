@@ -54,25 +54,25 @@ namespace UI
         {
             var error = 0;
             errorProvider1.Clear();
-            errorProvider1.SetError(textBox1, "");
-            errorProvider1.SetError(textBox2, "");
+            errorProvider1.SetError(userControl11, "");
+            errorProvider1.SetError(userControl12, "");
             
-            if (textBox1.Text == string.Empty || !validar.usuario(textBox1.Text))
+            if (userControl11.Text == string.Empty || !validar.usuario(userControl11.Text))
             {
-                errorProvider1.SetError(textBox1, "You should enter a name without special characters");
+                errorProvider1.SetError(userControl11, "You should enter a name without special characters");
                 error++;
 
             }
-            if (textBox2.Text == string.Empty || !validar.id(textBox2.Text))
+            if (userControl12.Text == string.Empty || !validar.id(userControl12.Text))
             {
-                errorProvider1.SetError(textBox2, "You should enter a number without special characters");
+                errorProvider1.SetError(userControl12, "You should enter a number without special characters");
                 error++;
             }
             if (error == 0)
             {
                 BEProducto producto = new BEProducto();
-                producto.nombre = textBox1.Text;
-                producto.CantPallets = Convert.ToInt32(textBox2.Text);
+                producto.nombre = userControl11.Text;
+                producto.CantPallets = Convert.ToInt32(userControl12.Text);
                 producto.cliente = SessionManager.GetInstance.Usuario;
                 oBLLproducto.CrearProdcto(producto);
                 Listar();
@@ -161,6 +161,16 @@ namespace UI
         private void metroLabel3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

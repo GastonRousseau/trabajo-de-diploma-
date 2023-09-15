@@ -17,6 +17,8 @@ using servicios;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using BLL;
 using abstraccion;
+using MetroFramework.Forms;
+using MetroFramework.Components;
 
 namespace UI
 {
@@ -24,6 +26,7 @@ namespace UI
     {
         public AdminHome()
         {
+         //   panel2.Visible = false;
             InitializeComponent();
             groupBox1.Hide();
             es_traductor();
@@ -31,16 +34,19 @@ namespace UI
             es_chofer();
             //  es_monitor();
             es_admin();
-            this.MinimumSize = new System.Drawing.Size(1373,540);
+            mensajes_nuevos();
+            this.MinimumSize = new System.Drawing.Size(1373, 540);
+           
         }
         SessionManager session = SessionManager.GetInstance;
+        BLLMensaje oBLLmensaje = new BLLMensaje();
         public void es_traductor()
         {
             if (!SessionManager.tiene_permiso(22) && !SessionManager.tiene_permiso(21)) metroButton11.Hide(); //metroButton12.Hide();
         }
         public void es_chofer()
         {
-            if (SessionManager.tiene_permiso(60)) metroButton16.Hide();metroButton17.Hide();metroButton18.Hide();metroButton15.Show();
+            if (SessionManager.tiene_permiso(60)) metroButton16.Hide(); metroButton17.Hide(); metroButton18.Hide(); metroButton15.Show();
         }
         public void es_admin()
         {
@@ -62,7 +68,7 @@ namespace UI
             {
                 if (formularioAbierto != null)
                 {
-                  
+
                     formularioAbierto.Close();
                 }
 
@@ -87,7 +93,7 @@ namespace UI
         {
             try
             {
-                
+
                 metroButton1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;//////////////////////////////////////////////////////////////////////////////////////////
                 metroButton2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
                 metroButton3.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
@@ -104,7 +110,7 @@ namespace UI
                 textBox1.Dock = DockStyle.Top;//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 metroLabel1.Dock = DockStyle.Top;
                 metroLabel2.Dock = DockStyle.Top;
-               
+
                 ListarIdiomas();
 
                 servicios.Observer.agregarObservador(this);
@@ -124,8 +130,8 @@ namespace UI
                 oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
-           
-            
+
+
         }
         protected override void OnFormClosed(FormClosedEventArgs e)
         {
@@ -193,7 +199,7 @@ namespace UI
         {
             groupBox1.Show();
         }
-   
+
         private void metroButton3_Click(object sender, EventArgs e)
         {
             try
@@ -246,16 +252,16 @@ namespace UI
         {
             try
             {
-             
-       
+
+
                 oBit.guardar_logOut();
                 SessionManager.Logout();
                 this.Close();
-               
+
                 servicios.Observer.eliminarObservador(this);
-               
+
                 var formularios = Application.OpenForms;
-            
+
                 var copiaFormularios = new List<Form>(formularios.OfType<Form>());
 
                 foreach (Form formulario in copiaFormularios)
@@ -330,7 +336,7 @@ namespace UI
                 MessageBox.Show(ex.Message);
 
             }
-          
+
         }
 
         private void metroButton7_Click(object sender, EventArgs e)
@@ -368,7 +374,7 @@ namespace UI
                             comboBox1.Items.Add(idioma.Nombre);
                         }
                     }
-                   
+
 
                 }
             }
@@ -385,7 +391,7 @@ namespace UI
                 MessageBox.Show(ex.Message);
 
             }
-           
+
 
         }
 
@@ -411,7 +417,7 @@ namespace UI
                 MessageBox.Show(ex.Message);
 
             }
-           
+
         }
 
         private void traducir()
@@ -627,7 +633,7 @@ namespace UI
                 oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
-            
+
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -674,8 +680,8 @@ namespace UI
         {
             Changes cambios = new Changes();
             AbrirFormulario(cambios);
-            
-           
+
+
         }
 
         private void metroButton11_Click(object sender, EventArgs e)
@@ -715,7 +721,7 @@ namespace UI
 
         private void metroButton12_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void metroButton12_Click_1(object sender, EventArgs e)
@@ -726,13 +732,13 @@ namespace UI
 
         void ajustarControles()
         {
-           /* TableLayoutPanel tableLayoutPanel = new TableLayoutPanel();
-            tableLayoutPanel.Dock = DockStyle.Fill;
-            tableLayoutPanel.ColumnCount = 2;
-            tableLayoutPanel.Controls.Add(metroButton1, 0, 0);
-            this.Controls.Add(tableLayoutPanel);*/
+            /* TableLayoutPanel tableLayoutPanel = new TableLayoutPanel();
+             tableLayoutPanel.Dock = DockStyle.Fill;
+             tableLayoutPanel.ColumnCount = 2;
+             tableLayoutPanel.Controls.Add(metroButton1, 0, 0);
+             this.Controls.Add(tableLayoutPanel);*/
             metroButton1.Anchor = AnchorStyles.Right;
-           // metroButton1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            // metroButton1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
         }
 
         private void metroButton15_Click(object sender, EventArgs e)
@@ -765,5 +771,113 @@ namespace UI
             Camiones form = new Camiones();
             AbrirFormulario(form);
         }
+        FlowLayoutPanel panelMensajes = new FlowLayoutPanel();
+        void mensajes_nuevos()
+        {
+            Dictionary<string, int> datos = new Dictionary<string, int>();
+            datos = oBLLmensaje.Mensajes_Nuevos(SessionManager.GetInstance.Usuario.id);
+            if (datos != null)
+            {
+
+                // panelMensajes.FlowDirection = FlowDirection.TopDown;
+                // panelMensajes.Dock = DockStyle.Right;
+                //  panelMensajes.AutoScroll = true;
+                panelMensajes.Location = new Point(1222, 375);
+                panelMensajes.Size = new Size(199, 147);
+                panelMensajes.BackColor = Color.NavajoWhite;
+                int contador = 0;
+                foreach (var kvp in datos)
+                {
+                    if (contador < 5)
+                    {
+                        Label label = new Label();
+                        label.BackColor = Color.White;
+                        label.ForeColor = Color.Black;
+                        label.Text = $"{kvp.Key}: {kvp.Value} mensajes nuevos";
+                       // panelMensajes.Controls.Add(label);
+                        panel2.Controls.Add(label);
+                    }
+                    else
+                    {
+                        Label label = new Label();
+                        label.BackColor = Color.Black;
+                        label.Text = "Y muchos mensajes más...";
+                        //panelMensajes.Controls.Add(label);
+                        panel2.Controls.Add(label);
+                        break;  // Salir del bucle si hemos mostrado 5 etiquetas
+                    }
+                    contador++;
+
+                }
+                //    RadioButton boton_Borrar = new System.Windows.Forms.RadioButton();
+                Label boton_Borrar = new Label();
+                boton_Borrar.Text = "X";
+                boton_Borrar.Size = new Size(16, 16);
+                boton_Borrar.Location = new Point(1, 1);
+                boton_Borrar.BackColor = Color.Black;
+                boton_Borrar.ForeColor = Color.White;
+                //panelMensajes.Controls.Add(boton_Borrar);
+                panel2.Controls.Add(boton_Borrar);
+                boton_Borrar.Click += btnBorrarChat_click;
+                //  this.Controls.Add(panelMensajes);
+                // panelMensajes.Visible = true;
+                panel2.Visible = true;
+            }
+            else
+            {
+                panelMensajes.Visible = false;
+                panel2.Visible = false;
+            }
+
+        }
+
+        private void btnBorrarChat_click(object sender, EventArgs e)
+        {
+            // throw new NotImplementedException();
+            panelMensajes.Visible = false;
+
+        }
+
+     /*   private void metroToggle1_CheckedChanged(object sender, EventArgs e)
+        {
+            bool isOn;
+            isOn = metroToggle1.Checked;
+
+            if (metroToggle1.Checked == true)
+            {
+                MetroStyleManager styleManager = new MetroStyleManager();
+
+                // Establecer el tema y el estilo
+                styleManager.Theme = MetroFramework.MetroThemeStyle.Dark; // O MetroThemeStyle.Light
+                styleManager.Style = MetroFramework.MetroColorStyle.Blue; // O cualquier otro estilo disponible
+
+                // Asignar el administrador de estilo al formulario
+                styleManager.Owner = this;
+            }
+            if (metroToggle1.Checked == false)
+            {
+                MetroStyleManager styleManager = new MetroStyleManager();
+
+                // Establecer el tema y el estilo
+                styleManager.Theme = MetroFramework.MetroThemeStyle.Light; // O MetroThemeStyle.Light
+                styleManager.Style = MetroFramework.MetroColorStyle.Blue; // O cualquier otro estilo disponible
+
+                // Asignar el administrador de estilo al formulario
+                styleManager.Owner = this;
+            }
+        }*/
+
+        private void metroButton19_Click(object sender, EventArgs e)
+        {
+           
+            string nombre = oBLLmensaje.Buscar_ServicioTecnico();
+            BEUsuario ServicioTecnico = oLog.buscar_usuario(nombre);
+            Chat.usuarioAconectar = ServicioTecnico;
+            Chat form = new Chat();
+            form.label1.Text = ServicioTecnico.user;
+            form.userControl11.Texts = "Tengo el siguiente problema:";
+            form.Show();
+        }
     }
-}
+    }
+

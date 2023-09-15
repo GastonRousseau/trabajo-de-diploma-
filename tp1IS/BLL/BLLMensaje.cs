@@ -31,5 +31,21 @@ namespace BLL
         {
             return oMPPmensaje.obtenerchats(codigo);
         }
+        public bool Eliminar_Chat(int codigoU, int codigoE)
+        {
+            return oMPPmensaje.Eliminar_Chat(codigoU, codigoE);
+        }
+        public Dictionary<string, int> Mensajes_Nuevos(int ID)
+        {
+            return oMPPmensaje.Mensajes_Nuevos(ID);
+        }
+        public List<string> Usuarios_con_quien_conectar(int ID)
+        {
+            return oMPPmensaje.Usuarios_con_quien_conectar(ID);
+        }
+        public string Buscar_ServicioTecnico()
+        {
+            return oMPPmensaje.Buscar_ServicioTecnico();
+        }
     }
 }

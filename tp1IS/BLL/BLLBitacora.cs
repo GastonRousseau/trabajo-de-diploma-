@@ -38,6 +38,29 @@ namespace Negocio
                 throw ex;
             }
         }
+
+        public void guardar_cierre_mensajes()
+        {
+            try
+            {
+                SessionManager u = SessionManager.GetInstance;
+                if (u.Usuario != null)
+                {
+
+                    BEUsuario user = u.Usuario;
+                    DateTime fecha = u.FechaInicio;
+                    int id_tipo = 2;
+                    string accion = "cierre mensajes";
+                    oBit.cargar_bitacora(user, fecha, accion, id_tipo);
+                }
+
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex) { throw ex; }
+        }
         public void guardar_logIn()
         {
            try

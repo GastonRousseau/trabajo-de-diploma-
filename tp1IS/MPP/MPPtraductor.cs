@@ -400,7 +400,7 @@ return false;
            
         }
 
-
+        
         public bool ActualizarTraduccion(int IDidioma, int IDpalabra, string Otraduccion)
         {
             try

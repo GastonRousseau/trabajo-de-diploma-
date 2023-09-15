@@ -32,6 +32,10 @@ namespace BLL
         {
             return OMPPproducto.actualizar_Cantidad_Pallets(numero, codProducto);
         }
+        public List<string> Producto_asignado_viaje(int usuario)
+        {
+            return OMPPproducto.Producto_asignado_viaje(usuario);
+        }
     }
 }
 

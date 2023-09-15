@@ -117,30 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="errorProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="metroButton19.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACIAAAAfCAYAAACCox+xAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAA7xJREFUWEe9l8srdVEYxrdryv0SEgMSM7eUoiQyUwyEEX+AMlCKgUwkE1KKkJRc
-        RjJwKzOXZEKKlFsu5VLuzh/wfj3ra63etffae5/Op2/wq9N5n/U87z7rstexAoEA2fn5+XEgv9/f36e+
-        vj6qra2lnJwcio2NpYSEBMrLy6O6ujrq6emhvb09NcbPUxJ0I4uLi1RcXEyWZQVFUVERLSwsiLFunjzT
-        t5GzszOqrq42hoWHh1NycrIAn02ayspK4cE9JTzTs5HNzU0Rwo1zc3NpYGCAdnd36fX1VWnxeWdnR9Ty
-        8/O1MUlJSbS1taW0Ep7p2sj6+jrFxMQos5SUFJqcnKSvry9NZwffQzM1NSXGyPHw2tjYcGglFi9Ijo+P
-        xQKUJqWlpXR5eenQcSMJr19cXFB5ebnygSe8TVpHI5+fn1RWVqYGw+jp6UnTSHgDJnPw/PxMFRUVyq+k
-        pERk2LWORsbGxtSgzMxMur6+NgYA3oDEpLu5uRFe0nd0dNSh1Rp5f3+nrKwsNWBpackzQNY4bjpsZemL
-        jI+PD02jLdbl5WUlxvRwIddJeN1LB1DjU45zide1RlpbW5VwYmLCN4DXvXQANew66d/S0qLVtUZwZEMU
-        FhYm5tUvgNe9dAC1u7s74Y2M7Oxsra4aweqW3eLQCibArnHTAVmHt3zYx8dHVVeNbG9vq0ZAY2OjbwCv
-        e+kAas3NzVoGTltZF7sGR3l8fLwmAi8vL5qRHVnjuOnw9Hb/uLg4WltbExoL54T9fSJ5eHjwDbDjpsP6
-        MGXgPXR1dUVWV1eXUQAw2C/Ajpvu9vbWmAE6OzvJsr8pORjsF2DHTef2iwCxgCMiIoxFwLewPRDwMC8d
-        8PpFIiMjycIcmYrgfzUiemhoaDAWwW824jU19fX1ZGEvy9POzm82cn9/b8wAKysrfw803LxNAgz2CuAN
-        eOkAP7k5HR0doq6uASMjI5SYmKgE+CwvMICHSWSN46b7/v7Wzqvo6Gjq7e0V10potPsIbmJ4PQ8NDdHB
-        wUFQAXa8dN3d3aKJ4eFhx9XTcUMD3Fjyr7rDw0PxZ6ympsaoDbmR8/Nzmpubo5mZGZqenqbZ2VlxWbbr
-        wOrqKqWmplJaWpr4j2Py1O4jJoGE14+OjsTTyfmWYF2dnJyI9YBANFlVVSVqhYWFYpybZ0iN9Pf3O5qQ
-        REVFET+tCwoKxEZ4e3vz9AypkfHxcS2c09TURIODgzQ/P0+np6dBe4bUCJ6ura2NMjIyxLxj/tPT06m9
-        vV3b8hxvzwD9AUeSqzRumQnvAAAAAElFTkSuQmCC
-</value>
-  </data>
 </root>

@@ -28,6 +28,7 @@ namespace UI
         {
             label1.Visible =false;
             barrarProgreso1.Visible = false;
+            metroLabel2.Visible = false;
             Listar();
         }
         void Listar()
@@ -63,7 +64,7 @@ namespace UI
 
         private void metroButton3_Click(object sender, EventArgs e)
         {
-            int error = 0;
+          /*  int error = 0;
             BEViaje viajeSelect = (BEViaje)dataGridView1.CurrentRow.DataBoundItem;
             if (viajeSelect == null)
             {
@@ -72,7 +73,7 @@ namespace UI
             if (error == 0)
             {
                 BEMensaje mensaje = new BEMensaje();
-                mensaje.mensaje = userControl11.Texts;//textBox1.Text;
+             //   mensaje.mensaje = userControl11.Texts;//textBox1.Text;
                 mensaje.destinatario = SessionManager.GetInstance.Usuario;
                 mensaje.remitente = viajeSelect.camion.conductor;
             //    oBLLmensaje.GuardarMensaje(mensaje,viajeSelect.id);
@@ -82,7 +83,7 @@ namespace UI
             else
             {
                 MessageBox.Show("hubo un error");
-            }
+            }*/
         
         }
 
@@ -90,22 +91,19 @@ namespace UI
         {
             
             BEViaje viajeSelect = ((BEViaje)dataGridView1.CurrentRow.DataBoundItem);
-            if (viajeSelect != null) 
+            if (viajeSelect != null)
+            {
+                if(viajeSelect.estado=="En proceso")
                 {
-                label1.Visible = true;
+                     label1.Visible = true;
                 barrarProgreso1.Visible = true;
-                if (viajeSelect.estado == "Finalizado")
-                {
-                    barrarProgreso1.ProgressValue = 3;
+                //progressBar1.Minimum = 0;
+                barrarProgreso1.MaximumValue =viajeSelect.cantidad_KM;
+                    barrarProgreso1.ProgressValue = viajeSelect.Km_Recorridos;
+                    metroLabel2.Visible = true;
+                    metroLabel2.Text = (viajeSelect.Km_Recorridos + "/" + viajeSelect.cantidad_KM);
                 }
-                if (viajeSelect.estado == "En progreso")
-                {
-                    barrarProgreso1.ProgressValue = 2;
-                }
-                if (viajeSelect.estado == "Pendiente")
-                {
-                    barrarProgreso1.ProgressValue = 1;
-                }
+               
             } 
            
             

@@ -28,8 +28,8 @@ namespace UI
                 MetroMessageBox.Show(this, "Connection with database could not be stablished, please check with vendor");
                 return;
             }
-          
-            this.MinimumSize = new System.Drawing.Size(472,455);
+            this.Size = new Size(555, 219);
+           // this.MinimumSize = new System.Drawing.Size(472,455);
             anclado();
         }
         BLLUsuario oLog = new BLLUsuario();
@@ -237,6 +237,7 @@ namespace UI
 
         private void metroButton1_Click_1(object sender, EventArgs e)
         {
+            this.Size = new Size(555,474);
             groupBox1.Show();
         }
        
@@ -638,6 +639,11 @@ namespace UI
         private void sing_SizeChanged(object sender, EventArgs e)
         {
         
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -73,7 +73,22 @@ namespace MPP
             return ListaProducto;
 
         }
-
+        public List<string> Producto_asignado_viaje(int usuario)
+        {
+            string consulta = "S_Productos_asignados_viajes";
+            Hdatos = new Hashtable();
+            Hdatos.Add("@codigoUsuario", usuario);
+            DataTable DT = new DataTable();
+            oDatos = new Acceso();
+            DT = oDatos.Leer(consulta, Hdatos);
+            List<string> productos = new List<string>();
+            foreach (DataRow fila in DT.Rows)
+            {
+                string producto = fila["nombre"].ToString();
+                productos.Add(producto);
+            }
+            return productos;
+        }
         public bool actualizar_Cantidad_Pallets(int numero,int codProducto)
         {
 

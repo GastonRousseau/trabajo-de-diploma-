@@ -18,6 +18,7 @@ namespace BE
         public string estado { get; set; }
         public int cantidad_Pallets { get; set; }
 
+        public int Km_Recorridos { get; set; }
        public List<BEMensaje> mensajes { get; set; }
     }
 }

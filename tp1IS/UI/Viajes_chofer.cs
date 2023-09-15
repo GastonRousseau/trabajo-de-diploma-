@@ -12,6 +12,7 @@ using BE;
 using BLL;
 using servicios;
 using Patrones.Singleton.Core;
+using Negocio;
 namespace UI
 {
     public partial class Viajes_chofer : MetroFramework.Forms.MetroForm
@@ -26,7 +27,8 @@ namespace UI
         int pag = 0;
         string NombreCliente;
         IList<BEViaje> viajes = new List<BEViaje>();
-        
+        BLLBitacora oBit = new BLLBitacora();
+        validaciones validar = new validaciones();
         private void Viajes_chofer_Load(object sender, EventArgs e)
         {
             pag = 1;
@@ -42,8 +44,14 @@ namespace UI
                 else { metroButton2.Enabled = true; }
                 dataGridView1.DataSource = null;
                 dataGridView1.DataSource = viajes;
-                
-                
+                //  dataGridView1.ReadOnly = true;
+               // dataGridView1.Columns["viajes_palets"].ReadOnly = true;
+             //   dataGridView1.Columns["distancia"].ReadOnly = true;
+              //  dataGridView1.Columns["estado"].ReadOnly = true;
+               // dataGridView1.Columns["fecha"].ReadOnly = true;
+
+ //               dataGridView1.Columns["Km_Recorridos"].ReadOnly = false;
+
             }
             catch (NullReferenceException ex)
             {
@@ -92,6 +100,124 @@ namespace UI
             {
                 BECamion camion = (BECamion)e.Value;
                 e.Value = camion.patente;
+            }
+        }
+
+        private void metroButton4_Click(object sender, EventArgs e)
+        {
+            BEViaje viajeSelect = (BEViaje)dataGridView1.CurrentRow.DataBoundItem;
+            int error = 0;
+            if (viajeSelect == null)
+            {
+                error++;
+            }
+            if(viajeSelect.estado=="En proceso")
+            {
+                error++;
+            }
+            if (error == 0) 
+            {
+                oBLLviaje.ActualizarEstado(viajeSelect.id, "En proceso");
+            }
+            else
+            {
+                MessageBox.Show("Ocurrio un error");
+            }
+        }
+
+        private void metroButton5_Click(object sender, EventArgs e)
+        {
+            BEViaje viajeSelect = (BEViaje)dataGridView1.CurrentRow.DataBoundItem;
+            int error = 0;
+            if (viajeSelect == null)
+            {
+                error++;
+            }
+            if (viajeSelect.estado == "Pendiente")
+            {
+                error++;
+            }
+            if (error == 0)
+            {
+                oBLLviaje.ActualizarEstado(viajeSelect.id, "Finalizado");
+            }
+            else
+            {
+                MessageBox.Show("Ocurrio un error");
+            }
+        }
+        private BEViaje viajeAntesDeEditar = null;
+        private void datagrid1_changued(object sender, DataGridViewCellEventArgs e)
+        {
+            int error = 0;
+            try
+            {
+                if (e.RowIndex >= 0 && e.ColumnIndex == dataGridView1.Columns["Km_Recorridos"].Index)
+                {
+                    // Obtén la fila actual
+                    DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+
+                    // Obtén el objeto BEViaje asociado a esta fila
+                    if (row.DataBoundItem is BEViaje viaje)
+                    {
+                        // Obtén el valor de la celda editada
+                        object cellValue = row.Cells[e.ColumnIndex].Value;
+
+                        if (cellValue != null && int.TryParse(cellValue.ToString(), out int nuevoKM))
+                        {
+                            // Actualiza el valor de "Km_recorridos" en el objeto BEViaje
+                            if (nuevoKM > viaje.cantidad_KM)
+                            {
+                                MessageBox.Show("La cantidad de Km SUPERO EL limite");
+                                dataGridView1.CancelEdit();
+                                error++;
+                            }
+                            if (!validar.id(Convert.ToString(nuevoKM)))
+                            {
+                                error++;
+                                dataGridView1.CancelEdit();
+                            }
+                            if (error == 0)
+                            {
+                                viaje.Km_Recorridos = nuevoKM;
+                                oBLLviaje.actualizar_KM_recorridos(viaje.id, viaje.Km_Recorridos);
+                                MessageBox.Show("se actualizo");
+                            }
+                            
+
+                            // Realiza las validaciones adicionales y otras acciones si es necesario
+                            // ...
+
+                            // Actualiza la fila en el DataGridView para reflejar el cambio
+                            dataGridView1.InvalidateRow(e.RowIndex);
+                        }
+                        else
+                        {
+                            MessageBox.Show("El valor de KM no es válido.");
+                            dataGridView1.CancelEdit();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("La fila no está asociada a un objeto BEViaje.");
+                        dataGridView1.CancelEdit();
+                    }
+
+                    
+                }
+
+            }
+            catch (NullReferenceException ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                var accion = ex.Message;
+                oBit.guardar_accion(accion, 1);
+                MessageBox.Show(ex.Message);
             }
         }
     }

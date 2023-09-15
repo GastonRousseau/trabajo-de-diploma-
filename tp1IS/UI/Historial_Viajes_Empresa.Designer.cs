@@ -44,6 +44,7 @@ namespace UI
             this.metroButton2.TabIndex = 7;
             this.metroButton2.Text = ">";
             this.metroButton2.UseSelectable = true;
+            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
             // 
             // metroButton1
             // 
@@ -53,6 +54,7 @@ namespace UI
             this.metroButton1.TabIndex = 6;
             this.metroButton1.Text = "<";
             this.metroButton1.UseSelectable = true;
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
             // dataGridView1
             // 

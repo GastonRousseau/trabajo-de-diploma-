@@ -163,6 +163,12 @@
     <Compile Include="ErrorDV.Designer.cs">
       <DependentUpon>ErrorDV.cs</DependentUpon>
     </Compile>
+    <Compile Include="Generar_PDF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Generar_PDF.Designer.cs">
+      <DependentUpon>Generar_PDF.cs</DependentUpon>
+    </Compile>
     <Compile Include="Historial-de-viajes-Clinte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -280,6 +286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ErrorDV.resx">
       <DependentUpon>ErrorDV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Generar_PDF.resx">
+      <DependentUpon>Generar_PDF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Historial-de-viajes-Clinte.resx">
       <DependentUpon>Historial-de-viajes-Clinte.cs</DependentUpon>

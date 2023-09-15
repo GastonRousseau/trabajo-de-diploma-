@@ -47,6 +47,10 @@ namespace MPP
             }
         }
 
+        public IList<BEViaje> Historial_viajes_clientes(int ID,int numberpag,string NombreProducto)
+        {
+            return oDatos.getAll_Historial_viajes_clientes(ID, numberpag, NombreProducto);
+        }
         public List<BEViaje> Traer_Viajes_Clientes(int ID)
         {
             string consulta = "S_Listar_Vuelos_Clientes";
@@ -61,6 +65,7 @@ namespace MPP
                 viaje.cantidad_Pallets = Convert.ToInt32(fila["viajes_palets"]);
                 viaje.cantidad_KM = Convert.ToInt32(fila["distancia"]);
                 viaje.fecha = Convert.ToDateTime(fila["fecha"]);
+                viaje.Km_Recorridos=Convert.ToInt32(fila["KM_recorridos"]);
                 viaje.estado = fila["estado"].ToString();
                 BECamion camion = new BECamion();////////////////////////////////////
                 camion.id= Convert.ToInt32(fila["codigo_camion"]);
@@ -206,6 +211,19 @@ namespace MPP
             Hdatos.Add("@codigo", ID);
             Hdatos.Add("@estado", estado);
             return oDatos.Escribir(consulta,Hdatos);
+        }
+        public bool actualizar_KM_recorridos(int ID,int KM)////////////////////////////////////////////////////////
+        {
+            string consulta = "S_Actualizar_KM_del_viaje";
+            Hdatos = new Hashtable();
+            Hdatos.Add("@codigo", ID);
+            Hdatos.Add("@KM", KM);
+            return oDatos.Escribir(consulta, Hdatos);
+        }
+
+        public IList<BEViaje> getAll_Historial_viajes_(int pag, string NombreCliente, DateTime fecha)
+        {
+            return oDatos.getAll_Historial_viajes_(pag,NombreCliente,fecha);
         }
     }
 }

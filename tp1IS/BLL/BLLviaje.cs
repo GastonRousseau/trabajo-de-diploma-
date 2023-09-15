@@ -35,10 +35,21 @@ namespace BLL
         {
             return oMPPviaje.Traer_Viajes_Chofer(ID,pag,username);
         }
-
+        public IList<BEViaje> Historial_viajes_clientes(int ID, int numberpag, string NombreProducto)
+        {
+            return oMPPviaje.Historial_viajes_clientes(ID, numberpag, NombreProducto);
+        }
+        public bool actualizar_KM_recorridos(int ID, int KM)
+        {
+           return oMPPviaje.actualizar_KM_recorridos(ID, KM);
+        }
         public List<BEViaje> Traer_Viajes_Viajes_con_Mensajes_Choferes(int ID)
         {
             return oMPPviaje.Traer_Viajes_Viajes_con_Mensajes_Choferes(ID);
+        }
+        public IList<BEViaje> getAll_Historial_viajes_(int pag, string NombreCliente, DateTime fecha)
+        {
+            return oMPPviaje.getAll_Historial_viajes_(pag, NombreCliente, fecha);
         }
     }
 }
