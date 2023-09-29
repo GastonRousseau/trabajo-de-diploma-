@@ -30,14 +30,12 @@ namespace UI
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.userControl11 = new UI.controles.UserControl1();
             this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.userControl11 = new UI.controles.UserControl1();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -49,19 +47,9 @@ namespace UI
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(982, 55);
+            this.panel1.Size = new System.Drawing.Size(962, 55);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(949, 16);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(26, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "X";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label1
             // 
@@ -74,7 +62,6 @@ namespace UI
             // 
             // panel2
             // 
-            this.panel2.AutoScroll = true;
             this.panel2.BackColor = System.Drawing.Color.PaleTurquoise;
             this.panel2.Location = new System.Drawing.Point(12, 73);
             this.panel2.Name = "panel2";
@@ -89,6 +76,18 @@ namespace UI
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(915, 46);
             this.panel3.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.CadetBlue;
+            this.button1.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.button1.Location = new System.Drawing.Point(933, 454);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(41, 42);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "->";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // userControl11
             // 
@@ -105,46 +104,22 @@ namespace UI
             this.userControl11.Texts = "";
             this.userControl11.UnderlinedStyle = false;
             // 
-            // button1
+            // button2
             // 
-            this.button1.BackColor = System.Drawing.Color.CadetBlue;
-            this.button1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.button1.Location = new System.Drawing.Point(933, 454);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(41, 42);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "->";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(974, 169);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(20, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = ">";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(974, 307);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(20, 23);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "<";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button2.Location = new System.Drawing.Point(921, 11);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(26, 23);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "X";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Chat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(999, 498);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.ClientSize = new System.Drawing.Size(986, 498);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -168,8 +143,6 @@ namespace UI
         private System.Windows.Forms.Button button1;
         public System.Windows.Forms.Label label1;
         public controles.UserControl1 userControl11;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        public System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button2;
     }
 }

@@ -60,8 +60,8 @@ namespace UI
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.metroButton11 = new MetroFramework.Controls.MetroButton();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -427,6 +427,20 @@ namespace UI
             this.panel1.Size = new System.Drawing.Size(925, 119);
             this.panel1.TabIndex = 24;
             // 
+            // metroButton11
+            // 
+            this.metroButton11.BackColor = System.Drawing.Color.Black;
+            this.metroButton11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.metroButton11.Location = new System.Drawing.Point(879, 3);
+            this.metroButton11.Name = "metroButton11";
+            this.metroButton11.Size = new System.Drawing.Size(34, 23);
+            this.metroButton11.TabIndex = 8;
+            this.metroButton11.Text = "X";
+            this.metroButton11.UseCustomBackColor = true;
+            this.metroButton11.UseCustomForeColor = true;
+            this.metroButton11.UseSelectable = true;
+            this.metroButton11.Click += new System.EventHandler(this.metroButton11_Click);
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.LightSeaGreen;
@@ -451,20 +465,6 @@ namespace UI
             this.panel2.Size = new System.Drawing.Size(925, 264);
             this.panel2.TabIndex = 25;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
-            // 
-            // metroButton11
-            // 
-            this.metroButton11.BackColor = System.Drawing.Color.Black;
-            this.metroButton11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.metroButton11.Location = new System.Drawing.Point(879, 3);
-            this.metroButton11.Name = "metroButton11";
-            this.metroButton11.Size = new System.Drawing.Size(34, 23);
-            this.metroButton11.TabIndex = 8;
-            this.metroButton11.Text = "X";
-            this.metroButton11.UseCustomBackColor = true;
-            this.metroButton11.UseCustomForeColor = true;
-            this.metroButton11.UseSelectable = true;
-            this.metroButton11.Click += new System.EventHandler(this.metroButton11_Click);
             // 
             // Camiones
             // 

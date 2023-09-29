@@ -50,6 +50,7 @@
     <Compile Include="BEProducto.cs" />
     <Compile Include="BEUsuario.cs" />
     <Compile Include="BEViaje.cs" />
+    <Compile Include="DateFiltres.cs" />
     <Compile Include="DigitoV.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -43,5 +43,9 @@ namespace BLL
         {
             return OMPPCamion.BorrarCamion(ID);
         }
+        public List<string> ListaPatentes()
+        {
+            return OMPPCamion.ListaPatentes();
+        }
     }
 }

@@ -545,6 +545,54 @@ namespace MPP
                 throw ex;
             }
         }
+
+        public List<string> Username_Conductor()
+        {
+            string consulta = "S_Traer_Username_Conductor";
+            DataTable DT = new DataTable();
+            Acceso oDatos = new Acceso();
+            DT = oDatos.Leer(consulta, null);
+            List<string> Conductores = new List<string>();
+            foreach(DataRow fila in DT.Rows)
+            {
+                string username = fila["username"].ToString();
+                Conductores.Add(username);
+            }
+            return Conductores;
+        }
+
+        public List<string> Username_Clientes()
+        {
+            string consulta = "S_Traer_Username_Clientes";
+            DataTable DT = new DataTable();
+            Acceso oDatos = new Acceso();
+            DT = oDatos.Leer(consulta, null);
+            List<string> Clientes = new List<string>();
+            foreach(DataRow fila in DT.Rows)
+            {
+                string cliente = fila["username"].ToString();
+                Clientes.Add(cliente);
+            }
+            return Clientes;
+        }
+
+        public List<BEUsuario> S_Traer_Administradores()
+        {
+            string consulta = "S_Traer_Administradores";
+            DataTable DT = new DataTable();
+            Acceso oDatos = new Acceso();
+            DT= oDatos.Leer(consulta, null);
+            List<BEUsuario> administradores = new List<BEUsuario>();
+            foreach(DataRow fila in DT.Rows)
+            {
+                BEUsuario administrador = new BEUsuario();
+                administrador.id = Convert.ToInt32(fila["id"]);
+                administrador.user = fila["username"].ToString();
+
+                administradores.Add(administrador);
+            }
+            return administradores;
+        }
     }
 
 

@@ -36,6 +36,11 @@ namespace BLL
         {
             return OMPPproducto.Producto_asignado_viaje(usuario);
         }
+
+        public bool Sumar_cantidad_pallets(int numero, int codProducto)
+        {
+            return OMPPproducto.Sumar_cantidad_pallets(numero, codProducto);
+        }
     }
 }
 

@@ -33,12 +33,21 @@ namespace UI
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
+            this.metroDateTime2 = new MetroFramework.Controls.MetroDateTime();
+            this.metroButton3 = new MetroFramework.Controls.MetroButton();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.metroButton4 = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // metroButton2
             // 
-            this.metroButton2.Location = new System.Drawing.Point(572, 307);
+            this.metroButton2.Location = new System.Drawing.Point(572, 346);
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(43, 23);
             this.metroButton2.TabIndex = 7;
@@ -48,7 +57,7 @@ namespace UI
             // 
             // metroButton1
             // 
-            this.metroButton1.Location = new System.Drawing.Point(523, 307);
+            this.metroButton1.Location = new System.Drawing.Point(523, 346);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(43, 23);
             this.metroButton1.TabIndex = 6;
@@ -59,7 +68,7 @@ namespace UI
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(135, 151);
+            this.dataGridView1.Location = new System.Drawing.Point(135, 190);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(480, 150);
             this.dataGridView1.TabIndex = 5;
@@ -67,17 +76,113 @@ namespace UI
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(135, 129);
+            this.metroLabel1.Location = new System.Drawing.Point(135, 168);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(47, 19);
             this.metroLabel1.TabIndex = 4;
             this.metroLabel1.Text = "Travels";
+            // 
+            // metroDateTime1
+            // 
+            this.metroDateTime1.Checked = false;
+            this.metroDateTime1.Location = new System.Drawing.Point(415, 45);
+            this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 29);
+            this.metroDateTime1.Name = "metroDateTime1";
+            this.metroDateTime1.Size = new System.Drawing.Size(200, 29);
+            this.metroDateTime1.TabIndex = 8;
+            // 
+            // metroDateTime2
+            // 
+            this.metroDateTime2.Checked = false;
+            this.metroDateTime2.Location = new System.Drawing.Point(415, 80);
+            this.metroDateTime2.MinimumSize = new System.Drawing.Size(0, 29);
+            this.metroDateTime2.Name = "metroDateTime2";
+            this.metroDateTime2.Size = new System.Drawing.Size(200, 29);
+            this.metroDateTime2.TabIndex = 9;
+            // 
+            // metroButton3
+            // 
+            this.metroButton3.Location = new System.Drawing.Point(523, 115);
+            this.metroButton3.Name = "metroButton3";
+            this.metroButton3.Size = new System.Drawing.Size(43, 23);
+            this.metroButton3.TabIndex = 10;
+            this.metroButton3.Text = "apply";
+            this.metroButton3.UseSelectable = true;
+            this.metroButton3.Click += new System.EventHandler(this.metroButton3_Click);
+            // 
+            // metroLabel5
+            // 
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.Location = new System.Drawing.Point(369, 45);
+            this.metroLabel5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(41, 19);
+            this.metroLabel5.TabIndex = 12;
+            this.metroLabel5.Tag = "from";
+            this.metroLabel5.Text = "From";
+            // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.Location = new System.Drawing.Point(371, 79);
+            this.metroLabel4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(22, 19);
+            this.metroLabel4.TabIndex = 13;
+            this.metroLabel4.Tag = "to";
+            this.metroLabel4.Text = "To";
+            // 
+            // metroLabel3
+            // 
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.Location = new System.Drawing.Point(331, 64);
+            this.metroLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(36, 19);
+            this.metroLabel3.TabIndex = 11;
+            this.metroLabel3.Tag = "date";
+            this.metroLabel3.Text = "Date";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(201, 64);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 14;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(105, 67);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(90, 13);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Cliente Username";
+            // 
+            // metroButton4
+            // 
+            this.metroButton4.Location = new System.Drawing.Point(572, 115);
+            this.metroButton4.Name = "metroButton4";
+            this.metroButton4.Size = new System.Drawing.Size(43, 23);
+            this.metroButton4.TabIndex = 16;
+            this.metroButton4.Text = "X";
+            this.metroButton4.UseSelectable = true;
+            this.metroButton4.Click += new System.EventHandler(this.metroButton4_Click);
             // 
             // Historial_Viajes_Empresa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.metroButton4);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.metroLabel5);
+            this.Controls.Add(this.metroLabel4);
+            this.Controls.Add(this.metroLabel3);
+            this.Controls.Add(this.metroButton3);
+            this.Controls.Add(this.metroDateTime2);
+            this.Controls.Add(this.metroDateTime1);
             this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.dataGridView1);
@@ -97,5 +202,14 @@ namespace UI
         private MetroFramework.Controls.MetroButton metroButton1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroDateTime metroDateTime1;
+        private MetroFramework.Controls.MetroDateTime metroDateTime2;
+        private MetroFramework.Controls.MetroButton metroButton3;
+        private MetroFramework.Controls.MetroLabel metroLabel5;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
+        private MetroFramework.Controls.MetroLabel metroLabel3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
+        private MetroFramework.Controls.MetroButton metroButton4;
     }
 }

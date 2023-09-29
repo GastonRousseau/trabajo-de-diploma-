@@ -17,24 +17,25 @@ namespace UI
         public Historial_Viajes_Empresa()
         {
             InitializeComponent();
-           // buscar(null, 1, null);    arreglar para que sea de una fecha a otra
+            buscar(null, 1, null,null);//    arreglar para que sea de una fecha a otra
         }
         IList<BEViaje> viajes = new List<BEViaje>();
         BLLviaje oBLLviajes = new BLLviaje();
         int pag;
         string nombreCliente;
-        DateTime fecha;
+        Nullable<DateTime> from;
+        Nullable<DateTime> to;
         private void Historial_Viajes_Empresa_Load(object sender, EventArgs e)
         {
 
         }
 
-        void buscar(string nombreCliente,int pag,DateTime fecha)
+        void buscar(string nombreCliente,int pag,Nullable<DateTime> from,Nullable<DateTime>to)
         {
             try
             {
 
-                viajes = oBLLviajes.getAll_Historial_viajes_(pag,nombreCliente, fecha);
+                viajes = oBLLviajes.getAll_Historial_viajes_(pag,nombreCliente,from,to);
                 if (viajes.Count == 0) { metroButton2.Enabled = false; }
                 else { metroButton2.Enabled = true; }
                 dataGridView1.DataSource = null;
@@ -68,14 +69,44 @@ namespace UI
             pag -= 1;
             metroButton1.Enabled = true;
             if (pag <= 1) metroButton1.Enabled = false;
-            if (pag > 0) buscar(nombreCliente,pag,fecha);
+            if (pag > 0) buscar(nombreCliente,pag,from,to);
         }
 
         private void metroButton2_Click(object sender, EventArgs e)
         {
             metroButton1.Enabled = true;
             pag += 1;
-            buscar(nombreCliente, pag, fecha);
+            buscar(nombreCliente, pag, from,to);
+        }
+
+        private void metroButton3_Click(object sender, EventArgs e)
+        {
+            from = null;
+            to = null;
+            nombreCliente = null;
+            if (textBox1.Text != string.Empty)
+            {
+                nombreCliente = textBox1.Text;
+            }
+            if (metroDateTime1.Value != null)
+            {
+                from = metroDateTime1.Value;
+            }
+            if (metroDateTime2.Value != null)
+            {
+                to = metroDateTime2.Value;
+            }
+            buscar(nombreCliente, 1, from, to);
+            pag = 1;
+        }
+
+        private void metroButton4_Click(object sender, EventArgs e)
+        {
+            from = null;
+            to = null;
+            nombreCliente = null;
+            buscar(nombreCliente, 1, from, to);
+            pag = 1;
         }
     }
 }

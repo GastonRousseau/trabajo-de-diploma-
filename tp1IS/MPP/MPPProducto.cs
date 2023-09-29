@@ -99,9 +99,19 @@ namespace MPP
             return oDatos.Escribir(ocnsulta, Hdatos);
 
         }
-        
+        public bool Sumar_cantidad_pallets(int numero, int codProducto)
+        {
 
-        
+            string ocnsulta = "S_sumar_Cantidad_Pallets_Producto";
+            Hdatos = new Hashtable();
+            Hdatos.Add("@codigoProducto", codProducto);
+            Hdatos.Add("@palletsSuma", numero);
+            return oDatos.Escribir(ocnsulta, Hdatos);
+
+        }
+
+
+
     }
 
 }

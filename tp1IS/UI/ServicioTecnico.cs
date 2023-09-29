@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class Generar_PDF : Form
+    public partial class ServicioTecnico : Form
     {
-        public Generar_PDF()
+        public ServicioTecnico()
         {
             InitializeComponent();
-        }
-
-        private void Generar_PDF_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

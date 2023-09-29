@@ -65,7 +65,16 @@ namespace MPP
                 viaje.cantidad_Pallets = Convert.ToInt32(fila["viajes_palets"]);
                 viaje.cantidad_KM = Convert.ToInt32(fila["distancia"]);
                 viaje.fecha = Convert.ToDateTime(fila["fecha"]);
-                viaje.Km_Recorridos=Convert.ToInt32(fila["KM_recorridos"]);
+              //  int KM= Convert.ToInt32(fila["KM_recorridos"]);
+                if (fila["KM_recorridos"] is DBNull)
+                {
+
+                }
+                else
+                {
+                    viaje.Km_Recorridos = Convert.ToInt32(fila["KM_recorridos"]);
+                }
+               
                 viaje.estado = fila["estado"].ToString();
                 BECamion camion = new BECamion();////////////////////////////////////
                 camion.id= Convert.ToInt32(fila["codigo_camion"]);
@@ -74,7 +83,7 @@ namespace MPP
                 camion.tipo = fila["tipo"].ToString();
                 BEUsuario conuctor = new BEUsuario();////////////////////////////////
                 conuctor.id= Convert.ToInt32(fila["codigo_conductor"]);
-                conuctor.user = fila["username"].ToString();
+                conuctor.user = fila["username_conductor"].ToString();
                // conuctor.password = fila[""].ToString();
                 BEUsuario cliente = new BEUsuario();/////////////////////////////////
                 cliente.id= Convert.ToInt32(fila["codigo_usuario"]);
@@ -189,7 +198,7 @@ namespace MPP
                 viaje.camion = camion;
                 producto.cliente = cliente;
                 viaje.producto = producto;
-                viaje.mensajes = Mensajes;
+               // viaje.mensajes = Mensajes;
                 viajes.Add(viaje);
                 //mensaje.viaje=viaje;
               //  Mensajes.Add(mensaje);
@@ -201,6 +210,20 @@ namespace MPP
             string consulta = "S_Eliminar_Viaje";
             Hdatos = new Hashtable();
             Hdatos.Add("codigo", ID);
+            return oDatos.Escribir(consulta, Hdatos);
+        }
+
+        public bool Modifica_Viaje(BEViaje viaje)
+        {
+            string consulta = "S_Modificar_Viaje";
+            Hdatos = new Hashtable();
+            Hdatos.Add("@codigo",viaje.id);
+            Hdatos.Add("@codCamion",viaje.camion.id);
+            Hdatos.Add("@codProducto",viaje.producto.id);
+            Hdatos.Add("@cantidadPallets",viaje.producto.CantPallets);
+            Hdatos.Add("@distancia",viaje.cantidad_KM);
+            Hdatos.Add("@fecha",viaje.fecha);
+            Hdatos.Add("@estado",viaje.estado);
             return oDatos.Escribir(consulta, Hdatos);
         }
 
@@ -221,9 +244,18 @@ namespace MPP
             return oDatos.Escribir(consulta, Hdatos);
         }
 
-        public IList<BEViaje> getAll_Historial_viajes_(int pag, string NombreCliente, DateTime fecha)
+        public IList<BEViaje> getAll_Historial_viajes_(int pag, string NombreCliente, Nullable<DateTime> from, Nullable<DateTime> to)
         {
-            return oDatos.getAll_Historial_viajes_(pag,NombreCliente,fecha);
+            return oDatos.getAll_Historial_viajes_(pag,NombreCliente,from,to);
+        }
+        public IList<BEViaje> getAll_Historial_viajes_SF(string NombreCliente, Nullable<DateTime> from, Nullable<DateTime> to)
+        {
+            return oDatos.getAll_Historial_viajes_SF(NombreCliente, from, to);
+        }
+
+        public IList<BEViaje> Viajes_pendientes_sistema(string NombreCliente,string NombreConductor,string PatenteCamiones, Nullable<DateTime> from, Nullable<DateTime> to,int pag)
+        {
+            return oDatos.Viajes_pendientes_sistema(NombreCliente, NombreConductor, PatenteCamiones, from, to, pag);
         }
     }
 }

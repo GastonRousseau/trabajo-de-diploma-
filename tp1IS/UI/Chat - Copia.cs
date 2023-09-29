@@ -20,15 +20,10 @@ namespace UI
             InitializeComponent();
             oBLLmensajes = new BLLMensaje();
             button2.Visible = false;
-            label1.Text = usuarioAconectar.user;
-            panel2.Controls.Clear();
-         //   cargar_Mensajes();
            
         }
         private static Chat charla;
-        int currentPage = 1;
-        int totalPages = 0;
-        int mesagesPorPagina = 6;
+
         BLLMensaje oBLLmensajes;
         public static BEUsuario usuarioAconectar = new BEUsuario();    //static
         BEMensaje mensaje = new BEMensaje();
@@ -57,7 +52,6 @@ namespace UI
                 mensaje.remitente = SessionManager.GetInstance.Usuario;
                 mensaje.destinatario = usuarioAconectar;
                 mensaje.fecha = DateTime.Now;
-                mensaje.tipo = 1;
                 oBLLmensajes.GuardarMensaje(mensaje);
                 cargar_Mensajes();
                 // oBLLmensajes.GuardarMensaje()
@@ -71,129 +65,71 @@ namespace UI
 
         private void Chat_Load(object sender, EventArgs e)
         {
-            //  panel2.AutoScroll = true;
-            panel2.Controls.Clear();
+            
             cargar_Mensajes();
             if (label1.Text == "servicioTecnico")
             {
                 button2.Visible=true;
             }
-            //button4.Visible = false;
         }
         void cargar_Mensajes()
         {
-            //   panel2.AutoScroll = true;
-            //  panel2.AutoScrollPosition =new Point(10, 10);
-            int topPosition = 0;
+            panel2.AutoScroll = true;
+            panel2.AutoScrollPosition =new Point(10, 10);
+            
             
             panel2.Controls.Clear();
             var list = new List<BEMensaje>();
-            list = oBLLmensajes.ObtenerMensajes(SessionManager.GetInstance.Usuario.id, usuarioAconectar);//.OrderByDescending(m => m.fecha).ToList();
-            int toalmensajes = list.Count();
-            totalPages = (int)Math.Ceiling((double)toalmensajes / mesagesPorPagina);
-            currentPage = totalPages;
-            /*     foreach (BEMensaje mensaje in list)
-                 {
-                     if (mensaje.remitente.id == SessionManager.GetInstance.Usuario.id)
-                     {
-                         msjLocal(mensaje.mensaje);
-
-                     }
-                     else
-                     {
-                         msjExterno(mensaje.mensaje);
-                     }
-                 }*/
-
-            traerMensajesPorPagina(currentPage);
-        }
-
-        void traerMensajesPorPagina(int pagina)
-        {
-            panel2.Controls.Clear();
-
-            // Obtener los mensajes de la página actual
-            var list = oBLLmensajes.ObtenerMensajes(SessionManager.GetInstance.Usuario.id, usuarioAconectar)
-              //  .OrderByDescending(m => m.fecha)
-                .Skip((pagina - 1) * mesagesPorPagina)
-                .Take(mesagesPorPagina)
-                .ToList();
-
+            list = oBLLmensajes.ObtenerMensajes(SessionManager.GetInstance.Usuario.id, usuarioAconectar);
             foreach (BEMensaje mensaje in list)
             {
                 if (mensaje.remitente.id == SessionManager.GetInstance.Usuario.id)
                 {
-                    msjLocal(mensaje);
+                    msjLocal(mensaje.mensaje);
+
                 }
                 else
                 {
-                    msjExterno(mensaje);
+                    msjExterno(mensaje.mensaje);
                 }
             }
-
         }
-        void msjLocal(BEMensaje mensaje)
+        void msjLocal(string mensaje)
         {
             Panel msjmioo = new Panel();
             msjmioo.Height = 59;
             panel2.Controls.Add(msjmioo);
-            
             msjmioo.Dock = DockStyle.Bottom;
           //  msjmioo.BorderStyle = BorderStyle.FixedSingle;
 
             TextBox text = new TextBox();
-            if (mensaje.tipo == 2)
-            {
-                text.BackColor = Color.DarkRed;
-                text.ForeColor = Color.White;
-
-            }
-            else
-            {
-                text.BackColor = Color.AliceBlue;
-                text.ForeColor = Color.Black;
-            }
+            text.BackColor = Color.AliceBlue;
             
-            text.ReadOnly = true;
             text.Multiline = true;
             text.Size = new Size(400, 45);
-            text.Text = mensaje.mensaje;
+            text.Text = mensaje;
             text.Anchor = AnchorStyles.Right;
-            text.Location = new Point(472, 7);
             msjmioo.Controls.Add(text);
-            
+            text.Location = new Point(472, 7);
             
 
         }
-        void msjExterno(BEMensaje mensaje)
+        void msjExterno(string mensaje)
         {
             Panel mstuyoo = new Panel();
-         
             //   Panel msjuser = new Panel();
             mstuyoo.Height = 59;
             panel2.Controls.Add(mstuyoo);
             mstuyoo.Dock = DockStyle.Bottom;
           //  mstuyoo.BorderStyle = BorderStyle.FixedSingle;
             TextBox text = new TextBox();
-            if (mensaje.tipo == 2)
-            {
-                text.BackColor = Color.DarkRed;
-                text.ForeColor = Color.White;
-            }
-            else
-            {
-                text.BackColor = Color.Aqua;
-                text.ForeColor = Color.Black;
-            }
-            //text.BackColor = Color.CadetBlue;
+            text.BackColor = Color.CadetBlue;
             text.Multiline = true;
-            text.Text = mensaje.mensaje;
+            text.Text = mensaje;
             text.Size = new Size(400,45);
             text.Anchor = AnchorStyles.Left;
-            text.Location = new Point(69, 7);
-            text.ReadOnly = true;
             mstuyoo.Controls.Add(text);
-           
+            text.Location = new Point(69,7);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -204,24 +140,6 @@ namespace UI
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            if (currentPage < totalPages)
-            {
-                currentPage++;
-                traerMensajesPorPagina(currentPage);
-            }
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            if (currentPage > 1)
-            {
-                currentPage--;
-                traerMensajesPorPagina(currentPage);
-            }
         }
     }
 }

@@ -55,7 +55,7 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(17, 122);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
@@ -102,7 +102,7 @@
             this.metroComboBox1.FormattingEnabled = true;
             this.metroComboBox1.ItemHeight = 23;
             this.metroComboBox1.Location = new System.Drawing.Point(267, 68);
-            this.metroComboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.metroComboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.metroComboBox1.Name = "metroComboBox1";
             this.metroComboBox1.Size = new System.Drawing.Size(130, 29);
             this.metroComboBox1.TabIndex = 5;
@@ -111,16 +111,16 @@
             // metroDateTime1
             // 
             this.metroDateTime1.Location = new System.Drawing.Point(518, 51);
-            this.metroDateTime1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.metroDateTime1.Margin = new System.Windows.Forms.Padding(2);
             this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 29);
             this.metroDateTime1.Name = "metroDateTime1";
-            this.metroDateTime1.Size = new System.Drawing.Size(151, 30);
+            this.metroDateTime1.Size = new System.Drawing.Size(151, 29);
             this.metroDateTime1.TabIndex = 9;
             // 
             // metroButton1
             // 
             this.metroButton1.Location = new System.Drawing.Point(203, 72);
-            this.metroButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.metroButton1.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(21, 21);
             this.metroButton1.TabIndex = 3;
@@ -131,7 +131,7 @@
             // metroButton2
             // 
             this.metroButton2.Location = new System.Drawing.Point(401, 72);
-            this.metroButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.metroButton2.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(21, 21);
             this.metroButton2.TabIndex = 6;
@@ -142,7 +142,7 @@
             // Apply
             // 
             this.Apply.Location = new System.Drawing.Point(682, 51);
-            this.Apply.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Apply.Margin = new System.Windows.Forms.Padding(2);
             this.Apply.Name = "Apply";
             this.Apply.Size = new System.Drawing.Size(100, 27);
             this.Apply.TabIndex = 12;
@@ -158,7 +158,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(113, 72);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(86, 20);
             this.textBox1.TabIndex = 2;
@@ -166,10 +166,10 @@
             // metroDateTime2
             // 
             this.metroDateTime2.Location = new System.Drawing.Point(518, 80);
-            this.metroDateTime2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.metroDateTime2.Margin = new System.Windows.Forms.Padding(2);
             this.metroDateTime2.MinimumSize = new System.Drawing.Size(0, 29);
             this.metroDateTime2.Name = "metroDateTime2";
-            this.metroDateTime2.Size = new System.Drawing.Size(151, 30);
+            this.metroDateTime2.Size = new System.Drawing.Size(151, 29);
             this.metroDateTime2.TabIndex = 11;
             // 
             // metroLabel4
@@ -197,7 +197,7 @@
             // metroButton3
             // 
             this.metroButton3.Location = new System.Drawing.Point(682, 83);
-            this.metroButton3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.metroButton3.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton3.Name = "metroButton3";
             this.metroButton3.Size = new System.Drawing.Size(100, 24);
             this.metroButton3.TabIndex = 13;
@@ -210,7 +210,7 @@
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(743, 449);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(32, 31);
             this.button1.TabIndex = 15;
@@ -222,7 +222,7 @@
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(779, 449);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(32, 31);
             this.button2.TabIndex = 0;
@@ -263,7 +263,7 @@
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Bitacora";
             this.Padding = new System.Windows.Forms.Padding(15, 60, 15, 16);
             this.Tag = "binnacle";

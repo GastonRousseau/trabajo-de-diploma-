@@ -137,6 +137,21 @@ namespace MPP
             return Odatos.Escribir(consulta, Hdatos);
         }
 
+        public List<string> ListaPatentes()
+        {
+            string conuslta = "S_Traer_Patentes";
+            DataTable DT = Odatos.Leer(conuslta, null);
+            List<string> Patentes = new List<string>();
+            foreach(DataRow fila in DT.Rows)
+            {
+                string patente = fila["patente"].ToString();
+                Patentes.Add(patente);
+
+            }
+            return Patentes;  
+
+        }
+
         
     }
 

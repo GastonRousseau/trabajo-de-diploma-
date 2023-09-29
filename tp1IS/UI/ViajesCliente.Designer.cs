@@ -39,6 +39,9 @@ namespace UI
             this.label1 = new System.Windows.Forms.Label();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.metroButton3 = new MetroFramework.Controls.MetroButton();
+            this.metroButton4 = new MetroFramework.Controls.MetroButton();
+            this.metroButton5 = new MetroFramework.Controls.MetroButton();
             this.barrarProgreso1 = new UI.controles.BarrarProgreso();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -145,6 +148,9 @@ namespace UI
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.IndianRed;
+            this.panel1.Controls.Add(this.metroButton5);
+            this.panel1.Controls.Add(this.metroButton4);
+            this.panel1.Controls.Add(this.metroButton3);
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.metroLabel2);
             this.panel1.Controls.Add(this.metroLabel1);
@@ -154,8 +160,50 @@ namespace UI
             this.panel1.Controls.Add(this.metroButton2);
             this.panel1.Location = new System.Drawing.Point(0, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(896, 351);
+            this.panel1.Size = new System.Drawing.Size(824, 302);
             this.panel1.TabIndex = 12;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // metroButton3
+            // 
+            this.metroButton3.BackColor = System.Drawing.Color.Firebrick;
+            this.metroButton3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.metroButton3.Location = new System.Drawing.Point(558, 96);
+            this.metroButton3.Name = "metroButton3";
+            this.metroButton3.Size = new System.Drawing.Size(243, 36);
+            this.metroButton3.TabIndex = 12;
+            this.metroButton3.Text = "Solicitar cancelacion del viaje";
+            this.metroButton3.UseCustomBackColor = true;
+            this.metroButton3.UseCustomForeColor = true;
+            this.metroButton3.UseSelectable = true;
+            this.metroButton3.Click += new System.EventHandler(this.metroButton3_Click_1);
+            // 
+            // metroButton4
+            // 
+            this.metroButton4.BackColor = System.Drawing.Color.Firebrick;
+            this.metroButton4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.metroButton4.Location = new System.Drawing.Point(558, 138);
+            this.metroButton4.Name = "metroButton4";
+            this.metroButton4.Size = new System.Drawing.Size(243, 36);
+            this.metroButton4.TabIndex = 13;
+            this.metroButton4.Text = "Mandar mensaje al conductor del viaje";
+            this.metroButton4.UseCustomBackColor = true;
+            this.metroButton4.UseCustomForeColor = true;
+            this.metroButton4.UseSelectable = true;
+            this.metroButton4.Click += new System.EventHandler(this.metroButton4_Click);
+            // 
+            // metroButton5
+            // 
+            this.metroButton5.BackColor = System.Drawing.Color.Firebrick;
+            this.metroButton5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.metroButton5.Location = new System.Drawing.Point(558, 180);
+            this.metroButton5.Name = "metroButton5";
+            this.metroButton5.Size = new System.Drawing.Size(243, 36);
+            this.metroButton5.TabIndex = 14;
+            this.metroButton5.Text = "Postergar Viaje";
+            this.metroButton5.UseCustomBackColor = true;
+            this.metroButton5.UseCustomForeColor = true;
+            this.metroButton5.UseSelectable = true;
             // 
             // barrarProgreso1
             // 
@@ -171,7 +219,7 @@ namespace UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(893, 292);
+            this.ClientSize = new System.Drawing.Size(827, 311);
             this.Controls.Add(this.panel1);
             this.Name = "ViajesCliente";
             this.Text = "my travels";
@@ -193,5 +241,8 @@ namespace UI
         private System.Windows.Forms.Label label1;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private System.Windows.Forms.Panel panel1;
+        private MetroFramework.Controls.MetroButton metroButton4;
+        private MetroFramework.Controls.MetroButton metroButton3;
+        private MetroFramework.Controls.MetroButton metroButton5;
     }
 }

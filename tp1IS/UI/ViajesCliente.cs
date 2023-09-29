@@ -108,5 +108,45 @@ namespace UI
            
             
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void metroButton3_Click_1(object sender, EventArgs e)
+        {
+            BEViaje viajeSelect = (BEViaje)dataGridView1.CurrentRow.DataBoundItem;
+            if (viajeSelect != null)
+            {
+                if (viajeSelect.estado == "pendiente")
+                {
+                    oBLLviaje.ActualizarEstado(viajeSelect.id, "Cancelado");
+                    Chat form = new Chat();
+                    Chat.usuarioAconectar = viajeSelect.camion.conductor;
+                    form.button2.Visible = true;
+                    form.userControl11.Texts = "Solicite la cancelacion del viaje devido a que";
+                    form.Show();
+                    Listar();
+                    
+                }
+            }
+        }
+
+        private void metroButton4_Click(object sender, EventArgs e)
+        {
+            BEViaje viajeSelect = (BEViaje)dataGridView1.CurrentRow.DataBoundItem;
+            if (viajeSelect != null)
+            {
+                
+                Chat.usuarioAconectar = viajeSelect.camion.conductor;
+                
+                // form.label1.Text = viajeSelect.camion.conductor.user;
+                Chat form = new Chat();
+                form.button2.Visible = true;
+                form.Show();
+
+            }
+        }
     }
 }

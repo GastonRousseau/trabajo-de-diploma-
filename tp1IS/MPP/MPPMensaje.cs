@@ -27,6 +27,7 @@ namespace MPP
             hdatos.Add("@codDestinatario",mensaje.destinatario.id);
             hdatos.Add("@mensaje",mensaje.mensaje);
             hdatos.Add("@fecha",mensaje.fecha);
+            hdatos.Add("@tipo", mensaje.tipo);
             return oDatos.Escribir(consulta, hdatos);
         }
 
@@ -81,6 +82,8 @@ namespace MPP
                 BEUsuario usuarioRemitente = new BEUsuario();
                 usuarioRemitente.id = Convert.ToInt32(fila["codigo_remitente"]);
                 mensaje.remitente = usuarioRemitente;
+                mensaje.fecha = Convert.ToDateTime(fila["fecha"]);
+                mensaje.tipo = Convert.ToInt32(fila["tipo"]);
                 Mensajes.Add(mensaje);
             }
             return Mensajes;

@@ -58,7 +58,7 @@ namespace UI
             panel.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(panel);
             panel.BringToFront();
-
+            panel.BackColor= Color.LightSkyBlue;
             Label titulo = new Label();
             titulo.Font = new Font("Century Gothic", 14, FontStyle.Regular);
             titulo.Size = new Size(160, 17);
@@ -125,12 +125,12 @@ namespace UI
 
         private void panel_Leave(object sender, EventArgs e)
         {
-            ((Panel)sender).BackColor = Color.FromArgb(26, 25, 62);
+            ((Panel)sender).BackColor = Color.LightSkyBlue;//Color.FromArgb(26, 25, 62);
         }
 
         private void panel_Enter(object sender, EventArgs e)
         {
-            ((Panel)sender).BackColor = Color.FromArgb(16, 15, 52);
+            ((Panel)sender).BackColor = Color.DodgerBlue;//Color.FromArgb(16, 15, 52);
         }
 
         void cargarchats()

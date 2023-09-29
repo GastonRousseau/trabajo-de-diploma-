@@ -591,7 +591,7 @@ namespace DAL
             finally
             { oCnn.Close(); }
         }
-        public IList<BEViaje> getAll_Historial_viajes_(int pag, string NombreCliente,DateTime fecha)
+        public IList<BEViaje> getAll_Historial_viajes_(int pag, string NombreCliente, Nullable<DateTime> from, Nullable<DateTime> to)
         {
             try
             {
@@ -603,7 +603,8 @@ namespace DAL
                 Cmd = new SqlCommand(sql, oCnn);
                 Cmd.CommandType = CommandType.StoredProcedure;
                 Cmd.Parameters.AddWithValue("nombreCliente", NombreCliente == null ? (object)DBNull.Value : NombreCliente);
-                Cmd.Parameters.AddWithValue("fecha", fecha == null ? (object)DBNull.Value : fecha);
+                Cmd.Parameters.AddWithValue("From", from == null ? (object)DBNull.Value : from);
+                Cmd.Parameters.AddWithValue("To", to == null ? (object)DBNull.Value : to);
                 Cmd.Parameters.AddWithValue("PageNumber", pag);
              //   Cmd.Parameters.AddWithValue("codigoCliente", id);
 
@@ -619,6 +620,8 @@ namespace DAL
                     viaje.fecha = Convert.ToDateTime(fila["fecha"]);
                     viaje.estado = fila["estado"].ToString();
                     viaje.Km_Recorridos = Convert.ToInt32(fila["KM_recorridos"]);
+                    viaje.destino = fila["destino"].ToString();
+                    viaje.partida = fila["partida"].ToString();
                     BECamion camion = new BECamion();////////////////////////////////////
                     camion.id = Convert.ToInt32(fila["codigo_camion"]);
                     camion.capacidad_Pallets = Convert.ToInt32(fila["capacidad_pallets"]);
@@ -626,7 +629,70 @@ namespace DAL
                     camion.tipo = fila["tipo"].ToString();
                     BEUsuario conuctor = new BEUsuario();////////////////////////////////
                     conuctor.id = Convert.ToInt32(fila["codigo_conductor"]);
-                    conuctor.user = fila["username"].ToString();
+                    conuctor.user = fila["nombre_conductor"].ToString();
+                    BEProducto producto = new BEProducto();//////////////////////////////
+                    producto.id = Convert.ToInt32(fila["codigo_producto"]);
+                    producto.nombre = fila["nombre"].ToString();
+                    producto.CantPallets = Convert.ToInt32(fila["cantidad_pallets"]);
+                    camion.conductor = conuctor;
+                    viaje.camion = camion;
+                    producto.cliente = SessionManager.GetInstance.Usuario;
+                    viaje.producto = producto;
+                    viajes.Add(viaje);
+                }
+                fila.Close();
+                return viajes;
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (SqlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
+            finally
+            { oCnn.Close(); }
+        }
+        public IList<BEViaje> getAll_Historial_viajes_SF(string NombreCliente, Nullable<DateTime> from, Nullable<DateTime> to)
+        {
+            try
+            {
+                if (oCnn.State == ConnectionState.Closed)
+                {
+                    oCnn.Open();
+                }
+                var sql = "S_Traer_Hisotrial_Viajes_Sin_F";
+                Cmd = new SqlCommand(sql, oCnn);
+                Cmd.CommandType = CommandType.StoredProcedure;
+                Cmd.Parameters.AddWithValue("nombreCliente", NombreCliente == null ? (object)DBNull.Value : NombreCliente);
+                Cmd.Parameters.AddWithValue("From", from == null ? (object)DBNull.Value : from);
+                Cmd.Parameters.AddWithValue("To", to == null ? (object)DBNull.Value : to);
+              
+                //   Cmd.Parameters.AddWithValue("codigoCliente", id);
+
+                var fila = Cmd.ExecuteReader();
+                IList<BEViaje> viajes = new List<BEViaje>();
+
+                while (fila.Read())
+                {
+                    BEViaje viaje = new BEViaje();///////////////////////////////////////
+                    viaje.id = Convert.ToInt32(fila["codigo_viaje"]);
+                    viaje.cantidad_Pallets = Convert.ToInt32(fila["viajes_palets"]);
+                    viaje.cantidad_KM = Convert.ToInt32(fila["distancia"]);
+                    viaje.fecha = Convert.ToDateTime(fila["fecha"]);
+                    viaje.estado = fila["estado"].ToString();
+                    viaje.Km_Recorridos = Convert.ToInt32(fila["KM_recorridos"]);
+                    viaje.destino = fila["destino"].ToString();
+                    viaje.partida = fila["partida"].ToString();
+                    BECamion camion = new BECamion();////////////////////////////////////
+                    camion.id = Convert.ToInt32(fila["codigo_camion"]);
+                    camion.capacidad_Pallets = Convert.ToInt32(fila["capacidad_pallets"]);
+                    camion.patente = fila["patente"].ToString();
+                    camion.tipo = fila["tipo"].ToString();
+                    BEUsuario conuctor = new BEUsuario();////////////////////////////////
+                    conuctor.id = Convert.ToInt32(fila["codigo_conductor"]);
+                    conuctor.user = fila["nombre_conductor"].ToString();
                     BEProducto producto = new BEProducto();//////////////////////////////
                     producto.id = Convert.ToInt32(fila["codigo_producto"]);
                     producto.nombre = fila["nombre"].ToString();
@@ -770,6 +836,84 @@ namespace DAL
             finally
             { oCnn.Close(); }
 
+        }
+
+        public IList<BEViaje> Viajes_pendientes_sistema(string NombreCliente, string NombreConductor, string PatenteCamiones, Nullable<DateTime> from, Nullable<DateTime> to,int pag)
+        {
+            try
+            {
+                if (oCnn.State == ConnectionState.Closed)
+                {
+                    oCnn.Open();
+                }
+                var sql = "S_Traer_Viajes_Pendientes_Totales";
+                Cmd = new SqlCommand(sql, oCnn);
+                Cmd.CommandType = CommandType.StoredProcedure;
+                Cmd.Parameters.AddWithValue("nombreCliente", NombreCliente == null ? (object)DBNull.Value : NombreCliente);
+                Cmd.Parameters.AddWithValue("nombreConductor", NombreConductor == null ? (object)DBNull.Value : NombreConductor);
+                Cmd.Parameters.AddWithValue("PatenteCamion", PatenteCamiones == null ? (object)DBNull.Value : PatenteCamiones);
+                Cmd.Parameters.AddWithValue("PageNumber", pag);
+                Cmd.Parameters.AddWithValue("From", from == null ? (object)DBNull.Value : from);
+                Cmd.Parameters.AddWithValue("To", to == null ? (object)DBNull.Value : to);
+
+                //   Cmd.Parameters.AddWithValue("codigoCliente", id);
+
+                var fila = Cmd.ExecuteReader();
+                IList<BEViaje> viajes = new List<BEViaje>();
+
+                while (fila.Read())
+                {
+                    BEViaje viaje = new BEViaje();///////////////////////////////////////
+                    viaje.id = Convert.ToInt32(fila["codigo_viaje"]);
+                    viaje.cantidad_Pallets = Convert.ToInt32(fila["viajes_palets"]);
+                    viaje.cantidad_KM = Convert.ToInt32(fila["distancia"]);
+                    viaje.fecha = Convert.ToDateTime(fila["fecha"]);
+                    viaje.estado = fila["estado"].ToString();
+                    if(fila["KM_recorridos"] is DBNull)
+                    {
+
+                    }
+                    else
+                    {
+                        viaje.Km_Recorridos = Convert.ToInt32(fila["KM_recorridos"]);
+                    }
+                    
+                    viaje.destino = fila["destino"].ToString();
+                    viaje.partida = fila["partida"].ToString();
+                    BECamion camion = new BECamion();////////////////////////////////////
+                    camion.id = Convert.ToInt32(fila["codigo_camion"]);
+                    camion.capacidad_Pallets = Convert.ToInt32(fila["capacidad_pallets"]);
+                    camion.patente = fila["patente"].ToString();
+                    camion.tipo = fila["tipo"].ToString();
+                    BEUsuario conuctor = new BEUsuario();////////////////////////////////
+                    conuctor.id = Convert.ToInt32(fila["codigo_conductor"]);
+                    conuctor.user = fila["nombre_conductor"].ToString();
+                    BEProducto producto = new BEProducto();//////////////////////////////
+                    producto.id = Convert.ToInt32(fila["codigo_producto"]);
+                    producto.nombre = fila["nombre"].ToString();
+                    producto.CantPallets = Convert.ToInt32(fila["cantidad_pallets"]);
+                    camion.conductor = conuctor;
+                    viaje.camion = camion;
+                    BEUsuario cliente = new BEUsuario();
+                    cliente.id = Convert.ToInt32(fila["codigo_usuario"]);
+                    cliente.user = fila["nombre_cliente"].ToString();
+                    producto.cliente = cliente;
+                    viaje.producto = producto;
+                    viajes.Add(viaje);
+                }
+                fila.Close();
+                return viajes;
+            }
+            catch (NullReferenceException ex)
+            {
+                throw ex;
+            }
+            catch (SqlException ex)
+            { throw ex; }
+            catch (Exception ex)
+            { throw ex; }
+            finally
+            { oCnn.Close(); }
         }
     }
 }

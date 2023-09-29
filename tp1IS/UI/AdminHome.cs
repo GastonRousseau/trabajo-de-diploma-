@@ -36,7 +36,10 @@ namespace UI
             es_admin();
             mensajes_nuevos();
             this.MinimumSize = new System.Drawing.Size(1373, 540);
-           
+            esconderSubPaneles();
+            panel1.Size = new Size(502, 528);
+
+
         }
         SessionManager session = SessionManager.GetInstance;
         BLLMensaje oBLLmensaje = new BLLMensaje();
@@ -73,6 +76,13 @@ namespace UI
                 }
 
                 formularioAbierto = formulario;
+             //   formularioAbierto.BringToFront();
+               // formularioAbierto.TopLevel = false;
+                
+              //  formularioAbierto.Dock= DockStyle.Fill;
+               
+            //    Control topLevelControl = panel9.TopLevelControl;
+            //    panel9.Controls.Add(formularioAbierto);
                 formularioAbierto.Show();
             }
             catch (NullReferenceException ex)
@@ -877,6 +887,104 @@ namespace UI
             form.label1.Text = ServicioTecnico.user;
             form.userControl11.Texts = "Tengo el siguiente problema:";
             form.Show();
+        }
+
+        private void metroButton14_Click(object sender, EventArgs e)
+        {
+            Historial_Viajes_Empresa form = new Historial_Viajes_Empresa();
+            AbrirFormulario(form);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            GenerarPDF form = new GenerarPDF();
+            AbrirFormulario(form);
+        }
+
+        private void metroButton20_Click(object sender, EventArgs e)
+        {
+            Viajes_chofer viajes =new Viajes_chofer();
+            if (SessionManager.GetInstance.Usuario.rol == 61)
+            {
+                AbrirFormulario(viajes);
+            }
+        }
+
+
+        void esconderSubPaneles()
+        {
+            panel3.Visible = false;
+            panel4.Visible = false;
+            panel5.Visible = false;
+            panel6.Visible = false;
+            panel7.Visible = false;
+        }
+
+        void hidePaneles()
+        {
+            if (panel3.Visible == true)
+            {
+                panel3.Visible = false;
+            }
+            if (panel4.Visible == true)
+            {
+                panel4.Visible = false;
+            }
+            if (panel5.Visible == true)
+            {
+                panel5.Visible = false;
+            }
+            if (panel6.Visible == true)
+            {
+                panel6.Visible = false;
+            }
+            if (panel7.Visible == true)
+            {
+                panel7.Visible = false;
+            }
+        }
+
+        void abrirSubMenu(Panel SubMenu)
+        {
+            if (SubMenu.Visible == false)
+            {
+                hidePaneles();
+                SubMenu.Visible = true;
+            }
+            else
+            {
+                SubMenu.Visible = false;
+            }
+        }
+
+        private void metroButton23_Click(object sender, EventArgs e)
+        {
+            abrirSubMenu(panel5);
+        }
+
+        private void metroButton22_Click(object sender, EventArgs e)
+        {
+            abrirSubMenu(panel4);
+        }
+
+        private void metroButton25_Click(object sender, EventArgs e)
+        {
+            abrirSubMenu(panel3);
+        }
+
+        private void metroButton24_Click(object sender, EventArgs e)
+        {
+            abrirSubMenu(panel7);
+        }
+
+        private void metroButton21_Click(object sender, EventArgs e)
+        {
+            abrirSubMenu(panel6);
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
     }

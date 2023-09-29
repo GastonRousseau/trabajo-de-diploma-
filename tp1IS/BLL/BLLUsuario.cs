@@ -359,6 +359,19 @@ namespace Negocio
                 throw ex;
             }
         }
+        public List<string> Username_Conductor()
+        {
+            return oUsuario.Username_Conductor();
+        }
+        public List<string> Username_Clientes()
+        {
+            return oUsuario.Username_Clientes();
+        }
+
+        public List<BEUsuario> S_Traer_Administradores()
+        {
+            return oUsuario.S_Traer_Administradores();
+        }
     }
     
 }

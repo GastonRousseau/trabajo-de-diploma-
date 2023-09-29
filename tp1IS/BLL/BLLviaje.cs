@@ -47,9 +47,21 @@ namespace BLL
         {
             return oMPPviaje.Traer_Viajes_Viajes_con_Mensajes_Choferes(ID);
         }
-        public IList<BEViaje> getAll_Historial_viajes_(int pag, string NombreCliente, DateTime fecha)
+        public IList<BEViaje> getAll_Historial_viajes_(int pag, string NombreCliente,Nullable<DateTime> from,Nullable<DateTime>to)
         {
-            return oMPPviaje.getAll_Historial_viajes_(pag, NombreCliente, fecha);
+            return oMPPviaje.getAll_Historial_viajes_(pag, NombreCliente,from,to);
+        }
+        public IList<BEViaje> getAll_Historial_viajes_SF(string NombreCliente, Nullable<DateTime> from, Nullable<DateTime> to)
+        {
+            return oMPPviaje.getAll_Historial_viajes_SF(NombreCliente, from, to);
+        }
+        public IList<BEViaje> Viajes_pendientes_sistema(string NombreCliente, string NombreConductor, string PatenteCamiones, Nullable<DateTime> from, Nullable<DateTime> to, int pag)
+        {
+            return oMPPviaje.Viajes_pendientes_sistema(NombreCliente, NombreConductor, PatenteCamiones, from, to, pag);
+        }
+        public bool Modifica_Viaje(BEViaje viaje)
+        {
+            return oMPPviaje.Modifica_Viaje(viaje);
         }
     }
 }

@@ -22,6 +22,8 @@ namespace UI
             InitializeComponent();
             oBLLviaje = new BLLviaje();
             buscar(null,1);
+            panel2.Visible = false;
+            cargarCombo();
         }
         BLLviaje oBLLviaje;
         int pag = 0;
@@ -29,6 +31,9 @@ namespace UI
         IList<BEViaje> viajes = new List<BEViaje>();
         BLLBitacora oBit = new BLLBitacora();
         validaciones validar = new validaciones();
+        BLLUsuario oBLLusuario = new BLLUsuario();
+        BEViaje ViajeSleccionado = new BEViaje();
+        BLLMensaje oBLLmensaje = new BLLMensaje();
         private void Viajes_chofer_Load(object sender, EventArgs e)
         {
             pag = 1;
@@ -66,6 +71,13 @@ namespace UI
                 MessageBox.Show(ex.Message);
             }
 
+        }
+       void cargarCombo()
+        {
+            metroComboBox1.DataSource = oBLLusuario.S_Traer_Administradores();
+         //   metroComboBox1.DisplayMember = "username";
+            metroComboBox1.ValueMember = "id";
+            metroComboBox1.SelectedItem = null;
         }
 
         private void metroButton1_Click(object sender, EventArgs e)
@@ -218,6 +230,63 @@ namespace UI
                 var accion = ex.Message;
                 oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void metroButton6_Click(object sender, EventArgs e)
+        {
+            BEViaje viajeSelect = (BEViaje)dataGridView1.CurrentRow.DataBoundItem;
+            if (viajeSelect != null)
+            {
+                Chat.usuarioAconectar = viajeSelect.producto.cliente;
+
+                // form.label1.Text = viajeSelect.camion.conductor.user;
+                Chat form = new Chat();
+                form.button2.Visible = true;
+                form.Show();
+            }
+            else
+            {
+                MessageBox.Show("No se selecciono ningun viaje seleccionado");
+            }
+        }
+
+        private void metroButton7_Click(object sender, EventArgs e)
+        {
+            if (ViajeSleccionado != null)
+            {
+                //   oBLLusuario.
+                panel2.Visible = Visible;
+            }
+            else
+            {
+                MessageBox.Show("no se selecciono ningun viaje");
+            }
+
+            
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ViajeSleccionado = (BEViaje)dataGridView1.CurrentRow.DataBoundItem;
+        }
+
+        private void metroButton8_Click(object sender, EventArgs e)
+        {
+            if (ViajeSleccionado != null)
+            {
+                if (metroComboBox1.SelectedItem != null)
+                {
+                    BEUsuario adminSelect = (BEUsuario)metroComboBox1.SelectedItem;
+                    BEMensaje mensaje = new BEMensaje(SessionManager.GetInstance.Usuario,adminSelect,"Solicito un remplazo de camion/conductor, para el viaje :"+ViajeSleccionado.id,DateTime.Now,2);
+                    oBLLmensaje.GuardarMensaje(mensaje);
+                    Chat.usuarioAconectar = adminSelect;
+
+                    // form.label1.Text = viajeSelect.camion.conductor.user;
+                    Chat form = new Chat();
+                    form.button2.Visible = true;
+                    form.Show();
+                }
             }
         }
     }
