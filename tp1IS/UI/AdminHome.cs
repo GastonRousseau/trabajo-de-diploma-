@@ -76,13 +76,14 @@ namespace UI
                 }
 
                 formularioAbierto = formulario;
-             //   formularioAbierto.BringToFront();
-               // formularioAbierto.TopLevel = false;
-                
-              //  formularioAbierto.Dock= DockStyle.Fill;
-               
-            //    Control topLevelControl = panel9.TopLevelControl;
-            //    panel9.Controls.Add(formularioAbierto);
+                //    formularioAbierto.BringToFront();
+                //    formularioAbierto.TopLevel = false;
+
+                //  formularioAbierto.Dock= DockStyle.Fill;
+
+                //    Control topLevelControl = panel9.TopLevelControl;
+                //     panel9.Controls.Add(formularioAbierto);
+                formulario.Location = new Point(513,25);
                 formularioAbierto.Show();
             }
             catch (NullReferenceException ex)
@@ -985,6 +986,12 @@ namespace UI
         private void panel4_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void metroButton26_Click(object sender, EventArgs e)
+        {
+            GenerarPDF form = new GenerarPDF();
+            AbrirFormulario(form);
         }
     }
     }

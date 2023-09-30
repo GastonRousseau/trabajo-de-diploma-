@@ -55,32 +55,30 @@
             this.metroButton17 = new MetroFramework.Controls.MetroButton();
             this.metroButton18 = new MetroFramework.Controls.MetroButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.metroButton20 = new MetroFramework.Controls.MetroButton();
-            this.metroButton19 = new MetroFramework.Controls.MetroButton();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.metroButton22 = new MetroFramework.Controls.MetroButton();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.metroButton23 = new MetroFramework.Controls.MetroButton();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.metroButton24 = new MetroFramework.Controls.MetroButton();
-            this.metroButton25 = new MetroFramework.Controls.MetroButton();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.metroButton21 = new MetroFramework.Controls.MetroButton();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.metroButton21 = new MetroFramework.Controls.MetroButton();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.metroButton24 = new MetroFramework.Controls.MetroButton();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.metroButton25 = new MetroFramework.Controls.MetroButton();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.metroButton22 = new MetroFramework.Controls.MetroButton();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.metroButton20 = new MetroFramework.Controls.MetroButton();
+            this.metroButton23 = new MetroFramework.Controls.MetroButton();
+            this.metroButton19 = new MetroFramework.Controls.MetroButton();
             this.metroButton26 = new MetroFramework.Controls.MetroButton();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroButton1
@@ -563,15 +561,141 @@
             this.panel1.TabIndex = 20;
             this.panel1.UseWaitCursor = true;
             // 
-            // panel2
+            // panel6
             // 
-            this.panel2.BackColor = System.Drawing.Color.CadetBlue;
-            this.panel2.Location = new System.Drawing.Point(884, 807);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 100);
-            this.panel2.TabIndex = 21;
-            this.panel2.UseWaitCursor = true;
-            this.panel2.Visible = false;
+            this.panel6.BackColor = System.Drawing.Color.CadetBlue;
+            this.panel6.Controls.Add(this.metroButton11);
+            this.panel6.Controls.Add(this.metroButton12);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(0, 830);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(485, 100);
+            this.panel6.TabIndex = 23;
+            this.panel6.UseWaitCursor = true;
+            // 
+            // metroButton21
+            // 
+            this.metroButton21.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.metroButton21.Dock = System.Windows.Forms.DockStyle.Top;
+            this.metroButton21.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.metroButton21.Location = new System.Drawing.Point(0, 784);
+            this.metroButton21.Name = "metroButton21";
+            this.metroButton21.Size = new System.Drawing.Size(485, 46);
+            this.metroButton21.TabIndex = 23;
+            this.metroButton21.Text = "Translation";
+            this.metroButton21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.metroButton21.UseCustomBackColor = true;
+            this.metroButton21.UseCustomForeColor = true;
+            this.metroButton21.UseSelectable = true;
+            this.metroButton21.UseWaitCursor = true;
+            this.metroButton21.Click += new System.EventHandler(this.metroButton21_Click);
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.CadetBlue;
+            this.panel7.Controls.Add(this.metroButton18);
+            this.panel7.Controls.Add(this.metroButton16);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(0, 690);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(485, 94);
+            this.panel7.TabIndex = 32;
+            this.panel7.UseWaitCursor = true;
+            // 
+            // metroButton24
+            // 
+            this.metroButton24.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.metroButton24.Dock = System.Windows.Forms.DockStyle.Top;
+            this.metroButton24.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.metroButton24.Location = new System.Drawing.Point(0, 647);
+            this.metroButton24.Name = "metroButton24";
+            this.metroButton24.Size = new System.Drawing.Size(485, 43);
+            this.metroButton24.TabIndex = 29;
+            this.metroButton24.Text = "trucks and drivers";
+            this.metroButton24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.metroButton24.UseCustomBackColor = true;
+            this.metroButton24.UseCustomForeColor = true;
+            this.metroButton24.UseSelectable = true;
+            this.metroButton24.UseWaitCursor = true;
+            this.metroButton24.Click += new System.EventHandler(this.metroButton24_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.CadetBlue;
+            this.panel3.Controls.Add(this.metroButton8);
+            this.panel3.Controls.Add(this.metroButton7);
+            this.panel3.Controls.Add(this.metroButton6);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 502);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(485, 145);
+            this.panel3.TabIndex = 23;
+            this.panel3.UseWaitCursor = true;
+            // 
+            // metroButton25
+            // 
+            this.metroButton25.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.metroButton25.DisplayFocus = true;
+            this.metroButton25.Dock = System.Windows.Forms.DockStyle.Top;
+            this.metroButton25.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.metroButton25.Location = new System.Drawing.Point(0, 464);
+            this.metroButton25.Name = "metroButton25";
+            this.metroButton25.Size = new System.Drawing.Size(485, 38);
+            this.metroButton25.TabIndex = 31;
+            this.metroButton25.Text = "rols";
+            this.metroButton25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.metroButton25.UseCustomBackColor = true;
+            this.metroButton25.UseCustomForeColor = true;
+            this.metroButton25.UseSelectable = true;
+            this.metroButton25.UseWaitCursor = true;
+            this.metroButton25.Click += new System.EventHandler(this.metroButton25_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.CadetBlue;
+            this.panel4.Controls.Add(this.metroButton10);
+            this.panel4.Controls.Add(this.metroButton2);
+            this.panel4.Controls.Add(this.metroButton5);
+            this.panel4.Controls.Add(this.metroButton1);
+            this.panel4.Controls.Add(this.metroButton9);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 279);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(485, 185);
+            this.panel4.TabIndex = 26;
+            this.panel4.UseWaitCursor = true;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            // 
+            // metroButton22
+            // 
+            this.metroButton22.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.metroButton22.Dock = System.Windows.Forms.DockStyle.Top;
+            this.metroButton22.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.metroButton22.Location = new System.Drawing.Point(0, 235);
+            this.metroButton22.Name = "metroButton22";
+            this.metroButton22.Size = new System.Drawing.Size(485, 44);
+            this.metroButton22.TabIndex = 25;
+            this.metroButton22.Text = "Users";
+            this.metroButton22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.metroButton22.UseCustomBackColor = true;
+            this.metroButton22.UseCustomForeColor = true;
+            this.metroButton22.UseSelectable = true;
+            this.metroButton22.UseWaitCursor = true;
+            this.metroButton22.Click += new System.EventHandler(this.metroButton22_Click);
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.CadetBlue;
+            this.panel5.Controls.Add(this.metroButton14);
+            this.panel5.Controls.Add(this.metroButton20);
+            this.panel5.Controls.Add(this.metroButton17);
+            this.panel5.Controls.Add(this.metroButton13);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 41);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(485, 152);
+            this.panel5.TabIndex = 28;
+            this.panel5.UseWaitCursor = true;
             // 
             // metroButton20
             // 
@@ -596,6 +720,23 @@
             this.metroButton20.UseWaitCursor = true;
             this.metroButton20.Click += new System.EventHandler(this.metroButton20_Click);
             // 
+            // metroButton23
+            // 
+            this.metroButton23.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.metroButton23.Dock = System.Windows.Forms.DockStyle.Top;
+            this.metroButton23.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.metroButton23.Location = new System.Drawing.Point(0, 0);
+            this.metroButton23.Name = "metroButton23";
+            this.metroButton23.Size = new System.Drawing.Size(485, 41);
+            this.metroButton23.TabIndex = 27;
+            this.metroButton23.Text = "Travels";
+            this.metroButton23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.metroButton23.UseCustomBackColor = true;
+            this.metroButton23.UseCustomForeColor = true;
+            this.metroButton23.UseSelectable = true;
+            this.metroButton23.UseWaitCursor = true;
+            this.metroButton23.Click += new System.EventHandler(this.metroButton23_Click);
+            // 
             // metroButton19
             // 
             this.metroButton19.BackColor = System.Drawing.Color.DarkSlateGray;
@@ -619,149 +760,6 @@
             this.metroButton19.UseWaitCursor = true;
             this.metroButton19.Click += new System.EventHandler(this.metroButton19_Click);
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.CadetBlue;
-            this.panel3.Controls.Add(this.metroButton8);
-            this.panel3.Controls.Add(this.metroButton7);
-            this.panel3.Controls.Add(this.metroButton6);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 502);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(485, 145);
-            this.panel3.TabIndex = 23;
-            // 
-            // metroButton22
-            // 
-            this.metroButton22.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.metroButton22.Dock = System.Windows.Forms.DockStyle.Top;
-            this.metroButton22.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.metroButton22.Location = new System.Drawing.Point(0, 235);
-            this.metroButton22.Name = "metroButton22";
-            this.metroButton22.Size = new System.Drawing.Size(485, 44);
-            this.metroButton22.TabIndex = 25;
-            this.metroButton22.Text = "Users";
-            this.metroButton22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.metroButton22.UseCustomBackColor = true;
-            this.metroButton22.UseCustomForeColor = true;
-            this.metroButton22.UseSelectable = true;
-            this.metroButton22.Click += new System.EventHandler(this.metroButton22_Click);
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.CadetBlue;
-            this.panel4.Controls.Add(this.metroButton10);
-            this.panel4.Controls.Add(this.metroButton2);
-            this.panel4.Controls.Add(this.metroButton5);
-            this.panel4.Controls.Add(this.metroButton1);
-            this.panel4.Controls.Add(this.metroButton9);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 279);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(485, 185);
-            this.panel4.TabIndex = 26;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
-            // 
-            // metroButton23
-            // 
-            this.metroButton23.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.metroButton23.Dock = System.Windows.Forms.DockStyle.Top;
-            this.metroButton23.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.metroButton23.Location = new System.Drawing.Point(0, 0);
-            this.metroButton23.Name = "metroButton23";
-            this.metroButton23.Size = new System.Drawing.Size(485, 41);
-            this.metroButton23.TabIndex = 27;
-            this.metroButton23.Text = "Travels";
-            this.metroButton23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.metroButton23.UseCustomBackColor = true;
-            this.metroButton23.UseCustomForeColor = true;
-            this.metroButton23.UseSelectable = true;
-            this.metroButton23.Click += new System.EventHandler(this.metroButton23_Click);
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.CadetBlue;
-            this.panel5.Controls.Add(this.metroButton14);
-            this.panel5.Controls.Add(this.metroButton20);
-            this.panel5.Controls.Add(this.metroButton17);
-            this.panel5.Controls.Add(this.metroButton13);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 41);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(485, 152);
-            this.panel5.TabIndex = 28;
-            // 
-            // metroButton24
-            // 
-            this.metroButton24.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.metroButton24.Dock = System.Windows.Forms.DockStyle.Top;
-            this.metroButton24.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.metroButton24.Location = new System.Drawing.Point(0, 647);
-            this.metroButton24.Name = "metroButton24";
-            this.metroButton24.Size = new System.Drawing.Size(485, 43);
-            this.metroButton24.TabIndex = 29;
-            this.metroButton24.Text = "trucks and drivers";
-            this.metroButton24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.metroButton24.UseCustomBackColor = true;
-            this.metroButton24.UseCustomForeColor = true;
-            this.metroButton24.UseSelectable = true;
-            this.metroButton24.Click += new System.EventHandler(this.metroButton24_Click);
-            // 
-            // metroButton25
-            // 
-            this.metroButton25.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.metroButton25.DisplayFocus = true;
-            this.metroButton25.Dock = System.Windows.Forms.DockStyle.Top;
-            this.metroButton25.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.metroButton25.Location = new System.Drawing.Point(0, 464);
-            this.metroButton25.Name = "metroButton25";
-            this.metroButton25.Size = new System.Drawing.Size(485, 38);
-            this.metroButton25.TabIndex = 31;
-            this.metroButton25.Text = "rols";
-            this.metroButton25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.metroButton25.UseCustomBackColor = true;
-            this.metroButton25.UseCustomForeColor = true;
-            this.metroButton25.UseSelectable = true;
-            this.metroButton25.Click += new System.EventHandler(this.metroButton25_Click);
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.CadetBlue;
-            this.panel7.Controls.Add(this.metroButton18);
-            this.panel7.Controls.Add(this.metroButton16);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 690);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(485, 94);
-            this.panel7.TabIndex = 32;
-            // 
-            // metroButton21
-            // 
-            this.metroButton21.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.metroButton21.Dock = System.Windows.Forms.DockStyle.Top;
-            this.metroButton21.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.metroButton21.Location = new System.Drawing.Point(0, 784);
-            this.metroButton21.Name = "metroButton21";
-            this.metroButton21.Size = new System.Drawing.Size(485, 46);
-            this.metroButton21.TabIndex = 23;
-            this.metroButton21.Text = "Translation";
-            this.metroButton21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.metroButton21.UseCustomBackColor = true;
-            this.metroButton21.UseCustomForeColor = true;
-            this.metroButton21.UseSelectable = true;
-            this.metroButton21.Click += new System.EventHandler(this.metroButton21_Click);
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.CadetBlue;
-            this.panel6.Controls.Add(this.metroButton11);
-            this.panel6.Controls.Add(this.metroButton12);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 830);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(485, 100);
-            this.panel6.TabIndex = 23;
-            // 
             // metroButton26
             // 
             this.metroButton26.BackColor = System.Drawing.Color.PowderBlue;
@@ -775,6 +773,8 @@
             this.metroButton26.UseCustomBackColor = true;
             this.metroButton26.UseCustomForeColor = true;
             this.metroButton26.UseSelectable = true;
+            this.metroButton26.UseWaitCursor = true;
+            this.metroButton26.Click += new System.EventHandler(this.metroButton26_Click);
             // 
             // panel8
             // 
@@ -784,21 +784,21 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(502, 113);
             this.panel8.TabIndex = 23;
+            this.panel8.UseWaitCursor = true;
             // 
-            // panel9
+            // panel2
             // 
-            this.panel9.Controls.Add(this.panel2);
-            this.panel9.Location = new System.Drawing.Point(513, 177);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1084, 907);
-            this.panel9.TabIndex = 24;
+            this.panel2.Location = new System.Drawing.Point(553, 25);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 100);
+            this.panel2.TabIndex = 24;
             // 
             // AdminHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1605, 1100);
-            this.Controls.Add(this.panel9);
+            this.ClientSize = new System.Drawing.Size(1380, 788);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.groupBox1);
@@ -817,13 +817,12 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -855,7 +854,6 @@
         private MetroFramework.Controls.MetroButton metroButton18;
         private System.Windows.Forms.Panel panel1;
         private MetroFramework.Controls.MetroButton metroButton19;
-        private System.Windows.Forms.Panel panel2;
         private MetroFramework.Controls.MetroButton metroButton20;
         private System.Windows.Forms.Panel panel6;
         private MetroFramework.Controls.MetroButton metroButton21;
@@ -869,6 +867,6 @@
         private MetroFramework.Controls.MetroButton metroButton23;
         private MetroFramework.Controls.MetroButton metroButton26;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panel2;
     }
 }

@@ -290,6 +290,12 @@
     <Compile Include="modificarTranslation.Designer.cs">
       <DependentUpon>modificarTranslation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pago.Designer.cs">
+      <DependentUpon>Pago.cs</DependentUpon>
+    </Compile>
     <Compile Include="SignIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -398,6 +404,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="modificarTranslation.resx">
       <DependentUpon>modificarTranslation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pago.resx">
+      <DependentUpon>Pago.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

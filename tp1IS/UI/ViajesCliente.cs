@@ -21,9 +21,14 @@ namespace UI
             InitializeComponent();
             oBLLviaje = new BLLviaje();
             oBLLmensaje = new BLLMensaje();
+            panel3.Visible = false;
+            //  dateTimePicker1.Value = null;
+            this.Size = new Size(826, 311);
         }
         BLLviaje oBLLviaje;
         BLLMensaje oBLLmensaje;
+        BLLCamion oBLLcamion = new BLLCamion();
+        BEViaje viajeSelect = new BEViaje();
         private void ViajesCliente_Load(object sender, EventArgs e)
         {
             label1.Visible =false;
@@ -122,8 +127,10 @@ namespace UI
                 if (viajeSelect.estado == "pendiente")
                 {
                     oBLLviaje.ActualizarEstado(viajeSelect.id, "Cancelado");
-                    Chat form = new Chat();
+                    BEMensaje mensaja = new BEMensaje(SessionManager.GetInstance.Usuario, viajeSelect.camion.conductor, "El viaje con id:" + viajeSelect.id, DateTime.Now, 2);
+                    oBLLmensaje.GuardarMensaje(mensaja);
                     Chat.usuarioAconectar = viajeSelect.camion.conductor;
+                    Chat form = new Chat();
                     form.button2.Visible = true;
                     form.userControl11.Texts = "Solicite la cancelacion del viaje devido a que";
                     form.Show();
@@ -146,6 +153,81 @@ namespace UI
                 form.button2.Visible = true;
                 form.Show();
 
+            }
+        }
+
+        private void metroButton5_Click(object sender, EventArgs e)
+        {
+            BEViaje viajeSelect = (BEViaje)dataGridView1.CurrentRow.DataBoundItem;
+            if(viajeSelect != null)
+            {
+                this.Size = new Size(1081, 311);
+                panel3.Visible = true;
+            
+            }
+        }
+
+        private void metroButton6_Click(object sender, EventArgs e)
+        {
+            this.Size= new Size(826,311);
+            panel3.Visible = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroButton8_Click(object sender, EventArgs e)
+        {
+            if (dateTimePicker1.Value != null&& viajeSelect!=null&&viajeSelect.estado=="pendiente")
+            {
+                dataGridView2.DataSource = null;
+                dataGridView2.DataSource = oBLLcamion.Camiones_Disponibles(dateTimePicker1.Value, viajeSelect.cantidad_Pallets);
+            }
+            else 
+            {
+                MessageBox.Show("Ocurrio un error,puede ser que el estado del viaje no sea pendiente");
+            }
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            viajeSelect = (BEViaje)dataGridView1.CurrentRow.DataBoundItem;
+        }
+
+        private void metroButton7_Click(object sender, EventArgs e)
+        {
+            viajeSelect = (BEViaje)dataGridView1.CurrentRow.DataBoundItem;
+            BECamion camionSelect = (BECamion)dataGridView2.CurrentRow.DataBoundItem;
+            if(camionSelect != null&&viajeSelect!=null&&dateTimePicker1.Value!=null)
+            {
+                if (viajeSelect.camion != camionSelect)
+                {
+                    BEMensaje mensaje = new BEMensaje(SessionManager.GetInstance.Usuario, viajeSelect.camion.conductor, "Dejaras del ser el conductor del viaje con id: " + viajeSelect.id, DateTime.Now, 2);
+                    oBLLmensaje.GuardarMensaje(mensaje);
+                    viajeSelect.camion = camionSelect;
+                    BEMensaje mensaje2 = new BEMensaje(SessionManager.GetInstance.Usuario, viajeSelect.camion.conductor, "Eres el nuevo conductor del viaje con id: " + viajeSelect.id, DateTime.Now, 2);
+                    oBLLmensaje.GuardarMensaje(mensaje2);
+                }
+                else
+                {
+                    BEMensaje mensaje = new BEMensaje(SessionManager.GetInstance.Usuario,viajeSelect.camion.conductor,"Se postargo el viaje"+viajeSelect.id +"a la fecha " + dateTimePicker1.Value,DateTime.Now,2);
+                    oBLLmensaje.GuardarMensaje(mensaje);
+                }
+               
+                viajeSelect.fecha = dateTimePicker1.Value;
+                oBLLviaje.Modifica_Viaje(viajeSelect);
+
+
+                MessageBox.Show("Se postergo la fecha del viaje al dia" +dateTimePicker1.Value);
+                panel3.Visible = false;
+                this.Size = new Size(826, 311);
+                Listar();
+            }
+            else
+            {
+                MessageBox.Show("hubo un error al intentar postergar el viaje");
             }
         }
     }
