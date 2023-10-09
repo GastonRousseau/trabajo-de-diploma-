@@ -70,5 +70,14 @@ namespace servicios
             }
             catch (Exception ex) { throw ex; }
         }
+        public bool numero(string id)
+        {
+
+            try
+            {
+                return Regex.IsMatch(id, "^([0-9]+$)");
+            }
+            catch (Exception ex) { throw ex; }
+        }
     }
 }

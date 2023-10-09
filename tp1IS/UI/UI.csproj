@@ -266,12 +266,6 @@
     <Compile Include="Historial_Viajes_Empresa.Designer.cs">
       <DependentUpon>Historial_Viajes_Empresa.cs</DependentUpon>
     </Compile>
-    <Compile Include="HomeAdmin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="HomeAdmin.Designer.cs">
-      <DependentUpon>HomeAdmin.cs</DependentUpon>
-    </Compile>
     <Compile Include="InterfazMensajes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -289,12 +283,6 @@
     </Compile>
     <Compile Include="modificarTranslation.Designer.cs">
       <DependentUpon>modificarTranslation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pago.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pago.Designer.cs">
-      <DependentUpon>Pago.cs</DependentUpon>
     </Compile>
     <Compile Include="SignIn.cs">
       <SubType>Form</SubType>
@@ -393,9 +381,6 @@
     <EmbeddedResource Include="Historial_Viajes_Empresa.resx">
       <DependentUpon>Historial_Viajes_Empresa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HomeAdmin.resx">
-      <DependentUpon>HomeAdmin.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="InterfazMensajes.resx">
       <DependentUpon>InterfazMensajes.cs</DependentUpon>
     </EmbeddedResource>
@@ -404,9 +389,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="modificarTranslation.resx">
       <DependentUpon>modificarTranslation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pago.resx">
-      <DependentUpon>Pago.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

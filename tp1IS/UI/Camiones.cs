@@ -348,6 +348,11 @@ namespace UI
         {
             this.Close();
         }
+
+        private void metroComboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

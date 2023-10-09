@@ -150,6 +150,7 @@ namespace UI
             this.metroComboBox2.UseCustomBackColor = true;
             this.metroComboBox2.UseCustomForeColor = true;
             this.metroComboBox2.UseSelectable = true;
+            this.metroComboBox2.SelectedIndexChanged += new System.EventHandler(this.metroComboBox2_SelectedIndexChanged);
             // 
             // metroLabel3
             // 

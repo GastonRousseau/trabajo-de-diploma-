@@ -15,6 +15,11 @@ namespace BLL
         }
         MPPviaje oMPPviaje;
 
+        public int calcularCoste(int CantiKM,int cantPalets)
+        {
+            int costo = CantiKM * 2000 * cantPalets;
+            return costo;
+        }
         public bool guardarViaje(BEViaje viaje)
         {
             return oMPPviaje.Guardar_Viaje(viaje);
