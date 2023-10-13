@@ -41,7 +41,11 @@ namespace UI
         BEViaje viajeSelect = new BEViaje();
         private void ViajesPendientes_Empresa_Load(object sender, EventArgs e)
         {
-
+            if (SessionManager.tiene_permiso(61) == true)
+            {
+                metroButton5.Enabled = true;
+                metroButton6.Enabled = true;
+            }
         }
         void cargarDatos()
         {
@@ -58,12 +62,17 @@ namespace UI
 
             if (panel1.Visible == true)
             {
-                if (viajeSelect != null)
+                if (viajeSelect.id != 0)
                 {
                     List<BECamion> camiones = new List<BECamion>();
                     camiones = oBLLcamion.Camiones_Disponibles(viajeSelect.fecha, viajeSelect.cantidad_Pallets);
                     dataGridView2.DataSource = null;
                     dataGridView2.DataSource = camiones;
+                }
+                else
+                {
+                    MessageBox.Show("no hay ningun camion seleccionado");
+
                 }
             }
         }
@@ -118,7 +127,13 @@ namespace UI
             if (viajes.Count == 0) { metroButton2.Enabled = false; }
             else { metroButton2.Enabled = true; }
             dataGridView1.DataSource = null;
+            
+         //   DataGridViewTextBoxColumn columnaNombreProducto = new DataGridViewTextBoxColumn();
+         //   columnaNombreProducto.DataPropertyName = "producto.nombre"; // Aquí indicas la propiedad que quieres mostrar
+        //    columnaNombreProducto.HeaderText = "Nombre del Producto"; // Esto puede ser opcional
+        //    dataGridView1.Columns.Add(columnaNombreProducto);
             dataGridView1.DataSource = viajes;
+          //  dataGridView1.DataSource = viajes.Select(v => new { NombreDelProducto = v.Producto.Nombre }).ToList();
         }
         private void metroButton4_Click(object sender, EventArgs e)
         {
@@ -140,7 +155,7 @@ namespace UI
         private void metroButton5_Click(object sender, EventArgs e)
         {
             
-            if (viajeSelect != null)
+            if (viajeSelect.id != 0)
             {
                 List<BECamion> camiones = new List<BECamion>();
                 camiones = oBLLcamion.Camiones_Disponibles(viajeSelect.fecha, viajeSelect.cantidad_Pallets);
@@ -149,13 +164,17 @@ namespace UI
                 dataGridView2.DataSource = null;
                 dataGridView2.DataSource = camiones;
             }
+            else
+            {
+                MessageBox.Show("no hay ningun camion seleccionado");
+            }
         }
 
         private void metroButton7_Click(object sender, EventArgs e)
         {
             BECamion camionSelect = (BECamion)dataGridView2.CurrentRow.DataBoundItem;
             // panel1.Visible = true;
-            if (viajeSelect != null)
+            if (viajeSelect.id != 0)
             {
                 if (camionSelect != null)
                 {
@@ -175,7 +194,12 @@ namespace UI
                     //  this.Size = new Size(695,701);
                 }
             }
-          
+            else
+            {
+                MessageBox.Show("no hay ningun camion seleccionado");
+
+            }
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -195,7 +219,7 @@ namespace UI
 
         private void metroButton6_Click(object sender, EventArgs e)
         {
-            if (viajeSelect != null)
+            if (viajeSelect.id != 0)
             {
                 if (viajeSelect.estado == "pendiente")
                 {
@@ -212,6 +236,52 @@ namespace UI
                     form.Show();
                     oBLLviaje.ActualizarEstado(viajeSelect.id, "Cancelado");
 
+                }
+            }
+            else
+            {
+                MessageBox.Show("no hay ningun camion seleccionado");
+
+            }
+        }
+
+        private void cellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == dataGridView1.Columns["producto"].Index && e.RowIndex >= 0)
+            {
+                BEViaje viaje = dataGridView1.Rows[e.RowIndex].DataBoundItem as BEViaje;
+
+                // Asegúrate de que la celda tenga un valor de Viaje no nulo
+                if (viaje != null && viaje.producto != null)
+                {
+                    // Configura el valor de la celda para mostrar el nombre del producto
+                    e.Value = viaje.producto.nombre;
+                }
+            }
+            if (e.ColumnIndex == dataGridView1.Columns["camion"].Index && e.RowIndex >= 0)
+            {
+                BEViaje viaje = dataGridView1.Rows[e.RowIndex].DataBoundItem as BEViaje;
+
+                // Asegúrate de que la celda tenga un valor de Viaje no nulo
+                if (viaje != null && viaje.camion != null)
+                {
+                    // Configura el valor de la celda para mostrar el nombre del producto
+                    e.Value = viaje.camion.patente +" "+viaje.camion.conductor.user;
+                }
+            }
+        }
+
+        private void cellFormatingDataGrid2(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == dataGridView2.Columns["conductor"].Index && e.RowIndex >= 0)
+            {
+                BECamion camion = dataGridView2.Rows[e.RowIndex].DataBoundItem as BECamion;
+
+                // Asegúrate de que la celda tenga un valor de Viaje no nulo
+                if (camion != null && camion.conductor != null)
+                {
+                    // Configura el valor de la celda para mostrar el nombre del producto
+                    e.Value = camion.conductor.user;
                 }
             }
         }

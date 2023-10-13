@@ -62,7 +62,7 @@ namespace UI
             if (e.ColumnIndex == dataGridView1.Columns["camion"].Index && e.Value != null)
             {
                 BECamion camion = (BECamion)e.Value;
-                e.Value = camion.patente;
+                e.Value = camion.patente+" "+camion.conductor.user;
             }
 
         }
@@ -96,7 +96,7 @@ namespace UI
         {
             
             BEViaje viajeSelect = ((BEViaje)dataGridView1.CurrentRow.DataBoundItem);
-            if (viajeSelect != null)
+            if (viajeSelect.id != 0)
             {
                 if(viajeSelect.estado=="En proceso")
                 {
@@ -108,7 +108,15 @@ namespace UI
                     metroLabel2.Visible = true;
                     metroLabel2.Text = (viajeSelect.Km_Recorridos + "/" + viajeSelect.cantidad_KM);
                 }
-               
+                else
+                {
+                    MessageBox.Show("El estado del viaje tiene que ser pendiente, de lo contrario no se podra realizar la accion");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("No hay ningun viaje seleccionado");
             } 
            
             
@@ -122,7 +130,7 @@ namespace UI
         private void metroButton3_Click_1(object sender, EventArgs e)
         {
             BEViaje viajeSelect = (BEViaje)dataGridView1.CurrentRow.DataBoundItem;
-            if (viajeSelect != null)
+            if (viajeSelect.id != 0)
             {
                 if (viajeSelect.estado == "pendiente")
                 {
@@ -135,15 +143,23 @@ namespace UI
                     form.userControl11.Texts = "Solicite la cancelacion del viaje devido a que";
                     form.Show();
                     Listar();
-                    
+
                 }
+                else
+                {
+                    MessageBox.Show("El estado del viaje tiene que ser pendiente, de lo contrario no se podra realizar la accion");
+                }
+            }
+            else
+            {
+                MessageBox.Show("No hay ningun viaje seleccionado");
             }
         }
 
         private void metroButton4_Click(object sender, EventArgs e)
         {
             BEViaje viajeSelect = (BEViaje)dataGridView1.CurrentRow.DataBoundItem;
-            if (viajeSelect != null)
+            if (viajeSelect.id != 0)
             {
                 
                 Chat.usuarioAconectar = viajeSelect.camion.conductor;
@@ -154,16 +170,24 @@ namespace UI
                 form.Show();
 
             }
+            else
+            {
+                MessageBox.Show("No hay ningun viaje seleccionado");
+            }
         }
 
         private void metroButton5_Click(object sender, EventArgs e)
         {
             BEViaje viajeSelect = (BEViaje)dataGridView1.CurrentRow.DataBoundItem;
-            if(viajeSelect != null)
+            if(viajeSelect.id != 0)
             {
                 this.Size = new Size(1081, 311);
                 panel3.Visible = true;
-            
+
+            }
+            else
+            {
+                MessageBox.Show("No hay ningun viaje seleccionado");
             }
         }
 

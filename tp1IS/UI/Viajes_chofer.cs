@@ -106,7 +106,7 @@ namespace UI
             if (e.ColumnIndex == dataGridView1.Columns["producto"].Index && e.Value != null)
             {
                 BEProducto producto = (BEProducto)e.Value;
-                e.Value = producto.nombre;
+                e.Value = producto.nombre+" "+producto.cliente.user;
             }
             if (e.ColumnIndex == dataGridView1.Columns["camion"].Index && e.Value != null)
             {

@@ -38,6 +38,7 @@ namespace UI
             this.MinimumSize = new System.Drawing.Size(1373, 540);
             esconderSubPaneles();
             panel1.Size = new Size(502, 528);
+            
 
 
         }
@@ -802,7 +803,7 @@ namespace UI
                     if (contador < 5)
                     {
                         Label label = new Label();
-                        label.BackColor = Color.White;
+                        label.BackColor = Color.Transparent;
                         label.ForeColor = Color.Black;
                         label.Text = $"{kvp.Key}: {kvp.Value} mensajes nuevos";
                        // panelMensajes.Controls.Add(label);
@@ -905,7 +906,8 @@ namespace UI
         private void metroButton20_Click(object sender, EventArgs e)
         {
             Viajes_chofer viajes =new Viajes_chofer();
-            if (SessionManager.GetInstance.Usuario.rol == 61)
+            
+            if (oLog.tiene_rol(SessionManager.GetInstance.Usuario.id,60) == true)
             {
                 AbrirFormulario(viajes);
             }

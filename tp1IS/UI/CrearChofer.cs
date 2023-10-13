@@ -23,6 +23,7 @@ namespace UI
             oBit = new BLLBitacora();
             oUsuario = new BEUsuario();
             buscar(null, 1);
+            
         }
         BLLUsuario oLog;
         BLLBitacora oBit;
@@ -177,6 +178,11 @@ namespace UI
             metroButton2.Enabled = true;
             pag += 1;
             buscar(nombre, pag);
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

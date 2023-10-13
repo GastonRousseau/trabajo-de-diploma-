@@ -272,17 +272,17 @@
     <Compile Include="InterfazMensajes.Designer.cs">
       <DependentUpon>InterfazMensajes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Mensajes_Chof.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Mensajes_Chof.Designer.cs">
-      <DependentUpon>Mensajes_Chof.cs</DependentUpon>
-    </Compile>
     <Compile Include="modificarTranslation.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="modificarTranslation.Designer.cs">
       <DependentUpon>modificarTranslation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ServicioTecnicoHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServicioTecnicoHome.Designer.cs">
+      <DependentUpon>ServicioTecnicoHome.cs</DependentUpon>
     </Compile>
     <Compile Include="SignIn.cs">
       <SubType>Form</SubType>
@@ -384,9 +384,6 @@
     <EmbeddedResource Include="InterfazMensajes.resx">
       <DependentUpon>InterfazMensajes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Mensajes_Chof.resx">
-      <DependentUpon>Mensajes_Chof.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="modificarTranslation.resx">
       <DependentUpon>modificarTranslation.cs</DependentUpon>
     </EmbeddedResource>
@@ -400,6 +397,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ServicioTecnicoHome.resx">
+      <DependentUpon>ServicioTecnicoHome.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SignIn.resx">
       <DependentUpon>SignIn.cs</DependentUpon>
     </EmbeddedResource>

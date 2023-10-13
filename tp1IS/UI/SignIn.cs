@@ -153,6 +153,13 @@ namespace UI
                             this.Hide();
                             servicios.Observer.eliminarObservador(this);
                         }
+                        if (SessionManager.tiene_permiso(61))
+                        {
+                            ServicioTecnicoHome home = new ServicioTecnicoHome();
+                            home.Show();
+                            this.Hide();
+                            servicios.Observer.eliminarObservador(this);
+                        }
 
                     }
                     else
@@ -171,6 +178,7 @@ namespace UI
                         {
 
                         }
+
                     }
 
                 }

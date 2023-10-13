@@ -108,5 +108,31 @@ namespace UI
             buscar(nombreCliente, 1, from, to);
             pag = 1;
         }
+
+        private void cellFormattingDataGrid(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == dataGridView1.Columns["producto"].Index && e.RowIndex >= 0)
+            {
+                BEViaje viaje = dataGridView1.Rows[e.RowIndex].DataBoundItem as BEViaje;
+
+                // Asegúrate de que la celda tenga un valor de Viaje no nulo
+                if (viaje != null && viaje.producto != null)
+                {
+                    // Configura el valor de la celda para mostrar el nombre del producto
+                    e.Value = viaje.producto.nombre;
+                }
+            }
+            if (e.ColumnIndex == dataGridView1.Columns["camion"].Index && e.RowIndex >= 0)
+            {
+                BEViaje viaje = dataGridView1.Rows[e.RowIndex].DataBoundItem as BEViaje;
+
+                // Asegúrate de que la celda tenga un valor de Viaje no nulo
+                if (viaje != null && viaje.camion != null)
+                {
+                    // Configura el valor de la celda para mostrar el nombre del producto
+                    e.Value = viaje.camion.patente + " " + viaje.camion.conductor.user;
+                }
+            }
+        }
     }
 }

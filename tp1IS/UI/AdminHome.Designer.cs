@@ -90,7 +90,7 @@
             this.metroButton1.Location = new System.Drawing.Point(0, 36);
             this.metroButton1.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(485, 36);
+            this.metroButton1.Size = new System.Drawing.Size(476, 36);
             this.metroButton1.Style = MetroFramework.MetroColorStyle.Magenta;
             this.metroButton1.TabIndex = 0;
             this.metroButton1.Tag = "create admin";
@@ -113,7 +113,7 @@
             this.metroButton2.Location = new System.Drawing.Point(0, 108);
             this.metroButton2.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton2.Name = "metroButton2";
-            this.metroButton2.Size = new System.Drawing.Size(485, 36);
+            this.metroButton2.Size = new System.Drawing.Size(476, 36);
             this.metroButton2.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroButton2.TabIndex = 1;
             this.metroButton2.Tag = "delete user";
@@ -131,7 +131,7 @@
             this.textBox1.Location = new System.Drawing.Point(113, 44);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(165, 20);
+            this.textBox1.Size = new System.Drawing.Size(165, 26);
             this.textBox1.TabIndex = 2;
             this.textBox1.UseWaitCursor = true;
             // 
@@ -141,7 +141,7 @@
             this.groupBox1.Controls.Add(this.metroButton3);
             this.groupBox1.Controls.Add(this.metroLabel1);
             this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Location = new System.Drawing.Point(884, 35);
+            this.groupBox1.Location = new System.Drawing.Point(709, 288);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
@@ -200,7 +200,7 @@
             this.metroButton4.Location = new System.Drawing.Point(0, 930);
             this.metroButton4.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton4.Name = "metroButton4";
-            this.metroButton4.Size = new System.Drawing.Size(485, 36);
+            this.metroButton4.Size = new System.Drawing.Size(476, 36);
             this.metroButton4.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroButton4.TabIndex = 10;
             this.metroButton4.Tag = "sign out";
@@ -227,7 +227,7 @@
             this.metroButton5.Location = new System.Drawing.Point(0, 72);
             this.metroButton5.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton5.Name = "metroButton5";
-            this.metroButton5.Size = new System.Drawing.Size(485, 36);
+            this.metroButton5.Size = new System.Drawing.Size(476, 36);
             this.metroButton5.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroButton5.TabIndex = 2;
             this.metroButton5.Tag = "reset password";
@@ -249,7 +249,7 @@
             this.metroButton6.Location = new System.Drawing.Point(0, 0);
             this.metroButton6.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton6.Name = "metroButton6";
-            this.metroButton6.Size = new System.Drawing.Size(485, 36);
+            this.metroButton6.Size = new System.Drawing.Size(476, 36);
             this.metroButton6.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroButton6.TabIndex = 3;
             this.metroButton6.Tag = "create role";
@@ -270,7 +270,7 @@
             this.metroButton7.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.metroButton7.Location = new System.Drawing.Point(0, 36);
             this.metroButton7.Name = "metroButton7";
-            this.metroButton7.Size = new System.Drawing.Size(485, 36);
+            this.metroButton7.Size = new System.Drawing.Size(476, 36);
             this.metroButton7.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroButton7.TabIndex = 4;
             this.metroButton7.Tag = "assign or delete role";
@@ -290,7 +290,7 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(1429, 50);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(140, 21);
+            this.comboBox1.Size = new System.Drawing.Size(140, 28);
             this.comboBox1.TabIndex = 8;
             this.comboBox1.UseWaitCursor = true;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
@@ -303,7 +303,7 @@
             this.metroButton9.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.metroButton9.Location = new System.Drawing.Point(0, 0);
             this.metroButton9.Name = "metroButton9";
-            this.metroButton9.Size = new System.Drawing.Size(485, 36);
+            this.metroButton9.Size = new System.Drawing.Size(476, 36);
             this.metroButton9.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroButton9.TabIndex = 5;
             this.metroButton9.Tag = "binnacle";
@@ -324,7 +324,7 @@
             this.metroButton10.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.metroButton10.Location = new System.Drawing.Point(0, 144);
             this.metroButton10.Name = "metroButton10";
-            this.metroButton10.Size = new System.Drawing.Size(485, 36);
+            this.metroButton10.Size = new System.Drawing.Size(476, 36);
             this.metroButton10.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroButton10.TabIndex = 7;
             this.metroButton10.Tag = "user history";
@@ -345,7 +345,7 @@
             this.metroButton11.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.metroButton11.Location = new System.Drawing.Point(0, 36);
             this.metroButton11.Name = "metroButton11";
-            this.metroButton11.Size = new System.Drawing.Size(485, 36);
+            this.metroButton11.Size = new System.Drawing.Size(476, 36);
             this.metroButton11.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroButton11.TabIndex = 11;
             this.metroButton11.Tag = "add translation";
@@ -366,7 +366,7 @@
             this.metroButton8.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.metroButton8.Location = new System.Drawing.Point(0, 72);
             this.metroButton8.Name = "metroButton8";
-            this.metroButton8.Size = new System.Drawing.Size(485, 36);
+            this.metroButton8.Size = new System.Drawing.Size(476, 36);
             this.metroButton8.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroButton8.TabIndex = 12;
             this.metroButton8.Tag = "delete role";
@@ -387,7 +387,7 @@
             this.metroButton12.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.metroButton12.Location = new System.Drawing.Point(0, 0);
             this.metroButton12.Name = "metroButton12";
-            this.metroButton12.Size = new System.Drawing.Size(485, 36);
+            this.metroButton12.Size = new System.Drawing.Size(476, 36);
             this.metroButton12.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroButton12.TabIndex = 13;
             this.metroButton12.Tag = "modify translation";
@@ -409,7 +409,7 @@
             this.metroButton13.Location = new System.Drawing.Point(0, 0);
             this.metroButton13.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton13.Name = "metroButton13";
-            this.metroButton13.Size = new System.Drawing.Size(485, 32);
+            this.metroButton13.Size = new System.Drawing.Size(476, 32);
             this.metroButton13.Style = MetroFramework.MetroColorStyle.Magenta;
             this.metroButton13.TabIndex = 14;
             this.metroButton13.Tag = "create admin";
@@ -432,7 +432,7 @@
             this.metroButton14.Location = new System.Drawing.Point(0, 104);
             this.metroButton14.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton14.Name = "metroButton14";
-            this.metroButton14.Size = new System.Drawing.Size(485, 36);
+            this.metroButton14.Size = new System.Drawing.Size(476, 36);
             this.metroButton14.Style = MetroFramework.MetroColorStyle.Magenta;
             this.metroButton14.TabIndex = 15;
             this.metroButton14.Tag = "create admin";
@@ -455,7 +455,7 @@
             this.metroButton15.Location = new System.Drawing.Point(0, 193);
             this.metroButton15.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton15.Name = "metroButton15";
-            this.metroButton15.Size = new System.Drawing.Size(485, 42);
+            this.metroButton15.Size = new System.Drawing.Size(476, 42);
             this.metroButton15.Style = MetroFramework.MetroColorStyle.Magenta;
             this.metroButton15.TabIndex = 16;
             this.metroButton15.Tag = "create admin";
@@ -479,7 +479,7 @@
             this.metroButton16.Location = new System.Drawing.Point(0, 0);
             this.metroButton16.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton16.Name = "metroButton16";
-            this.metroButton16.Size = new System.Drawing.Size(485, 36);
+            this.metroButton16.Size = new System.Drawing.Size(476, 36);
             this.metroButton16.Style = MetroFramework.MetroColorStyle.Magenta;
             this.metroButton16.TabIndex = 17;
             this.metroButton16.Tag = "create admin";
@@ -502,7 +502,7 @@
             this.metroButton17.Location = new System.Drawing.Point(0, 32);
             this.metroButton17.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton17.Name = "metroButton17";
-            this.metroButton17.Size = new System.Drawing.Size(485, 36);
+            this.metroButton17.Size = new System.Drawing.Size(476, 36);
             this.metroButton17.Style = MetroFramework.MetroColorStyle.Magenta;
             this.metroButton17.TabIndex = 18;
             this.metroButton17.Tag = "create admin";
@@ -525,7 +525,7 @@
             this.metroButton18.Location = new System.Drawing.Point(0, 36);
             this.metroButton18.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton18.Name = "metroButton18";
-            this.metroButton18.Size = new System.Drawing.Size(485, 36);
+            this.metroButton18.Size = new System.Drawing.Size(476, 36);
             this.metroButton18.Style = MetroFramework.MetroColorStyle.Magenta;
             this.metroButton18.TabIndex = 19;
             this.metroButton18.Tag = "create admin";
@@ -569,7 +569,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 830);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(485, 100);
+            this.panel6.Size = new System.Drawing.Size(476, 100);
             this.panel6.TabIndex = 23;
             this.panel6.UseWaitCursor = true;
             // 
@@ -580,7 +580,7 @@
             this.metroButton21.ForeColor = System.Drawing.SystemColors.ControlText;
             this.metroButton21.Location = new System.Drawing.Point(0, 784);
             this.metroButton21.Name = "metroButton21";
-            this.metroButton21.Size = new System.Drawing.Size(485, 46);
+            this.metroButton21.Size = new System.Drawing.Size(476, 46);
             this.metroButton21.TabIndex = 23;
             this.metroButton21.Text = "Translation";
             this.metroButton21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -598,7 +598,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 690);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(485, 94);
+            this.panel7.Size = new System.Drawing.Size(476, 94);
             this.panel7.TabIndex = 32;
             this.panel7.UseWaitCursor = true;
             // 
@@ -609,7 +609,7 @@
             this.metroButton24.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.metroButton24.Location = new System.Drawing.Point(0, 647);
             this.metroButton24.Name = "metroButton24";
-            this.metroButton24.Size = new System.Drawing.Size(485, 43);
+            this.metroButton24.Size = new System.Drawing.Size(476, 43);
             this.metroButton24.TabIndex = 29;
             this.metroButton24.Text = "trucks and drivers";
             this.metroButton24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -628,7 +628,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 502);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(485, 145);
+            this.panel3.Size = new System.Drawing.Size(476, 145);
             this.panel3.TabIndex = 23;
             this.panel3.UseWaitCursor = true;
             // 
@@ -640,7 +640,7 @@
             this.metroButton25.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.metroButton25.Location = new System.Drawing.Point(0, 464);
             this.metroButton25.Name = "metroButton25";
-            this.metroButton25.Size = new System.Drawing.Size(485, 38);
+            this.metroButton25.Size = new System.Drawing.Size(476, 38);
             this.metroButton25.TabIndex = 31;
             this.metroButton25.Text = "rols";
             this.metroButton25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -661,7 +661,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 279);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(485, 185);
+            this.panel4.Size = new System.Drawing.Size(476, 185);
             this.panel4.TabIndex = 26;
             this.panel4.UseWaitCursor = true;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
@@ -673,7 +673,7 @@
             this.metroButton22.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.metroButton22.Location = new System.Drawing.Point(0, 235);
             this.metroButton22.Name = "metroButton22";
-            this.metroButton22.Size = new System.Drawing.Size(485, 44);
+            this.metroButton22.Size = new System.Drawing.Size(476, 44);
             this.metroButton22.TabIndex = 25;
             this.metroButton22.Text = "Users";
             this.metroButton22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -693,7 +693,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 41);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(485, 152);
+            this.panel5.Size = new System.Drawing.Size(476, 152);
             this.panel5.TabIndex = 28;
             this.panel5.UseWaitCursor = true;
             // 
@@ -706,7 +706,7 @@
             this.metroButton20.Location = new System.Drawing.Point(0, 68);
             this.metroButton20.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton20.Name = "metroButton20";
-            this.metroButton20.Size = new System.Drawing.Size(485, 36);
+            this.metroButton20.Size = new System.Drawing.Size(476, 36);
             this.metroButton20.Style = MetroFramework.MetroColorStyle.Magenta;
             this.metroButton20.TabIndex = 21;
             this.metroButton20.Tag = "create admin";
@@ -727,7 +727,7 @@
             this.metroButton23.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.metroButton23.Location = new System.Drawing.Point(0, 0);
             this.metroButton23.Name = "metroButton23";
-            this.metroButton23.Size = new System.Drawing.Size(485, 41);
+            this.metroButton23.Size = new System.Drawing.Size(476, 41);
             this.metroButton23.TabIndex = 27;
             this.metroButton23.Text = "Travels";
             this.metroButton23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -780,37 +780,43 @@
             // 
             this.panel8.Controls.Add(this.metroButton19);
             this.panel8.Controls.Add(this.metroButton26);
-            this.panel8.Location = new System.Drawing.Point(5, 12);
+            this.panel8.Location = new System.Drawing.Point(5, 63);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(502, 113);
+            this.panel8.Size = new System.Drawing.Size(502, 62);
             this.panel8.TabIndex = 23;
             this.panel8.UseWaitCursor = true;
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(553, 25);
+            this.panel2.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.panel2.Location = new System.Drawing.Point(513, 63);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(200, 100);
             this.panel2.TabIndex = 24;
+            this.panel2.UseWaitCursor = true;
             // 
             // AdminHome
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1380, 788);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
+            this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ForeColor = System.Drawing.Color.ForestGreen;
+            this.ForeColor = System.Drawing.Color.Black;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AdminHome";
             this.Padding = new System.Windows.Forms.Padding(17, 60, 17, 16);
-            this.Style = MetroFramework.MetroColorStyle.Default;
+            this.Style = MetroFramework.MetroColorStyle.Black;
             this.Tag = "admin home";
             this.Text = "Customer support";
+            this.Theme = MetroFramework.MetroThemeStyle.Default;
+            this.TransparencyKey = System.Drawing.Color.LightSkyBlue;
             this.UseWaitCursor = true;
             this.Load += new System.EventHandler(this.AdminHome_Load);
             this.groupBox1.ResumeLayout(false);

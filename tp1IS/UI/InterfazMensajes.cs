@@ -88,6 +88,7 @@ namespace UI
 
         void Cargar_Usuarios_posibles()
         {
+            
             List<string> usuarios;
             usuarios = oBLLmensajes.Usuarios_con_quien_conectar(SessionManager.GetInstance.Usuario.id);
             usuarios = usuarios.Distinct().ToList(); 
