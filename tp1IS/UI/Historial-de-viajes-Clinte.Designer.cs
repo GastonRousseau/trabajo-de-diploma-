@@ -47,6 +47,7 @@ namespace UI
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(603, 199);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.CellFormattingDatagrid);
             // 
             // metroLabel1
             // 
@@ -85,6 +86,7 @@ namespace UI
             this.button1.TabIndex = 4;
             this.button1.Text = "search";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // metroComboBox1
             // 

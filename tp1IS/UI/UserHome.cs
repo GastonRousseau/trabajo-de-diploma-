@@ -11,17 +11,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using servicios.ClasesMultiLenguaje;
 using BLL;
+using BE;
 namespace UI
 {
-    public partial class UserHome : MetroFramework.Forms.MetroForm,IdiomaObserver
+    public partial class UserHome : Form,IdiomaObserver
     {
         public UserHome()
         {
             InitializeComponent();
+            mensajes_nuevos();
         }
         BLL.BLLTraductor Otraductor = new BLL.BLLTraductor();
         BLL.BLLDv ODV = new BLL.BLLDv();
         BLLMensaje oBLLmensaje = new BLLMensaje();
+        BLLUsuario oBLLusuario = new BLLUsuario();
         
         private void UserHome_Load(object sender, EventArgs e)
         {
@@ -348,16 +351,16 @@ namespace UI
                 // panelMensajes.FlowDirection = FlowDirection.TopDown;
                 // panelMensajes.Dock = DockStyle.Right;
                 //  panelMensajes.AutoScroll = true;
-                panelMensajes.Location = new Point(1222, 375);
+                panelMensajes.Location = new Point(545,245);
                 panelMensajes.Size = new Size(199, 147);
-                panelMensajes.BackColor = Color.NavajoWhite;
+                panelMensajes.BackColor = Color.AliceBlue;
                 int contador = 0;
                 foreach (var kvp in datos)
                 {
                     if (contador < 5)
                     {
                         Label label = new Label();
-                        label.BackColor = Color.White;
+                        label.BackColor = Color.Transparent;
                         label.ForeColor = Color.Black;
                         label.Text = $"{kvp.Key}: {kvp.Value} mensajes nuevos";
                         panelMensajes.Controls.Add(label);
@@ -397,5 +400,18 @@ namespace UI
             //throw new NotImplementedException();
             panelMensajes.Visible = false;
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            string nombre = oBLLmensaje.Buscar_ServicioTecnico();
+            BEUsuario ServicioTecnico = oBLLusuario.buscar_usuario(nombre);
+            Chat.usuarioAconectar = ServicioTecnico;
+            Chat form = new Chat();
+            form.label1.Text = ServicioTecnico.user;
+            form.userControl11.Texts = "Tengo el siguiente problema:";
+            form.Show();
+        }
+
+
     }
 }

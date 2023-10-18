@@ -21,7 +21,7 @@ using Patrones.Singleton.Core;
 
 namespace UI
 {
-    public partial class crearAdmin : MetroFramework.Forms.MetroForm,IdiomaObserver
+    public partial class crearAdmin : Form,IdiomaObserver
     {
         public crearAdmin()
         {

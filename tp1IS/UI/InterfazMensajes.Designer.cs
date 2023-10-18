@@ -35,10 +35,8 @@ namespace UI
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.metroButton3 = new MetroFramework.Controls.MetroButton();
-            this.metroButton2 = new MetroFramework.Controls.MetroButton();
-            this.userControl11 = new UI.controles.UserControl1();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,7 +82,7 @@ namespace UI
             // 
             this.metroButton1.BackColor = System.Drawing.Color.SteelBlue;
             this.metroButton1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.metroButton1.Location = new System.Drawing.Point(745, -1);
+            this.metroButton1.Location = new System.Drawing.Point(606, -1);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(103, 28);
             this.metroButton1.TabIndex = 5;
@@ -99,35 +97,29 @@ namespace UI
             this.panel3.BackColor = System.Drawing.Color.LightSkyBlue;
             this.panel3.Controls.Add(this.comboBox1);
             this.panel3.Controls.Add(this.button1);
-            this.panel3.Controls.Add(this.metroButton3);
             this.panel3.Controls.Add(this.metroButton2);
             this.panel3.Controls.Add(this.metroLabel1);
-            this.panel3.Controls.Add(this.userControl11);
             this.panel3.Controls.Add(this.metroButton1);
             this.panel3.Location = new System.Drawing.Point(12, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1135, 27);
             this.panel3.TabIndex = 7;
             // 
-            // metroButton3
+            // comboBox1
             // 
-            this.metroButton3.BackColor = System.Drawing.Color.SteelBlue;
-            this.metroButton3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.metroButton3.Location = new System.Drawing.Point(963, 0);
-            this.metroButton3.Name = "metroButton3";
-            this.metroButton3.Size = new System.Drawing.Size(103, 28);
-            this.metroButton3.TabIndex = 8;
-            this.metroButton3.Text = "nada";
-            this.metroButton3.UseCustomBackColor = true;
-            this.metroButton3.UseCustomForeColor = true;
-            this.metroButton3.UseSelectable = true;
-            this.metroButton3.Click += new System.EventHandler(this.metroButton3_Click);
+            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(451, 3);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 0;
             // 
             // metroButton2
             // 
             this.metroButton2.BackColor = System.Drawing.Color.SteelBlue;
             this.metroButton2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.metroButton2.Location = new System.Drawing.Point(854, 0);
+            this.metroButton2.Location = new System.Drawing.Point(726, -1);
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(103, 28);
             this.metroButton2.TabIndex = 7;
@@ -136,31 +128,6 @@ namespace UI
             this.metroButton2.UseCustomForeColor = true;
             this.metroButton2.UseSelectable = true;
             this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
-            // 
-            // userControl11
-            // 
-            this.userControl11.BorderColor = System.Drawing.Color.MidnightBlue;
-            this.userControl11.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.userControl11.BorderSize = 2;
-            this.userControl11.Location = new System.Drawing.Point(451, 0);
-            this.userControl11.Multiline = false;
-            this.userControl11.Name = "userControl11";
-            this.userControl11.Padding = new System.Windows.Forms.Padding(7);
-            this.userControl11.PasswordChar = false;
-            this.userControl11.Size = new System.Drawing.Size(250, 28);
-            this.userControl11.TabIndex = 6;
-            this.userControl11.Texts = "";
-            this.userControl11.UnderlinedStyle = false;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(222, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 0;
             // 
             // InterfazMensajes
             // 
@@ -187,10 +154,8 @@ namespace UI
         private System.Windows.Forms.Button button1;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroButton metroButton1;
-        private controles.UserControl1 userControl11;
         private System.Windows.Forms.Panel panel3;
         private MetroFramework.Controls.MetroButton metroButton2;
-        private MetroFramework.Controls.MetroButton metroButton3;
         private System.Windows.Forms.ComboBox comboBox1;
     }
 }

@@ -12,7 +12,7 @@ using BE;
 using BLL;
 namespace UI
 {
-    public partial class Historial_Viajes_Empresa : MetroFramework.Forms.MetroForm
+    public partial class Historial_Viajes_Empresa : Form
     {
         public Historial_Viajes_Empresa()
         {

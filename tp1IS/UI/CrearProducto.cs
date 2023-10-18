@@ -15,7 +15,7 @@ using Patrones.Singleton.Core;
 using Negocio;
 namespace UI
 {
-    public partial class CrearProducto : MetroFramework.Forms.MetroForm
+    public partial class CrearProducto : Form
     {
         public CrearProducto()
         {
@@ -48,6 +48,7 @@ namespace UI
             dataGridView1.Columns["id"].ReadOnly = true;
             DeshabilitarEdicionSiColumnaVacia(dataGridView1, "nombre");
             DeshabilitarEdicionSiColumnaVacia(dataGridView1, "cantPallets");
+            dataGridView1.Columns["Cliente"].Visible = false;
 
         }
         private void metroButton1_Click(object sender, EventArgs e)
@@ -79,7 +80,7 @@ namespace UI
             }
             else
             {
-
+                MessageBox.Show("There was a problem creating the object");
             }
            
         }

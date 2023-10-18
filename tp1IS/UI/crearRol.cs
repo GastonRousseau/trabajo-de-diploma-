@@ -22,7 +22,7 @@ using Patrones.Singleton.Core;
 
 namespace UI
 {
-    public partial class crearRol : MetroFramework.Forms.MetroForm,IdiomaObserver
+    public partial class crearRol : Form,IdiomaObserver
     {
         public crearRol()
         {

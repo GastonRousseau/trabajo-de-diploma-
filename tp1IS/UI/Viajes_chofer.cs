@@ -15,7 +15,7 @@ using Patrones.Singleton.Core;
 using Negocio;
 namespace UI
 {
-    public partial class Viajes_chofer : MetroFramework.Forms.MetroForm
+    public partial class Viajes_chofer : Form
     {
         public Viajes_chofer()
         {
@@ -37,6 +37,18 @@ namespace UI
         private void Viajes_chofer_Load(object sender, EventArgs e)
         {
             pag = 1;
+            foreach(DataGridViewRow row in dataGridView1.Rows)
+            {
+                BEViaje viaje = (BEViaje)row.DataBoundItem;
+                if (viaje.estado == "En proceso")
+                {
+                    row.Cells["Km_Recorridos"].ReadOnly = false;
+                }
+                else
+                {
+                    row.Cells["Km_Recorridos"].ReadOnly = true;
+                }
+            }
         }
         void buscar(string nombre,int pag) 
         {
@@ -49,13 +61,21 @@ namespace UI
                 else { metroButton2.Enabled = true; }
                 dataGridView1.DataSource = null;
                 dataGridView1.DataSource = viajes;
-                //  dataGridView1.ReadOnly = true;
-               // dataGridView1.Columns["viajes_palets"].ReadOnly = true;
-             //   dataGridView1.Columns["distancia"].ReadOnly = true;
-              //  dataGridView1.Columns["estado"].ReadOnly = true;
-               // dataGridView1.Columns["fecha"].ReadOnly = true;
+                //   dataGridView1.ReadOnly = true;
+                dataGridView1.Columns["cantidad_Pallets"].ReadOnly = true;
+                dataGridView1.Columns["id"].ReadOnly = true;
+                dataGridView1.Columns["producto"].ReadOnly = true;
+                dataGridView1.Columns["partida"].ReadOnly = true;
+                dataGridView1.Columns["destino"].ReadOnly = true;
+                dataGridView1.Columns["cantidad_KM"].ReadOnly = true;
+                dataGridView1.Columns["fecha"].ReadOnly = true;
+                dataGridView1.Columns["estado"].ReadOnly = true;
+             
+                //     dataGridView1.Columns["distancia"].ReadOnly = true;
+                //     dataGridView1.Columns["estado"].ReadOnly = true;
+                //     dataGridView1.Columns["fecha"].ReadOnly = true;
 
- //               dataGridView1.Columns["Km_Recorridos"].ReadOnly = false;
+                //               dataGridView1.Columns["Km_Recorridos"].ReadOnly = false;
 
             }
             catch (NullReferenceException ex)
@@ -72,7 +92,10 @@ namespace UI
             }
 
         }
-       void cargarCombo()
+
+        
+
+        void cargarCombo()
         {
             metroComboBox1.DataSource = oBLLusuario.S_Traer_Administradores();
          //   metroComboBox1.DisplayMember = "username";
@@ -103,6 +126,21 @@ namespace UI
 
         private void formato(object sender, DataGridViewCellFormattingEventArgs e)
         {
+          /*  if (e.RowIndex >= 0 && e.ColumnIndex == dataGridView1.Columns["Km_Recorridos"].Index)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+                BEViaje viaje = (BEViaje)row.DataBoundItem; // Asegúrate de ajustar el tipo de objeto que estás utilizando
+
+                if (viaje.estado == "En proceso")
+                {
+                    dataGridView1.Rows[e.RowIndex].Cells["Km_Recorridos"].ReadOnly = false;
+                }
+                else
+                {
+                    dataGridView1.Rows[e.RowIndex].Cells["Km_Recorridos"].ReadOnly = true;
+                }
+            }*/
+
             if (e.ColumnIndex == dataGridView1.Columns["producto"].Index && e.Value != null)
             {
                 BEProducto producto = (BEProducto)e.Value;
@@ -127,9 +165,13 @@ namespace UI
             {
                 error++;
             }
+            if (viajeSelect.fecha < DateTime.Now)
+            {
+                error++;
+            }
             if (error == 0) 
             {
-                oBLLviaje.ActualizarEstado(viajeSelect.id, "En proceso");
+                oBLLviaje.ActualizarEstado(viajeSelect.id, "En proceso", null);
             }
             else
             {
@@ -151,7 +193,7 @@ namespace UI
             }
             if (error == 0)
             {
-                oBLLviaje.ActualizarEstado(viajeSelect.id, "Finalizado");
+                oBLLviaje.ActualizarEstado(viajeSelect.id, "Finalizado", DateTime.Now);
             }
             else
             {
@@ -269,6 +311,11 @@ namespace UI
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             ViajeSleccionado = (BEViaje)dataGridView1.CurrentRow.DataBoundItem;
+
+            if (ViajeSleccionado.fecha < DateTime.Now)
+            {
+
+            }
         }
 
         private void metroButton8_Click(object sender, EventArgs e)

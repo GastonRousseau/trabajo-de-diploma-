@@ -51,11 +51,16 @@ namespace MPP
         {
             return oDatos.getAll_Historial_viajes_clientes(ID, numberpag, NombreProducto);
         }
-        public List<BEViaje> Traer_Viajes_Clientes(int ID)
+        public List<BEViaje> Traer_Viajes_Clientes(int ID,int numberpag,string NombreProducto)
         {
             string consulta = "S_Listar_Vuelos_Clientes";
             Hdatos = new Hashtable();
             Hdatos.Add("@codigocliente", ID);
+            
+                Hdatos.Add("nombreProducto", NombreProducto == null ? (object)DBNull.Value : NombreProducto);
+                Hdatos.Add("PageNumber",numberpag);
+              //  Hdatos.Add("codigoCliente", ID);
+            
             DataTable DT = oDatos.Leer(consulta, Hdatos);
             List<BEViaje> viajes = new List<BEViaje>();
             foreach (DataRow fila in DT.Rows)
@@ -227,12 +232,14 @@ namespace MPP
             return oDatos.Escribir(consulta, Hdatos);
         }
 
-        public bool actualizar_Estado(int ID,string estado)
+        public bool actualizar_Estado(int ID,string estado,Nullable<DateTime> fecha)
         {
             string consulta = "S_Actualizar_Estado_Viaje";
             Hdatos = new Hashtable();
             Hdatos.Add("@codigo", ID);
             Hdatos.Add("@estado", estado);
+            Hdatos.Add("@fecha_finalizado", fecha == null ? (object)DBNull.Value : fecha);
+
             return oDatos.Escribir(consulta,Hdatos);
         }
         public bool actualizar_KM_recorridos(int ID,int KM)////////////////////////////////////////////////////////
@@ -257,5 +264,46 @@ namespace MPP
         {
             return oDatos.Viajes_pendientes_sistema(NombreCliente, NombreConductor, PatenteCamiones, from, to, pag);
         }
+
+        public List<BEViaje> TraerViajesDelConductor(string nombreConductor, Nullable<DateTime> from, Nullable<DateTime> to)
+        {
+            string consulta = "S_Traer_Viajes_Finalizados_Por_Conductor";
+            Hdatos = new Hashtable();
+            Hdatos.Add("@username", nombreConductor);
+            Hdatos.Add("@from", from == null ? (object)DBNull.Value : from);
+            Hdatos.Add("@to", to == null ? (object)DBNull.Value : to);
+            DataTable DT = oDatos.Leer(consulta, Hdatos);
+            List<BEViaje> viajes = new List<BEViaje>();
+            foreach(DataRow fila in DT.Rows)
+            {
+                BEViaje viaje = new BEViaje();
+                viaje.cantidad_KM = Convert.ToInt32(fila["distancia"]);
+                viaje.fecha = Convert.ToDateTime(fila["fecha"]);
+                viaje.fechaFinalizacion = Convert.ToDateTime(fila["fecha_finalizacion"]);
+                viaje.cantidad_Pallets = Convert.ToInt32(fila["cantidad_palets"]);
+                viajes.Add(viaje);
+            }
+            return viajes;
+        }
+
+        public Dictionary<string,int> Conductores_viajes_realizados(Nullable<DateTime> from, Nullable<DateTime> to)
+        {
+            string consulta = "S_Traer_Conductor_y_Viajes_Realizados";
+            Hdatos = new Hashtable();
+            Hdatos.Add("@from", from == null ? (object)DBNull.Value : from);
+            Hdatos.Add("@to", to == null ? (object)DBNull.Value : to);
+            DataTable DT = oDatos.Leer(consulta, Hdatos);
+            Dictionary<string, int> Conductores = new Dictionary<string, int>();
+            foreach(DataRow fila in DT.Rows)
+            {
+                string username = fila["UsernameConductor"].ToString();
+                int cantidad = Convert.ToInt32(fila["CantidadViajes"]);
+                Conductores.Add(username, cantidad);
+            }
+            return Conductores;
+        }
+        
+
+        
     }
 }

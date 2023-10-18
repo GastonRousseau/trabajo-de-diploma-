@@ -14,7 +14,7 @@ using servicios;
 using Negocio;
 namespace UI
 {
-    public partial class CrearChofer : MetroFramework.Forms.MetroForm
+    public partial class CrearChofer : Form
     {
         public CrearChofer()
         {

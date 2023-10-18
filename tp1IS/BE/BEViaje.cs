@@ -15,6 +15,8 @@ namespace BE
         public string destino { get; set; }
         public int cantidad_KM { get; set; }
         public DateTime fecha { get; set; }
+        
+        public DateTime fechaFinalizacion { get; set; }
         public string estado { get; set; }
         public int cantidad_Pallets { get; set; }
 

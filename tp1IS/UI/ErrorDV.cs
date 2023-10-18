@@ -14,7 +14,7 @@ using Negocio;
 using Patrones.Singleton.Core;
 namespace UI
 {
-    public partial class ErrorDV : MetroFramework.Forms.MetroForm,IdiomaObserver
+    public partial class ErrorDV :Form,IdiomaObserver
     {
         public ErrorDV()
         {

@@ -20,7 +20,7 @@ using Patrones.Singleton.Core;
 
 namespace UI
 {
-    public partial class Changes : MetroFramework.Forms.MetroForm,IdiomaObserver
+    public partial class Changes : Form,IdiomaObserver
     {
         public Changes()
         {

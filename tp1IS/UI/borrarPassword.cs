@@ -18,7 +18,7 @@ using servicios;
 using Patrones.Singleton.Core;
 namespace UI
 {
-    public partial class borrarPassword : MetroFramework.Forms.MetroForm,IdiomaObserver
+    public partial class borrarPassword : Form,IdiomaObserver
     {
         public borrarPassword()
         {

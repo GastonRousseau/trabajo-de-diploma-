@@ -17,7 +17,7 @@ using servicios.ClasesMultiLenguaje;
 using Patrones.Singleton.Core;
 namespace UI
 {
-    public partial class eliminarRol : MetroFramework.Forms.MetroForm,IdiomaObserver
+    public partial class eliminarRol : Form,IdiomaObserver
     {
         public eliminarRol()
         {

@@ -27,6 +27,11 @@ namespace BLL
         {
             return oMPPmensaje.ObtenerMensajes(codigoUsuario, codigoChat);
         }
+
+        public List<string> Todos_los_usuarios_a_conectar()
+        {
+            return oMPPmensaje.Todos_los_usuarios_a_conectar();
+        }
         public List<BEUsuario> obtenerchats(int codigo)
         {
             return oMPPmensaje.obtenerchats(codigo);

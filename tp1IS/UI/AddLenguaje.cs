@@ -15,7 +15,7 @@ using BLL;
 
 namespace UI
 {
-    public partial class AddLenguaje : MetroFramework.Forms.MetroForm, IdiomaObserver
+    public partial class AddLenguaje : Form, IdiomaObserver
     {
         BLLBitacora oBit = new BLLBitacora();
         public AddLenguaje()

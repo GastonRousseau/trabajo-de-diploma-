@@ -14,7 +14,7 @@ using servicios;
 using Patrones.Singleton.Core;
 namespace UI
 {
-    public partial class ViajesCliente : MetroFramework.Forms.MetroForm
+    public partial class ViajesCliente : Form
     {
         public ViajesCliente()
         {
@@ -24,32 +24,49 @@ namespace UI
             panel3.Visible = false;
             //  dateTimePicker1.Value = null;
             this.Size = new Size(826, 311);
+            Listar(null,1);
         }
         BLLviaje oBLLviaje;
         BLLMensaje oBLLmensaje;
         BLLCamion oBLLcamion = new BLLCamion();
         BEViaje viajeSelect = new BEViaje();
+        int pag = 0;
+        string NombreProducto;
+        List<BEViaje> viajes = new List<BEViaje>();
+        BLLProducto oBLLproducto = new BLLProducto();
         private void ViajesCliente_Load(object sender, EventArgs e)
         {
             label1.Visible =false;
             barrarProgreso1.Visible = false;
             metroLabel2.Visible = false;
-            Listar();
+            cargarCombo();
+            //Listar();
         }
-        void Listar()
+        void Listar(string producto, int pag)
         {
-            List<BEViaje> viajes = new List<BEViaje>();
-            viajes = oBLLviaje.Traer_Viajes_Clientes(SessionManager.GetInstance.Usuario.id);
+            
+            viajes = oBLLviaje.Traer_Viajes_Clientes(SessionManager.GetInstance.Usuario.id,pag,NombreProducto);
+            if (viajes.Count == 0) { metroButton2.Enabled = false; }
+            else { metroButton2.Enabled = true; }
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = viajes;
-         /*   dataGridView1.DataMember ="producto";
-            dataGridView1.Columns["nombre"].HeaderText ="producto";
-           // dataGridView1.Columns["Nombre"].HeaderText = "Productos";*/
-           /* dataGridView1.Columns["producto"].DisplayMember = "nombre";
-            dataGridView1.Columns["producto"].DataPropertyName = "producto";
-            dataGridView1.Columns["producto"].HeaderText = "Producto";*/
+            /*   dataGridView1.DataMember ="producto";
+               dataGridView1.Columns["nombre"].HeaderText ="producto";
+              // dataGridView1.Columns["Nombre"].HeaderText = "Productos";*/
+            /* dataGridView1.Columns["producto"].DisplayMember = "nombre";
+             dataGridView1.Columns["producto"].DataPropertyName = "producto";
+             dataGridView1.Columns["producto"].HeaderText = "Producto";*/
 
 
+        }
+        void cargarCombo()
+        {
+            //metroComboBox1.Items.AddR(oBLLproducto.Producto_asignado_viaje(SessionManager.GetInstance.Usuario.id));
+            List<string> productos = oBLLproducto.Producto_asignado_viaje(SessionManager.GetInstance.Usuario.id);
+            foreach (string nombre in productos)
+            {
+                metroComboBox1.Items.Add(nombre);
+            }
         }
 
         private void formating(object sender, DataGridViewCellFormattingEventArgs e)
@@ -129,31 +146,39 @@ namespace UI
 
         private void metroButton3_Click_1(object sender, EventArgs e)
         {
-            BEViaje viajeSelect = (BEViaje)dataGridView1.CurrentRow.DataBoundItem;
-            if (viajeSelect.id != 0)
+            try
             {
-                if (viajeSelect.estado == "pendiente")
+                BEViaje viajeSelect = (BEViaje)dataGridView1.CurrentRow.DataBoundItem;
+                if (viajeSelect.id != 0)
                 {
-                    oBLLviaje.ActualizarEstado(viajeSelect.id, "Cancelado");
-                    BEMensaje mensaja = new BEMensaje(SessionManager.GetInstance.Usuario, viajeSelect.camion.conductor, "El viaje con id:" + viajeSelect.id, DateTime.Now, 2);
-                    oBLLmensaje.GuardarMensaje(mensaja);
-                    Chat.usuarioAconectar = viajeSelect.camion.conductor;
-                    Chat form = new Chat();
-                    form.button2.Visible = true;
-                    form.userControl11.Texts = "Solicite la cancelacion del viaje devido a que";
-                    form.Show();
-                    Listar();
+                    if (viajeSelect.estado == "pendiente")
+                    {
+                        oBLLviaje.ActualizarEstado(viajeSelect.id, "Cancelado",null);
+                        BEMensaje mensaja = new BEMensaje(SessionManager.GetInstance.Usuario, viajeSelect.camion.conductor, "El viaje con id:" + viajeSelect.id, DateTime.Now, 2);
+                        oBLLmensaje.GuardarMensaje(mensaja);
+                        Chat.usuarioAconectar = viajeSelect.camion.conductor;
+                        Chat form = new Chat();
+                        form.button2.Visible = true;
+                        form.userControl11.Texts = "Solicite la cancelacion del viaje devido a que";
+                        form.Show();
+                        Listar(null, 1);
 
+                    }
+                    else
+                    {
+                        MessageBox.Show("El estado del viaje tiene que ser pendiente, de lo contrario no se podra realizar la accion");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("El estado del viaje tiene que ser pendiente, de lo contrario no se podra realizar la accion");
+                    MessageBox.Show("No hay ningun viaje seleccionado");
                 }
             }
-            else
+            catch(Exception ex)
             {
-                MessageBox.Show("No hay ningun viaje seleccionado");
+                throw ex;
             }
+           
         }
 
         private void metroButton4_Click(object sender, EventArgs e)
@@ -247,12 +272,43 @@ namespace UI
                 MessageBox.Show("Se postergo la fecha del viaje al dia" +dateTimePicker1.Value);
                 panel3.Visible = false;
                 this.Size = new Size(826, 311);
-                Listar();
+                Listar(null,1);
             }
             else
             {
                 MessageBox.Show("hubo un error al intentar postergar el viaje");
             }
+        }
+
+        private void metroButton2_Click(object sender, EventArgs e)
+        {
+            metroButton1.Enabled = true;
+            pag += 1;
+            Listar(NombreProducto, pag);
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            pag -= 1;
+            metroButton1.Enabled = true;
+            if (pag <= 1) metroButton1.Enabled = false;
+            if (pag > 0) Listar(NombreProducto, pag);
+        }
+
+        private void metroButton9_Click(object sender, EventArgs e)
+        {
+            if (metroComboBox1.SelectedItem != null)
+            {
+                NombreProducto = metroComboBox1.SelectedItem.ToString();
+                Listar(NombreProducto, 1);
+            }
+        }
+
+        private void metroButton10_Click(object sender, EventArgs e)
+        {
+            metroComboBox1.SelectedIndex = -1;
+            NombreProducto = null;
+            Listar(null, 1);
         }
     }
 }

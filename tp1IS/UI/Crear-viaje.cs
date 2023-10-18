@@ -16,7 +16,7 @@ using Patrones.Singleton.Core;
 using servicios;
 namespace UI
 {
-    public partial class Crear_viaje : MetroFramework.Forms.MetroForm
+    public partial class Crear_viaje : Form
     {
         public Crear_viaje()
         {

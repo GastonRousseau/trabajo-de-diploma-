@@ -17,7 +17,7 @@ using System.Collections.Generic;
 
 namespace UI
 {
-    public partial class SignIn : MetroFramework.Forms.MetroForm,IdiomaObserver
+    public partial class SignIn : Form,IdiomaObserver
     {
         public SignIn()
         {
@@ -145,17 +145,18 @@ namespace UI
                             servicios.Observer.eliminarObservador(this);
 
                         }
-                        else
+                        else if(SessionManager.tiene_permiso(61))
                         {
-                           
-                            UserHome home = new UserHome();
+                            ServicioTecnicoHome home = new ServicioTecnicoHome();
                             home.Show();
                             this.Hide();
                             servicios.Observer.eliminarObservador(this);
+
+                           
                         }
-                        if (SessionManager.tiene_permiso(61))
+                        else
                         {
-                            ServicioTecnicoHome home = new ServicioTecnicoHome();
+                            UserHome home = new UserHome();
                             home.Show();
                             this.Hide();
                             servicios.Observer.eliminarObservador(this);

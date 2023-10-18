@@ -163,6 +163,21 @@ namespace MPP
         
             return Usuarios;
         }
+
+        public List<string> Todos_los_usuarios_a_conectar()
+        {
+            string consulta = "S_Traer_Todos_Los_Usuarios";
+            hdatos = new Hashtable();
+            DataTable DT = new DataTable();
+            List<string> Usuarios = new List<string>();
+            DT = oDatos.Leer(consulta, null);
+            foreach(DataRow fila in DT.Rows)
+            {
+                string nombre = fila["username"].ToString();
+                Usuarios.Add(nombre);
+            }
+            return Usuarios;
+        }
         public bool Escribir_Respesta(int IDmensaje,string repuesta)
         {
             string consulta = "S_Responder_Mensaje";

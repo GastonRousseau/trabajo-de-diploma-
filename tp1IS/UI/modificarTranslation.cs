@@ -15,7 +15,7 @@ using Negocio;
 using Patrones.Singleton.Core;
 namespace UI
 {
-    public partial class modificarTranslation : MetroFramework.Forms.MetroForm,IdiomaObserver
+    public partial class modificarTranslation : Form,IdiomaObserver
     {
         public modificarTranslation()
         {

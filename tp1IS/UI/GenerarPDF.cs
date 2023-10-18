@@ -18,7 +18,7 @@ using iTextSharp.text.pdf;
 //using iText.Kernel.Pdf;
 namespace UI
 {
-    public partial class GenerarPDF : MetroFramework.Forms.MetroForm
+    public partial class GenerarPDF : Form
     {
         public GenerarPDF()
         {
@@ -232,5 +232,30 @@ namespace UI
             doc.Add(paragraph);
         }
 
+        private void CellFormatingDatagrid(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == dataGridView1.Columns["producto"].Index && e.RowIndex >= 0)
+            {
+                BEViaje viaje = dataGridView1.Rows[e.RowIndex].DataBoundItem as BEViaje;
+
+                // Asegúrate de que la celda tenga un valor de Viaje no nulo
+                if (viaje != null && viaje.producto != null)
+                {
+                    // Configura el valor de la celda para mostrar el nombre del producto
+                    e.Value = viaje.producto.nombre;
+                }
+            }
+            if (e.ColumnIndex == dataGridView1.Columns["camion"].Index && e.RowIndex >= 0)
+            {
+                BEViaje viaje = dataGridView1.Rows[e.RowIndex].DataBoundItem as BEViaje;
+
+                // Asegúrate de que la celda tenga un valor de Viaje no nulo
+                if (viaje != null && viaje.camion != null)
+                {
+                    // Configura el valor de la celda para mostrar el nombre del producto
+                    e.Value = viaje.camion.patente + " " + viaje.camion.conductor.user;
+                }
+            }
+        }
     }
 }

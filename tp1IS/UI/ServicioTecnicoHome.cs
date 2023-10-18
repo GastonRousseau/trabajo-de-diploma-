@@ -14,7 +14,7 @@ using servicios;
 using Patrones.Singleton.Core;
 namespace UI
 {
-    public partial class ServicioTecnicoHome : MetroFramework.Forms.MetroForm
+    public partial class ServicioTecnicoHome : Form
     {
         public ServicioTecnicoHome()
         {
@@ -22,9 +22,11 @@ namespace UI
         }
         Form formularioAbierto = new Form();
         BLLBitacora oBit = new BLLBitacora();
+        BLLTraductor Otraductor = new BLLTraductor();
         private void ServicioTecnicoHome_Load(object sender, EventArgs e)
         {
-
+            SessionManager.GetInstance.idioma = Otraductor.ObtenerIdiomaBase();
+            //traducir();
         }
         private void AbrirFormulario(Form formulario)
         {
@@ -117,6 +119,11 @@ namespace UI
                 MessageBox.Show(ex.Message);
             }
           //  servicios.Observer.eliminarObservador(this);
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

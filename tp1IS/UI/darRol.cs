@@ -19,7 +19,7 @@ using servicios.ClasesMultiLenguaje;
 
 namespace UI
 {
-    public partial class darRol : MetroFramework.Forms.MetroForm,IdiomaObserver
+    public partial class darRol : Form,IdiomaObserver
     {
         public darRol()
         {

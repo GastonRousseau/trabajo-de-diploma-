@@ -28,13 +28,13 @@ namespace BLL
         {
             return oMPPviaje.Eliminar_Viaje(ID);
         }
-        public bool ActualizarEstado(int ID,string estado)
+        public bool ActualizarEstado(int ID,string estado, Nullable<DateTime> fecha)
         {
-            return oMPPviaje.actualizar_Estado(ID,estado);
+            return oMPPviaje.actualizar_Estado(ID,estado,fecha);
         }
-        public List<BEViaje> Traer_Viajes_Clientes(int ID)
+        public List<BEViaje> Traer_Viajes_Clientes(int ID, int numberpag, string NombreProducto)
         {
-            return oMPPviaje.Traer_Viajes_Clientes(ID);
+            return oMPPviaje.Traer_Viajes_Clientes(ID,numberpag,NombreProducto);
         }
         public IList<BEViaje> Traer_Viajes_Chofer(int ID, int pag,string username)
         {
@@ -67,6 +67,14 @@ namespace BLL
         public bool Modifica_Viaje(BEViaje viaje)
         {
             return oMPPviaje.Modifica_Viaje(viaje);
+        }
+        public List<BEViaje> TraerViajesDelConductor(string nombreConductor, Nullable<DateTime> from, Nullable<DateTime> to)
+        {
+            return oMPPviaje.TraerViajesDelConductor(nombreConductor, from, to);
+        }
+        public Dictionary<string, int> Conductores_viajes_realizados(Nullable<DateTime> from, Nullable<DateTime> to)
+        {
+            return oMPPviaje.Conductores_viajes_realizados(from, to);
         }
     }
 }

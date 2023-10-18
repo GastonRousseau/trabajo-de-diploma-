@@ -18,7 +18,7 @@ using Patrones.Singleton.Core;
 using servicios.ClasesMultiLenguaje;
 namespace UI
 {
-    public partial class darAdmin : MetroFramework.Forms.MetroForm, IdiomaObserver
+    public partial class darAdmin : Form, IdiomaObserver
     {
         public darAdmin()
         {

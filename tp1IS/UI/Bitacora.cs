@@ -18,7 +18,7 @@ using Patrones.Singleton.Core;
 
 namespace UI
 {
-    public partial class Bitacora : MetroFramework.Forms.MetroForm,IdiomaObserver
+    public partial class Bitacora : Form,IdiomaObserver
     {
         public Bitacora()
         {

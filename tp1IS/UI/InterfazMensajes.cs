@@ -90,12 +90,23 @@ namespace UI
         {
             
             List<string> usuarios;
-            usuarios = oBLLmensajes.Usuarios_con_quien_conectar(SessionManager.GetInstance.Usuario.id);
+            if (SessionManager.tiene_permiso(5) || SessionManager.tiene_permiso(61))
+            {
+                usuarios = oBLLmensajes.Todos_los_usuarios_a_conectar();
+            }
+            else
+            {
+                usuarios = oBLLmensajes.Usuarios_con_quien_conectar(SessionManager.GetInstance.Usuario.id);
+            }
+           
             usuarios = usuarios.Distinct().ToList(); 
             foreach(string usuario in usuarios) 
             {
-
-                comboBox1.Items.Add(usuario);
+                if (SessionManager.GetInstance.Usuario.user != usuario)
+                {
+                    comboBox1.Items.Add(usuario);
+                }
+                
             } 
          //   comboBox1.Items.Add(usuarios);
         }
@@ -231,7 +242,7 @@ namespace UI
                     Chat.usuarioAconectar = usuarioNuevoChat;
                     abrirChat(new Chat(), usuarioNuevoChat.user);
                     MessageBox.Show("se encontro al usuario");
-                    userControl11.Texts = "";
+                    //userControl11.Texts = "";
                 }
                 else
                 {
@@ -288,7 +299,7 @@ namespace UI
                 /*    Chat.usuarioAconectar = usuarioNuevoChat;
                     abrirChat(new Chat(), usuarioNuevoChat.user);
                     MessageBox.Show("se encontro al usuario");*/
-                    userControl11.Texts = "";
+                    //userControl11.Texts = "";
                 }
                 else
                 {

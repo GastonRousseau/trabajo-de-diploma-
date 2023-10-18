@@ -15,7 +15,7 @@ using servicios;
 using Patrones.Singleton.Core;
 namespace UI
 {
-    public partial class Historial_de_viajes_Clinte : MetroFramework.Forms.MetroForm
+    public partial class Historial_de_viajes_Clinte : Form
     {
         public Historial_de_viajes_Clinte()
         {
@@ -99,6 +99,7 @@ namespace UI
             metroComboBox1.SelectedIndex =-1;
             
                 NombreProducto = null;
+            Listar(null, 1);
             
         }
 
@@ -115,5 +116,32 @@ namespace UI
                 NombreProducto = null; 
             }
         }
-}
+
+        private void CellFormattingDatagrid(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == dataGridView1.Columns["producto"].Index && e.Value != null)
+            {
+                BEProducto producto = (BEProducto)e.Value;
+                e.Value = producto.nombre;
+            }
+            if (e.ColumnIndex == dataGridView1.Columns["camion"].Index && e.Value != null)
+            {
+                BECamion camion = (BECamion)e.Value;
+                e.Value = camion.patente + " " + camion.conductor.user;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (NombreProducto != string.Empty)
+            {
+                Listar(NombreProducto, 1);
+            }
+            else
+            {
+                Listar(null, 1);
+            }
+            
+        }
+    }
 }

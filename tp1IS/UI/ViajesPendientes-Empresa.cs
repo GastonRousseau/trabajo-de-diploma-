@@ -14,7 +14,7 @@ using Negocio;
 using Patrones.Singleton.Core;
 namespace UI
 {
-    public partial class ViajesPendientes_Empresa : MetroFramework.Forms.MetroForm
+    public partial class ViajesPendientes_Empresa : Form
     {
         public ViajesPendientes_Empresa()
         {
@@ -43,8 +43,8 @@ namespace UI
         {
             if (SessionManager.tiene_permiso(61) == true)
             {
-                metroButton5.Enabled = true;
-                metroButton6.Enabled = true;
+                metroButton5.Enabled = false;
+                metroButton6.Enabled = false;
             }
         }
         void cargarDatos()
@@ -81,15 +81,15 @@ namespace UI
             pag -= 1;
             metroButton1.Enabled = true;
             if (pag <= 1) metroButton1.Enabled = false;
-          //  if (pag > 0) buscar(nombreCliente, pag, from, to);
+            if (pag > 0) buscarViajes(nombreCliente, nombreCliente, PatenteCamion, from, to, pag);
         }
 
         private void metroButton2_Click(object sender, EventArgs e)
         {
-
+            ////////////////////////////////////////////////////////////////////////////////////////////
             metroButton1.Enabled = true;
             pag += 1;
-           // buscar(nombreCliente, pag, from, to);
+            buscarViajes(nombreCliente,nombreCliente,PatenteCamion, from, to,pag);
         }
 
         private void metroButton3_Click(object sender, EventArgs e)
@@ -234,7 +234,7 @@ namespace UI
                     form.userControl11.Texts = "Se cancelo debido a que:";
                     // form.label1.Text = viajeSelect.camion.conductor.user;
                     form.Show();
-                    oBLLviaje.ActualizarEstado(viajeSelect.id, "Cancelado");
+                    oBLLviaje.ActualizarEstado(viajeSelect.id, "Cancelado",null);
 
                 }
             }
@@ -284,6 +284,11 @@ namespace UI
                     e.Value = camion.conductor.user;
                 }
             }
+        }
+
+        private void metroComboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -22,29 +22,29 @@ using MetroFramework.Components;
 
 namespace UI
 {
-    public partial class AdminHome : MetroFramework.Forms.MetroForm, IdiomaObserver
+    public partial class AdminHome : Form, IdiomaObserver
     {
         public AdminHome()
         {
          //   panel2.Visible = false;
             InitializeComponent();
             groupBox1.Hide();
-            es_traductor();
+            
             ajustarControles();
-            es_chofer();
+           
             //  es_monitor();
-            es_admin();
+            
             mensajes_nuevos();
             this.MinimumSize = new System.Drawing.Size(1373, 540);
             esconderSubPaneles();
-            panel1.Size = new Size(502, 528);
-            
-
+           // panel1.Size = new Size(502, 528);
+            this.Cursor = Cursors.Arrow;
+            EsconderBotones();
 
         }
         SessionManager session = SessionManager.GetInstance;
         BLLMensaje oBLLmensaje = new BLLMensaje();
-        public void es_traductor()
+      /*  public void es_traductor()
         {
             if (!SessionManager.tiene_permiso(22) && !SessionManager.tiene_permiso(21)) metroButton11.Hide(); //metroButton12.Hide();
         }
@@ -54,8 +54,8 @@ namespace UI
         }
         public void es_admin()
         {
-            if (SessionManager.tiene_permiso(5)) metroButton13.Hide();/* metroButton15.Hide();*/metroButton17.Show(); metroButton18.Show();
-        }
+            if (SessionManager.tiene_permiso(5)) metroButton13.Hide();/* metroButton15.Hide();metroButton17.Show(); metroButton18.Show();
+        }*/
 
         /*  public void es_monitor()
           {
@@ -66,6 +66,27 @@ namespace UI
         BLL.BLLDv ODV = new BLLDv();
 
         private Form formularioAbierto = null;
+
+        void EsconderBotones()
+        {
+            if (SessionManager.tiene_permiso(60) == true)
+            {
+                metroButton16.Hide();
+                metroButton25.Hide();
+                metroButton22.Hide();
+                metroButton17.Hide();
+                metroButton14.Hide();
+                metroButton20.Hide();
+                metroButton21.Hide();
+                
+            }
+
+            if (SessionManager.tiene_permiso(5) == true)
+            {
+                metroButton13.Hide();
+                metroButton20.Hide();
+            }
+        }
         private void AbrirFormulario(Form formulario)
         {
             try
@@ -794,7 +815,7 @@ namespace UI
                 // panelMensajes.FlowDirection = FlowDirection.TopDown;
                 // panelMensajes.Dock = DockStyle.Right;
                 //  panelMensajes.AutoScroll = true;
-                panelMensajes.Location = new Point(1222, 375);
+                panelMensajes.Location = new Point(513,63);
                 panelMensajes.Size = new Size(199, 147);
                 panelMensajes.BackColor = Color.NavajoWhite;
                 int contador = 0;
@@ -993,6 +1014,12 @@ namespace UI
         private void metroButton26_Click(object sender, EventArgs e)
         {
             GenerarPDF form = new GenerarPDF();
+            AbrirFormulario(form);
+        }
+
+        private void metroButton27_Click(object sender, EventArgs e)
+        {
+            Estadisticas form = new Estadisticas();
             AbrirFormulario(form);
         }
     }

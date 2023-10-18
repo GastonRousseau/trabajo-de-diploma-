@@ -14,7 +14,7 @@ using Negocio;
 using servicios;
 namespace UI
 {
-    public partial class Camiones : MetroFramework.Forms.MetroForm
+    public partial class Camiones : Form
     {
         public Camiones()
         {
