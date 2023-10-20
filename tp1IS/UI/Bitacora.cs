@@ -42,7 +42,7 @@ namespace UI
         {
             try
             {
-                listBitacora = oBit.GetAll(filters, 1);
+              //  listBitacora = oBit.GetAll(filters, 1);
                 dataGridView1.DataSource = null;
                 dataGridView1.DataSource = listBitacora;
                 pag = 1;

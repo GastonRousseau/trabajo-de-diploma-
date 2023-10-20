@@ -829,7 +829,7 @@ namespace UI
         {
             Dictionary<string, int> datos = new Dictionary<string, int>();
             datos = oBLLmensaje.Mensajes_Nuevos(SessionManager.GetInstance.Usuario.id);
-            if (datos != null)
+            if (datos.Count >0)
             {
 
                 // panelMensajes.FlowDirection = FlowDirection.TopDown;

@@ -108,7 +108,7 @@ namespace UI
             buscar(nombreCliente, 1, from, to);
             pag = 1;
         }
-
+        
         private void cellFormattingDataGrid(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (e.ColumnIndex == dataGridView1.Columns["producto"].Index && e.RowIndex >= 0)

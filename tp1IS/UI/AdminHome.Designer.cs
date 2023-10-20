@@ -814,6 +814,7 @@
             this.panel2.Size = new System.Drawing.Size(200, 100);
             this.panel2.TabIndex = 24;
             this.panel2.UseWaitCursor = true;
+            this.panel2.Visible = false;
             // 
             // panel8
             // 
