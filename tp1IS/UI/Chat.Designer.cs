@@ -45,17 +45,19 @@ namespace UI
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(9, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(982, 55);
+            this.panel1.Size = new System.Drawing.Size(965, 55);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(949, 16);
+            this.button2.Location = new System.Drawing.Point(936, 11);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(26, 23);
             this.button2.TabIndex = 1;
@@ -76,7 +78,7 @@ namespace UI
             // 
             this.panel2.AutoScroll = true;
             this.panel2.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.panel2.Location = new System.Drawing.Point(12, 73);
+            this.panel2.Location = new System.Drawing.Point(9, 73);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(962, 375);
             this.panel2.TabIndex = 1;
@@ -85,7 +87,7 @@ namespace UI
             // 
             this.panel3.BackColor = System.Drawing.Color.CadetBlue;
             this.panel3.Controls.Add(this.userControl11);
-            this.panel3.Location = new System.Drawing.Point(12, 450);
+            this.panel3.Location = new System.Drawing.Point(9, 450);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(915, 46);
             this.panel3.TabIndex = 1;
@@ -109,7 +111,7 @@ namespace UI
             // 
             this.button1.BackColor = System.Drawing.Color.CadetBlue;
             this.button1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.button1.Location = new System.Drawing.Point(933, 454);
+            this.button1.Location = new System.Drawing.Point(927, 450);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(41, 42);
             this.button1.TabIndex = 2;
@@ -119,7 +121,7 @@ namespace UI
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(974, 169);
+            this.button3.Location = new System.Drawing.Point(868, 29);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(20, 23);
             this.button3.TabIndex = 3;
@@ -129,7 +131,7 @@ namespace UI
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(974, 307);
+            this.button4.Location = new System.Drawing.Point(842, 29);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(20, 23);
             this.button4.TabIndex = 4;
@@ -142,9 +144,7 @@ namespace UI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(999, 498);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.ClientSize = new System.Drawing.Size(976, 498);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);

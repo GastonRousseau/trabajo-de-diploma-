@@ -47,6 +47,7 @@ namespace UI
             this.metroButton5 = new MetroFramework.Controls.MetroButton();
             this.metroButton4 = new MetroFramework.Controls.MetroButton();
             this.metroButton3 = new MetroFramework.Controls.MetroButton();
+            this.barrarProgreso1 = new UI.controles.BarrarProgreso();
             this.metroButton6 = new MetroFramework.Controls.MetroButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.metroButton8 = new MetroFramework.Controls.MetroButton();
@@ -54,7 +55,6 @@ namespace UI
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.barrarProgreso1 = new UI.controles.BarrarProgreso();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -63,7 +63,7 @@ namespace UI
             // 
             // dataGridView1
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(83)))), ((int)(((byte)(81)))));
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(218)))), ((int)(((byte)(220)))));
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(83)))), ((int)(((byte)(81)))));
@@ -115,8 +115,8 @@ namespace UI
             // 
             // metroButton1
             // 
-            this.metroButton1.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.metroButton1.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.metroButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(123)))), ((int)(((byte)(157)))));
+            this.metroButton1.ForeColor = System.Drawing.Color.Ivory;
             this.metroButton1.Location = new System.Drawing.Point(474, 248);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(29, 23);
@@ -129,8 +129,8 @@ namespace UI
             // 
             // metroButton2
             // 
-            this.metroButton2.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.metroButton2.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.metroButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(123)))), ((int)(((byte)(157)))));
+            this.metroButton2.ForeColor = System.Drawing.Color.Ivory;
             this.metroButton2.Location = new System.Drawing.Point(509, 248);
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(29, 23);
@@ -147,9 +147,9 @@ namespace UI
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(555, 42);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 13);
+            this.label1.Size = new System.Drawing.Size(67, 13);
             this.label1.TabIndex = 9;
-            this.label1.Text = "Estado del viaje:";
+            this.label1.Text = "travel status:";
             // 
             // metroLabel2
             // 
@@ -165,7 +165,7 @@ namespace UI
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(180)))), ((int)(((byte)(141)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
             this.panel1.Controls.Add(this.metroButton10);
             this.panel1.Controls.Add(this.metroButton9);
             this.panel1.Controls.Add(this.metroLabel3);
@@ -238,13 +238,13 @@ namespace UI
             // 
             // metroButton5
             // 
-            this.metroButton5.BackColor = System.Drawing.Color.SeaGreen;
+            this.metroButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(123)))), ((int)(((byte)(157)))));
             this.metroButton5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.metroButton5.Location = new System.Drawing.Point(558, 180);
             this.metroButton5.Name = "metroButton5";
             this.metroButton5.Size = new System.Drawing.Size(243, 36);
             this.metroButton5.TabIndex = 14;
-            this.metroButton5.Text = "Postergar Viaje";
+            this.metroButton5.Text = "Postpone travel";
             this.metroButton5.UseCustomBackColor = true;
             this.metroButton5.UseCustomForeColor = true;
             this.metroButton5.UseSelectable = true;
@@ -252,13 +252,13 @@ namespace UI
             // 
             // metroButton4
             // 
-            this.metroButton4.BackColor = System.Drawing.Color.SeaGreen;
+            this.metroButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(123)))), ((int)(((byte)(157)))));
             this.metroButton4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.metroButton4.Location = new System.Drawing.Point(558, 138);
             this.metroButton4.Name = "metroButton4";
             this.metroButton4.Size = new System.Drawing.Size(243, 36);
             this.metroButton4.TabIndex = 13;
-            this.metroButton4.Text = "Mandar mensaje al conductor del viaje";
+            this.metroButton4.Text = "Send a message to the travel driver";
             this.metroButton4.UseCustomBackColor = true;
             this.metroButton4.UseCustomForeColor = true;
             this.metroButton4.UseSelectable = true;
@@ -266,17 +266,28 @@ namespace UI
             // 
             // metroButton3
             // 
-            this.metroButton3.BackColor = System.Drawing.Color.SeaGreen;
+            this.metroButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(123)))), ((int)(((byte)(157)))));
             this.metroButton3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.metroButton3.Location = new System.Drawing.Point(558, 96);
             this.metroButton3.Name = "metroButton3";
             this.metroButton3.Size = new System.Drawing.Size(243, 36);
             this.metroButton3.TabIndex = 12;
-            this.metroButton3.Text = "Solicitar cancelacion del viaje";
+            this.metroButton3.Text = "Request travel cancellation";
             this.metroButton3.UseCustomBackColor = true;
             this.metroButton3.UseCustomForeColor = true;
             this.metroButton3.UseSelectable = true;
             this.metroButton3.Click += new System.EventHandler(this.metroButton3_Click_1);
+            // 
+            // barrarProgreso1
+            // 
+            this.barrarProgreso1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.barrarProgreso1.Location = new System.Drawing.Point(558, 58);
+            this.barrarProgreso1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.barrarProgreso1.MaximumValue = 3;
+            this.barrarProgreso1.Name = "barrarProgreso1";
+            this.barrarProgreso1.ProgressValue = 0;
+            this.barrarProgreso1.Size = new System.Drawing.Size(243, 32);
+            this.barrarProgreso1.TabIndex = 8;
             // 
             // metroButton6
             // 
@@ -290,7 +301,7 @@ namespace UI
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(218)))), ((int)(((byte)(220)))));
             this.panel3.Controls.Add(this.metroButton8);
             this.panel3.Controls.Add(this.metroButton7);
             this.panel3.Controls.Add(this.dataGridView2);
@@ -318,7 +329,7 @@ namespace UI
             this.metroButton7.Name = "metroButton7";
             this.metroButton7.Size = new System.Drawing.Size(75, 23);
             this.metroButton7.TabIndex = 18;
-            this.metroButton7.Text = "confirmar";
+            this.metroButton7.Text = "confirm";
             this.metroButton7.UseSelectable = true;
             this.metroButton7.Click += new System.EventHandler(this.metroButton7_Click);
             // 
@@ -349,17 +360,6 @@ namespace UI
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(225, 20);
             this.dateTimePicker1.TabIndex = 14;
-            // 
-            // barrarProgreso1
-            // 
-            this.barrarProgreso1.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.barrarProgreso1.Location = new System.Drawing.Point(558, 58);
-            this.barrarProgreso1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.barrarProgreso1.MaximumValue = 3;
-            this.barrarProgreso1.Name = "barrarProgreso1";
-            this.barrarProgreso1.ProgressValue = 0;
-            this.barrarProgreso1.Size = new System.Drawing.Size(243, 32);
-            this.barrarProgreso1.TabIndex = 8;
             // 
             // ViajesCliente
             // 

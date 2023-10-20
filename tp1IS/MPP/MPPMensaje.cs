@@ -116,7 +116,7 @@ namespace MPP
             }
             else
             {
-                return null;
+                return datos;
             }
         }
 

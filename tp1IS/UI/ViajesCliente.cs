@@ -204,7 +204,8 @@ namespace UI
         private void metroButton5_Click(object sender, EventArgs e)
         {
             BEViaje viajeSelect = (BEViaje)dataGridView1.CurrentRow.DataBoundItem;
-            if(viajeSelect.id != 0)
+           
+            if(viajeSelect.id != 0 && viajeSelect.estado == "pendiente")
             {
                 this.Size = new Size(1081, 311);
                 panel3.Visible = true;
@@ -212,7 +213,7 @@ namespace UI
             }
             else
             {
-                MessageBox.Show("No hay ningun viaje seleccionado");
+                MessageBox.Show("No hay ningun viaje seleccion o el viaje que selecciono no tiende estado pendiente");
             }
         }
 

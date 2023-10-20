@@ -96,17 +96,37 @@ namespace UI
 
                     formularioAbierto.Close();
                 }
-
+                if (panel2.Visible == true)
+                {
+                    panel2.Visible = false;
+                }
                 formularioAbierto = formulario;
-                //    formularioAbierto.BringToFront();
-                //    formularioAbierto.TopLevel = false;
+                if (groupBox1.Visible == true)
+                {
+                    groupBox1.Visible = false;
+                }
+                if(formulario is InterfazMensajes)
+                {
+                    formulario.Show();
+                }
+                else
+                {
+                    formulario.TopLevel = false;
+                    formulario.FormBorderStyle = FormBorderStyle.None;
+                    formulario.Dock = DockStyle.Fill;
+                    panel8.Controls.Add(formulario);
+                    panel8.Tag = formulario;
+                    formulario.Show();
+                    if (metroButton28.Visible == false)
+                    {
+                        metroButton28.Visible = true;
+                    }
+                }
+               
+               
 
-                //  formularioAbierto.Dock= DockStyle.Fill;
-
-                //    Control topLevelControl = panel9.TopLevelControl;
-                //     panel9.Controls.Add(formularioAbierto);
-                formulario.Location = new Point(513,25);
-                formularioAbierto.Show();
+               
+               // formularioAbierto.Show();
             }
             catch (NullReferenceException ex)
             {
@@ -143,7 +163,7 @@ namespace UI
                 textBox1.Dock = DockStyle.Top;//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 metroLabel1.Dock = DockStyle.Top;
                 metroLabel2.Dock = DockStyle.Top;
-
+                metroButton28.Visible = false;
                 ListarIdiomas();
 
                 servicios.Observer.agregarObservador(this);
@@ -1021,6 +1041,15 @@ namespace UI
         {
             Estadisticas form = new Estadisticas();
             AbrirFormulario(form);
+        }
+
+        private void metroButton28_Click(object sender, EventArgs e)
+        {
+            if (formularioAbierto != null)
+            {
+                formularioAbierto.Close();
+                metroButton28.Visible = false;
+            }
         }
     }
     }

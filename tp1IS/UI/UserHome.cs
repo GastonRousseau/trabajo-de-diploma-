@@ -68,9 +68,25 @@ namespace UI
                 {
                     formularioAbierto.Close();
                 }
-
                 formularioAbierto = formulario;
-                formularioAbierto.Show();
+                if (formulario is InterfazMensajes)
+                {
+                    formulario.Show();
+                }
+                else
+                {
+                    
+                    formulario.TopLevel = false;
+                    formulario.FormBorderStyle = FormBorderStyle.None;
+                    formulario.Dock = DockStyle.Fill;
+                    panel2.Controls.Add(formulario);
+                    panel2.Tag = formulario;
+                    formulario.Show();
+                    if (metroButton1.Visible == false)
+                    {
+                        metroButton1.Visible = true;
+                    }
+                }
             }
             catch (NullReferenceException ex)
             {
@@ -345,7 +361,7 @@ namespace UI
         {
             Dictionary<string, int> datos = new Dictionary<string, int>();
             datos = oBLLmensaje.Mensajes_Nuevos(SessionManager.GetInstance.Usuario.id);
-            if (datos.Count > 0)
+            if (datos.Count > 0||datos!=null)
             {
 
                 // panelMensajes.FlowDirection = FlowDirection.TopDown;
@@ -412,6 +428,45 @@ namespace UI
             form.Show();
         }
 
+        private void metroButton5_Click(object sender, EventArgs e)
+        {
+            Historial_de_viajes_Clinte form = new Historial_de_viajes_Clinte();
+            AbrirFormulario(form);
+        }
 
+        private void metroButton3_Click(object sender, EventArgs e)
+        {
+            ViajesCliente form = new ViajesCliente();
+            AbrirFormulario(form);
+        }
+
+        private void metroButton6_Click(object sender, EventArgs e)
+        {
+            Crear_viaje form = new Crear_viaje();
+            AbrirFormulario(form);
+        }
+
+        private void metroButton2_Click(object sender, EventArgs e)
+        {
+            CrearProducto form = new CrearProducto();
+            AbrirFormulario(form);
+        }
+
+        private void metroButton7_Click(object sender, EventArgs e)
+        {
+            InterfazMensajes form = new InterfazMensajes();
+            AbrirFormulario(form);
+        }
+
+        private void metroButton8_Click(object sender, EventArgs e)
+        {
+            string nombre = oBLLmensaje.Buscar_ServicioTecnico();
+            BEUsuario ServicioTecnico = oBLLusuario.buscar_usuario(nombre);
+            Chat.usuarioAconectar = ServicioTecnico;
+            Chat form = new Chat();
+            form.label1.Text = ServicioTecnico.user;
+            form.userControl11.Texts = "Tengo el siguiente problema:";
+            form.Show();
+        }
     }
 }

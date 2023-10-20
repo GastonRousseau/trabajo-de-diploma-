@@ -353,6 +353,31 @@ namespace UI
         {
 
         }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void formatingCellDataGridCamiones(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+           
+            if (e.ColumnIndex == dataGridView2.Columns["conductor"].Index && e.RowIndex >= 0)
+            {
+                BECamion camion = dataGridView2.Rows[e.RowIndex].DataBoundItem as BECamion;
+
+                // Asegúrate de que la celda tenga un valor de Viaje no nulo
+                if (camion != null && camion.conductor != null)
+                {
+                    // Configura el valor de la celda para mostrar el nombre del producto
+                    e.Value = camion.conductor.user;
+                }
+                else
+                {
+                    e.Value = "Sin conductor";
+                }
+            }
+        }
     }
 }
 

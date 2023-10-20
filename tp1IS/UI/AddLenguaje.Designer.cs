@@ -71,7 +71,7 @@ namespace UI
             // 
             // metroButton1
             // 
-            this.metroButton1.BackColor = System.Drawing.Color.SandyBrown;
+            this.metroButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(123)))), ((int)(((byte)(157)))));
             this.metroButton1.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.metroButton1.ForeColor = System.Drawing.SystemColors.Info;
             this.metroButton1.Location = new System.Drawing.Point(106, 227);
@@ -94,6 +94,7 @@ namespace UI
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
+            this.metroLabel1.BackColor = System.Drawing.Color.Transparent;
             this.metroLabel1.Location = new System.Drawing.Point(246, 117);
             this.metroLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel1.Name = "metroLabel1";
@@ -101,10 +102,13 @@ namespace UI
             this.metroLabel1.TabIndex = 4;
             this.metroLabel1.Tag = "word";
             this.metroLabel1.Text = "Word";
+            this.metroLabel1.UseCustomBackColor = true;
+            this.metroLabel1.UseCustomForeColor = true;
             // 
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
+            this.metroLabel2.BackColor = System.Drawing.Color.Transparent;
             this.metroLabel2.Location = new System.Drawing.Point(1, 116);
             this.metroLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel2.Name = "metroLabel2";
@@ -112,10 +116,12 @@ namespace UI
             this.metroLabel2.TabIndex = 3;
             this.metroLabel2.Tag = "language";
             this.metroLabel2.Text = "Language";
+            this.metroLabel2.UseCustomBackColor = true;
+            this.metroLabel2.UseCustomForeColor = true;
             // 
             // metroButton2
             // 
-            this.metroButton2.BackColor = System.Drawing.Color.SandyBrown;
+            this.metroButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(123)))), ((int)(((byte)(157)))));
             this.metroButton2.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.metroButton2.ForeColor = System.Drawing.SystemColors.Info;
             this.metroButton2.Location = new System.Drawing.Point(106, 282);
@@ -152,6 +158,7 @@ namespace UI
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
+            this.metroLabel3.BackColor = System.Drawing.Color.Transparent;
             this.metroLabel3.Location = new System.Drawing.Point(106, 180);
             this.metroLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel3.Name = "metroLabel3";
@@ -159,6 +166,8 @@ namespace UI
             this.metroLabel3.TabIndex = 9;
             this.metroLabel3.Tag = "translation";
             this.metroLabel3.Text = "Translation";
+            this.metroLabel3.UseCustomBackColor = true;
+            this.metroLabel3.UseCustomForeColor = true;
             // 
             // errorProvider1
             // 
@@ -167,6 +176,7 @@ namespace UI
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
+            this.metroLabel4.BackColor = System.Drawing.Color.Transparent;
             this.metroLabel4.Location = new System.Drawing.Point(125, 118);
             this.metroLabel4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel4.Name = "metroLabel4";
@@ -174,6 +184,8 @@ namespace UI
             this.metroLabel4.TabIndex = 6;
             this.metroLabel4.Tag = "new language";
             this.metroLabel4.Text = "New Language";
+            this.metroLabel4.UseCustomBackColor = true;
+            this.metroLabel4.UseCustomForeColor = true;
             // 
             // radioButton1
             // 
@@ -225,6 +237,7 @@ namespace UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
             this.ClientSize = new System.Drawing.Size(748, 542);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.comboBox3);

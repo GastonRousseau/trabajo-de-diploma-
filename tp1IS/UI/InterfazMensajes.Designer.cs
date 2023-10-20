@@ -42,19 +42,20 @@ namespace UI
             // 
             // panel1
             // 
+            this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.panel1.Location = new System.Drawing.Point(12, 32);
+            this.panel1.Location = new System.Drawing.Point(3, 32);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(143, 498);
+            this.panel1.Size = new System.Drawing.Size(143, 478);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.CadetBlue;
-            this.panel2.Location = new System.Drawing.Point(161, 32);
+            this.panel2.Location = new System.Drawing.Point(152, 33);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(986, 498);
+            this.panel2.Size = new System.Drawing.Size(986, 478);
             this.panel2.TabIndex = 1;
             // 
             // button1
@@ -100,9 +101,9 @@ namespace UI
             this.panel3.Controls.Add(this.metroButton2);
             this.panel3.Controls.Add(this.metroLabel1);
             this.panel3.Controls.Add(this.metroButton1);
-            this.panel3.Location = new System.Drawing.Point(12, 3);
+            this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1135, 27);
+            this.panel3.Size = new System.Drawing.Size(1135, 28);
             this.panel3.TabIndex = 7;
             // 
             // comboBox1
@@ -133,7 +134,7 @@ namespace UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1154, 536);
+            this.ClientSize = new System.Drawing.Size(1139, 513);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

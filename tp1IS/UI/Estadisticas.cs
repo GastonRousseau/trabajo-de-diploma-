@@ -27,6 +27,8 @@ namespace UI
         }
         Nullable<DateTime> from;
         Nullable<DateTime> to;
+        Nullable<DateTime> from2;
+        Nullable<DateTime> to2;
         BLLUsuario oBLLusuario;
         BEUsuario ConductoSeleccionado = new BEUsuario();
         List<BEViaje> viajes = new List<BEViaje>();
@@ -61,7 +63,7 @@ namespace UI
                 {
                     to = metroDateTime2.Value;
                 }
-                CargarChart();
+               // CargarChart();
             }
            
         }
@@ -114,11 +116,12 @@ namespace UI
 
         void CargarChart()
         {
-            Dictionary<string, int> conductores = oBLLviaje.Conductores_viajes_realizados(from,to);
+            Dictionary<string, int> conductores = oBLLviaje.Conductores_viajes_realizados(from2,to2);
             if (conductores.Count > 0)
             {
                 chart1.Series.Clear();
-                Series serie = new Series("Barras");
+                Series serie = new Series("Drivers");
+                serie.Color = Color.AliceBlue;
                 serie.ChartType = SeriesChartType.StackedBar;
                 foreach (var par in conductores)
                 {
@@ -137,7 +140,8 @@ namespace UI
         {
             from = null;
             to = null;
-            CargarChart();
+            CalcularEstadisticas();
+            // CargarChart();
         }
 
         private void metroButton1_Click(object sender, EventArgs e)
@@ -157,6 +161,32 @@ namespace UI
                 }
 
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void metroButton4_Click(object sender, EventArgs e)
+        {
+            if (metroDateTime4.Value != null)
+            {
+                from2 = metroDateTime4.Value;
+            }
+            if (metroDateTime3.Value != null)
+            {
+                to2 = metroDateTime3.Value;
+            }
+            CargarChart();
+
+        }
+
+        private void metroButton2_Click(object sender, EventArgs e)
+        {
+            from2 = null;
+            to2 = null;
+            CargarChart();
         }
     }
 }

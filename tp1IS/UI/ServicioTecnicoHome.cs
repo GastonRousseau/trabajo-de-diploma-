@@ -39,8 +39,23 @@ namespace UI
                 }
 
                 formularioAbierto = formulario;
-                formulario.Location = new Point(513, 25);
-                formularioAbierto.Show();
+                if (formulario is InterfazMensajes)
+                {
+                    formulario.Show();
+                }
+                else
+                {
+                    formulario.TopLevel = false;
+                    formulario.FormBorderStyle = FormBorderStyle.None;
+                    formulario.Dock = DockStyle.Fill;
+                    panel2.Controls.Add(formulario);
+                    panel2.Tag = formulario;
+                    formulario.Show();
+                    if (metroButton6.Visible == false)
+                    {
+                        metroButton6.Visible = true;
+                    }
+                }
             }
             catch (NullReferenceException ex)
             {

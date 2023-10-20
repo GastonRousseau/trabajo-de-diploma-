@@ -72,7 +72,7 @@ namespace UI
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Salmon;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(218)))), ((int)(((byte)(220)))));
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.Brown;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -101,7 +101,7 @@ namespace UI
             // 
             // metroButton1
             // 
-            this.metroButton1.BackColor = System.Drawing.Color.Maroon;
+            this.metroButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(53)))), ((int)(((byte)(87)))));
             this.metroButton1.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.metroButton1.Location = new System.Drawing.Point(457, 190);
             this.metroButton1.Name = "metroButton1";
@@ -115,7 +115,7 @@ namespace UI
             // 
             // metroButton2
             // 
-            this.metroButton2.BackColor = System.Drawing.Color.Maroon;
+            this.metroButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(53)))), ((int)(((byte)(87)))));
             this.metroButton2.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.metroButton2.Location = new System.Drawing.Point(506, 190);
             this.metroButton2.Name = "metroButton2";
@@ -129,7 +129,7 @@ namespace UI
             // 
             // metroButton3
             // 
-            this.metroButton3.BackColor = System.Drawing.Color.Maroon;
+            this.metroButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(53)))), ((int)(((byte)(87)))));
             this.metroButton3.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.metroButton3.Location = new System.Drawing.Point(474, 8);
             this.metroButton3.Name = "metroButton3";
@@ -143,7 +143,7 @@ namespace UI
             // 
             // textBox1
             // 
-            this.textBox1.BackColor = System.Drawing.Color.Brown;
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(53)))), ((int)(((byte)(87)))));
             this.textBox1.ForeColor = System.Drawing.SystemColors.Info;
             this.textBox1.Location = new System.Drawing.Point(363, 8);
             this.textBox1.Name = "textBox1";
@@ -152,8 +152,8 @@ namespace UI
             // 
             // metroButton4
             // 
-            this.metroButton4.BackColor = System.Drawing.Color.Maroon;
-            this.metroButton4.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.metroButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(218)))), ((int)(((byte)(220)))));
+            this.metroButton4.ForeColor = System.Drawing.SystemColors.ControlText;
             this.metroButton4.Location = new System.Drawing.Point(573, 75);
             this.metroButton4.Name = "metroButton4";
             this.metroButton4.Size = new System.Drawing.Size(260, 23);
@@ -166,8 +166,8 @@ namespace UI
             // 
             // metroButton5
             // 
-            this.metroButton5.BackColor = System.Drawing.Color.Maroon;
-            this.metroButton5.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.metroButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(218)))), ((int)(((byte)(220)))));
+            this.metroButton5.ForeColor = System.Drawing.SystemColors.ControlText;
             this.metroButton5.Location = new System.Drawing.Point(573, 104);
             this.metroButton5.Name = "metroButton5";
             this.metroButton5.Size = new System.Drawing.Size(260, 23);
@@ -180,7 +180,7 @@ namespace UI
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Crimson;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.metroButton7);
             this.panel1.Controls.Add(this.metroButton6);
@@ -233,7 +233,7 @@ namespace UI
             // 
             // metroButton8
             // 
-            this.metroButton8.BackColor = System.Drawing.Color.Maroon;
+            this.metroButton8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(53)))), ((int)(((byte)(87)))));
             this.metroButton8.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.metroButton8.Location = new System.Drawing.Point(62, 69);
             this.metroButton8.Name = "metroButton8";
@@ -247,8 +247,8 @@ namespace UI
             // 
             // metroButton7
             // 
-            this.metroButton7.BackColor = System.Drawing.Color.Maroon;
-            this.metroButton7.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.metroButton7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(218)))), ((int)(((byte)(220)))));
+            this.metroButton7.ForeColor = System.Drawing.SystemColors.ControlText;
             this.metroButton7.Location = new System.Drawing.Point(573, 161);
             this.metroButton7.Name = "metroButton7";
             this.metroButton7.Size = new System.Drawing.Size(260, 23);
@@ -261,8 +261,8 @@ namespace UI
             // 
             // metroButton6
             // 
-            this.metroButton6.BackColor = System.Drawing.Color.Maroon;
-            this.metroButton6.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.metroButton6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(218)))), ((int)(((byte)(220)))));
+            this.metroButton6.ForeColor = System.Drawing.SystemColors.ControlText;
             this.metroButton6.Location = new System.Drawing.Point(573, 133);
             this.metroButton6.Name = "metroButton6";
             this.metroButton6.Size = new System.Drawing.Size(260, 23);

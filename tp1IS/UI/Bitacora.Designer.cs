@@ -66,36 +66,45 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(8, 72);
+            this.metroLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel1.Location = new System.Drawing.Point(41, 72);
             this.metroLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(68, 19);
             this.metroLabel1.TabIndex = 0;
             this.metroLabel1.Tag = "username";
             this.metroLabel1.Text = "Username";
+            this.metroLabel1.UseCustomBackColor = true;
+            this.metroLabel1.UseCustomForeColor = true;
             this.metroLabel1.Click += new System.EventHandler(this.metroLabel1_Click);
             // 
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(234, 72);
+            this.metroLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel2.Location = new System.Drawing.Point(228, 73);
             this.metroLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(36, 19);
             this.metroLabel2.TabIndex = 4;
             this.metroLabel2.Tag = "type";
             this.metroLabel2.Text = "Type";
+            this.metroLabel2.UseCustomBackColor = true;
+            this.metroLabel2.UseCustomForeColor = true;
             // 
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(435, 73);
+            this.metroLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel3.Location = new System.Drawing.Point(436, 73);
             this.metroLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(36, 19);
             this.metroLabel3.TabIndex = 7;
             this.metroLabel3.Tag = "date";
             this.metroLabel3.Text = "Date";
+            this.metroLabel3.UseCustomBackColor = true;
+            this.metroLabel3.UseCustomForeColor = true;
             // 
             // metroComboBox1
             // 
@@ -141,6 +150,8 @@
             // 
             // Apply
             // 
+            this.Apply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(123)))), ((int)(((byte)(157)))));
+            this.Apply.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Apply.Location = new System.Drawing.Point(682, 51);
             this.Apply.Margin = new System.Windows.Forms.Padding(2);
             this.Apply.Name = "Apply";
@@ -148,6 +159,8 @@
             this.Apply.TabIndex = 12;
             this.Apply.Tag = "apply";
             this.Apply.Text = "Apply";
+            this.Apply.UseCustomBackColor = true;
+            this.Apply.UseCustomForeColor = true;
             this.Apply.UseSelectable = true;
             this.Apply.Click += new System.EventHandler(this.Apply_Click);
             // 
@@ -175,27 +188,35 @@
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(475, 88);
+            this.metroLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel4.Location = new System.Drawing.Point(476, 88);
             this.metroLabel4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(22, 19);
             this.metroLabel4.TabIndex = 10;
             this.metroLabel4.Tag = "to";
             this.metroLabel4.Text = "To";
+            this.metroLabel4.UseCustomBackColor = true;
+            this.metroLabel4.UseCustomForeColor = true;
             // 
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(473, 54);
+            this.metroLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel5.Location = new System.Drawing.Point(474, 54);
             this.metroLabel5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(41, 19);
             this.metroLabel5.TabIndex = 8;
             this.metroLabel5.Tag = "from";
             this.metroLabel5.Text = "From";
+            this.metroLabel5.UseCustomBackColor = true;
+            this.metroLabel5.UseCustomForeColor = true;
             // 
             // metroButton3
             // 
+            this.metroButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(123)))), ((int)(((byte)(157)))));
+            this.metroButton3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.metroButton3.Location = new System.Drawing.Point(682, 83);
             this.metroButton3.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton3.Name = "metroButton3";
@@ -203,31 +224,37 @@
             this.metroButton3.TabIndex = 13;
             this.metroButton3.Tag = "delete";
             this.metroButton3.Text = "delete ";
+            this.metroButton3.UseCustomBackColor = true;
+            this.metroButton3.UseCustomForeColor = true;
             this.metroButton3.UseSelectable = true;
             this.metroButton3.Click += new System.EventHandler(this.metroButton3_Click);
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(123)))), ((int)(((byte)(157)))));
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button1.Location = new System.Drawing.Point(743, 449);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(32, 31);
             this.button1.TabIndex = 15;
             this.button1.Text = "<";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(123)))), ((int)(((byte)(157)))));
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button2.Location = new System.Drawing.Point(779, 449);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(32, 31);
             this.button2.TabIndex = 0;
             this.button2.Text = ">";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // comboBox1
@@ -245,6 +272,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
             this.ClientSize = new System.Drawing.Size(857, 536);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button2);

@@ -30,7 +30,6 @@ namespace UI
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
@@ -51,34 +50,27 @@ namespace UI
             this.metroButton3 = new MetroFramework.Controls.MetroButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(26, 23);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.Size = new System.Drawing.Size(802, 278);
-            this.dataGridView1.TabIndex = 2;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(618, 114);
+            this.textBox5.Location = new System.Drawing.Point(412, 74);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(224, 26);
+            this.textBox5.Size = new System.Drawing.Size(151, 20);
             this.textBox5.TabIndex = 28;
             // 
             // metroLabel7
             // 
             this.metroLabel7.AutoSize = true;
             this.metroLabel7.BackColor = System.Drawing.Color.Transparent;
-            this.metroLabel7.Location = new System.Drawing.Point(453, 114);
+            this.metroLabel7.Location = new System.Drawing.Point(302, 74);
+            this.metroLabel7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel7.Name = "metroLabel7";
             this.metroLabel7.Size = new System.Drawing.Size(97, 19);
             this.metroLabel7.TabIndex = 27;
@@ -91,7 +83,8 @@ namespace UI
             // 
             this.metroLabel5.AutoSize = true;
             this.metroLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.metroLabel5.Location = new System.Drawing.Point(474, 60);
+            this.metroLabel5.Location = new System.Drawing.Point(316, 39);
+            this.metroLabel5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(83, 19);
             this.metroLabel5.TabIndex = 26;
@@ -104,7 +97,8 @@ namespace UI
             // 
             this.metroLabel4.AutoSize = true;
             this.metroLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.metroLabel4.Location = new System.Drawing.Point(477, 31);
+            this.metroLabel4.Location = new System.Drawing.Point(318, 20);
+            this.metroLabel4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(51, 19);
             this.metroLabel4.TabIndex = 25;
@@ -115,25 +109,29 @@ namespace UI
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(618, 60);
+            this.textBox4.Location = new System.Drawing.Point(412, 39);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(224, 26);
+            this.textBox4.Size = new System.Drawing.Size(151, 20);
             this.textBox4.TabIndex = 24;
             // 
             // metroDateTime2
             // 
-            this.metroDateTime2.Location = new System.Drawing.Point(618, 160);
+            this.metroDateTime2.Location = new System.Drawing.Point(412, 104);
+            this.metroDateTime2.Margin = new System.Windows.Forms.Padding(2);
             this.metroDateTime2.MinimumSize = new System.Drawing.Size(0, 29);
             this.metroDateTime2.Name = "metroDateTime2";
-            this.metroDateTime2.Size = new System.Drawing.Size(224, 29);
+            this.metroDateTime2.Size = new System.Drawing.Size(151, 29);
             this.metroDateTime2.TabIndex = 22;
             // 
             // metroButton4
             // 
-            this.metroButton4.BackColor = System.Drawing.Color.Beige;
-            this.metroButton4.Location = new System.Drawing.Point(236, 260);
+            this.metroButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(123)))), ((int)(((byte)(157)))));
+            this.metroButton4.ForeColor = System.Drawing.SystemColors.Control;
+            this.metroButton4.Location = new System.Drawing.Point(157, 169);
+            this.metroButton4.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton4.Name = "metroButton4";
-            this.metroButton4.Size = new System.Drawing.Size(138, 38);
+            this.metroButton4.Size = new System.Drawing.Size(92, 25);
             this.metroButton4.TabIndex = 23;
             this.metroButton4.Tag = "confirm";
             this.metroButton4.Text = "Confirm";
@@ -144,16 +142,18 @@ namespace UI
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(123, 149);
+            this.textBox3.Location = new System.Drawing.Point(82, 97);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(224, 26);
+            this.textBox3.Size = new System.Drawing.Size(151, 20);
             this.textBox3.TabIndex = 20;
             // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
             this.metroLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.metroLabel1.Location = new System.Drawing.Point(42, 151);
+            this.metroLabel1.Location = new System.Drawing.Point(28, 98);
+            this.metroLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(21, 19);
             this.metroLabel1.TabIndex = 19;
@@ -166,7 +166,8 @@ namespace UI
             // 
             this.metroLabel6.AutoSize = true;
             this.metroLabel6.BackColor = System.Drawing.Color.Transparent;
-            this.metroLabel6.Location = new System.Drawing.Point(492, 158);
+            this.metroLabel6.Location = new System.Drawing.Point(328, 103);
+            this.metroLabel6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(67, 19);
             this.metroLabel6.TabIndex = 21;
@@ -177,24 +178,27 @@ namespace UI
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(123, 108);
+            this.textBox2.Location = new System.Drawing.Point(82, 70);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(224, 26);
+            this.textBox2.Size = new System.Drawing.Size(151, 20);
             this.textBox2.TabIndex = 18;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(123, 62);
+            this.textBox1.Location = new System.Drawing.Point(82, 40);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(224, 26);
+            this.textBox1.Size = new System.Drawing.Size(151, 20);
             this.textBox1.TabIndex = 16;
             // 
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
             this.metroLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.metroLabel3.Location = new System.Drawing.Point(9, 108);
+            this.metroLabel3.Location = new System.Drawing.Point(6, 70);
+            this.metroLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(63, 19);
             this.metroLabel3.TabIndex = 17;
@@ -207,7 +211,8 @@ namespace UI
             // 
             this.metroLabel2.AutoSize = true;
             this.metroLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.metroLabel2.Location = new System.Drawing.Point(9, 62);
+            this.metroLabel2.Location = new System.Drawing.Point(6, 40);
+            this.metroLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(68, 19);
             this.metroLabel2.TabIndex = 15;
@@ -218,10 +223,12 @@ namespace UI
             // 
             // metroButton1
             // 
-            this.metroButton1.BackColor = System.Drawing.Color.Beige;
-            this.metroButton1.Location = new System.Drawing.Point(474, 260);
+            this.metroButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(123)))), ((int)(((byte)(157)))));
+            this.metroButton1.ForeColor = System.Drawing.SystemColors.Control;
+            this.metroButton1.Location = new System.Drawing.Point(316, 169);
+            this.metroButton1.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(138, 38);
+            this.metroButton1.Size = new System.Drawing.Size(92, 25);
             this.metroButton1.TabIndex = 29;
             this.metroButton1.Tag = "confirm";
             this.metroButton1.Text = "Delete";
@@ -236,11 +243,11 @@ namespace UI
             // 
             // metroButton2
             // 
-            this.metroButton2.BackColor = System.Drawing.Color.LemonChiffon;
-            this.metroButton2.Location = new System.Drawing.Point(705, 311);
-            this.metroButton2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.metroButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(123)))), ((int)(((byte)(157)))));
+            this.metroButton2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.metroButton2.Location = new System.Drawing.Point(470, 202);
             this.metroButton2.Name = "metroButton2";
-            this.metroButton2.Size = new System.Drawing.Size(57, 35);
+            this.metroButton2.Size = new System.Drawing.Size(38, 23);
             this.metroButton2.TabIndex = 30;
             this.metroButton2.Text = "<";
             this.metroButton2.UseCustomBackColor = true;
@@ -250,11 +257,11 @@ namespace UI
             // 
             // metroButton3
             // 
-            this.metroButton3.BackColor = System.Drawing.Color.LemonChiffon;
-            this.metroButton3.Location = new System.Drawing.Point(771, 311);
-            this.metroButton3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.metroButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(123)))), ((int)(((byte)(157)))));
+            this.metroButton3.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.metroButton3.Location = new System.Drawing.Point(514, 202);
             this.metroButton3.Name = "metroButton3";
-            this.metroButton3.Size = new System.Drawing.Size(57, 35);
+            this.metroButton3.Size = new System.Drawing.Size(38, 23);
             this.metroButton3.TabIndex = 31;
             this.metroButton3.Text = ">";
             this.metroButton3.UseCustomBackColor = true;
@@ -264,7 +271,7 @@ namespace UI
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(218)))), ((int)(((byte)(220)))));
             this.panel1.Controls.Add(this.textBox5);
             this.panel1.Controls.Add(this.metroLabel2);
             this.panel1.Controls.Add(this.metroButton1);
@@ -280,48 +287,53 @@ namespace UI
             this.panel1.Controls.Add(this.textBox3);
             this.panel1.Controls.Add(this.metroDateTime2);
             this.panel1.Controls.Add(this.metroButton4);
-            this.panel1.Location = new System.Drawing.Point(8, 15);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel1.Location = new System.Drawing.Point(5, 10);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(862, 354);
+            this.panel1.Size = new System.Drawing.Size(575, 230);
             this.panel1.TabIndex = 32;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.DarkKhaki;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Controls.Add(this.metroButton2);
             this.panel2.Controls.Add(this.metroButton3);
-            this.panel2.Location = new System.Drawing.Point(8, 355);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel2.Location = new System.Drawing.Point(5, 231);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(862, 360);
+            this.panel2.Size = new System.Drawing.Size(575, 234);
             this.panel2.TabIndex = 33;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(17, 15);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 62;
+            this.dataGridView1.Size = new System.Drawing.Size(535, 181);
+            this.dataGridView1.TabIndex = 2;
             // 
             // CrearChofer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(878, 726);
+            this.ClientSize = new System.Drawing.Size(585, 472);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "CrearChofer";
-            this.Padding = new System.Windows.Forms.Padding(30, 92, 30, 31);
+            this.Padding = new System.Windows.Forms.Padding(20, 60, 20, 20);
             this.Text = "CrearChofer";
             this.Load += new System.EventHandler(this.CrearChofer_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox textBox5;
         private MetroFramework.Controls.MetroLabel metroLabel7;
         private MetroFramework.Controls.MetroLabel metroLabel5;
@@ -342,5 +354,6 @@ namespace UI
         private MetroFramework.Controls.MetroButton metroButton3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

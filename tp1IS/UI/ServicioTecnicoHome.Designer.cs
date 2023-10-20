@@ -35,6 +35,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.metroButton5 = new MetroFramework.Controls.MetroButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.metroButton6 = new MetroFramework.Controls.MetroButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -111,10 +112,10 @@
             this.panel1.Controls.Add(this.metroButton1);
             this.panel1.Controls.Add(this.metroButton3);
             this.panel1.Controls.Add(this.metroButton2);
-            this.panel1.Location = new System.Drawing.Point(0, 2);
+            this.panel1.Location = new System.Drawing.Point(5, -1);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(183, 278);
+            this.panel1.Size = new System.Drawing.Size(183, 406);
             this.panel1.TabIndex = 4;
             // 
             // metroButton5
@@ -136,19 +137,29 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(222)))), ((int)(((byte)(252)))));
-            this.panel2.Controls.Add(this.panel1);
-            this.panel2.Location = new System.Drawing.Point(1, -1);
+            this.panel2.Controls.Add(this.metroButton6);
+            this.panel2.Location = new System.Drawing.Point(183, -1);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(628, 305);
+            this.panel2.Size = new System.Drawing.Size(883, 406);
             this.panel2.TabIndex = 5;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // metroButton6
+            // 
+            this.metroButton6.Location = new System.Drawing.Point(843, 3);
+            this.metroButton6.Name = "metroButton6";
+            this.metroButton6.Size = new System.Drawing.Size(37, 23);
+            this.metroButton6.TabIndex = 0;
+            this.metroButton6.Text = "X";
+            this.metroButton6.UseSelectable = true;
             // 
             // ServicioTecnicoHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(629, 304);
+            this.ClientSize = new System.Drawing.Size(1068, 407);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ServicioTecnicoHome";
@@ -170,5 +181,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private MetroFramework.Controls.MetroButton metroButton5;
+        private MetroFramework.Controls.MetroButton metroButton6;
     }
 }
