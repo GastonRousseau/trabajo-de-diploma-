@@ -559,6 +559,9 @@ namespace DAL
                     viaje.fecha = Convert.ToDateTime(fila["fecha"]);
                     viaje.estado = fila["estado"].ToString();
                     viaje.Km_Recorridos = Convert.ToInt32(fila["KM_recorridos"]);
+                    viaje.fechaFinalizacion = Convert.ToDateTime(fila["fecha_finalizacion"]);
+                    viaje.partida = fila["partida"].ToString();
+                    viaje.destino = fila["destino"].ToString();
                     BECamion camion = new BECamion();////////////////////////////////////
                     camion.id = Convert.ToInt32(fila["codigo_camion"]);
                     camion.capacidad_Pallets = Convert.ToInt32(fila["capacidad_pallets"]);
@@ -618,6 +621,7 @@ namespace DAL
                     viaje.cantidad_Pallets = Convert.ToInt32(fila["viajes_palets"]);
                     viaje.cantidad_KM = Convert.ToInt32(fila["distancia"]);
                     viaje.fecha = Convert.ToDateTime(fila["fecha"]);
+                    viaje.fechaFinalizacion= Convert.ToDateTime(fila["fecha_finalizacion"]);
                     viaje.estado = fila["estado"].ToString();
                     viaje.Km_Recorridos = Convert.ToInt32(fila["KM_recorridos"]);
                     viaje.destino = fila["destino"].ToString();
@@ -747,7 +751,9 @@ namespace DAL
                     {
                         viaje.Km_Recorridos = Convert.ToInt32(fila["KM_recorridos"]);
                     }
-                    
+                    viaje.partida = fila["partida"].ToString();
+                    viaje.destino = fila["destino"].ToString();
+
                     BECamion camion = new BECamion();////////////////////////////////////
                     camion.id = Convert.ToInt32(fila["codigo_camion"]);
                     camion.capacidad_Pallets = Convert.ToInt32(fila["capacidad_pallets"]);

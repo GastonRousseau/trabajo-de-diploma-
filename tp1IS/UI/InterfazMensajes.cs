@@ -37,101 +37,147 @@ namespace UI
         }
         private void abrirChat(Chat form, string titulo)//,int usuario,BEusuario usario_chatea)
         {
-            if (ChatActual != null)
+            try
             {
-                ChatActual.Close();
+                if (ChatActual != null)
+                {
+                    ChatActual.Close();
+                }
+                form.label1.Text = titulo;
+                ChatActual = form;
+
+                form.BringToFront();
+                form.TopLevel = false;
+                panel2.Controls.Add(form);
+
+                form.Show();
             }
-            form.label1.Text = titulo;
-            ChatActual = form;
-        
-            form.BringToFront();
-            form.TopLevel = false;
-            panel2.Controls.Add(form);
-          
-            form.Show();
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
         }
         private void crear_chat(string nombre,int id)//(string nombreUsuarioDElchat)
         {
-            Panel panel = new Panel();
-            panel.Dock = DockStyle.Top;
-            panel.Height = 75;
-            panel.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(panel);
-            panel.BringToFront();
-            panel.BackColor= Color.LightSkyBlue;
-            Label titulo = new Label();
-            titulo.Font = new Font("Century Gothic", 14, FontStyle.Regular);
-            titulo.Size = new Size(160, 17);
-            titulo.Text = nombre;
-            panel.Controls.Add(titulo);
-            titulo.Location = new Point(41, 16);//70, 30); 91,39
-            Label subtitulo = new Label();//cambiar el tamño del subtitulo,mas chico
-            //subtitulo.Size = new Size(100,10);
-            subtitulo.Font = new Font("Century Gothic", 9, FontStyle.Regular);
-            subtitulo.Text = Convert.ToString(id);
-            subtitulo.Location = new Point(71, 56);
-            panel.Controls.Add(subtitulo);
-            panel.Click += panel_click;
-            panel.MouseEnter += panel_Enter;
-            panel.MouseLeave += panel_Leave;
 
-            Button boton_Borrar = new Button();
-            boton_Borrar.Text = "X";
-            boton_Borrar.Size = new Size(16, 16);
-            boton_Borrar.Location = new Point(1, 1);
-            boton_Borrar.BackColor = Color.Black;
-            boton_Borrar.ForeColor = Color.White;
-            panel.Controls.Add(boton_Borrar);
-            boton_Borrar.Click += btnBorrarChat_click;
-            boton_Borrar.Tag = id;
+            try
+            {
+                Panel panel = new Panel();
+                panel.Dock = DockStyle.Top;
+                panel.Height = 75;
+                panel.BorderStyle = BorderStyle.FixedSingle;
+                panel1.Controls.Add(panel);
+                panel.BringToFront();
+                panel.BackColor = Color.LightSkyBlue;
+                Label titulo = new Label();
+                titulo.Font = new Font("Century Gothic", 14, FontStyle.Regular);
+                titulo.Size = new Size(160, 17);
+                titulo.Text = nombre;
+                panel.Controls.Add(titulo);
+                titulo.Location = new Point(41, 16);//70, 30); 91,39
+                Label subtitulo = new Label();//cambiar el tamño del subtitulo,mas chico
+                subtitulo.Font = new Font("Century Gothic", 9, FontStyle.Regular);
+                subtitulo.Text = Convert.ToString(id);
+                subtitulo.Location = new Point(71, 56);
+                panel.Controls.Add(subtitulo);
+                panel.Click += panel_click;
+                panel.MouseEnter += panel_Enter;
+                panel.MouseLeave += panel_Leave;
+
+                Button boton_Borrar = new Button();
+                boton_Borrar.Text = "X";
+                boton_Borrar.Size = new Size(16, 16);
+                boton_Borrar.Location = new Point(1, 1);
+                boton_Borrar.BackColor = Color.Black;
+                boton_Borrar.ForeColor = Color.White;
+                panel.Controls.Add(boton_Borrar);
+                boton_Borrar.Click += btnBorrarChat_click;
+                boton_Borrar.Tag = id;
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         void Cargar_Usuarios_posibles()
         {
-            
-            List<string> usuarios;
-            if (SessionManager.tiene_permiso(5) || SessionManager.tiene_permiso(61))
+            try
             {
-                usuarios = oBLLmensajes.Todos_los_usuarios_a_conectar();
-            }
-            else
-            {
-                usuarios = oBLLmensajes.Usuarios_con_quien_conectar(SessionManager.GetInstance.Usuario.id);
-            }
-           
-            usuarios = usuarios.Distinct().ToList(); 
-            foreach(string usuario in usuarios) 
-            {
-                if (SessionManager.GetInstance.Usuario.user != usuario)
+                List<string> usuarios;
+                if (SessionManager.tiene_permiso(5) || SessionManager.tiene_permiso(61))
                 {
-                    comboBox1.Items.Add(usuario);
+                    usuarios = oBLLmensajes.Todos_los_usuarios_a_conectar();
                 }
-                
-            } 
+                else
+                {
+                    usuarios = oBLLmensajes.Usuarios_con_quien_conectar(SessionManager.GetInstance.Usuario.id);
+                }
+
+                usuarios = usuarios.Distinct().ToList();
+                foreach (string usuario in usuarios)
+                {
+                    if (SessionManager.GetInstance.Usuario.user != usuario)
+                    {
+                        comboBox1.Items.Add(usuario);
+                    }
+
+                }
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
          //   comboBox1.Items.Add(usuarios);
         }
         private void btnBorrarChat_click(object sender, EventArgs e)
         {
-            //throw new NotImplementedException();
-            int User = 0;
-
-            DialogResult resultado = MessageBox.Show("Estas seguro que deseas eliminar la conversacion con este usuario", "confirmacion", MessageBoxButtons.YesNo);
-            if (resultado == DialogResult.Yes)
+            try
             {
-                if (sender is Button btn)
+                int User = 0;
+
+                DialogResult resultado = MessageBox.Show("Estas seguro que deseas eliminar la conversacion con este usuario", "confirmacion", MessageBoxButtons.YesNo);
+                if (resultado == DialogResult.Yes)
                 {
-                    
-                    User = (int)btn.Tag;
-                    if (Chat.usuarioAconectar.id == User)
+                    if (sender is Button btn)
                     {
-                        ChatActual.Close();
+
+                        User = (int)btn.Tag;
+                        if (Chat.usuarioAconectar.id == User)
+                        {
+                            ChatActual.Close();
+                        }
+                        oBLLmensajes.Eliminar_Chat(SessionManager.GetInstance.Usuario.id, User);
+                        //agregar metodo de bll de eliminar los mensajes de ese usuario, con el sseion manager y actualizar los chats
+                        cargarchats();
                     }
-                    oBLLmensajes.Eliminar_Chat(SessionManager.GetInstance.Usuario.id, User);
-                    //agregar metodo de bll de eliminar los mensajes de ese usuario, con el sseion manager y actualizar los chats
-                    cargarchats();
                 }
+
             }
-        
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
 
         }
 
@@ -147,13 +193,25 @@ namespace UI
 
         void cargarchats()
         {
-            panel1.Controls.Clear();
-            List<BEUsuario> usuariosConChat = new List<BEUsuario>();
-            usuariosConChat = oBLLmensajes.obtenerchats(SessionManager.GetInstance.Usuario.id);
-           foreach(BEUsuario usuario in usuariosConChat)
+            try
             {
-                crear_chat(usuario.user,usuario.id);
+                panel1.Controls.Clear();
+                List<BEUsuario> usuariosConChat = new List<BEUsuario>();
+                usuariosConChat = oBLLmensajes.obtenerchats(SessionManager.GetInstance.Usuario.id);
+                foreach (BEUsuario usuario in usuariosConChat)
+                {
+                    crear_chat(usuario.user, usuario.id);
+                }
             }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
         string titulo = "";
         bool contieneNumeros = false;
@@ -170,38 +228,47 @@ namespace UI
         }
         private void panel_click(object sender, EventArgs e)
         {
-
-            string titulo = "";
-            int id = 0;
-            foreach (var control in ((Panel)sender).Controls)
+            try
             {
-                
-                if (control is Label)
+                string titulo = "";
+                int id = 0;
+                foreach (var control in ((Panel)sender).Controls)
                 {
-                    contieneNumeros = ContieneNumeros(control.ToString());
 
-                    if (contieneNumeros)
+                    if (control is Label)
                     {
-                        // Realizar acciones adicionales si el Label contiene números.
-                        // Por ejemplo, puedes mostrar un mensaje, cambiar el color del Label, etc.
-                        // ((Label)control).ForeColor = Color.Red;
-                        id = Convert.ToInt32(((Label)control).Text);
-                    }
-                    else
-                    {
-                        titulo = ((Label)control).Text;
-                    }
+                        contieneNumeros = ContieneNumeros(control.ToString());
 
-                    
+                        if (contieneNumeros)
+                        {
 
+                            id = Convert.ToInt32(((Label)control).Text);
+                        }
+                        else
+                        {
+                            titulo = ((Label)control).Text;
+                        }
+
+
+
+                    }
                 }
+                BEUsuario usuario = new BEUsuario();
+                usuario.user = titulo;
+                usuario.id = id;
+                Chat.usuarioAconectar = usuario;
+                //Chat.esteusuario = usuarioo;   si va
+                abrirChat(new Chat(), titulo);
             }
-            BEUsuario usuario = new BEUsuario();
-            usuario.user = titulo;
-            usuario.id = id;
-            Chat.usuarioAconectar = usuario;
-            //Chat.esteusuario = usuarioo;   si va
-            abrirChat(new Chat(), titulo);
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -225,92 +292,113 @@ namespace UI
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
-            int error = 0;
-         /*   if (userControl11.Texts == string.Empty)
+            try
             {
-                error++;
-            }
-            if (!validar.usuario(userControl11.Texts))
-            {
-                error++;
-            }*/
-            if (error == 0) 
-            {
-                BEUsuario usuarioNuevoChat = oBLLusuario.buscar_usuario(comboBox1.SelectedItem.ToString());//userControl11.Texts);
-                if (usuarioNuevoChat != null)
+                int error = 0;
+
+                errorProvider1.Clear();
+                errorProvider1.SetError(comboBox1, "");
+                if (comboBox1.SelectedItem == null)
                 {
-                    Chat.usuarioAconectar = usuarioNuevoChat;
-                    abrirChat(new Chat(), usuarioNuevoChat.user);
-                    MessageBox.Show("se encontro al usuario");
-                    //userControl11.Texts = "";
+                    error++;
+                    errorProvider1.SetError(comboBox1, "you must select a user");
+                }
+                if (error == 0)
+                {
+                    BEUsuario usuarioNuevoChat = oBLLusuario.buscar_usuario(comboBox1.SelectedItem.ToString());//userControl11.Texts);
+                    if (usuarioNuevoChat != null)
+                    {
+                        Chat.usuarioAconectar = usuarioNuevoChat;
+                        abrirChat(new Chat(), usuarioNuevoChat.user);
+                        MessageBox.Show("se encontro al usuario");
+                        //userControl11.Texts = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Este usuario no existe");
+                    }
+
                 }
                 else
                 {
-                    MessageBox.Show("Este usuario no existe");
+                    MessageBox.Show("hubo un error");
                 }
-
             }
-            else
+            catch (NullReferenceException ex)
             {
-                MessageBox.Show("hubo un error");
+                MessageBox.Show(ex.Message);
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
          
         }
 
         private void metroButton2_Click(object sender, EventArgs e)
         {
-            int error = 0;
-            int comodin = 0;
-          /*  if (userControl11.Texts == string.Empty)
+            try
             {
-                error++;
-            }
-            if (!validar.usuario(userControl11.Texts))
-            {
-                error++;
-            }*/
-            if (error == 0)
-            {
-                BEUsuario usuarioNuevoChat = oBLLusuario.buscar_usuario(comboBox1.SelectedItem.ToString());//userControl11.Texts);
-                if (usuarioNuevoChat != null)
-                {
-                    List<BEUsuario> usuariosConChat = new List<BEUsuario>();
-                    usuariosConChat = oBLLmensajes.obtenerchats(SessionManager.GetInstance.Usuario.id);
-                    foreach (BEUsuario usuario in usuariosConChat)
-                    {
-                        if (usuarioNuevoChat.user == usuario.user)
-                        {
-                            comodin++;
-                            Chat.usuarioAconectar = usuarioNuevoChat;
-                            //Chat.esteusuario = usuarioo;   si va
-                            abrirChat(new Chat(), usuarioNuevoChat.user);
+                int error = 0;
+                int comodin = 0;
 
-                        }
-                       // crear_chat(usuario.user, usuario.id);
-                    }
-                    if (comodin == 0)
+                errorProvider1.Clear();
+                errorProvider1.SetError(comboBox1, "");
+                if (comboBox1.SelectedItem == null)
+                {
+                    error++;
+                    errorProvider1.SetError(comboBox1, "you must select a user");
+                }
+                if (error == 0)
+                {
+                    BEUsuario usuarioNuevoChat = oBLLusuario.buscar_usuario(comboBox1.SelectedItem.ToString());//userControl11.Texts);
+                    if (usuarioNuevoChat != null)
                     {
-                        MessageBox.Show("no se encontro ningun chat con este usuario");
+                        List<BEUsuario> usuariosConChat = new List<BEUsuario>();
+                        usuariosConChat = oBLLmensajes.obtenerchats(SessionManager.GetInstance.Usuario.id);
+                        foreach (BEUsuario usuario in usuariosConChat)
+                        {
+                            if (usuarioNuevoChat.user == usuario.user)
+                            {
+                                comodin++;
+                                Chat.usuarioAconectar = usuarioNuevoChat;
+                                //Chat.esteusuario = usuarioo;   si va
+                                abrirChat(new Chat(), usuarioNuevoChat.user);
+
+                            }
+                            // crear_chat(usuario.user, usuario.id);
+                        }
+                        if (comodin == 0)
+                        {
+                            MessageBox.Show("no se encontro ningun chat con este usuario");
+                        }
+                        else
+                        {
+                            MessageBox.Show("se encontro el chat");
+                        }
+
                     }
                     else
                     {
-                        MessageBox.Show("se encontro el chat");
+                        MessageBox.Show("Este usuario no existe");
                     }
-                /*    Chat.usuarioAconectar = usuarioNuevoChat;
-                    abrirChat(new Chat(), usuarioNuevoChat.user);
-                    MessageBox.Show("se encontro al usuario");*/
-                    //userControl11.Texts = "";
+
                 }
                 else
                 {
-                    MessageBox.Show("Este usuario no existe");
+                    MessageBox.Show("hubo un error");
                 }
-
             }
-            else
+            catch (NullReferenceException ex)
             {
-                MessageBox.Show("hubo un error");
+                MessageBox.Show(ex.Message);
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private void metroButton3_Click(object sender, EventArgs e)

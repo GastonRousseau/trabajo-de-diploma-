@@ -71,11 +71,7 @@ namespace UI
                 dataGridView1.Columns["fecha"].ReadOnly = true;
                 dataGridView1.Columns["estado"].ReadOnly = true;
              
-                //     dataGridView1.Columns["distancia"].ReadOnly = true;
-                //     dataGridView1.Columns["estado"].ReadOnly = true;
-                //     dataGridView1.Columns["fecha"].ReadOnly = true;
-
-                //               dataGridView1.Columns["Km_Recorridos"].ReadOnly = false;
+            
 
             }
             catch (NullReferenceException ex)
@@ -126,79 +122,102 @@ namespace UI
 
         private void formato(object sender, DataGridViewCellFormattingEventArgs e)
         {
-          /*  if (e.RowIndex >= 0 && e.ColumnIndex == dataGridView1.Columns["Km_Recorridos"].Index)
+            try
             {
-                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-                BEViaje viaje = (BEViaje)row.DataBoundItem; // Asegúrate de ajustar el tipo de objeto que estás utilizando
-
-                if (viaje.estado == "En proceso")
+                if (e.ColumnIndex == dataGridView1.Columns["producto"].Index && e.Value != null)
                 {
-                    dataGridView1.Rows[e.RowIndex].Cells["Km_Recorridos"].ReadOnly = false;
+                    BEProducto producto = (BEProducto)e.Value;
+                    e.Value = producto.nombre + " " + producto.cliente.user;
                 }
-                else
+                if (e.ColumnIndex == dataGridView1.Columns["camion"].Index && e.Value != null)
                 {
-                    dataGridView1.Rows[e.RowIndex].Cells["Km_Recorridos"].ReadOnly = true;
+                    BECamion camion = (BECamion)e.Value;
+                    e.Value = camion.patente;
                 }
-            }*/
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
-            if (e.ColumnIndex == dataGridView1.Columns["producto"].Index && e.Value != null)
-            {
-                BEProducto producto = (BEProducto)e.Value;
-                e.Value = producto.nombre+" "+producto.cliente.user;
-            }
-            if (e.ColumnIndex == dataGridView1.Columns["camion"].Index && e.Value != null)
-            {
-                BECamion camion = (BECamion)e.Value;
-                e.Value = camion.patente;
-            }
+           
         }
 
         private void metroButton4_Click(object sender, EventArgs e)
         {
-            BEViaje viajeSelect = (BEViaje)dataGridView1.CurrentRow.DataBoundItem;
-            int error = 0;
-            if (viajeSelect == null)
+
+            try
             {
-                error++;
+                BEViaje viajeSelect = (BEViaje)dataGridView1.CurrentRow.DataBoundItem;
+                int error = 0;
+                if (viajeSelect == null)
+                {
+                    error++;
+                }
+                if (viajeSelect.estado == "En proceso")
+                {
+                    error++;
+                }
+                if (viajeSelect.fecha < DateTime.Now)
+                {
+                    error++;
+                }
+                if (error == 0)
+                {
+                    oBLLviaje.ActualizarEstado(viajeSelect.id, "En proceso", null);
+                }
+                else
+                {
+                    MessageBox.Show("Ocurrio un error");
+                }
             }
-            if(viajeSelect.estado=="En proceso")
+            catch (NullReferenceException ex)
             {
-                error++;
+                MessageBox.Show(ex.Message);
             }
-            if (viajeSelect.fecha < DateTime.Now)
+            catch (Exception ex)
             {
-                error++;
+                MessageBox.Show(ex.Message);
             }
-            if (error == 0) 
-            {
-                oBLLviaje.ActualizarEstado(viajeSelect.id, "En proceso", null);
-            }
-            else
-            {
-                MessageBox.Show("Ocurrio un error");
-            }
+            
         }
 
         private void metroButton5_Click(object sender, EventArgs e)
         {
-            BEViaje viajeSelect = (BEViaje)dataGridView1.CurrentRow.DataBoundItem;
-            int error = 0;
-            if (viajeSelect == null)
+            try
             {
-                error++;
+                BEViaje viajeSelect = (BEViaje)dataGridView1.CurrentRow.DataBoundItem;
+                int error = 0;
+                if (viajeSelect == null)
+                {
+                    error++;
+                }
+                if (viajeSelect.estado == "Pendiente")
+                {
+                    error++;
+                }
+                if (error == 0)
+                {
+                    oBLLviaje.ActualizarEstado(viajeSelect.id, "Finalizado", DateTime.Now);
+                }
+                else
+                {
+                    MessageBox.Show("Ocurrio un error");
+                }
             }
-            if (viajeSelect.estado == "Pendiente")
+            catch (NullReferenceException ex)
             {
-                error++;
+                MessageBox.Show(ex.Message);
             }
-            if (error == 0)
+            catch (Exception ex)
             {
-                oBLLviaje.ActualizarEstado(viajeSelect.id, "Finalizado", DateTime.Now);
+                MessageBox.Show(ex.Message);
             }
-            else
-            {
-                MessageBox.Show("Ocurrio un error");
-            }
+           
         }
         private BEViaje viajeAntesDeEditar = null;
         private void datagrid1_changued(object sender, DataGridViewCellEventArgs e)
@@ -277,20 +296,32 @@ namespace UI
 
         private void metroButton6_Click(object sender, EventArgs e)
         {
-            BEViaje viajeSelect = (BEViaje)dataGridView1.CurrentRow.DataBoundItem;
-            if (viajeSelect != null)
+            try
             {
-                Chat.usuarioAconectar = viajeSelect.producto.cliente;
+                BEViaje viajeSelect = (BEViaje)dataGridView1.CurrentRow.DataBoundItem;
+                if (viajeSelect != null)
+                {
+                    Chat.usuarioAconectar = viajeSelect.producto.cliente;
 
-                // form.label1.Text = viajeSelect.camion.conductor.user;
-                Chat form = new Chat();
-                form.button2.Visible = true;
-                form.Show();
+                    // form.label1.Text = viajeSelect.camion.conductor.user;
+                    Chat form = new Chat();
+                    form.button2.Visible = true;
+                    form.Show();
+                }
+                else
+                {
+                    MessageBox.Show("No se selecciono ningun viaje seleccionado");
+                }
             }
-            else
+            catch (NullReferenceException ex)
             {
-                MessageBox.Show("No se selecciono ningun viaje seleccionado");
+                MessageBox.Show(ex.Message);
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private void metroButton7_Click(object sender, EventArgs e)

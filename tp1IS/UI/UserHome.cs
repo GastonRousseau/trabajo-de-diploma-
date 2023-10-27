@@ -73,19 +73,30 @@ namespace UI
                 {
                     formulario.Show();
                 }
+               
                 else
                 {
-                    
-                    formulario.TopLevel = false;
-                    formulario.FormBorderStyle = FormBorderStyle.None;
-                    formulario.Dock = DockStyle.Fill;
-                    panel2.Controls.Add(formulario);
-                    panel2.Tag = formulario;
-                    formulario.Show();
-                    if (metroButton1.Visible == false)
+
+                    if (formulario is Chat)
                     {
-                        metroButton1.Visible = true;
+                        // form.label1.Text = ServicioTecnico.user;
+                        // formulario.userControl11.Texts = "Tengo el siguiente problema:";
+                        formulario.Show();
                     }
+                    else
+                    {
+                        formulario.TopLevel = false;
+                        formulario.FormBorderStyle = FormBorderStyle.None;
+                        formulario.Dock = DockStyle.Fill;
+                        panel2.Controls.Add(formulario);
+                        panel2.Tag = formulario;
+                        formulario.Show();
+                        if (metroButton1.Visible == false)
+                        {
+                            metroButton1.Visible = true;
+                        }
+                    }
+                   
                 }
             }
             catch (NullReferenceException ex)
@@ -464,9 +475,17 @@ namespace UI
             BEUsuario ServicioTecnico = oBLLusuario.buscar_usuario(nombre);
             Chat.usuarioAconectar = ServicioTecnico;
             Chat form = new Chat();
-            form.label1.Text = ServicioTecnico.user;
-            form.userControl11.Texts = "Tengo el siguiente problema:";
-            form.Show();
+            AbrirFormulario(form);
+           
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            if (formularioAbierto != null)
+            {
+                formularioAbierto.Close();
+                metroButton1.Visible = false;
+            }
         }
     }
 }

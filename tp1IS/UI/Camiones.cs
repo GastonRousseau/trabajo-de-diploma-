@@ -102,25 +102,37 @@ namespace UI
 
         private void metroComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            metroComboBox2.Items.Clear();
-            if (metroComboBox1.SelectedItem.ToString() == "Liviano")
+            try
             {
-                metroComboBox2.Items.Add("6");
-                metroComboBox2.Items.Add("10");
+                metroComboBox2.Items.Clear();
+                if (metroComboBox1.SelectedItem.ToString() == "Liviano")
+                {
+                    metroComboBox2.Items.Add("6");
+                    metroComboBox2.Items.Add("10");
+                }
+                if (metroComboBox1.SelectedItem.ToString() == "Mediano")
+                {
+                    metroComboBox2.Items.Add("12");
+                    metroComboBox2.Items.Add("18");
+                    metroComboBox2.Items.Add("20");
+                }
+                if (metroComboBox1.SelectedItem.ToString() == "Pesado")
+                {
+                    metroComboBox2.Items.Add("24");
+                    metroComboBox2.Items.Add("30");
+                    metroComboBox2.Items.Add("40");
+
+                }
             }
-            if (metroComboBox1.SelectedItem.ToString() == "Mediano")
+            catch (NullReferenceException ex)
             {
-                metroComboBox2.Items.Add("12");
-                metroComboBox2.Items.Add("18");
-                metroComboBox2.Items.Add("20");
+                MessageBox.Show(ex.Message);
             }
-            if (metroComboBox1.SelectedItem.ToString() == "Pesado")
+            catch (Exception ex)
             {
-                metroComboBox2.Items.Add("24");
-                metroComboBox2.Items.Add("30");
-                metroComboBox2.Items.Add("40");
-                
+                MessageBox.Show(ex.Message);
             }
+           
 
         }
 
@@ -179,48 +191,74 @@ namespace UI
 
         private void metroButton5_Click(object sender, EventArgs e)
         {
-            int error2 = 0;
-            errorProvider1.Clear();
-            errorProvider1.SetError(dataGridView1, "");
-            errorProvider1.SetError(dataGridView2, "");
-            BECamion camionSelect = (BECamion)dataGridView2.CurrentRow.DataBoundItem;
-            BEUsuario UsuarioSelect = (BEUsuario)dataGridView1.CurrentRow.DataBoundItem;
-            if(camionSelect==null)
+            try
             {
-                errorProvider1.SetError(dataGridView2, "Select truck");
-                error2++;
+                int error2 = 0;
+                errorProvider1.Clear();
+                errorProvider1.SetError(dataGridView1, "");
+                errorProvider1.SetError(dataGridView2, "");
+                BECamion camionSelect = (BECamion)dataGridView2.CurrentRow.DataBoundItem;
+                BEUsuario UsuarioSelect = (BEUsuario)dataGridView1.CurrentRow.DataBoundItem;
+                if (camionSelect == null)
+                {
+                    errorProvider1.SetError(dataGridView2, "Select truck");
+                    error2++;
+                }
+                if (UsuarioSelect == null)
+                {
+                    errorProvider1.SetError(dataGridView1, "Select driver");
+                    error2++;
+                }
+                if (error2 == 0)
+                {
+                    oBLLCamion.Unicr_ConductoryCamion(camionSelect.id, UsuarioSelect.id);
+                    buscar2(null, 1);
+                    MessageBox.Show("the driver "+UsuarioSelect.user +"joined the truck "+camionSelect.patente);
+                }
+
             }
-            if(UsuarioSelect == null)
+            catch (NullReferenceException ex)
             {
-                errorProvider1.SetError(dataGridView1, "Select driver");
-                error2++;
+                MessageBox.Show(ex.Message);
             }
-            if (error2 == 0)
+            catch (Exception ex)
             {
-                oBLLCamion.Unicr_ConductoryCamion(camionSelect.id, UsuarioSelect.id);
-                buscar2(null, 1);
+                MessageBox.Show(ex.Message);
             }
-            
+           
               
             
         }
 
         private void metroButton6_Click(object sender, EventArgs e)
         {
-            var error2 = 0;
-            errorProvider1.Clear();
-            errorProvider1.SetError(dataGridView2, "");
-            BECamion camionSelect = (BECamion)dataGridView2.CurrentRow.DataBoundItem;
-            if (camionSelect == null)
+            try
             {
-                errorProvider1.SetError(dataGridView2, "Select truck");
-                error2++;
+                var error2 = 0;
+                errorProvider1.Clear();
+                errorProvider1.SetError(dataGridView2, "");
+                BECamion camionSelect = (BECamion)dataGridView2.CurrentRow.DataBoundItem;
+                if (camionSelect == null)
+                {
+                    errorProvider1.SetError(dataGridView2, "Select truck");
+                    error2++;
+                }
+                if (error2 == 0)
+                {
+                    oBLLCamion.Desvincular_ConductoryCamion(camionSelect.id);
+                    buscar2(null, 1);
+                    MessageBox.Show("the driver became separated from the truck " +camionSelect.patente);
+                }
             }
-            if (error2 == 0)
+            catch (NullReferenceException ex)
             {
-                oBLLCamion.Desvincular_ConductoryCamion(camionSelect.id);
-                buscar2(null, 1);
+                MessageBox.Show(ex.Message);
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
         }
 
         private void metroButton7_Click(object sender, EventArgs e)
@@ -240,17 +278,29 @@ namespace UI
 
         private void metroButton2_Click(object sender, EventArgs e)
         {
-            BECamion camionSelect = (BECamion)dataGridView2.CurrentRow.DataBoundItem;
-            errorProvider1.Clear();
-            errorProvider1.SetError(dataGridView2, "");
-            if (camionSelect != null)
+            try
             {
-                oBLLCamion.BorrarCamion(camionSelect.id);
+                BECamion camionSelect = (BECamion)dataGridView2.CurrentRow.DataBoundItem;
+                errorProvider1.Clear();
+                errorProvider1.SetError(dataGridView2, "");
+                if (camionSelect != null)
+                {
+                    oBLLCamion.BorrarCamion(camionSelect.id);
+                }
+                else
+                {
+                    errorProvider1.SetError(dataGridView2, "Select truck");
+                }
             }
-            else
+            catch (NullReferenceException ex)
             {
-                errorProvider1.SetError(dataGridView2, "Select truck");
+                MessageBox.Show(ex.Message);
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private void metroButton9_Click(object sender, EventArgs e)
@@ -361,22 +411,33 @@ namespace UI
 
         private void formatingCellDataGridCamiones(object sender, DataGridViewCellFormattingEventArgs e)
         {
-           
-            if (e.ColumnIndex == dataGridView2.Columns["conductor"].Index && e.RowIndex >= 0)
+            try
             {
-                BECamion camion = dataGridView2.Rows[e.RowIndex].DataBoundItem as BECamion;
+                if (e.ColumnIndex == dataGridView2.Columns["conductor"].Index && e.RowIndex >= 0)
+                {
+                    BECamion camion = dataGridView2.Rows[e.RowIndex].DataBoundItem as BECamion;
 
-                // Asegúrate de que la celda tenga un valor de Viaje no nulo
-                if (camion != null && camion.conductor != null)
-                {
-                    // Configura el valor de la celda para mostrar el nombre del producto
-                    e.Value = camion.conductor.user;
-                }
-                else
-                {
-                    e.Value = "Sin conductor";
+                    // Asegúrate de que la celda tenga un valor de Viaje no nulo
+                    if (camion != null && camion.conductor != null)
+                    {
+                        // Configura el valor de la celda para mostrar el nombre del producto
+                        e.Value = camion.conductor.user;
+                    }
+                    else
+                    {
+                        e.Value = "Sin conductor";
+                    }
                 }
             }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
         }
     }
 }

@@ -45,28 +45,40 @@ namespace UI
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            int error = 0;
-            if (userControl11.Texts == string.Empty)
+            try
             {
-                error++;
+                int error = 0;
+                if (userControl11.Texts == string.Empty)
+                {
+                    error++;
+                }
+                if (error == 0)
+                {
+                    BEMensaje mensaje = new BEMensaje();
+                    mensaje.mensaje = userControl11.Texts;
+                    mensaje.remitente = SessionManager.GetInstance.Usuario;
+                    mensaje.destinatario = usuarioAconectar;
+                    mensaje.fecha = DateTime.Now;
+                    mensaje.tipo = 1;
+                    oBLLmensajes.GuardarMensaje(mensaje);
+                    cargar_Mensajes();
+                    // oBLLmensajes.GuardarMensaje()
+                    userControl11.Texts = "";
+                }
+                else
+                {
+                    MessageBox.Show("Error al escribir el mensaje intentar de nuevo");
+                }
             }
-            if (error == 0)
+            catch (NullReferenceException ex)
             {
-                BEMensaje mensaje = new BEMensaje();
-                mensaje.mensaje = userControl11.Texts;
-                mensaje.remitente = SessionManager.GetInstance.Usuario;
-                mensaje.destinatario = usuarioAconectar;
-                mensaje.fecha = DateTime.Now;
-                mensaje.tipo = 1;
-                oBLLmensajes.GuardarMensaje(mensaje);
-                cargar_Mensajes();
-                // oBLLmensajes.GuardarMensaje()
-                userControl11.Texts = "";
+                MessageBox.Show(ex.Message);
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Error al escribir el mensaje intentar de nuevo");
+                MessageBox.Show(ex.Message);
             }
+            
         }
 
         private void Chat_Load(object sender, EventArgs e)
@@ -82,117 +94,141 @@ namespace UI
         }
         void cargar_Mensajes()
         {
-            //   panel2.AutoScroll = true;
-            //  panel2.AutoScrollPosition =new Point(10, 10);
-            int topPosition = 0;
+
+            try
+            {
+                int topPosition = 0;
+
+                panel2.Controls.Clear();
+                var list = new List<BEMensaje>();
+                list = oBLLmensajes.ObtenerMensajes(SessionManager.GetInstance.Usuario.id, usuarioAconectar);
+                int toalmensajes = list.Count();
+                totalPages = (int)Math.Ceiling((double)toalmensajes / mesagesPorPagina);
+                currentPage = totalPages;
+
+
+                traerMensajesPorPagina(currentPage);
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             
-            panel2.Controls.Clear();
-            var list = new List<BEMensaje>();
-            list = oBLLmensajes.ObtenerMensajes(SessionManager.GetInstance.Usuario.id, usuarioAconectar);//.OrderByDescending(m => m.fecha).ToList();
-            int toalmensajes = list.Count();
-            totalPages = (int)Math.Ceiling((double)toalmensajes / mesagesPorPagina);
-            currentPage = totalPages;
-            /*     foreach (BEMensaje mensaje in list)
-                 {
-                     if (mensaje.remitente.id == SessionManager.GetInstance.Usuario.id)
-                     {
-                         msjLocal(mensaje.mensaje);
-
-                     }
-                     else
-                     {
-                         msjExterno(mensaje.mensaje);
-                     }
-                 }*/
-
-            traerMensajesPorPagina(currentPage);
         }
 
         void traerMensajesPorPagina(int pagina)
         {
-            panel2.Controls.Clear();
-
-            // Obtener los mensajes de la página actual
-            var list = oBLLmensajes.ObtenerMensajes(SessionManager.GetInstance.Usuario.id, usuarioAconectar)
-              //  .OrderByDescending(m => m.fecha)
-                .Skip((pagina - 1) * mesagesPorPagina)
-                .Take(mesagesPorPagina)
-                .ToList();
-
-            foreach (BEMensaje mensaje in list)
+            try
             {
-                if (mensaje.remitente.id == SessionManager.GetInstance.Usuario.id)
+                panel2.Controls.Clear();
+
+                var list = oBLLmensajes.ObtenerMensajes(SessionManager.GetInstance.Usuario.id, usuarioAconectar)
+                    .Skip((pagina - 1) * mesagesPorPagina)
+                    .Take(mesagesPorPagina)
+                    .ToList();
+
+                foreach (BEMensaje mensaje in list)
                 {
-                    msjLocal(mensaje);
-                }
-                else
-                {
-                    msjExterno(mensaje);
+                    if (mensaje.remitente.id == SessionManager.GetInstance.Usuario.id)
+                    {
+                        msjLocal(mensaje);
+                    }
+                    else
+                    {
+                        msjExterno(mensaje);
+                    }
                 }
             }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+          
 
         }
         void msjLocal(BEMensaje mensaje)
         {
-            Panel msjmioo = new Panel();
-            msjmioo.Height = 59;
-            panel2.Controls.Add(msjmioo);
-            
-            msjmioo.Dock = DockStyle.Bottom;
-          //  msjmioo.BorderStyle = BorderStyle.FixedSingle;
 
-            TextBox text = new TextBox();
-            if (mensaje.tipo == 2)
+            try
             {
-                text.BackColor = Color.DarkRed;
-                text.ForeColor = Color.White;
+                Panel msjmioo = new Panel();
+                msjmioo.Height = 59;
+                panel2.Controls.Add(msjmioo);
+                msjmioo.Dock = DockStyle.Bottom;
+                TextBox text = new TextBox();
+                if (mensaje.tipo == 2)
+                {
+                    text.BackColor = Color.DarkRed;
+                    text.ForeColor = Color.White;
 
+                }
+                else
+                {
+                    text.BackColor = Color.AliceBlue;
+                    text.ForeColor = Color.Black;
+                }
+
+                text.ReadOnly = true;
+                text.Multiline = true;
+                text.Size = new Size(400, 45);
+                text.Text = mensaje.mensaje;
+                text.Anchor = AnchorStyles.Right;
+                text.Location = new Point(472, 7);
+                msjmioo.Controls.Add(text);
             }
-            else
+            catch (NullReferenceException ex)
             {
-                text.BackColor = Color.AliceBlue;
-                text.ForeColor = Color.Black;
+                MessageBox.Show(ex.Message);
             }
-            
-            text.ReadOnly = true;
-            text.Multiline = true;
-            text.Size = new Size(400, 45);
-            text.Text = mensaje.mensaje;
-            text.Anchor = AnchorStyles.Right;
-            text.Location = new Point(472, 7);
-            msjmioo.Controls.Add(text);
-            
-            
-
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         void msjExterno(BEMensaje mensaje)
         {
-            Panel mstuyoo = new Panel();
-         
-            //   Panel msjuser = new Panel();
-            mstuyoo.Height = 59;
-            panel2.Controls.Add(mstuyoo);
-            mstuyoo.Dock = DockStyle.Bottom;
-          //  mstuyoo.BorderStyle = BorderStyle.FixedSingle;
-            TextBox text = new TextBox();
-            if (mensaje.tipo == 2)
+            try
             {
-                text.BackColor = Color.DarkRed;
-                text.ForeColor = Color.White;
+                Panel mstuyoo = new Panel();
+                mstuyoo.Height = 59;
+                panel2.Controls.Add(mstuyoo);
+                mstuyoo.Dock = DockStyle.Bottom;
+                TextBox text = new TextBox();
+                if (mensaje.tipo == 2)
+                {
+                    text.BackColor = Color.DarkRed;
+                    text.ForeColor = Color.White;
+                }
+                else
+                {
+                    text.BackColor = Color.Aqua;
+                    text.ForeColor = Color.Black;
+                }
+                text.Multiline = true;
+                text.Text = mensaje.mensaje;
+                text.Size = new Size(400, 45);
+                text.Anchor = AnchorStyles.Left;
+                text.Location = new Point(69, 7);
+                text.ReadOnly = true;
+                mstuyoo.Controls.Add(text);
             }
-            else
+            catch (NullReferenceException ex)
             {
-                text.BackColor = Color.Aqua;
-                text.ForeColor = Color.Black;
+                MessageBox.Show(ex.Message);
             }
-            //text.BackColor = Color.CadetBlue;
-            text.Multiline = true;
-            text.Text = mensaje.mensaje;
-            text.Size = new Size(400,45);
-            text.Anchor = AnchorStyles.Left;
-            text.Location = new Point(69, 7);
-            text.ReadOnly = true;
-            mstuyoo.Controls.Add(text);
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
            
         }
 

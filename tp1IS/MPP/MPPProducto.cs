@@ -65,6 +65,7 @@ namespace MPP
                 producto.id = Convert.ToInt32(fila["codigo"]);
                 producto.nombre = fila["nombre"].ToString();
                 producto.CantPallets = Convert.ToInt32(fila["cantidad_pallets"]);
+                producto.Estado = fila["Estado"].ToString();
                 producto.cliente = SessionManager.GetInstance.Usuario;
 
                 ListaProducto.Add(producto);

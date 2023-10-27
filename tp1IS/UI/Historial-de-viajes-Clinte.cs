@@ -50,24 +50,20 @@ namespace UI
             try
             {
                 
-                viajes = oBLLviajes.Traer_Viajes_Chofer(SessionManager.GetInstance.Usuario.id, pag, producto);
+                viajes = oBLLviajes.Historial_viajes_clientes(SessionManager.GetInstance.Usuario.id, pag, producto);
                 if (viajes.Count == 0) { metroButton2.Enabled = false; }
                 else { metroButton2.Enabled = true; }
                 dataGridView1.DataSource = null;
                 dataGridView1.DataSource = viajes;
-                //  dataGridView1.ReadOnly = true;
-                // dataGridView1.Columns["viajes_palets"].ReadOnly = true;
-                //   dataGridView1.Columns["distancia"].ReadOnly = true;
-                //  dataGridView1.Columns["estado"].ReadOnly = true;
-                // dataGridView1.Columns["fecha"].ReadOnly = true;
-
-                //               dataGridView1.Columns["Km_Recorridos"].ReadOnly = false;
+                dataGridView1.Columns["id"].Visible = false;
+                dataGridView1.Columns["Km_Recorridos"].Visible = false;
+       
 
             }
             catch (NullReferenceException ex)
             {
                 var accion = ex.Message;
-                //  oBit.guardar_accion(accion, 1);
+           
                 MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
@@ -76,7 +72,7 @@ namespace UI
                 //  oBit.guardar_accion(accion, 1);
                 MessageBox.Show(ex.Message);
             }
-            // dataGridView1.DataSource=oBLLviajes.   hacer metodo en el MPP que me permita traer los viajes del usuario de la session manager
+
         }
 
         private void metroButton1_Click(object sender, EventArgs e)
@@ -119,16 +115,28 @@ namespace UI
 
         private void CellFormattingDatagrid(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (e.ColumnIndex == dataGridView1.Columns["producto"].Index && e.Value != null)
+            try
             {
-                BEProducto producto = (BEProducto)e.Value;
-                e.Value = producto.nombre;
+                if (e.ColumnIndex == dataGridView1.Columns["producto"].Index && e.Value != null)
+                {
+                    BEProducto producto = (BEProducto)e.Value;
+                    e.Value = producto.nombre;
+                }
+                if (e.ColumnIndex == dataGridView1.Columns["camion"].Index && e.Value != null)
+                {
+                    BECamion camion = (BECamion)e.Value;
+                    e.Value = camion.patente + " " + camion.conductor.user;
+                }
             }
-            if (e.ColumnIndex == dataGridView1.Columns["camion"].Index && e.Value != null)
+            catch (NullReferenceException ex)
             {
-                BECamion camion = (BECamion)e.Value;
-                e.Value = camion.patente + " " + camion.conductor.user;
+                MessageBox.Show(ex.Message);
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private void button1_Click(object sender, EventArgs e)

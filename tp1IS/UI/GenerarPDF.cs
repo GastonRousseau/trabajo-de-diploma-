@@ -98,16 +98,12 @@ namespace UI
 
         private void metroButton5_Click(object sender, EventArgs e)
         {
-          /*  RutaGuardado = null;
-            NombrePDF = null;
-            textBox1.Text = string.Empty;
-            textBox2.Text = string.Empty;*/
+       
         }
 
         private void metroButton2_Click(object sender, EventArgs e)
         {
-           /* RutaGuardado = textBox1.Text;
-            NombrePDF = textBox2.Text+".PDF";*/
+       
         }
 
         private bool ValidarRutaYNombrePDF(string rutaGuardado, string nombrePDF)
@@ -116,7 +112,7 @@ namespace UI
             {
                 return false;
             }
-            // Verificar si la ruta de guardado es una ruta válida
+  
             if (!System.IO.Directory.Exists(System.IO.Path.GetDirectoryName(rutaGuardado)))
             {
                 MessageBox.Show("La ruta de guardado no es válida o no existe.");
@@ -200,61 +196,85 @@ namespace UI
             }
             catch(Exception ex)
             {
-                //throw ex;
-                //textBox1.Text=ex.ToString();
+                throw ex;
+       
             }
         }
         private void AgregarTitulo(Document doc, string texto)
         {
-            // Establecer el tamaño y el estilo del título
-            iTextSharp.text.Font fuente = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 18);
 
-            // Crear el párrafo para el título
-            Paragraph paragraph = new Paragraph(texto, fuente);
-            paragraph.Alignment = Element.ALIGN_CENTER;
-
-            // Agregar el título al documento
-            doc.Add(paragraph);
-
-            // Agregar espacio después del título
-            doc.Add(new Paragraph("")); // Salto de línea
+            try
+            {
+                iTextSharp.text.Font fuente = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 18);
+                Paragraph paragraph = new Paragraph(texto, fuente);
+                paragraph.Alignment = Element.ALIGN_CENTER;
+                doc.Add(paragraph);
+                doc.Add(new Paragraph(""));
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
         }
 
         private void AgregarSubtitulo(Document doc, string texto)
         {
-            // Establecer el tamaño y el estilo del subtítulo
-            iTextSharp.text.Font fuente = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 14);
-
-            // Crear el párrafo para el subtítulo
-            Paragraph paragraph = new Paragraph(texto, fuente);
-
-            // Agregar el subtítulo al documento
-            doc.Add(paragraph);
+            try
+            {
+                iTextSharp.text.Font fuente = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 14);
+                Paragraph paragraph = new Paragraph(texto, fuente);
+                doc.Add(paragraph);
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
         }
 
         private void CellFormatingDatagrid(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (e.ColumnIndex == dataGridView1.Columns["producto"].Index && e.RowIndex >= 0)
+            try
             {
-                BEViaje viaje = dataGridView1.Rows[e.RowIndex].DataBoundItem as BEViaje;
-
-                // Asegúrate de que la celda tenga un valor de Viaje no nulo
-                if (viaje != null && viaje.producto != null)
+                if (e.ColumnIndex == dataGridView1.Columns["producto"].Index && e.RowIndex >= 0)
                 {
-                    // Configura el valor de la celda para mostrar el nombre del producto
-                    e.Value = viaje.producto.nombre;
+                    BEViaje viaje = dataGridView1.Rows[e.RowIndex].DataBoundItem as BEViaje;
+
+
+                    if (viaje != null && viaje.producto != null)
+                    {
+
+                        e.Value = viaje.producto.nombre;
+                    }
+                }
+                if (e.ColumnIndex == dataGridView1.Columns["camion"].Index && e.RowIndex >= 0)
+                {
+                    BEViaje viaje = dataGridView1.Rows[e.RowIndex].DataBoundItem as BEViaje;
+
+
+                    if (viaje != null && viaje.camion != null)
+                    {
+
+                        e.Value = viaje.camion.patente + " " + viaje.camion.conductor.user;
+                    }
                 }
             }
-            if (e.ColumnIndex == dataGridView1.Columns["camion"].Index && e.RowIndex >= 0)
+            catch (NullReferenceException ex)
             {
-                BEViaje viaje = dataGridView1.Rows[e.RowIndex].DataBoundItem as BEViaje;
-
-                // Asegúrate de que la celda tenga un valor de Viaje no nulo
-                if (viaje != null && viaje.camion != null)
-                {
-                    // Configura el valor de la celda para mostrar el nombre del producto
-                    e.Value = viaje.camion.patente + " " + viaje.camion.conductor.user;
-                }
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

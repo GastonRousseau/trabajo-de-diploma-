@@ -49,54 +49,86 @@ namespace UI
             DeshabilitarEdicionSiColumnaVacia(dataGridView1, "nombre");
             DeshabilitarEdicionSiColumnaVacia(dataGridView1, "cantPallets");
             dataGridView1.Columns["Cliente"].Visible = false;
+            dataGridView1.Columns["id"].Visible = false;
 
         }
         private void metroButton1_Click(object sender, EventArgs e)
         {
-            var error = 0;
-            errorProvider1.Clear();
-            errorProvider1.SetError(userControl11, "");
-            errorProvider1.SetError(userControl12, "");
-            
-            if (userControl11.Text == string.Empty || !validar.usuario(userControl11.Text))
+            try
             {
-                errorProvider1.SetError(userControl11, "You should enter a name without special characters");
-                error++;
+                var error = 0;
+                errorProvider1.Clear();
+                errorProvider1.SetError(userControl11, "");
+                errorProvider1.SetError(userControl12, "");
 
+                if (userControl11.Text == string.Empty || !validar.usuario(userControl11.Text))
+                {
+                    errorProvider1.SetError(userControl11, "You should enter a name without special characters");
+                    error++;
+
+                }
+                if (userControl12.Text == string.Empty || !validar.id(userControl12.Text))
+                {
+                    errorProvider1.SetError(userControl12, "You should enter a number without special characters");
+                    error++;
+                }
+                if (error == 0)
+                {
+                    BEProducto producto = new BEProducto();
+                    producto.nombre = userControl11.Text;
+                    producto.CantPallets = Convert.ToInt32(userControl12.Text);
+                    producto.cliente = SessionManager.GetInstance.Usuario;
+                    oBLLproducto.CrearProdcto(producto);
+                    Listar();
+                }
+                else
+                {
+                    MessageBox.Show("There was a problem creating the object");
+                }
             }
-            if (userControl12.Text == string.Empty || !validar.id(userControl12.Text))
+            catch (NullReferenceException ex)
             {
-                errorProvider1.SetError(userControl12, "You should enter a number without special characters");
-                error++;
+                MessageBox.Show(ex.Message);
             }
-            if (error == 0)
+            catch (Exception ex)
             {
-                BEProducto producto = new BEProducto();
-                producto.nombre = userControl11.Text;
-                producto.CantPallets = Convert.ToInt32(userControl12.Text);
-                producto.cliente = SessionManager.GetInstance.Usuario;
-                oBLLproducto.CrearProdcto(producto);
-                Listar();
+                MessageBox.Show(ex.Message);
             }
-            else
-            {
-                MessageBox.Show("There was a problem creating the object");
-            }
+            
            
         }
 
         private void metroButton2_Click(object sender, EventArgs e)
         {
-            BEProducto ProductoSelect = (BEProducto)dataGridView1.CurrentRow.DataBoundItem;
-            if (ProductoSelect != null)
+            try
             {
-                oBLLproducto.EliminarProducto(ProductoSelect.id);
-                Listar();
+                if (dataGridView1.RowCount > 0)
+                {
+                    BEProducto ProductoSelect = (BEProducto)dataGridView1.CurrentRow.DataBoundItem;
+                    if (ProductoSelect != null)
+                    {
+                        oBLLproducto.EliminarProducto(ProductoSelect.id);
+                        Listar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Select the product you want to remove");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("does not have any products");
+                }
             }
-            else
+            catch (NullReferenceException ex)
             {
-                MessageBox.Show("Select the product you want to remove");
+                MessageBox.Show(ex.Message);
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+         
         }
 
         private void cell_changed(object sender, DataGridViewCellEventArgs e)
@@ -135,11 +167,6 @@ namespace UI
                              oBLLproducto.CrearProdcto(producto);
                              Listar();
                            }
-
-
-
-
-
 
                 }
                 }

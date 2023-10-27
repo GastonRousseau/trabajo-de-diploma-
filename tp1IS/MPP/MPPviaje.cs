@@ -81,6 +81,8 @@ namespace MPP
                 }
                
                 viaje.estado = fila["estado"].ToString();
+                viaje.partida = fila["partida"].ToString();
+                viaje.destino = fila["destino"].ToString();
                 BECamion camion = new BECamion();////////////////////////////////////
                 camion.id= Convert.ToInt32(fila["codigo_camion"]);
                 camion.capacidad_Pallets = Convert.ToInt32(fila["capacidad_pallets"]);
@@ -281,6 +283,8 @@ namespace MPP
                 viaje.fecha = Convert.ToDateTime(fila["fecha"]);
                 viaje.fechaFinalizacion = Convert.ToDateTime(fila["fecha_finalizacion"]);
                 viaje.cantidad_Pallets = Convert.ToInt32(fila["cantidad_palets"]);
+                viaje.partida = fila["partida"].ToString();
+                viaje.destino = fila["destino"].ToString();
                 viajes.Add(viaje);
             }
             return viajes;

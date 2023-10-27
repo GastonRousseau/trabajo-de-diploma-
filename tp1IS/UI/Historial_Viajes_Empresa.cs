@@ -40,13 +40,7 @@ namespace UI
                 else { metroButton2.Enabled = true; }
                 dataGridView1.DataSource = null;
                 dataGridView1.DataSource = viajes;
-                //  dataGridView1.ReadOnly = true;
-                // dataGridView1.Columns["viajes_palets"].ReadOnly = true;
-                //   dataGridView1.Columns["distancia"].ReadOnly = true;
-                //  dataGridView1.Columns["estado"].ReadOnly = true;
-                // dataGridView1.Columns["fecha"].ReadOnly = true;
-
-                //               dataGridView1.Columns["Km_Recorridos"].ReadOnly = false;
+                
 
             }
             catch (NullReferenceException ex)
@@ -81,23 +75,35 @@ namespace UI
 
         private void metroButton3_Click(object sender, EventArgs e)
         {
-            from = null;
-            to = null;
-            nombreCliente = null;
-            if (textBox1.Text != string.Empty)
+            try
             {
-                nombreCliente = textBox1.Text;
+                from = null;
+                to = null;
+                nombreCliente = null;
+                if (textBox1.Text != string.Empty)
+                {
+                    nombreCliente = textBox1.Text;
+                }
+                if (metroDateTime1.Value != null)
+                {
+                    from = metroDateTime1.Value;
+                }
+                if (metroDateTime2.Value != null)
+                {
+                    to = metroDateTime2.Value;
+                }
+                buscar(nombreCliente, 1, from, to);
+                pag = 1;
             }
-            if (metroDateTime1.Value != null)
+            catch (NullReferenceException ex)
             {
-                from = metroDateTime1.Value;
+                MessageBox.Show(ex.Message);
             }
-            if (metroDateTime2.Value != null)
+            catch (Exception ex)
             {
-                to = metroDateTime2.Value;
+                MessageBox.Show(ex.Message);
             }
-            buscar(nombreCliente, 1, from, to);
-            pag = 1;
+           
         }
 
         private void metroButton4_Click(object sender, EventArgs e)
@@ -111,28 +117,38 @@ namespace UI
         
         private void cellFormattingDataGrid(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (e.ColumnIndex == dataGridView1.Columns["producto"].Index && e.RowIndex >= 0)
+            try
             {
-                BEViaje viaje = dataGridView1.Rows[e.RowIndex].DataBoundItem as BEViaje;
-
-                // Asegúrate de que la celda tenga un valor de Viaje no nulo
-                if (viaje != null && viaje.producto != null)
+                if (e.ColumnIndex == dataGridView1.Columns["producto"].Index && e.RowIndex >= 0)
                 {
-                    // Configura el valor de la celda para mostrar el nombre del producto
-                    e.Value = viaje.producto.nombre;
+                    BEViaje viaje = dataGridView1.Rows[e.RowIndex].DataBoundItem as BEViaje;
+
+                    if (viaje != null && viaje.producto != null)
+                    {
+
+                        e.Value = viaje.producto.nombre;
+                    }
+                }
+                if (e.ColumnIndex == dataGridView1.Columns["camion"].Index && e.RowIndex >= 0)
+                {
+                    BEViaje viaje = dataGridView1.Rows[e.RowIndex].DataBoundItem as BEViaje;
+
+
+                    if (viaje != null && viaje.camion != null)
+                    {
+                        e.Value = viaje.camion.patente + " " + viaje.camion.conductor.user;
+                    }
                 }
             }
-            if (e.ColumnIndex == dataGridView1.Columns["camion"].Index && e.RowIndex >= 0)
+            catch (NullReferenceException ex)
             {
-                BEViaje viaje = dataGridView1.Rows[e.RowIndex].DataBoundItem as BEViaje;
-
-                // Asegúrate de que la celda tenga un valor de Viaje no nulo
-                if (viaje != null && viaje.camion != null)
-                {
-                    // Configura el valor de la celda para mostrar el nombre del producto
-                    e.Value = viaje.camion.patente + " " + viaje.camion.conductor.user;
-                }
+                MessageBox.Show(ex.Message);
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
         }
     }
 }

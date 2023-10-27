@@ -44,11 +44,11 @@ namespace UI
 
         void cargarDatos()
         {
-            //List<string> conductores = new List<string>();
+        
             metroComboBox1.DataSource = null;
             metroComboBox1.DataSource = oBLLusuario.Username_Conductor();
             metroComboBox1.SelectedItem = null;
-          //  metroComboBox1.SelectedIndex = -1;
+     
         }
 
         private void Apply_Click(object sender, EventArgs e)
@@ -63,76 +63,85 @@ namespace UI
                 {
                     to = metroDateTime2.Value;
                 }
-               // CargarChart();
+      
             }
            
         }
 
         private void metroComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-           /* if (metroComboBox1.SelectedItem != null)
-            {
-                ConductoSeleccionado.user = metroComboBox1.SelectedItem.ToString();
-                ConductoSeleccionado = oBLLusuario.buscar_usuario(ConductoSeleccionado.user);
-                viajes = oBLLviaje.TraerViajesDelConductor(ConductoSeleccionado.user, from, to);
-                if (viajes.Count > 0)
-                {
-                    CalcularEstadisticas();
-                }
-                else
-                {
-                    MessageBox.Show("Este conductor no a realizado ningun viaje durante ese periodo de timepo");
-                }
-                
-            }*/
+           
             
         }
 
         void CalcularEstadisticas()
         {
-            int KM_totalesRecorridos=0;
-            int cantidad_viajes = viajes.Count;
-            int HorasManejadas=0;
-            int promedioKM_Tiempo=0;
-            
-
-            foreach(BEViaje viaje in viajes)
+            try
             {
-                KM_totalesRecorridos += viaje.cantidad_KM;
-                HorasManejadas += viaje.fechaFinalizacion.Hour - viaje.fecha.Hour;
+                int KM_totalesRecorridos = 0;
+                int cantidad_viajes = viajes.Count;
+                int HorasManejadas = 0;
+                int promedioKM_Tiempo = 0;
+
+
+                foreach (BEViaje viaje in viajes)
+                {
+                    KM_totalesRecorridos += viaje.cantidad_KM;
+                    HorasManejadas += viaje.fechaFinalizacion.Hour - viaje.fecha.Hour;
+                }
+                promedioKM_Tiempo = HorasManejadas / KM_totalesRecorridos;
+
+
+                label7.Visible = true;
+                label8.Visible = true;
+                label9.Visible = true;
+                label10.Visible = true;
+                label7.Text = KM_totalesRecorridos.ToString();
+                label8.Text = HorasManejadas.ToString() + " Horas";
+                label9.Text = cantidad_viajes.ToString();
+                label10.Text = promedioKM_Tiempo.ToString() + " por hora";
             }
-            promedioKM_Tiempo = HorasManejadas / KM_totalesRecorridos;
-
-
-            label7.Visible = true;
-            label8.Visible = true;
-            label9.Visible = true;
-            label10.Visible = true;
-            label7.Text = KM_totalesRecorridos.ToString();
-            label8.Text = HorasManejadas.ToString()+" Horas";
-            label9.Text = cantidad_viajes.ToString();
-            label10.Text = promedioKM_Tiempo.ToString()+" por hora";
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         void CargarChart()
         {
-            Dictionary<string, int> conductores = oBLLviaje.Conductores_viajes_realizados(from2,to2);
-            if (conductores.Count > 0)
+            try
             {
-                chart1.Series.Clear();
-                Series serie = new Series("Drivers");
-                serie.Color = Color.AliceBlue;
-                serie.ChartType = SeriesChartType.StackedBar;
-                foreach (var par in conductores)
+                Dictionary<string, int> conductores = oBLLviaje.Conductores_viajes_realizados(from2, to2);
+                if (conductores.Count > 0)
                 {
-                    serie.Points.AddXY(par.Key, par.Value);
+                    chart1.Series.Clear();
+                    Series serie = new Series("Drivers");
+                    serie.Color = Color.AliceBlue;
+                    serie.ChartType = SeriesChartType.StackedBar;
+                    foreach (var par in conductores)
+                    {
+                        serie.Points.AddXY(par.Key, par.Value);
+                    }
+                    chart1.Series.Add(serie);
                 }
-                chart1.Series.Add(serie);
+                else
+                {
+                    MessageBox.Show("no se realizaron viajes en es fecha");
+                }
             }
-            else
+            catch (NullReferenceException ex)
             {
-                MessageBox.Show("no se realizaron viajes en es fecha");
+                MessageBox.Show(ex.Message);
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
             
         }
 
@@ -141,26 +150,38 @@ namespace UI
             from = null;
             to = null;
             CalcularEstadisticas();
-            // CargarChart();
+           
         }
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
-            if (metroComboBox1.SelectedItem != null)
+            try
             {
-                ConductoSeleccionado.user = metroComboBox1.SelectedItem.ToString();
-                ConductoSeleccionado = oBLLusuario.buscar_usuario(ConductoSeleccionado.user);
-                viajes = oBLLviaje.TraerViajesDelConductor(ConductoSeleccionado.user, from, to);
-                if (viajes.Count > 0)
+                if (metroComboBox1.SelectedItem != null)
                 {
-                    CalcularEstadisticas();
-                }
-                else
-                {
-                    MessageBox.Show("Este conductor no a realizado ningun viaje durante ese periodo de timepo");
-                }
+                    ConductoSeleccionado.user = metroComboBox1.SelectedItem.ToString();
+                    ConductoSeleccionado = oBLLusuario.buscar_usuario(ConductoSeleccionado.user);
+                    viajes = oBLLviaje.TraerViajesDelConductor(ConductoSeleccionado.user, from, to);
+                    if (viajes.Count > 0)
+                    {
+                        CalcularEstadisticas();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Este conductor no a realizado ningun viaje durante ese periodo de timepo");
+                    }
 
+                }
             }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

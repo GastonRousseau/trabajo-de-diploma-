@@ -13,7 +13,8 @@ namespace BE
 
         public string nombre { get; set; }
         public int CantPallets { get; set; }
-
         public BEUsuario cliente { get; set; }
+        
+        public string Estado { get; set; }
     }
 }

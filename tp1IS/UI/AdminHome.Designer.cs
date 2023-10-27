@@ -290,7 +290,7 @@
             this.comboBox1.BackColor = System.Drawing.Color.PaleTurquoise;
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(934, 500);
+            this.comboBox1.Location = new System.Drawing.Point(941, 671);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(140, 21);
             this.comboBox1.TabIndex = 8;
@@ -647,7 +647,7 @@
             this.metroButton27.Name = "metroButton27";
             this.metroButton27.Size = new System.Drawing.Size(284, 44);
             this.metroButton27.TabIndex = 23;
-            this.metroButton27.Text = "Estadisticas";
+            this.metroButton27.Text = "statistics";
             this.metroButton27.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.metroButton27.UseCustomBackColor = true;
             this.metroButton27.UseCustomForeColor = true;
@@ -826,7 +826,7 @@
             this.panel8.Controls.Add(this.panel2);
             this.panel8.Location = new System.Drawing.Point(307, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1074, 521);
+            this.panel8.Size = new System.Drawing.Size(1095, 695);
             this.panel8.TabIndex = 25;
             this.panel8.UseWaitCursor = true;
             // 
@@ -847,7 +847,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Honeydew;
-            this.ClientSize = new System.Drawing.Size(1344, 537);
+            this.ClientSize = new System.Drawing.Size(1402, 717);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel1);
             this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
