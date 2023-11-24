@@ -79,5 +79,15 @@ namespace servicios
             }
             catch (Exception ex) { throw ex; }
         }
+
+        public bool NombreYapellido(string P)
+        {
+            try
+            {
+                //return Regex.IsMatch(P, @"^[A-Z]{1,20}(?:\s[A-Z]{1,20})?$");
+                return Regex.IsMatch(P, @"^[a-zA-Z\s\']{1,50}$");
+            }
+            catch(Exception ex) { throw ex; }
+        }
     }
 }

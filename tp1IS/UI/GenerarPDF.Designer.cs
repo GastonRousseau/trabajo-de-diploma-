@@ -42,41 +42,53 @@ namespace UI
             this.metroDateTime2 = new MetroFramework.Controls.MetroDateTime();
             this.metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroButton1
             // 
-            this.metroButton1.Location = new System.Drawing.Point(361, 484);
+            this.metroButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(123)))), ((int)(((byte)(157)))));
+            this.metroButton1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.metroButton1.Location = new System.Drawing.Point(380, 515);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(125, 38);
             this.metroButton1.TabIndex = 0;
+            this.metroButton1.Tag = "trigger pdf";
             this.metroButton1.Text = "Trigger PDF";
+            this.metroButton1.UseCustomBackColor = true;
+            this.metroButton1.UseCustomForeColor = true;
             this.metroButton1.UseSelectable = true;
             this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
             // metroButton4
             // 
-            this.metroButton4.Location = new System.Drawing.Point(562, 83);
+            this.metroButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(123)))), ((int)(((byte)(157)))));
+            this.metroButton4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.metroButton4.Location = new System.Drawing.Point(621, 83);
             this.metroButton4.Name = "metroButton4";
             this.metroButton4.Size = new System.Drawing.Size(43, 23);
             this.metroButton4.TabIndex = 25;
             this.metroButton4.Text = "X";
+            this.metroButton4.UseCustomBackColor = true;
+            this.metroButton4.UseCustomForeColor = true;
             this.metroButton4.UseSelectable = true;
             this.metroButton4.Click += new System.EventHandler(this.metroButton4_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(95, 35);
+            this.label3.Location = new System.Drawing.Point(154, 35);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 13);
             this.label3.TabIndex = 24;
+            this.label3.Tag = "client username";
             this.label3.Text = "Client Username";
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(191, 32);
+            this.textBox3.Location = new System.Drawing.Point(250, 32);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 23;
@@ -84,50 +96,63 @@ namespace UI
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(359, 13);
+            this.metroLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel5.Location = new System.Drawing.Point(418, 13);
             this.metroLabel5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(41, 19);
             this.metroLabel5.TabIndex = 21;
             this.metroLabel5.Tag = "from";
             this.metroLabel5.Text = "From";
+            this.metroLabel5.UseCustomBackColor = true;
+            this.metroLabel5.UseCustomForeColor = true;
             // 
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(361, 47);
+            this.metroLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel4.Location = new System.Drawing.Point(420, 47);
             this.metroLabel4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(22, 19);
             this.metroLabel4.TabIndex = 22;
             this.metroLabel4.Tag = "to";
             this.metroLabel4.Text = "To";
+            this.metroLabel4.UseCustomBackColor = true;
+            this.metroLabel4.UseCustomForeColor = true;
             // 
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(321, 32);
+            this.metroLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel3.Location = new System.Drawing.Point(380, 32);
             this.metroLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(36, 19);
             this.metroLabel3.TabIndex = 20;
             this.metroLabel3.Tag = "date";
             this.metroLabel3.Text = "Date";
+            this.metroLabel3.UseCustomBackColor = true;
+            this.metroLabel3.UseCustomForeColor = true;
             // 
             // metroButton3
             // 
-            this.metroButton3.Location = new System.Drawing.Point(513, 83);
+            this.metroButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(123)))), ((int)(((byte)(157)))));
+            this.metroButton3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.metroButton3.Location = new System.Drawing.Point(572, 83);
             this.metroButton3.Name = "metroButton3";
             this.metroButton3.Size = new System.Drawing.Size(43, 23);
             this.metroButton3.TabIndex = 19;
             this.metroButton3.Text = "apply";
+            this.metroButton3.UseCustomBackColor = true;
+            this.metroButton3.UseCustomForeColor = true;
             this.metroButton3.UseSelectable = true;
             this.metroButton3.Click += new System.EventHandler(this.metroButton3_Click);
             // 
             // metroDateTime2
             // 
             this.metroDateTime2.Checked = false;
-            this.metroDateTime2.Location = new System.Drawing.Point(405, 48);
+            this.metroDateTime2.Location = new System.Drawing.Point(464, 48);
             this.metroDateTime2.MinimumSize = new System.Drawing.Size(0, 29);
             this.metroDateTime2.Name = "metroDateTime2";
             this.metroDateTime2.Size = new System.Drawing.Size(200, 29);
@@ -136,7 +161,7 @@ namespace UI
             // metroDateTime1
             // 
             this.metroDateTime1.Checked = false;
-            this.metroDateTime1.Location = new System.Drawing.Point(405, 13);
+            this.metroDateTime1.Location = new System.Drawing.Point(464, 13);
             this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 29);
             this.metroDateTime1.Name = "metroDateTime1";
             this.metroDateTime1.Size = new System.Drawing.Size(200, 29);
@@ -164,34 +189,44 @@ namespace UI
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.DarkSlateGray;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 112);
+            this.dataGridView1.Location = new System.Drawing.Point(22, 112);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(862, 366);
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.CellFormatingDatagrid);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            this.panel1.Controls.Add(this.metroDateTime2);
+            this.panel1.Controls.Add(this.metroButton1);
+            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.metroButton4);
+            this.panel1.Controls.Add(this.metroDateTime1);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.metroButton3);
+            this.panel1.Controls.Add(this.textBox3);
+            this.panel1.Controls.Add(this.metroLabel3);
+            this.panel1.Controls.Add(this.metroLabel5);
+            this.panel1.Controls.Add(this.metroLabel4);
+            this.panel1.Location = new System.Drawing.Point(12, 5);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(907, 581);
+            this.panel1.TabIndex = 26;
+            // 
             // GenerarPDF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(883, 526);
-            this.Controls.Add(this.metroButton4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.metroLabel5);
-            this.Controls.Add(this.metroLabel4);
-            this.Controls.Add(this.metroLabel3);
-            this.Controls.Add(this.metroButton3);
-            this.Controls.Add(this.metroDateTime2);
-            this.Controls.Add(this.metroDateTime1);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.metroButton1);
+            this.ClientSize = new System.Drawing.Size(925, 580);
+            this.Controls.Add(this.panel1);
             this.Name = "GenerarPDF";
             this.Text = "GenerarPDF";
             this.Load += new System.EventHandler(this.GenerarPDF_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -208,5 +243,6 @@ namespace UI
         private MetroFramework.Controls.MetroDateTime metroDateTime2;
         private MetroFramework.Controls.MetroDateTime metroDateTime1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

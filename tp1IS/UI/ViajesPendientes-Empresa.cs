@@ -12,9 +12,11 @@ using BE;
 using BLL;
 using Negocio;
 using Patrones.Singleton.Core;
+using servicios;
+using servicios.ClasesMultiLenguaje;
 namespace UI
 {
-    public partial class ViajesPendientes_Empresa : Form
+    public partial class ViajesPendientes_Empresa : Form,IdiomaObserver
     {
         public ViajesPendientes_Empresa()
         {
@@ -44,6 +46,8 @@ namespace UI
         BLLMensaje oBLLmensaje = new BLLMensaje();
         BEViaje viajeSelect = new BEViaje();
         BECamion camionSelect = new BECamion();
+        Dictionary<string, Traduccion> traducciones = new Dictionary<string, Traduccion>();
+        List<string> palabras = new List<string>();
         private void ViajesPendientes_Empresa_Load(object sender, EventArgs e)
         {
             if (SessionManager.tiene_permiso(61) == true)
@@ -51,6 +55,8 @@ namespace UI
                 metroButton5.Enabled = false;
                 metroButton6.Enabled = false;
             }
+            Observer.agregarObservador(this);
+            traducir();
         }
         void cargarDatos()
         {
@@ -247,7 +253,7 @@ namespace UI
                 }
                 else
                 {
-                    MessageBox.Show("no hay ningun camion seleccionado");
+                    MessageBox.Show("there is no trip selected");
 
                 }
             }
@@ -481,6 +487,89 @@ namespace UI
                 label8.Visible = true;
             }
             label7.Text = camionSelect.patente;
+        }
+
+        public void CambiarIdioma(Idioma Idioma)
+        {
+            //  throw new NotImplementedException();
+            traducir();
+        }
+
+        void traducir()
+        {
+            try
+            {
+                Idioma Idioma = null;
+
+                if (SessionManager.TraerUsuario())
+                    Idioma = SessionManager.GetInstance.idioma;
+                if (Idioma.Nombre == "Ingles")
+                {
+                    VolverAidiomaOriginal();
+                }
+                else
+                {
+                    BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+
+
+                    traducciones = Traductor.obtenertraducciones(Idioma);
+                    List<string> Lista = new List<string>();
+                    Lista = Traductor.obtenerIdiomaOriginal();
+                    if (traducciones.Values.Count != Lista.Count)
+                    {
+
+                    }
+                    else
+                    {
+                        RecorrerPanel(panel1, 1);
+                        RecorrerPanel(this, 1);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        void RecorrerPanel(Control panel, int v)
+        {
+            foreach (Control control in panel.Controls)
+            {
+                if (v == 1)
+                {
+
+                    if (control.Tag != null && traducciones.ContainsKey(control.Tag.ToString()))
+                    {
+                        control.Text = traducciones[control.Tag.ToString()].texto;
+                    }
+                }
+                else
+                {
+                    if (control.Tag != null && palabras.Contains(control.Tag.ToString()))
+                    {
+                        string traduccion = palabras.Find(p => p.Equals(control.Tag.ToString()));
+                        control.Text = traduccion;
+                    }
+                }
+
+            }
+        }
+
+        void VolverAidiomaOriginal()
+        {
+            try
+            {
+                BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+                palabras = Traductor.obtenerIdiomaOriginal();
+
+                RecorrerPanel(panel1, 2);
+                RecorrerPanel(this, 2);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

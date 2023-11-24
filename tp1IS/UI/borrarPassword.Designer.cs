@@ -42,6 +42,7 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
+            this.metroLabel1.BackColor = System.Drawing.Color.Transparent;
             this.metroLabel1.Location = new System.Drawing.Point(26, 64);
             this.metroLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel1.Name = "metroLabel1";
@@ -49,10 +50,13 @@
             this.metroLabel1.TabIndex = 0;
             this.metroLabel1.Tag = "id";
             this.metroLabel1.Text = "id";
+            this.metroLabel1.UseCustomBackColor = true;
+            this.metroLabel1.UseCustomForeColor = true;
             // 
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
+            this.metroLabel2.BackColor = System.Drawing.Color.Transparent;
             this.metroLabel2.Location = new System.Drawing.Point(26, 92);
             this.metroLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel2.Name = "metroLabel2";
@@ -60,6 +64,8 @@
             this.metroLabel2.TabIndex = 2;
             this.metroLabel2.Tag = "password";
             this.metroLabel2.Text = "password";
+            this.metroLabel2.UseCustomBackColor = true;
+            this.metroLabel2.UseCustomForeColor = true;
             // 
             // textBox1
             // 
@@ -105,6 +111,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 5;
+            this.comboBox1.Visible = false;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             // 
             // borrarPassword

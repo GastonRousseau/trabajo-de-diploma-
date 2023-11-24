@@ -140,5 +140,10 @@ namespace UI
         {
 
         }
+
+        private void metroButton6_Click(object sender, EventArgs e)
+        {
+            formularioAbierto.Close();
+        }
     }
 }

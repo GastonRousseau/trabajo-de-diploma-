@@ -75,6 +75,7 @@ namespace UI
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(110, 23);
             this.metroButton1.TabIndex = 0;
+            this.metroButton1.Tag = "create";
             this.metroButton1.Text = "create";
             this.metroButton1.UseCustomBackColor = true;
             this.metroButton1.UseCustomForeColor = true;
@@ -90,6 +91,7 @@ namespace UI
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(45, 19);
             this.metroLabel1.TabIndex = 1;
+            this.metroLabel1.Tag = "patent";
             this.metroLabel1.Text = "Patent";
             this.metroLabel1.UseCustomBackColor = true;
             this.metroLabel1.UseCustomForeColor = true;
@@ -130,7 +132,8 @@ namespace UI
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(34, 19);
             this.metroLabel2.TabIndex = 4;
-            this.metroLabel2.Text = "Tipe";
+            this.metroLabel2.Tag = "type";
+            this.metroLabel2.Text = "type";
             this.metroLabel2.UseCustomBackColor = true;
             this.metroLabel2.UseCustomForeColor = true;
             this.metroLabel2.UseStyleColors = true;
@@ -160,6 +163,7 @@ namespace UI
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(70, 19);
             this.metroLabel3.TabIndex = 6;
+            this.metroLabel3.Tag = "pallet limit";
             this.metroLabel3.Text = "pallet limit";
             this.metroLabel3.UseCustomBackColor = true;
             this.metroLabel3.UseCustomForeColor = true;
@@ -171,6 +175,7 @@ namespace UI
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(110, 23);
             this.metroButton2.TabIndex = 7;
+            this.metroButton2.Tag = "delete";
             this.metroButton2.Text = "delete";
             this.metroButton2.UseCustomBackColor = true;
             this.metroButton2.UseCustomForeColor = true;
@@ -184,6 +189,7 @@ namespace UI
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(43, 19);
             this.metroLabel5.TabIndex = 11;
+            this.metroLabel5.Tag = "trucks";
             this.metroLabel5.Text = "Trucks";
             this.metroLabel5.UseCustomBackColor = true;
             this.metroLabel5.UseCustomForeColor = true;
@@ -253,10 +259,11 @@ namespace UI
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(49, 16);
+            this.metroLabel4.Location = new System.Drawing.Point(85, 12);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(49, 19);
             this.metroLabel4.TabIndex = 9;
+            this.metroLabel4.Tag = "drivers";
             this.metroLabel4.Text = "Drivers";
             this.metroLabel4.UseCustomBackColor = true;
             this.metroLabel4.UseCustomForeColor = true;
@@ -269,6 +276,7 @@ namespace UI
             this.metroButton5.Name = "metroButton5";
             this.metroButton5.Size = new System.Drawing.Size(156, 23);
             this.metroButton5.TabIndex = 14;
+            this.metroButton5.Tag = "unite truck and driver";
             this.metroButton5.Text = "unite truck and driver";
             this.metroButton5.UseCustomBackColor = true;
             this.metroButton5.UseCustomForeColor = true;
@@ -283,6 +291,7 @@ namespace UI
             this.metroButton6.Name = "metroButton6";
             this.metroButton6.Size = new System.Drawing.Size(156, 23);
             this.metroButton6.TabIndex = 15;
+            this.metroButton6.Tag = "unlink truck driver";
             this.metroButton6.Text = "unlink truck driver";
             this.metroButton6.UseCustomBackColor = true;
             this.metroButton6.UseCustomForeColor = true;
@@ -321,7 +330,7 @@ namespace UI
             // 
             this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(53)))), ((int)(((byte)(87)))));
             this.textBox2.ForeColor = System.Drawing.SystemColors.Window;
-            this.textBox2.Location = new System.Drawing.Point(220, 12);
+            this.textBox2.Location = new System.Drawing.Point(256, 12);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 18;
@@ -339,7 +348,7 @@ namespace UI
             // 
             this.metroButton9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(123)))), ((int)(((byte)(157)))));
             this.metroButton9.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.metroButton9.Location = new System.Drawing.Point(326, 12);
+            this.metroButton9.Location = new System.Drawing.Point(362, 12);
             this.metroButton9.Name = "metroButton9";
             this.metroButton9.Size = new System.Drawing.Size(75, 23);
             this.metroButton9.TabIndex = 20;
@@ -357,6 +366,7 @@ namespace UI
             this.metroButton10.Name = "metroButton10";
             this.metroButton10.Size = new System.Drawing.Size(75, 23);
             this.metroButton10.TabIndex = 21;
+            this.metroButton10.Tag = "apply";
             this.metroButton10.Text = "apply";
             this.metroButton10.UseCustomBackColor = true;
             this.metroButton10.UseCustomForeColor = true;
@@ -370,6 +380,7 @@ namespace UI
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(45, 19);
             this.metroLabel6.TabIndex = 22;
+            this.metroLabel6.Tag = "patent";
             this.metroLabel6.Text = "Patent";
             this.metroLabel6.UseCustomBackColor = true;
             this.metroLabel6.UseCustomForeColor = true;
@@ -377,10 +388,11 @@ namespace UI
             // metroLabel7
             // 
             this.metroLabel7.AutoSize = true;
-            this.metroLabel7.Location = new System.Drawing.Point(146, 12);
+            this.metroLabel7.Location = new System.Drawing.Point(182, 12);
             this.metroLabel7.Name = "metroLabel7";
             this.metroLabel7.Size = new System.Drawing.Size(68, 19);
             this.metroLabel7.TabIndex = 23;
+            this.metroLabel7.Tag = "username";
             this.metroLabel7.Text = "Username";
             this.metroLabel7.UseCustomBackColor = true;
             this.metroLabel7.UseCustomForeColor = true;

@@ -29,9 +29,9 @@ namespace UI
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.metroButton3 = new MetroFramework.Controls.MetroButton();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
@@ -41,6 +41,9 @@ namespace UI
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -52,24 +55,21 @@ namespace UI
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
+            this.label6 = new System.Windows.Forms.Label();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.metroDateTime3 = new MetroFramework.Controls.MetroDateTime();
             this.metroButton4 = new MetroFramework.Controls.MetroButton();
-            this.metroDateTime4 = new MetroFramework.Controls.MetroDateTime();
+            this.metroDateTime3 = new MetroFramework.Controls.MetroDateTime();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
+            this.metroDateTime4 = new MetroFramework.Controls.MetroDateTime();
             this.panel1.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panel6.SuspendLayout();
             this.SuspendLayout();
@@ -206,6 +206,36 @@ namespace UI
             this.metroButton1.UseSelectable = true;
             this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(218)))), ((int)(((byte)(220)))));
+            this.panel5.Controls.Add(this.label9);
+            this.panel5.Controls.Add(this.label5);
+            this.panel5.Location = new System.Drawing.Point(1, 309);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(169, 100);
+            this.panel5.TabIndex = 6;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(74, 58);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(35, 13);
+            this.label9.TabIndex = 26;
+            this.label9.Text = "label9";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(26, 11);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(83, 20);
+            this.label5.TabIndex = 5;
+            this.label5.Tag = "trips made";
+            this.label5.Text = "trips made";
+            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(218)))), ((int)(((byte)(220)))));
@@ -231,9 +261,10 @@ namespace UI
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(10, 11);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(155, 20);
+            this.label4.Size = new System.Drawing.Size(129, 20);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Promedio KM/tiempo";
+            this.label4.Tag = "Average KM/time";
+            this.label4.Text = "Average KM/time";
             // 
             // panel3
             // 
@@ -244,6 +275,7 @@ namespace UI
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(161, 103);
             this.panel3.TabIndex = 3;
+            this.panel3.Tag = "driving time";
             // 
             // label8
             // 
@@ -260,9 +292,10 @@ namespace UI
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(10, 12);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(144, 20);
+            this.label3.Size = new System.Drawing.Size(88, 20);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Tiempo manejando";
+            this.label3.Tag = "driving time";
+            this.label3.Text = "driving time";
             // 
             // panel2
             // 
@@ -290,9 +323,10 @@ namespace UI
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(33, 4);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 20);
+            this.label2.Size = new System.Drawing.Size(92, 20);
             this.label2.TabIndex = 5;
-            this.label2.Text = "KM recorridos";
+            this.label2.Tag = "km traveled";
+            this.label2.Text = "KM traveled";
             // 
             // label1
             // 
@@ -301,6 +335,7 @@ namespace UI
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 1;
+            this.label1.Tag = "driver";
             this.label1.Text = "Driver";
             // 
             // metroComboBox1
@@ -314,57 +349,28 @@ namespace UI
             this.metroComboBox1.UseSelectable = true;
             this.metroComboBox1.SelectedIndexChanged += new System.EventHandler(this.metroComboBox1_SelectedIndexChanged);
             // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(218)))), ((int)(((byte)(220)))));
-            this.panel5.Controls.Add(this.label9);
-            this.panel5.Controls.Add(this.label5);
-            this.panel5.Location = new System.Drawing.Point(1, 309);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(169, 100);
-            this.panel5.TabIndex = 6;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(74, 58);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(35, 13);
-            this.label9.TabIndex = 26;
-            this.label9.Text = "label9";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(26, 11);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(128, 20);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Viajes realizados";
-            // 
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
             this.chart1.BackImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.chart1.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.chart1.BorderlineColor = System.Drawing.Color.Black;
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(13, 158);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series3.BackSecondaryColor = System.Drawing.Color.White;
-            series3.BorderColor = System.Drawing.Color.SaddleBrown;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedBar;
-            series3.Color = System.Drawing.Color.SandyBrown;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            series3.ShadowColor = System.Drawing.SystemColors.ButtonFace;
-            this.chart1.Series.Add(series3);
+            series1.BackSecondaryColor = System.Drawing.Color.White;
+            series1.BorderColor = System.Drawing.Color.SaddleBrown;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedBar;
+            series1.Color = System.Drawing.Color.SandyBrown;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            series1.ShadowColor = System.Drawing.SystemColors.ButtonFace;
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(300, 300);
             this.chart1.TabIndex = 22;
             this.chart1.Text = "chart1";
@@ -386,15 +392,6 @@ namespace UI
             this.panel6.Size = new System.Drawing.Size(418, 464);
             this.panel6.TabIndex = 23;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(103, 142);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(165, 13);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Viajes realizados por conductores";
-            // 
             // metroButton2
             // 
             this.metroButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(123)))), ((int)(((byte)(157)))));
@@ -410,6 +407,15 @@ namespace UI
             this.metroButton2.UseCustomForeColor = true;
             this.metroButton2.UseSelectable = true;
             this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(103, 142);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(165, 13);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Viajes realizados por conductores";
             // 
             // metroLabel1
             // 
@@ -439,15 +445,6 @@ namespace UI
             this.metroLabel2.UseCustomBackColor = true;
             this.metroLabel2.UseCustomForeColor = true;
             // 
-            // metroDateTime3
-            // 
-            this.metroDateTime3.Location = new System.Drawing.Point(103, 56);
-            this.metroDateTime3.Margin = new System.Windows.Forms.Padding(2);
-            this.metroDateTime3.MinimumSize = new System.Drawing.Size(0, 29);
-            this.metroDateTime3.Name = "metroDateTime3";
-            this.metroDateTime3.Size = new System.Drawing.Size(151, 29);
-            this.metroDateTime3.TabIndex = 29;
-            // 
             // metroButton4
             // 
             this.metroButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(123)))), ((int)(((byte)(157)))));
@@ -464,15 +461,14 @@ namespace UI
             this.metroButton4.UseSelectable = true;
             this.metroButton4.Click += new System.EventHandler(this.metroButton4_Click);
             // 
-            // metroDateTime4
+            // metroDateTime3
             // 
-            this.metroDateTime4.Location = new System.Drawing.Point(103, 23);
-            this.metroDateTime4.Margin = new System.Windows.Forms.Padding(2);
-            this.metroDateTime4.MinimumSize = new System.Drawing.Size(0, 29);
-            this.metroDateTime4.Name = "metroDateTime4";
-            this.metroDateTime4.Size = new System.Drawing.Size(151, 29);
-            this.metroDateTime4.TabIndex = 27;
-            this.metroDateTime4.Value = new System.DateTime(1988, 12, 26, 0, 0, 0, 0);
+            this.metroDateTime3.Location = new System.Drawing.Point(103, 56);
+            this.metroDateTime3.Margin = new System.Windows.Forms.Padding(2);
+            this.metroDateTime3.MinimumSize = new System.Drawing.Size(0, 29);
+            this.metroDateTime3.Name = "metroDateTime3";
+            this.metroDateTime3.Size = new System.Drawing.Size(151, 29);
+            this.metroDateTime3.TabIndex = 29;
             // 
             // metroLabel6
             // 
@@ -488,6 +484,16 @@ namespace UI
             this.metroLabel6.UseCustomBackColor = true;
             this.metroLabel6.UseCustomForeColor = true;
             // 
+            // metroDateTime4
+            // 
+            this.metroDateTime4.Location = new System.Drawing.Point(103, 23);
+            this.metroDateTime4.Margin = new System.Windows.Forms.Padding(2);
+            this.metroDateTime4.MinimumSize = new System.Drawing.Size(0, 29);
+            this.metroDateTime4.Name = "metroDateTime4";
+            this.metroDateTime4.Size = new System.Drawing.Size(151, 29);
+            this.metroDateTime4.TabIndex = 27;
+            this.metroDateTime4.Value = new System.DateTime(1988, 12, 26, 0, 0, 0, 0);
+            // 
             // Estadisticas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -501,14 +507,14 @@ namespace UI
             this.Load += new System.EventHandler(this.Estadisticas_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();

@@ -52,6 +52,8 @@ namespace UI
             this.metroButton5 = new MetroFramework.Controls.MetroButton();
             this.metroButton6 = new MetroFramework.Controls.MetroButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.metroButton8 = new MetroFramework.Controls.MetroButton();
             this.metroButton7 = new MetroFramework.Controls.MetroButton();
@@ -59,8 +61,6 @@ namespace UI
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -74,6 +74,7 @@ namespace UI
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(98, 19);
             this.metroLabel1.TabIndex = 2;
+            this.metroLabel1.Tag = "pending travels";
             this.metroLabel1.Text = "pending travels";
             this.metroLabel1.UseCustomBackColor = true;
             this.metroLabel1.UseCustomForeColor = true;
@@ -124,9 +125,10 @@ namespace UI
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(123, 60);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 13);
+            this.label1.Size = new System.Drawing.Size(84, 13);
             this.label1.TabIndex = 24;
-            this.label1.Text = "Cliente Username";
+            this.label1.Tag = "client username";
+            this.label1.Text = "Client Username";
             // 
             // metroLabel5
             // 
@@ -177,6 +179,7 @@ namespace UI
             this.metroButton3.Name = "metroButton3";
             this.metroButton3.Size = new System.Drawing.Size(43, 23);
             this.metroButton3.TabIndex = 19;
+            this.metroButton3.Tag = "apply";
             this.metroButton3.Text = "apply";
             this.metroButton3.UseCustomBackColor = true;
             this.metroButton3.UseCustomForeColor = true;
@@ -208,6 +211,7 @@ namespace UI
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(86, 13);
             this.label2.TabIndex = 27;
+            this.label2.Tag = "driver username";
             this.label2.Text = "Driver Username";
             // 
             // label3
@@ -215,9 +219,10 @@ namespace UI
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(143, 130);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(66, 13);
+            this.label3.Size = new System.Drawing.Size(69, 13);
             this.label3.TabIndex = 29;
-            this.label3.Text = "Paent Truck";
+            this.label3.Tag = "patent truck";
+            this.label3.Text = "Patent Truck";
             // 
             // metroComboBox1
             // 
@@ -257,7 +262,8 @@ namespace UI
             this.metroButton5.Name = "metroButton5";
             this.metroButton5.Size = new System.Drawing.Size(200, 23);
             this.metroButton5.TabIndex = 33;
-            this.metroButton5.Text = "Solicitar nuevo camion para el viaje";
+            this.metroButton5.Tag = "Request a new truck for the trip";
+            this.metroButton5.Text = "Request a new truck for the trip";
             this.metroButton5.UseCustomBackColor = true;
             this.metroButton5.UseCustomForeColor = true;
             this.metroButton5.UseSelectable = true;
@@ -270,7 +276,8 @@ namespace UI
             this.metroButton6.Name = "metroButton6";
             this.metroButton6.Size = new System.Drawing.Size(100, 23);
             this.metroButton6.TabIndex = 34;
-            this.metroButton6.Text = "Cancelar viaje";
+            this.metroButton6.Tag = "cancel travel";
+            this.metroButton6.Text = "Cancel travel";
             this.metroButton6.UseCustomBackColor = true;
             this.metroButton6.UseCustomForeColor = true;
             this.metroButton6.UseSelectable = true;
@@ -288,6 +295,25 @@ namespace UI
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(649, 253);
             this.panel1.TabIndex = 35;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(575, 87);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.TabIndex = 42;
+            this.label7.Text = "label7";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(490, 87);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(69, 13);
+            this.label8.TabIndex = 41;
+            this.label8.Tag = "truck select";
+            this.label8.Text = "Truck select:";
             // 
             // dataGridView2
             // 
@@ -336,7 +362,8 @@ namespace UI
             this.metroButton7.Name = "metroButton7";
             this.metroButton7.Size = new System.Drawing.Size(105, 23);
             this.metroButton7.TabIndex = 37;
-            this.metroButton7.Text = "Asignar camion";
+            this.metroButton7.Tag = "assign truck";
+            this.metroButton7.Text = "assign truck";
             this.metroButton7.UseCustomBackColor = true;
             this.metroButton7.UseCustomForeColor = true;
             this.metroButton7.UseSelectable = true;
@@ -347,9 +374,10 @@ namespace UI
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(68, 4);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(108, 13);
+            this.label4.Size = new System.Drawing.Size(81, 13);
             this.label4.TabIndex = 36;
-            this.label4.Text = "Camiones disponibles";
+            this.label4.Tag = "available trucks";
+            this.label4.Text = "available trucks";
             // 
             // dataGridView1
             // 
@@ -388,6 +416,7 @@ namespace UI
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(71, 13);
             this.label5.TabIndex = 39;
+            this.label5.Tag = "travel select";
             this.label5.Text = "Travel select:";
             // 
             // label6
@@ -398,24 +427,6 @@ namespace UI
             this.label6.Size = new System.Drawing.Size(35, 13);
             this.label6.TabIndex = 40;
             this.label6.Text = "label6";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(575, 87);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
-            this.label7.TabIndex = 42;
-            this.label7.Text = "label7";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(490, 87);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(69, 13);
-            this.label8.TabIndex = 41;
-            this.label8.Text = "Truck select:";
             // 
             // ViajesPendientes_Empresa
             // 

@@ -50,6 +50,7 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.botonOjo = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.metroButton4 = new MetroFramework.Controls.MetroButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -321,6 +322,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            this.panel1.Controls.Add(this.metroButton4);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.metroLabel2);
             this.panel1.Controls.Add(this.botonOjo);
@@ -332,6 +334,22 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(558, 223);
             this.panel1.TabIndex = 9;
+            // 
+            // metroButton4
+            // 
+            this.metroButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(123)))), ((int)(((byte)(157)))));
+            this.metroButton4.ForeColor = System.Drawing.Color.Honeydew;
+            this.metroButton4.Location = new System.Drawing.Point(409, 127);
+            this.metroButton4.Margin = new System.Windows.Forms.Padding(2);
+            this.metroButton4.Name = "metroButton4";
+            this.metroButton4.Size = new System.Drawing.Size(132, 25);
+            this.metroButton4.TabIndex = 7;
+            this.metroButton4.Tag = "open user manual";
+            this.metroButton4.Text = "open user manual";
+            this.metroButton4.UseCustomBackColor = true;
+            this.metroButton4.UseCustomForeColor = true;
+            this.metroButton4.UseSelectable = true;
+            this.metroButton4.Click += new System.EventHandler(this.metroButton4_Click);
             // 
             // SignIn
             // 
@@ -379,6 +397,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel7;
         private MetroFramework.Controls.MetroLabel metroLabel6;
         private System.Windows.Forms.Panel panel1;
+        private MetroFramework.Controls.MetroButton metroButton4;
     }
 }
 

@@ -14,9 +14,10 @@ using BE;
 using BLL;
 using Patrones.Singleton.Core;
 using servicios;
+using servicios.ClasesMultiLenguaje;
 namespace UI
 {
-    public partial class Crear_viaje : Form
+    public partial class Crear_viaje : Form,IdiomaObserver
     {
         public Crear_viaje()
         {
@@ -27,7 +28,7 @@ namespace UI
             this.Size = new Size(702, 432);
             panel3.Visible = false;
             label6.Visible = false;
-
+            
         }
         //int costo = 0;
         BLLCamion oBLLcamion;
@@ -38,11 +39,15 @@ namespace UI
         BEViaje viaje=new BEViaje();
         BEProducto productoSelect = new BEProducto();
         BECamion camionSelect = new BECamion();
+        Dictionary<string, Traduccion> traducciones = new Dictionary<string, Traduccion>();
+        List<string> palabras = new List<string>();
 
         int costo;
         private void Crear_viaje_Load(object sender, EventArgs e)
         {
             Listar();
+            Observer.agregarObservador(this);
+            traducir();
         }
         void Listar()
         {
@@ -322,7 +327,7 @@ namespace UI
                     errorProvider1.SetError(textBox11, "Error when entering data");
                     error++;
                 }
-                if (textBox10.Text == string.Empty || !validar.usuario(textBox10.Text))
+                if (textBox10.Text == string.Empty || !validar.NombreYapellido(textBox10.Text))
                 {
                     errorProvider1.SetError(textBox10, "Error when entering data");
                     error++;
@@ -389,6 +394,90 @@ namespace UI
             camionSelect = (BECamion)dataGridView2.CurrentRow.DataBoundItem;
             label6.Text = "the truck with the patent was selected " + camionSelect.patente;
             label6.Visible = true;
+        }
+
+        public void CambiarIdioma(Idioma Idioma)
+        {
+            // throw new NotImplementedException();
+            traducir();
+        }
+        void traducir()
+        {
+            try
+            {
+                Idioma Idioma = null;
+
+                if (SessionManager.TraerUsuario())
+                    Idioma = SessionManager.GetInstance.idioma;
+                if (Idioma.Nombre == "Ingles")
+                {
+                    VolverAidiomaOriginal();
+                }
+                else
+                {
+                    BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+
+
+                    traducciones = Traductor.obtenertraducciones(Idioma);
+                    List<string> Lista = new List<string>();
+                    Lista = Traductor.obtenerIdiomaOriginal();
+                    if (traducciones.Values.Count != Lista.Count)
+                    {
+
+                    }
+                    else
+                    {
+                        RecorrerPanel(panel1, 1);
+                        RecorrerPanel(panel2, 1);
+                        RecorrerPanel(panel3, 1);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        void RecorrerPanel(Panel panel, int v)
+        {
+            foreach (Control control in panel.Controls)
+            {
+                if (v == 1)
+                {
+
+                    if (control.Tag != null && traducciones.ContainsKey(control.Tag.ToString()))
+                    {
+                        control.Text = traducciones[control.Tag.ToString()].texto;
+                    }
+                }
+                else
+                {
+                    if (control.Tag != null && palabras.Contains(control.Tag.ToString()))
+                    {
+                        string traduccion = palabras.Find(p => p.Equals(control.Tag.ToString()));
+                        control.Text = traduccion;
+                    }
+                }
+
+            }
+        }
+
+        void VolverAidiomaOriginal()
+        {
+            try
+            {
+                BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+                palabras = Traductor.obtenerIdiomaOriginal();
+
+                RecorrerPanel(panel1, 2);
+                RecorrerPanel(panel2, 2);
+                RecorrerPanel(panel3, 2);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

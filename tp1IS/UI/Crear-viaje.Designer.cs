@@ -109,6 +109,7 @@ namespace UI
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(108, 36);
             this.metroButton1.TabIndex = 10;
+            this.metroButton1.Tag = "request trip";
             this.metroButton1.Text = "Request trip";
             this.metroButton1.UseCustomBackColor = true;
             this.metroButton1.UseCustomForeColor = true;
@@ -123,6 +124,7 @@ namespace UI
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(108, 36);
             this.metroButton2.TabIndex = 11;
+            this.metroButton2.Tag = "request quote";
             this.metroButton2.Text = "Request Quote";
             this.metroButton2.UseCustomBackColor = true;
             this.metroButton2.UseCustomForeColor = true;
@@ -138,6 +140,7 @@ namespace UI
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(68, 19);
             this.metroLabel1.TabIndex = 15;
+            this.metroLabel1.Tag = "departure";
             this.metroLabel1.Text = "departure";
             this.metroLabel1.UseCustomBackColor = true;
             this.metroLabel1.UseCustomForeColor = true;
@@ -163,6 +166,7 @@ namespace UI
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(72, 19);
             this.metroLabel2.TabIndex = 17;
+            this.metroLabel2.Tag = "destination";
             this.metroLabel2.Text = "destination";
             this.metroLabel2.UseCustomBackColor = true;
             this.metroLabel2.UseCustomForeColor = true;
@@ -176,6 +180,7 @@ namespace UI
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(135, 19);
             this.metroLabel3.TabIndex = 18;
+            this.metroLabel3.Tag = "number of kilometers";
             this.metroLabel3.Text = "number of kilometers";
             this.metroLabel3.UseCustomBackColor = true;
             this.metroLabel3.UseCustomForeColor = true;
@@ -189,6 +194,7 @@ namespace UI
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(35, 19);
             this.metroLabel4.TabIndex = 19;
+            this.metroLabel4.Tag = "date";
             this.metroLabel4.Text = "date";
             this.metroLabel4.UseCustomBackColor = true;
             this.metroLabel4.UseCustomForeColor = true;
@@ -201,6 +207,7 @@ namespace UI
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(60, 19);
             this.metroLabel5.TabIndex = 20;
+            this.metroLabel5.Tag = "products";
             this.metroLabel5.Text = "products";
             this.metroLabel5.UseCustomBackColor = true;
             this.metroLabel5.UseCustomForeColor = true;
@@ -213,6 +220,7 @@ namespace UI
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(97, 19);
             this.metroLabel6.TabIndex = 21;
+            this.metroLabel6.Tag = "trucks available";
             this.metroLabel6.Text = "trucks available";
             this.metroLabel6.UseCustomBackColor = true;
             this.metroLabel6.UseCustomForeColor = true;
@@ -226,6 +234,7 @@ namespace UI
             this.metroLabel7.Name = "metroLabel7";
             this.metroLabel7.Size = new System.Drawing.Size(112, 19);
             this.metroLabel7.TabIndex = 22;
+            this.metroLabel7.Tag = "number of pallets";
             this.metroLabel7.Text = "number of pallets";
             this.metroLabel7.UseCustomBackColor = true;
             this.metroLabel7.UseCustomForeColor = true;
@@ -245,6 +254,7 @@ namespace UI
             this.metroButton3.Name = "metroButton3";
             this.metroButton3.Size = new System.Drawing.Size(108, 36);
             this.metroButton3.TabIndex = 24;
+            this.metroButton3.Tag = "search trucks";
             this.metroButton3.Text = "search trucks";
             this.metroButton3.UseCustomBackColor = true;
             this.metroButton3.UseCustomForeColor = true;
@@ -286,6 +296,7 @@ namespace UI
             this.metroLabel9.Name = "metroLabel9";
             this.metroLabel9.Size = new System.Drawing.Size(55, 19);
             this.metroLabel9.TabIndex = 28;
+            this.metroLabel9.Tag = "number";
             this.metroLabel9.Text = "number";
             this.metroLabel9.UseCustomBackColor = true;
             this.metroLabel9.UseCustomForeColor = true;
@@ -299,6 +310,7 @@ namespace UI
             this.metroLabel8.Name = "metroLabel8";
             this.metroLabel8.Size = new System.Drawing.Size(55, 19);
             this.metroLabel8.TabIndex = 27;
+            this.metroLabel8.Tag = "number";
             this.metroLabel8.Text = "number";
             this.metroLabel8.UseCustomBackColor = true;
             this.metroLabel8.UseCustomForeColor = true;
@@ -429,6 +441,7 @@ namespace UI
             this.metroButton4.Name = "metroButton4";
             this.metroButton4.Size = new System.Drawing.Size(60, 23);
             this.metroButton4.TabIndex = 11;
+            this.metroButton4.Tag = "cancel";
             this.metroButton4.Text = "Cancel";
             this.metroButton4.UseCustomBackColor = true;
             this.metroButton4.UseCustomForeColor = true;
@@ -442,9 +455,10 @@ namespace UI
             this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label5.Location = new System.Drawing.Point(32, 259);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(33, 13);
+            this.label5.Size = new System.Drawing.Size(30, 13);
             this.label5.TabIndex = 9;
-            this.label5.Text = "costo";
+            this.label5.Tag = "price";
+            this.label5.Text = "price";
             // 
             // metroButton6
             // 
@@ -454,6 +468,7 @@ namespace UI
             this.metroButton6.Name = "metroButton6";
             this.metroButton6.Size = new System.Drawing.Size(130, 23);
             this.metroButton6.TabIndex = 8;
+            this.metroButton6.Tag = "make payment";
             this.metroButton6.Text = "make payment";
             this.metroButton6.UseCustomBackColor = true;
             this.metroButton6.UseCustomForeColor = true;
@@ -474,9 +489,10 @@ namespace UI
             this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label3.Location = new System.Drawing.Point(32, 149);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(112, 13);
+            this.label3.Size = new System.Drawing.Size(49, 13);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Fecha de vencimiento";
+            this.label3.Tag = "due date";
+            this.label3.Text = "due date";
             // 
             // textBox11
             // 
@@ -500,9 +516,10 @@ namespace UI
             this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label4.Location = new System.Drawing.Point(32, 202);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(145, 13);
+            this.label4.Size = new System.Drawing.Size(89, 13);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Nombre de titular de la tarjeta";
+            this.label4.Tag = "cardholder name";
+            this.label4.Text = "Cardholder Name";
             // 
             // label1
             // 
@@ -511,9 +528,10 @@ namespace UI
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label1.Location = new System.Drawing.Point(32, 50);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 13);
+            this.label1.Size = new System.Drawing.Size(66, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Numero de tarjeta";
+            this.label1.Tag = "card number";
+            this.label1.Text = "card number";
             // 
             // label2
             // 
@@ -522,9 +540,10 @@ namespace UI
             this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label2.Location = new System.Drawing.Point(32, 99);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 13);
+            this.label2.Size = new System.Drawing.Size(70, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Codigo de seguridad";
+            this.label2.Tag = "security code";
+            this.label2.Text = "security code";
             // 
             // textBox12
             // 

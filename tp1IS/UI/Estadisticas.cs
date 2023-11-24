@@ -11,9 +11,12 @@ using BE;
 using BLL;
 using Negocio;
 using System.Windows.Forms.DataVisualization.Charting;
+using servicios;
+using Patrones.Singleton.Core;
+using servicios.ClasesMultiLenguaje;
 namespace UI
 {
-    public partial class Estadisticas : Form
+    public partial class Estadisticas : Form,IdiomaObserver
     {
         public Estadisticas()
         {
@@ -24,6 +27,7 @@ namespace UI
             label8.Visible = false;
             label9.Visible = false;
             label10.Visible = false;
+            
         }
         Nullable<DateTime> from;
         Nullable<DateTime> to;
@@ -33,6 +37,8 @@ namespace UI
         BEUsuario ConductoSeleccionado = new BEUsuario();
         List<BEViaje> viajes = new List<BEViaje>();
         BLLviaje oBLLviaje;
+        Dictionary<string, Traduccion> traducciones = new Dictionary<string, Traduccion>();
+        List<string> palabras = new List<string>();
         private void Estadisticas_Load(object sender, EventArgs e)
         {
             // metroDateTime1.Value = null;
@@ -40,6 +46,8 @@ namespace UI
             cargarDatos();
             CargarChart();
             metroComboBox1.SelectedIndex = -1;
+            Observer.agregarObservador(this);
+            traducir();
         }
 
         void cargarDatos()
@@ -208,6 +216,98 @@ namespace UI
             from2 = null;
             to2 = null;
             CargarChart();
+        }
+
+        public void CambiarIdioma(Idioma Idioma)
+        {
+            //  throw new NotImplementedException();
+            traducir();
+        }
+
+        void traducir()
+        {
+            try
+            {
+                Idioma Idioma = null;
+
+                if (SessionManager.TraerUsuario())
+                    Idioma = SessionManager.GetInstance.idioma;
+                if (Idioma.Nombre == "Ingles")
+                {
+                    VolverAidiomaOriginal();
+                }
+                else
+                {
+                    BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+
+
+                    traducciones = Traductor.obtenertraducciones(Idioma);
+                    List<string> Lista = new List<string>();
+                    Lista = Traductor.obtenerIdiomaOriginal();
+                    if (traducciones.Values.Count != Lista.Count)
+                    {
+
+                    }
+                    else
+                    {
+                        RecorrerPanel(panel1, 1);
+                        RecorrerPanel(panel2, 1);
+                        RecorrerPanel(panel3, 1);
+                        RecorrerPanel(panel4, 1);
+                        RecorrerPanel(panel5, 1);
+                        RecorrerPanel(panel6, 1);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        void RecorrerPanel(Panel panel, int v)
+        {
+            foreach (Control control in panel.Controls)
+            {
+                if (v == 1)
+                {
+
+                    if (control.Tag != null && traducciones.ContainsKey(control.Tag.ToString()))
+                    {
+                        control.Text = traducciones[control.Tag.ToString()].texto;
+                    }
+                }
+                else
+                {
+                    if (control.Tag != null && palabras.Contains(control.Tag.ToString()))
+                    {
+                        string traduccion = palabras.Find(p => p.Equals(control.Tag.ToString()));
+                        control.Text = traduccion;
+                    }
+                }
+
+            }
+        }
+
+        void VolverAidiomaOriginal()
+        {
+            try
+            {
+                BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+                palabras = Traductor.obtenerIdiomaOriginal();
+
+                RecorrerPanel(panel1, 2);
+                RecorrerPanel(panel2, 2);
+                RecorrerPanel(panel3, 2);
+                RecorrerPanel(panel4, 2);
+                RecorrerPanel(panel5, 2);
+                RecorrerPanel(panel6, 2);
+            
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

@@ -61,6 +61,7 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
+            this.metroLabel2.BackColor = System.Drawing.Color.Transparent;
             this.metroLabel2.Location = new System.Drawing.Point(15, 426);
             this.metroLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel2.Name = "metroLabel2";
@@ -68,9 +69,13 @@
             this.metroLabel2.TabIndex = 12;
             this.metroLabel2.Tag = "name of the role";
             this.metroLabel2.Text = "Name of the role";
+            this.metroLabel2.UseCustomBackColor = true;
+            this.metroLabel2.UseCustomForeColor = true;
             // 
             // metroButton1
             // 
+            this.metroButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(53)))), ((int)(((byte)(87)))));
+            this.metroButton1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.metroButton1.Location = new System.Drawing.Point(371, 231);
             this.metroButton1.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton1.Name = "metroButton1";
@@ -78,12 +83,15 @@
             this.metroButton1.TabIndex = 9;
             this.metroButton1.Tag = "add";
             this.metroButton1.Text = "add";
+            this.metroButton1.UseCustomBackColor = true;
+            this.metroButton1.UseCustomForeColor = true;
             this.metroButton1.UseSelectable = true;
             this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
+            this.metroLabel1.BackColor = System.Drawing.Color.Transparent;
             this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.metroLabel1.Location = new System.Drawing.Point(7, 12);
@@ -93,6 +101,8 @@
             this.metroLabel1.TabIndex = 0;
             this.metroLabel1.Tag = "select the permission you want to add to the role";
             this.metroLabel1.Text = "Select the permission you want to add to the role";
+            this.metroLabel1.UseCustomBackColor = true;
+            this.metroLabel1.UseCustomForeColor = true;
             // 
             // treeView1
             // 
@@ -105,7 +115,10 @@
             // 
             // metroButton2
             // 
+            this.metroButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(53)))), ((int)(((byte)(87)))));
+            this.metroButton2.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.metroButton2.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.metroButton2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.metroButton2.Location = new System.Drawing.Point(371, 426);
             this.metroButton2.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton2.Name = "metroButton2";
@@ -113,6 +126,8 @@
             this.metroButton2.TabIndex = 14;
             this.metroButton2.Tag = "confirm";
             this.metroButton2.Text = "confirm";
+            this.metroButton2.UseCustomBackColor = true;
+            this.metroButton2.UseCustomForeColor = true;
             this.metroButton2.UseSelectable = true;
             this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
             // 
@@ -139,6 +154,8 @@
             // 
             // metroButton3
             // 
+            this.metroButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(53)))), ((int)(((byte)(87)))));
+            this.metroButton3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.metroButton3.Location = new System.Drawing.Point(371, 140);
             this.metroButton3.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton3.Name = "metroButton3";
@@ -146,6 +163,8 @@
             this.metroButton3.TabIndex = 7;
             this.metroButton3.Tag = "select as father node";
             this.metroButton3.Text = "select as father node";
+            this.metroButton3.UseCustomBackColor = true;
+            this.metroButton3.UseCustomForeColor = true;
             this.metroButton3.UseSelectable = true;
             this.metroButton3.Click += new System.EventHandler(this.metroButton3_Click);
             // 
@@ -163,6 +182,7 @@
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
+            this.metroLabel3.BackColor = System.Drawing.Color.Transparent;
             this.metroLabel3.Location = new System.Drawing.Point(371, 69);
             this.metroLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel3.Name = "metroLabel3";
@@ -170,11 +190,14 @@
             this.metroLabel3.TabIndex = 3;
             this.metroLabel3.Tag = "permissions";
             this.metroLabel3.Text = "Permissions";
+            this.metroLabel3.UseCustomBackColor = true;
+            this.metroLabel3.UseCustomForeColor = true;
             this.metroLabel3.Click += new System.EventHandler(this.metroLabel3_Click);
             // 
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
+            this.metroLabel5.BackColor = System.Drawing.Color.Transparent;
             this.metroLabel5.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel5.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.metroLabel5.Location = new System.Drawing.Point(414, 12);
@@ -184,11 +207,14 @@
             this.metroLabel5.TabIndex = 1;
             this.metroLabel5.Tag = "or select from here";
             this.metroLabel5.Text = "Or select from here";
+            this.metroLabel5.UseCustomBackColor = true;
+            this.metroLabel5.UseCustomForeColor = true;
             this.metroLabel5.Click += new System.EventHandler(this.metroLabel5_Click);
             // 
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
+            this.metroLabel4.BackColor = System.Drawing.Color.Transparent;
             this.metroLabel4.Location = new System.Drawing.Point(371, 93);
             this.metroLabel4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.metroLabel4.Name = "metroLabel4";
@@ -196,6 +222,8 @@
             this.metroLabel4.TabIndex = 5;
             this.metroLabel4.Tag = "roles";
             this.metroLabel4.Text = "Roles";
+            this.metroLabel4.UseCustomBackColor = true;
+            this.metroLabel4.UseCustomForeColor = true;
             // 
             // comboBox2
             // 
@@ -209,12 +237,16 @@
             // 
             // metroButton4
             // 
+            this.metroButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(53)))), ((int)(((byte)(87)))));
+            this.metroButton4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.metroButton4.Location = new System.Drawing.Point(497, 231);
             this.metroButton4.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton4.Name = "metroButton4";
             this.metroButton4.Size = new System.Drawing.Size(22, 22);
             this.metroButton4.TabIndex = 10;
             this.metroButton4.Text = "x";
+            this.metroButton4.UseCustomBackColor = true;
+            this.metroButton4.UseCustomForeColor = true;
             this.metroButton4.UseSelectable = true;
             this.metroButton4.Click += new System.EventHandler(this.metroButton4_Click);
             // 
@@ -226,12 +258,14 @@
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(121, 21);
             this.comboBox3.TabIndex = 15;
+            this.comboBox3.Visible = false;
             this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // crearRol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
             this.ClientSize = new System.Drawing.Size(638, 480);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.metroButton4);

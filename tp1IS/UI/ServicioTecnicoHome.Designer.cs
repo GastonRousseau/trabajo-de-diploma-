@@ -50,6 +50,7 @@
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(183, 53);
             this.metroButton1.TabIndex = 0;
+            this.metroButton1.Tag = "messages";
             this.metroButton1.Text = "Messages";
             this.metroButton1.UseCustomBackColor = true;
             this.metroButton1.UseCustomForeColor = true;
@@ -66,6 +67,7 @@
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(183, 57);
             this.metroButton2.TabIndex = 1;
+            this.metroButton2.Tag = "binnacle";
             this.metroButton2.Text = "Binnacle";
             this.metroButton2.UseCustomBackColor = true;
             this.metroButton2.UseCustomForeColor = true;
@@ -82,6 +84,7 @@
             this.metroButton3.Name = "metroButton3";
             this.metroButton3.Size = new System.Drawing.Size(183, 53);
             this.metroButton3.TabIndex = 2;
+            this.metroButton3.Tag = "user history";
             this.metroButton3.Text = "User History";
             this.metroButton3.UseCustomBackColor = true;
             this.metroButton3.UseCustomForeColor = true;
@@ -98,6 +101,7 @@
             this.metroButton4.Name = "metroButton4";
             this.metroButton4.Size = new System.Drawing.Size(183, 56);
             this.metroButton4.TabIndex = 3;
+            this.metroButton4.Tag = "pending travels";
             this.metroButton4.Text = "Pending Travels";
             this.metroButton4.UseCustomBackColor = true;
             this.metroButton4.UseCustomForeColor = true;
@@ -115,7 +119,7 @@
             this.panel1.Location = new System.Drawing.Point(5, -1);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(183, 406);
+            this.panel1.Size = new System.Drawing.Size(183, 564);
             this.panel1.TabIndex = 4;
             // 
             // metroButton5
@@ -128,6 +132,7 @@
             this.metroButton5.Name = "metroButton5";
             this.metroButton5.Size = new System.Drawing.Size(183, 45);
             this.metroButton5.TabIndex = 5;
+            this.metroButton5.Tag = "sign out";
             this.metroButton5.Text = "sign out";
             this.metroButton5.UseCustomBackColor = true;
             this.metroButton5.UseCustomForeColor = true;
@@ -141,24 +146,25 @@
             this.panel2.Location = new System.Drawing.Point(183, -1);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(883, 406);
+            this.panel2.Size = new System.Drawing.Size(1127, 564);
             this.panel2.TabIndex = 5;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // metroButton6
             // 
-            this.metroButton6.Location = new System.Drawing.Point(843, 3);
+            this.metroButton6.Location = new System.Drawing.Point(1090, 3);
             this.metroButton6.Name = "metroButton6";
             this.metroButton6.Size = new System.Drawing.Size(37, 23);
             this.metroButton6.TabIndex = 0;
             this.metroButton6.Text = "X";
             this.metroButton6.UseSelectable = true;
+            this.metroButton6.Click += new System.EventHandler(this.metroButton6_Click);
             // 
             // ServicioTecnicoHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1068, 407);
+            this.ClientSize = new System.Drawing.Size(1310, 566);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Margin = new System.Windows.Forms.Padding(2);

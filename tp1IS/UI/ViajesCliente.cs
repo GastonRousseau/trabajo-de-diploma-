@@ -12,9 +12,10 @@ using BE;
 using BLL;
 using servicios;
 using Patrones.Singleton.Core;
+using servicios.ClasesMultiLenguaje;
 namespace UI
 {
-    public partial class ViajesCliente : Form
+    public partial class ViajesCliente : Form,IdiomaObserver
     {
         public ViajesCliente()
         {
@@ -34,13 +35,18 @@ namespace UI
         string NombreProducto;
         List<BEViaje> viajes = new List<BEViaje>();
         BLLProducto oBLLproducto = new BLLProducto();
+        Dictionary<string, Traduccion> traducciones = new Dictionary<string, Traduccion>();
+        List<string> palabras = new List<string>();
+        BECamion camionSelect = new BECamion();
         private void ViajesCliente_Load(object sender, EventArgs e)
         {
             label1.Visible =false;
             barrarProgreso1.Visible = false;
             metroLabel2.Visible = false;
             cargarCombo();
+            Observer.agregarObservador(this);
             //Listar();
+            traducir();
         }
         void Listar(string producto, int pag)
         {
@@ -172,31 +178,39 @@ namespace UI
         {
             try
             {
-                BEViaje viajeSelect = (BEViaje)dataGridView1.CurrentRow.DataBoundItem;
-                if (viajeSelect.id != 0)
+                if (dataGridView1.RowCount > 0)
                 {
-                    if (viajeSelect.estado == "pendiente")
+                    BEViaje viajeSelect = (BEViaje)dataGridView1.CurrentRow.DataBoundItem;
+                    if (viajeSelect.id != 0 && viajeSelect != null)
                     {
-                        oBLLviaje.ActualizarEstado(viajeSelect.id, "Cancelado",null);
-                        BEMensaje mensaja = new BEMensaje(SessionManager.GetInstance.Usuario, viajeSelect.camion.conductor, "El viaje con id:" + viajeSelect.id, DateTime.Now, 2);
-                        oBLLmensaje.GuardarMensaje(mensaja);
-                        Chat.usuarioAconectar = viajeSelect.camion.conductor;
-                        Chat form = new Chat();
-                        form.button2.Visible = true;
-                        form.userControl11.Texts = "Solicite la cancelacion del viaje devido a que";
-                        form.Show();
-                        Listar(null, 1);
+                        if (viajeSelect.estado == "pendiente")
+                        {
+                            oBLLviaje.ActualizarEstado(viajeSelect.id, "Cancelado", null);
+                            BEMensaje mensaja = new BEMensaje(SessionManager.GetInstance.Usuario, viajeSelect.camion.conductor, "El viaje con id:" + viajeSelect.id, DateTime.Now, 2);
+                            oBLLmensaje.GuardarMensaje(mensaja);
+                            Chat.usuarioAconectar = viajeSelect.camion.conductor;
+                            Chat form = new Chat();
+                            form.button2.Visible = true;
+                            form.userControl11.Texts = "Solicite la cancelacion del viaje devido a que";
+                            form.Show();
+                            Listar(null, 1);
 
+                        }
+                        else
+                        {
+                            MessageBox.Show("The status of the travel must be pending, otherwise the action cannot be carried out.");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("The status of the travel must be pending, otherwise the action cannot be carried out.");
+                        MessageBox.Show("There is no travel selected");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("There is no travel selected");
+                    MessageBox.Show("there are no trips to accomplish this task");
                 }
+               
             }
             catch(Exception ex)
             {
@@ -256,18 +270,26 @@ namespace UI
 
             try
             {
-                BEViaje viajeSelect = (BEViaje)dataGridView1.CurrentRow.DataBoundItem;
-
-                if (viajeSelect.id != 0 && viajeSelect.estado == "pendiente")
+                if (dataGridView1.RowCount > 0)
                 {
-                    this.Size = new Size(1081, 311);
-                    panel3.Visible = true;
+                    viajeSelect = (BEViaje)dataGridView1.CurrentRow.DataBoundItem;
 
+                    if (viajeSelect.id != 0 && viajeSelect.estado == "pendiente" && viajeSelect != null)
+                    {
+                        this.Size = new Size(1081, 311);
+                        panel3.Visible = true;
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("There is no travel selected or the trip you selected does not have a pending status");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("There is no travel selected or the trip you selected does not have a pending status");
+                    MessageBox.Show("there are no trips to accomplish this task");
                 }
+
             }
             catch (NullReferenceException ex)
             {
@@ -293,7 +315,7 @@ namespace UI
 
         private void metroButton8_Click(object sender, EventArgs e)
         {
-            if (dateTimePicker1.Value != null&& viajeSelect!=null&&viajeSelect.estado=="pendiente")
+            if (dateTimePicker1.Value != null&& viajeSelect!=null&&viajeSelect.estado=="pendiente"&&dateTimePicker1.Value>DateTime.Now)
             {
                 dataGridView2.DataSource = null;
                 dataGridView2.DataSource = oBLLcamion.Camiones_Disponibles(dateTimePicker1.Value, viajeSelect.cantidad_Pallets);
@@ -306,7 +328,8 @@ namespace UI
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            viajeSelect = (BEViaje)dataGridView1.CurrentRow.DataBoundItem;
+            camionSelect = (BECamion)dataGridView2.CurrentRow.DataBoundItem;
+            //viajeSelect = (BEViaje)dataGridView1.CurrentRow.DataBoundItem;
         }
 
         private void metroButton7_Click(object sender, EventArgs e)
@@ -314,36 +337,45 @@ namespace UI
             try
             {
                 viajeSelect = (BEViaje)dataGridView1.CurrentRow.DataBoundItem;
-                BECamion camionSelect = (BECamion)dataGridView2.CurrentRow.DataBoundItem;
-                if (camionSelect != null && viajeSelect != null && dateTimePicker1.Value != null)
+                
+                if (camionSelect.patente!=null)
                 {
-                    if (viajeSelect.camion != camionSelect)
+                    // camionSelect = (BECamion)dataGridView2.CurrentRow.DataBoundItem;
+                    if (camionSelect != null && viajeSelect != null && dateTimePicker1.Value != null &&dateTimePicker1.Value>DateTime.Now)
                     {
-                        BEMensaje mensaje = new BEMensaje(SessionManager.GetInstance.Usuario, viajeSelect.camion.conductor, "Dejaras del ser el conductor del viaje con id: " + viajeSelect.id, DateTime.Now, 2);
-                        oBLLmensaje.GuardarMensaje(mensaje);
-                        viajeSelect.camion = camionSelect;
-                        BEMensaje mensaje2 = new BEMensaje(SessionManager.GetInstance.Usuario, viajeSelect.camion.conductor, "Eres el nuevo conductor del viaje con id: " + viajeSelect.id, DateTime.Now, 2);
-                        oBLLmensaje.GuardarMensaje(mensaje2);
+                        if (viajeSelect.camion != camionSelect)
+                        {
+                            BEMensaje mensaje = new BEMensaje(SessionManager.GetInstance.Usuario, viajeSelect.camion.conductor, "Dejaras del ser el conductor del viaje con id: " + viajeSelect.id, DateTime.Now, 2);
+                            oBLLmensaje.GuardarMensaje(mensaje);
+                            viajeSelect.camion = camionSelect;
+                            BEMensaje mensaje2 = new BEMensaje(SessionManager.GetInstance.Usuario, viajeSelect.camion.conductor, "Eres el nuevo conductor del viaje con id: " + viajeSelect.id, DateTime.Now, 2);
+                            oBLLmensaje.GuardarMensaje(mensaje2);
+                        }
+                        else
+                        {
+                            BEMensaje mensaje = new BEMensaje(SessionManager.GetInstance.Usuario, viajeSelect.camion.conductor, "Se postargo el viaje" + viajeSelect.id + "a la fecha " + dateTimePicker1.Value, DateTime.Now, 2);
+                            oBLLmensaje.GuardarMensaje(mensaje);
+                        }
+
+                        viajeSelect.fecha = dateTimePicker1.Value;
+                        oBLLviaje.Modifica_Viaje(viajeSelect);
+
+
+                        MessageBox.Show("The travel date was postponed to the day " + dateTimePicker1.Value);
+                        panel3.Visible = false;
+                        this.Size = new Size(826, 311);
+                        Listar(null, 1);
                     }
                     else
                     {
-                        BEMensaje mensaje = new BEMensaje(SessionManager.GetInstance.Usuario, viajeSelect.camion.conductor, "Se postargo el viaje" + viajeSelect.id + "a la fecha " + dateTimePicker1.Value, DateTime.Now, 2);
-                        oBLLmensaje.GuardarMensaje(mensaje);
+                        MessageBox.Show("There was an error when trying to postpone the trip");
                     }
-
-                    viajeSelect.fecha = dateTimePicker1.Value;
-                    oBLLviaje.Modifica_Viaje(viajeSelect);
-
-
-                    MessageBox.Show("The travel date was postponed to the day " + dateTimePicker1.Value);
-                    panel3.Visible = false;
-                    this.Size = new Size(826, 311);
-                    Listar(null, 1);
                 }
                 else
                 {
-                    MessageBox.Show("There was an error when trying to postpone the trip");
+                    MessageBox.Show("no truck was selected");
                 }
+               
             }
             catch (NullReferenceException ex)
             {
@@ -385,6 +417,89 @@ namespace UI
             metroComboBox1.SelectedIndex = -1;
             NombreProducto = null;
             Listar(null, 1);
+        }
+
+        public void CambiarIdioma(Idioma Idioma)
+        {
+            // throw new NotImplementedException();
+            traducir();
+        }
+
+        void traducir()
+        {
+            try
+            {
+                Idioma Idioma = null;
+
+                if (SessionManager.TraerUsuario())
+                    Idioma = SessionManager.GetInstance.idioma;
+                if (Idioma.Nombre == "Ingles")
+                {
+                    VolverAidiomaOriginal();
+                }
+                else
+                {
+                    BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+
+
+                    traducciones = Traductor.obtenertraducciones(Idioma);
+                    List<string> Lista = new List<string>();
+                    Lista = Traductor.obtenerIdiomaOriginal();
+                    if (traducciones.Values.Count != Lista.Count)
+                    {
+
+                    }
+                    else
+                    {
+                        RecorrerPanel(panel1, 1);
+                        RecorrerPanel(panel2, 1);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        void RecorrerPanel(Panel panel, int v)
+        {
+            foreach (Control control in panel.Controls)
+            {
+                if (v == 1)
+                {
+
+                    if (control.Tag != null && traducciones.ContainsKey(control.Tag.ToString()))
+                    {
+                        control.Text = traducciones[control.Tag.ToString()].texto;
+                    }
+                }
+                else
+                {
+                    if (control.Tag != null && palabras.Contains(control.Tag.ToString()))
+                    {
+                        string traduccion = palabras.Find(p => p.Equals(control.Tag.ToString()));
+                        control.Text = traduccion;
+                    }
+                }
+
+            }
+        }
+
+        void VolverAidiomaOriginal()
+        {
+            try
+            {
+                BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+                palabras = Traductor.obtenerIdiomaOriginal();
+
+                RecorrerPanel(panel1, 2);
+                RecorrerPanel(panel2, 2);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

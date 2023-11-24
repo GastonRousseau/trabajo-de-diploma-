@@ -107,9 +107,10 @@ namespace UI
             this.metroLabel1.BackColor = System.Drawing.Color.Transparent;
             this.metroLabel1.Location = new System.Drawing.Point(36, 26);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(86, 19);
+            this.metroLabel1.Size = new System.Drawing.Size(98, 19);
             this.metroLabel1.TabIndex = 1;
-            this.metroLabel1.Text = "pending trips";
+            this.metroLabel1.Tag = "pending travels";
+            this.metroLabel1.Text = "pending travels";
             this.metroLabel1.UseCustomBackColor = true;
             this.metroLabel1.UseCustomForeColor = true;
             // 
@@ -149,6 +150,7 @@ namespace UI
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 13);
             this.label1.TabIndex = 9;
+            this.label1.Tag = "travel status:";
             this.label1.Text = "travel status:";
             // 
             // metroLabel2
@@ -203,6 +205,7 @@ namespace UI
             this.metroButton9.Name = "metroButton9";
             this.metroButton9.Size = new System.Drawing.Size(47, 23);
             this.metroButton9.TabIndex = 20;
+            this.metroButton9.Tag = "search";
             this.metroButton9.Text = "search";
             this.metroButton9.UseSelectable = true;
             this.metroButton9.Click += new System.EventHandler(this.metroButton9_Click);
@@ -215,6 +218,7 @@ namespace UI
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(92, 19);
             this.metroLabel3.TabIndex = 16;
+            this.metroLabel3.Tag = "product name";
             this.metroLabel3.Text = "product name";
             this.metroLabel3.UseCustomBackColor = true;
             this.metroLabel3.UseCustomForeColor = true;
@@ -244,6 +248,7 @@ namespace UI
             this.metroButton5.Name = "metroButton5";
             this.metroButton5.Size = new System.Drawing.Size(243, 36);
             this.metroButton5.TabIndex = 14;
+            this.metroButton5.Tag = "Postpone travel";
             this.metroButton5.Text = "Postpone travel";
             this.metroButton5.UseCustomBackColor = true;
             this.metroButton5.UseCustomForeColor = true;
@@ -258,6 +263,7 @@ namespace UI
             this.metroButton4.Name = "metroButton4";
             this.metroButton4.Size = new System.Drawing.Size(243, 36);
             this.metroButton4.TabIndex = 13;
+            this.metroButton4.Tag = "Send a message to the travel driver";
             this.metroButton4.Text = "Send a message to the travel driver";
             this.metroButton4.UseCustomBackColor = true;
             this.metroButton4.UseCustomForeColor = true;
@@ -272,6 +278,7 @@ namespace UI
             this.metroButton3.Name = "metroButton3";
             this.metroButton3.Size = new System.Drawing.Size(243, 36);
             this.metroButton3.TabIndex = 12;
+            this.metroButton3.Tag = "Request travel cancellation";
             this.metroButton3.Text = "Request travel cancellation";
             this.metroButton3.UseCustomBackColor = true;
             this.metroButton3.UseCustomForeColor = true;
@@ -319,6 +326,7 @@ namespace UI
             this.metroButton8.Name = "metroButton8";
             this.metroButton8.Size = new System.Drawing.Size(75, 23);
             this.metroButton8.TabIndex = 19;
+            this.metroButton8.Tag = "search";
             this.metroButton8.Text = "search";
             this.metroButton8.UseSelectable = true;
             this.metroButton8.Click += new System.EventHandler(this.metroButton8_Click);
@@ -329,6 +337,7 @@ namespace UI
             this.metroButton7.Name = "metroButton7";
             this.metroButton7.Size = new System.Drawing.Size(75, 23);
             this.metroButton7.TabIndex = 18;
+            this.metroButton7.Tag = "confirm";
             this.metroButton7.Text = "confirm";
             this.metroButton7.UseSelectable = true;
             this.metroButton7.Click += new System.EventHandler(this.metroButton7_Click);

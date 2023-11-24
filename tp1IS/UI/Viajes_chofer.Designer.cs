@@ -135,6 +135,7 @@ namespace UI
             this.metroButton3.Name = "metroButton3";
             this.metroButton3.Size = new System.Drawing.Size(75, 23);
             this.metroButton3.TabIndex = 5;
+            this.metroButton3.Tag = "apply";
             this.metroButton3.Text = "apply";
             this.metroButton3.UseCustomBackColor = true;
             this.metroButton3.UseCustomForeColor = true;
@@ -158,7 +159,8 @@ namespace UI
             this.metroButton4.Name = "metroButton4";
             this.metroButton4.Size = new System.Drawing.Size(260, 23);
             this.metroButton4.TabIndex = 7;
-            this.metroButton4.Text = "Cambiar estado a \"En proceso\"";
+            this.metroButton4.Tag = "Change status to \"In process\"";
+            this.metroButton4.Text = "Change status to \"In process\"";
             this.metroButton4.UseCustomBackColor = true;
             this.metroButton4.UseCustomForeColor = true;
             this.metroButton4.UseSelectable = true;
@@ -172,7 +174,8 @@ namespace UI
             this.metroButton5.Name = "metroButton5";
             this.metroButton5.Size = new System.Drawing.Size(260, 23);
             this.metroButton5.TabIndex = 8;
-            this.metroButton5.Text = "Cambiar estado a \"Finalizado\"";
+            this.metroButton5.Tag = "Change status to \"Finished\"";
+            this.metroButton5.Text = "Change status to \"Finished\"";
             this.metroButton5.UseCustomBackColor = true;
             this.metroButton5.UseCustomForeColor = true;
             this.metroButton5.UseSelectable = true;
@@ -239,7 +242,8 @@ namespace UI
             this.metroButton8.Name = "metroButton8";
             this.metroButton8.Size = new System.Drawing.Size(143, 23);
             this.metroButton8.TabIndex = 13;
-            this.metroButton8.Text = "Enviarle mensaje";
+            this.metroButton8.Tag = "Send him message";
+            this.metroButton8.Text = "Send him message";
             this.metroButton8.UseCustomBackColor = true;
             this.metroButton8.UseCustomForeColor = true;
             this.metroButton8.UseSelectable = true;
@@ -253,7 +257,8 @@ namespace UI
             this.metroButton7.Name = "metroButton7";
             this.metroButton7.Size = new System.Drawing.Size(260, 23);
             this.metroButton7.TabIndex = 11;
-            this.metroButton7.Text = "Solicitar nuevo camion/conductor para el viaje";
+            this.metroButton7.Tag = "Request a new truck/driver for the trip";
+            this.metroButton7.Text = "Request a new truck/driver for the trip";
             this.metroButton7.UseCustomBackColor = true;
             this.metroButton7.UseCustomForeColor = true;
             this.metroButton7.UseSelectable = true;
@@ -267,7 +272,8 @@ namespace UI
             this.metroButton6.Name = "metroButton6";
             this.metroButton6.Size = new System.Drawing.Size(260, 23);
             this.metroButton6.TabIndex = 10;
-            this.metroButton6.Text = "Mandar mensaje al cliente";
+            this.metroButton6.Tag = "Send message to customer";
+            this.metroButton6.Text = "Send message to customer";
             this.metroButton6.UseCustomBackColor = true;
             this.metroButton6.UseCustomForeColor = true;
             this.metroButton6.UseSelectable = true;

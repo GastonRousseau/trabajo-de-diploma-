@@ -100,7 +100,8 @@
             this.metroButton8.Name = "metroButton8";
             this.metroButton8.Size = new System.Drawing.Size(200, 55);
             this.metroButton8.TabIndex = 13;
-            this.metroButton8.Text = "tecnic service";
+            this.metroButton8.Tag = "customer support";
+            this.metroButton8.Text = "customer support";
             this.metroButton8.UseCustomBackColor = true;
             this.metroButton8.UseCustomForeColor = true;
             this.metroButton8.UseSelectable = true;
@@ -116,6 +117,7 @@
             this.metroButton7.Name = "metroButton7";
             this.metroButton7.Size = new System.Drawing.Size(200, 55);
             this.metroButton7.TabIndex = 12;
+            this.metroButton7.Tag = "messages";
             this.metroButton7.Text = "messages";
             this.metroButton7.UseCustomBackColor = true;
             this.metroButton7.UseCustomForeColor = true;
@@ -132,7 +134,8 @@
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(200, 55);
             this.metroButton2.TabIndex = 8;
-            this.metroButton2.Text = "create new commodity";
+            this.metroButton2.Tag = "new commodity";
+            this.metroButton2.Text = "new commodity";
             this.metroButton2.UseCustomBackColor = true;
             this.metroButton2.UseCustomForeColor = true;
             this.metroButton2.UseSelectable = true;
@@ -148,7 +151,8 @@
             this.metroButton6.Name = "metroButton6";
             this.metroButton6.Size = new System.Drawing.Size(200, 55);
             this.metroButton6.TabIndex = 11;
-            this.metroButton6.Text = "create new travel";
+            this.metroButton6.Tag = "new travel";
+            this.metroButton6.Text = "new travel";
             this.metroButton6.UseCustomBackColor = true;
             this.metroButton6.UseCustomForeColor = true;
             this.metroButton6.UseSelectable = true;
@@ -164,6 +168,7 @@
             this.metroButton3.Name = "metroButton3";
             this.metroButton3.Size = new System.Drawing.Size(200, 55);
             this.metroButton3.TabIndex = 9;
+            this.metroButton3.Tag = "view my travels";
             this.metroButton3.Text = "view my travels";
             this.metroButton3.UseCustomBackColor = true;
             this.metroButton3.UseCustomForeColor = true;
@@ -180,6 +185,7 @@
             this.metroButton5.Name = "metroButton5";
             this.metroButton5.Size = new System.Drawing.Size(200, 55);
             this.metroButton5.TabIndex = 10;
+            this.metroButton5.Tag = "travels history";
             this.metroButton5.Text = "travels history";
             this.metroButton5.UseCustomBackColor = true;
             this.metroButton5.UseCustomForeColor = true;

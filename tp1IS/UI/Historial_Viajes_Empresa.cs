@@ -10,9 +10,12 @@ using System.Windows.Forms;
 using MetroFramework;
 using BE;
 using BLL;
+using Patrones.Singleton.Core;
+using servicios.ClasesMultiLenguaje;
+using servicios;
 namespace UI
 {
-    public partial class Historial_Viajes_Empresa : Form
+    public partial class Historial_Viajes_Empresa : Form,IdiomaObserver
     {
         public Historial_Viajes_Empresa()
         {
@@ -25,9 +28,12 @@ namespace UI
         string nombreCliente;
         Nullable<DateTime> from;
         Nullable<DateTime> to;
+        Dictionary<string, Traduccion> traducciones = new Dictionary<string, Traduccion>();
+        List<string> palabras = new List<string>();
         private void Historial_Viajes_Empresa_Load(object sender, EventArgs e)
         {
-
+            Observer.agregarObservador(this);
+            traducir();
         }
 
         void buscar(string nombreCliente,int pag,Nullable<DateTime> from,Nullable<DateTime>to)
@@ -150,5 +156,89 @@ namespace UI
             }
            
         }
+
+        public void CambiarIdioma(Idioma Idioma)
+        {
+            //   throw new NotImplementedException();
+            traducir();
+        }
+
+        void traducir()
+        {
+            try
+            {
+                Idioma Idioma = null;
+
+                if (SessionManager.TraerUsuario())
+                    Idioma = SessionManager.GetInstance.idioma;
+                if (Idioma.Nombre == "Ingles")
+                {
+                    VolverAidiomaOriginal();
+                }
+                else
+                {
+                    BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+
+
+                    traducciones = Traductor.obtenertraducciones(Idioma);
+                    List<string> Lista = new List<string>();
+                    Lista = Traductor.obtenerIdiomaOriginal();
+                    if (traducciones.Values.Count != Lista.Count)
+                    {
+
+                    }
+                    else
+                    {
+                        RecorrerPanel(this, 1);
+                       // RecorrerPanel(panel2, 1);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        void RecorrerPanel(Form panel, int v)
+        {
+            foreach (Control control in panel.Controls)
+            {
+                if (v == 1)
+                {
+
+                    if (control.Tag != null && traducciones.ContainsKey(control.Tag.ToString()))
+                    {
+                        control.Text = traducciones[control.Tag.ToString()].texto;
+                    }
+                }
+                else
+                {
+                    if (control.Tag != null && palabras.Contains(control.Tag.ToString()))
+                    {
+                        string traduccion = palabras.Find(p => p.Equals(control.Tag.ToString()));
+                        control.Text = traduccion;
+                    }
+                }
+
+            }
+        }
+
+        void VolverAidiomaOriginal()
+        {
+            try
+            {
+                BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+                palabras = Traductor.obtenerIdiomaOriginal();
+
+                RecorrerPanel(this, 2);
+              //  RecorrerPanel(panel2, 2);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
+
 }

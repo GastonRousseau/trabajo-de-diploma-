@@ -14,7 +14,8 @@ using System.ComponentModel;
 using servicios.ClasesMultiLenguaje;
 using BLL;
 using System.Collections.Generic;
-
+using System.IO;
+using System.Diagnostics;
 namespace UI
 {
     public partial class SignIn : Form,IdiomaObserver
@@ -64,7 +65,8 @@ namespace UI
         public void SignIn_Load(object sender, EventArgs e)
         {
             ojoOpen = false;
-            Bitmap imagen = new Bitmap(Application.StartupPath + @"\ojoCerrado.png");
+            //  Bitmap imagen = new Bitmap(Application.StartupPath + @"\ojoCerrado.png");
+            Bitmap imagen = new Bitmap(Properties.Resources.ojoCerrado);
             botonOjo.Image = imagen;
             textBox2.UseSystemPasswordChar = true;
             Observer.agregarObservador(this);
@@ -366,7 +368,7 @@ namespace UI
             if (ojoOpen == true)
             {
                 textBox2.UseSystemPasswordChar = true;
-                Bitmap imagen = new Bitmap(Application.StartupPath + @"\ojoCerrado.png");
+                    Bitmap imagen = new Bitmap(Properties.Resources.ojoCerrado);//Application.StartupPath + @"\ojoCerrado.png");
                 botonOjo.Image = imagen;
                 ojoOpen = false;
 
@@ -374,7 +376,7 @@ namespace UI
             else
             {
                 textBox2.UseSystemPasswordChar = false;
-                Bitmap imagen = new Bitmap(Application.StartupPath + @"\ojoabierto.png");
+                    Bitmap imagen = new Bitmap(Properties.Resources.ojoAbierto);//Application.StartupPath + @"\ojoabierto.png");
                 botonOjo.Image = imagen;
                 ojoOpen = true;
             }
@@ -653,6 +655,40 @@ namespace UI
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        bool manuealAbierto = false;
+        private void metroButton4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (manuealAbierto == false)
+                {
+                    string nombreArchivo = "Manual_de_usuario_Proyecto.pdf";
+
+                    // Obtén la ruta del directorio temporal
+                    string directorioTemporal = Path.GetTempPath();
+
+                    // Combina la ruta del directorio temporal con el nombre del archivo PDF
+                    string rutaTempPDF = Path.Combine(directorioTemporal, nombreArchivo);
+
+                    // Guarda los bytes del recurso en el archivo temporal
+                    File.WriteAllBytes(rutaTempPDF, Properties.Resources.Manual_de_ususario_Proyecto);
+
+                    // Abre el archivo PDF con el visor de PDF predeterminado
+                    Process.Start(rutaTempPDF);
+                    manuealAbierto = true;
+                }
+                else
+                {
+                    MessageBox.Show("a user manual has already been opened");
+                }
+              
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error opening PDF file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

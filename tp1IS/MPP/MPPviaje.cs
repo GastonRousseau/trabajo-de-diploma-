@@ -30,6 +30,8 @@ namespace MPP
                 Hdatos.Add("@distancia", viaje.cantidad_KM);
                 Hdatos.Add("@fecha", viaje.fecha);
                 Hdatos.Add("@estado", viaje.estado);
+                Hdatos.Add("@partida", viaje.partida);
+                Hdatos.Add("@destino", viaje.destino);
                 return oDatos.Escribir(consulta, Hdatos);
             }
             else

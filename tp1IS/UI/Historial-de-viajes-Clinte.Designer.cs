@@ -48,6 +48,7 @@ namespace UI
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(82, 19);
             this.metroLabel1.TabIndex = 1;
+            this.metroLabel1.Tag = "finished trips";
             this.metroLabel1.Text = "finished trips";
             this.metroLabel1.UseCustomBackColor = true;
             this.metroLabel1.UseCustomForeColor = true;
@@ -87,6 +88,7 @@ namespace UI
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 4;
+            this.button1.Tag = "search";
             this.button1.Text = "search";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -123,6 +125,7 @@ namespace UI
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(92, 19);
             this.metroLabel2.TabIndex = 7;
+            this.metroLabel2.Tag = "product name";
             this.metroLabel2.Text = "product name";
             this.metroLabel2.UseCustomBackColor = true;
             this.metroLabel2.UseCustomForeColor = true;

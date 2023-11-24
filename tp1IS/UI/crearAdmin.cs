@@ -94,6 +94,7 @@ namespace UI
                             List<string> ListaDVU = OVd.BuscarDVUsuarios();
                             string DVS = servicios.GenerarVD.generarDigitoVS(ListaDVU);
                             OVd.actualizarDV(DVS);
+                            
                         }
                         else
                         {

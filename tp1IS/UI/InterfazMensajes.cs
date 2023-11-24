@@ -13,9 +13,11 @@ using Patrones.Singleton.Core;
 using servicios;
 using System.Text.RegularExpressions;
 using Negocio;
+using servicios;
+using servicios.ClasesMultiLenguaje;
 namespace UI
 {
-    public partial class InterfazMensajes : Form
+    public partial class InterfazMensajes : Form,IdiomaObserver
     {
         public InterfazMensajes()
         {
@@ -30,10 +32,14 @@ namespace UI
         BEUsuario usuarioChat = new BEUsuario();
         BLLUsuario oBLLusuario;
         validaciones validar = new validaciones();
+        Dictionary<string, Traduccion> traducciones = new Dictionary<string, Traduccion>();
+        List<string> palabras = new List<string>();
         private void InterfazMensajes_Load(object sender, EventArgs e)
         {
             cargarchats();
             Cargar_Usuarios_posibles();
+            Observer.agregarObservador(this);
+            traducir();
         }
         private void abrirChat(Chat form, string titulo)//,int usuario,BEusuario usario_chatea)
         {
@@ -310,7 +316,7 @@ namespace UI
                     {
                         Chat.usuarioAconectar = usuarioNuevoChat;
                         abrirChat(new Chat(), usuarioNuevoChat.user);
-                        MessageBox.Show("se encontro al usuario");
+                        MessageBox.Show("the user was found");
                         //userControl11.Texts = "";
                     }
                     else
@@ -321,7 +327,7 @@ namespace UI
                 }
                 else
                 {
-                    MessageBox.Show("hubo un error");
+                    MessageBox.Show("There was a problem");
                 }
             }
             catch (NullReferenceException ex)
@@ -375,7 +381,7 @@ namespace UI
                         }
                         else
                         {
-                            MessageBox.Show("se encontro el chat");
+                            MessageBox.Show("There was a problem");
                         }
 
                     }
@@ -409,6 +415,89 @@ namespace UI
         private void form_closed(object sender, FormClosedEventArgs e)
         {
             oBit.guardar_cierre_mensajes();
+        }
+
+        public void CambiarIdioma(Idioma Idioma)
+        {
+            //  throw new NotImplementedException();
+            traducir();
+        }
+
+        void traducir()
+        {
+            try
+            {
+                Idioma Idioma = null;
+
+                if (SessionManager.TraerUsuario())
+                    Idioma = SessionManager.GetInstance.idioma;
+                if (Idioma.Nombre == "Ingles")
+                {
+                    VolverAidiomaOriginal();
+                }
+                else
+                {
+                    BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+
+
+                    traducciones = Traductor.obtenertraducciones(Idioma);
+                    List<string> Lista = new List<string>();
+                    Lista = Traductor.obtenerIdiomaOriginal();
+                    if (traducciones.Values.Count != Lista.Count)
+                    {
+
+                    }
+                    else
+                    {
+                        RecorrerPanel(panel1, 1);
+                        RecorrerPanel(panel3, 1);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        void RecorrerPanel(Panel panel, int v)
+        {
+            foreach (Control control in panel.Controls)
+            {
+                if (v == 1)
+                {
+
+                    if (control.Tag != null && traducciones.ContainsKey(control.Tag.ToString()))
+                    {
+                        control.Text = traducciones[control.Tag.ToString()].texto;
+                    }
+                }
+                else
+                {
+                    if (control.Tag != null && palabras.Contains(control.Tag.ToString()))
+                    {
+                        string traduccion = palabras.Find(p => p.Equals(control.Tag.ToString()));
+                        control.Text = traduccion;
+                    }
+                }
+
+            }
+        }
+
+        void VolverAidiomaOriginal()
+        {
+            try
+            {
+                BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
+                palabras = Traductor.obtenerIdiomaOriginal();
+
+                RecorrerPanel(panel1, 2);
+                RecorrerPanel(panel3, 2);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

@@ -25,7 +25,9 @@ namespace UI
         BLL.BLLDv ODV = new BLL.BLLDv();
         BLLMensaje oBLLmensaje = new BLLMensaje();
         BLLUsuario oBLLusuario = new BLLUsuario();
-        
+        Dictionary<string, Traduccion> traducciones = new Dictionary<string, Traduccion>();
+        List<string> palabras = new List<string>();
+
         private void UserHome_Load(object sender, EventArgs e)
         {
             try
@@ -232,18 +234,9 @@ namespace UI
             try
             {
                 BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
-                List<string> palabras = Traductor.obtenerIdiomaOriginal();
+                 palabras = Traductor.obtenerIdiomaOriginal();
 
-                if (this.Tag != null && palabras.Contains(this.Tag.ToString()))
-                {
-                    string traduccion = palabras.Find(p => p.Equals(this.Tag.ToString()));
-                    this.Text = traduccion;
-                }
-                if (metroButton4.Tag != null && palabras.Contains(metroButton4.Tag.ToString()))
-                {
-                    string traduccion = palabras.Find(p => p.Equals(metroButton4.Tag.ToString()));
-                    this.metroButton4.Text = traduccion;
-                }
+                RecorrerPanel(panel1, 2);
             }
             catch (NullReferenceException ex)
             {
@@ -274,7 +267,7 @@ namespace UI
                 else
                 {
                     BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
-                    var traducciones = Traductor.obtenertraducciones(Idioma);
+                    traducciones = Traductor.obtenertraducciones(Idioma);
                     List<string> Lista = new List<string>();
                     Lista = Traductor.obtenerIdiomaOriginal();
                     if (traducciones.Values.Count != Lista.Count)
@@ -283,14 +276,7 @@ namespace UI
                     }
                     else
                     {
-                        if (this.Tag != null && traducciones.ContainsKey(this.Tag.ToString()))
-                        {
-                            this.Text = traducciones[this.Tag.ToString()].texto;
-                        }
-                        if (metroButton4.Tag != null && traducciones.ContainsKey(metroButton4.Tag.ToString()))
-                        {
-                            this.metroButton4.Text = traducciones[metroButton4.Tag.ToString()].texto;
-                        }
+                        RecorrerPanel(panel1, 1);
                     }
 
                 }
@@ -308,6 +294,30 @@ namespace UI
                 MessageBox.Show(ex.Message);
             }
 
+        }
+
+        void RecorrerPanel(Panel panel, int v)
+        {
+            foreach (Control control in panel.Controls)
+            {
+                if (v == 1)
+                {
+
+                    if (control.Tag != null && traducciones.ContainsKey(control.Tag.ToString()))
+                    {
+                        control.Text = traducciones[control.Tag.ToString()].texto;
+                    }
+                }
+                else
+                {
+                    if (control.Tag != null && palabras.Contains(control.Tag.ToString()))
+                    {
+                        string traduccion = palabras.Find(p => p.Equals(control.Tag.ToString()));
+                        control.Text = traduccion;
+                    }
+                }
+
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

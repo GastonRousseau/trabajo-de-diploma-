@@ -44,18 +44,20 @@ namespace UI
         }
         SessionManager session = SessionManager.GetInstance;
         BLLMensaje oBLLmensaje = new BLLMensaje();
-      /*  public void es_traductor()
-        {
-            if (!SessionManager.tiene_permiso(22) && !SessionManager.tiene_permiso(21)) metroButton11.Hide(); //metroButton12.Hide();
-        }
-        public void es_chofer()
-        {
-            if (SessionManager.tiene_permiso(60)) metroButton16.Hide(); metroButton17.Hide(); metroButton18.Hide(); metroButton15.Show();
-        }
-        public void es_admin()
-        {
-            if (SessionManager.tiene_permiso(5)) metroButton13.Hide();/* metroButton15.Hide();metroButton17.Show(); metroButton18.Show();
-        }*/
+        Dictionary<string, Traduccion> traducciones = new Dictionary<string, Traduccion>();
+        List<string> palabras = new List<string>();
+        /*  public void es_traductor()
+          {
+              if (!SessionManager.tiene_permiso(22) && !SessionManager.tiene_permiso(21)) metroButton11.Hide(); //metroButton12.Hide();
+          }
+          public void es_chofer()
+          {
+              if (SessionManager.tiene_permiso(60)) metroButton16.Hide(); metroButton17.Hide(); metroButton18.Hide(); metroButton15.Show();
+          }
+          public void es_admin()
+          {
+              if (SessionManager.tiene_permiso(5)) metroButton13.Hide();/* metroButton15.Hide();metroButton17.Show(); metroButton18.Show();
+          }*/
 
         /*  public void es_monitor()
           {
@@ -250,6 +252,11 @@ namespace UI
 
         private void metroButton2_Click(object sender, EventArgs e)
         {
+            if (formularioAbierto != null)
+            {
+
+                formularioAbierto.Close();
+            }
             groupBox1.Show();
         }
 
@@ -490,7 +497,7 @@ namespace UI
                     BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
 
 
-                    var traducciones = Traductor.obtenertraducciones(Idioma);
+                     traducciones = Traductor.obtenertraducciones(Idioma);
                     List<string> Lista = new List<string>();
                     Lista = Traductor.obtenerIdiomaOriginal();
                     if (traducciones.Values.Count != Lista.Count)
@@ -499,70 +506,145 @@ namespace UI
                     }
                     else
                     {
-                        if (this.Tag != null && traducciones.ContainsKey(this.Tag.ToString()))
-                        {
-                            this.Text = traducciones[this.Tag.ToString()].texto;
-                        }
-                        if (metroButton1.Tag != null && traducciones.ContainsKey(metroButton1.Tag.ToString()))
-                        {
-                            this.metroButton1.Text = traducciones[metroButton1.Tag.ToString()].texto;
-                        }
-                        if (metroButton2.Tag != null && traducciones.ContainsKey(metroButton2.Tag.ToString()))
-                        {
-                            this.metroButton2.Text = traducciones[metroButton2.Tag.ToString()].texto;
-                        }
-                        if (metroButton3.Tag != null && traducciones.ContainsKey(metroButton3.Tag.ToString()))
-                        {
-                            this.metroButton3.Text = traducciones[metroButton3.Tag.ToString()].texto;
-                        }
-                        if (metroButton4.Tag != null && traducciones.ContainsKey(metroButton4.Tag.ToString()))
-                        {
-                            this.metroButton4.Text = traducciones[metroButton4.Tag.ToString()].texto;
-                        }
-                        if (metroButton5.Tag != null && traducciones.ContainsKey(metroButton5.Tag.ToString()))
-                        {
-                            this.metroButton5.Text = traducciones[metroButton5.Tag.ToString()].texto;
-                        }
-                        if (metroButton6.Tag != null && traducciones.ContainsKey(metroButton6.Tag.ToString()))
-                        {
-                            this.metroButton6.Text = traducciones[metroButton6.Tag.ToString()].texto;
-                        }
-                        if (metroButton8.Tag != null && traducciones.ContainsKey(metroButton8.Tag.ToString()))
-                        {
-                            this.metroButton8.Text = traducciones[metroButton8.Tag.ToString()].texto;
-                        }
-                        if (metroLabel1.Tag != null && traducciones.ContainsKey(metroLabel1.Tag.ToString()))
-                        {
-                            this.metroLabel1.Text = traducciones[metroLabel1.Tag.ToString()].texto;
-                        }
-                        if (metroLabel2.Tag != null && traducciones.ContainsKey(metroLabel2.Tag.ToString()))
-                        {
-                            this.metroLabel2.Text = traducciones[metroLabel2.Tag.ToString()].texto;
-                        }
-                        if (groupBox1.Tag != null && traducciones.ContainsKey(groupBox1.Tag.ToString()))
-                        {
-                            this.groupBox1.Text = traducciones[groupBox1.Tag.ToString()].texto;
-                        }
-                        if (metroButton7.Tag != null && traducciones.ContainsKey(metroButton7.Tag.ToString()))
-                        {
-                            this.metroButton7.Text = traducciones[metroButton7.Tag.ToString()].texto;
-                        }
-                        if (metroButton11.Tag != null && traducciones.ContainsKey(metroButton11.Tag.ToString()))
-                        {
-                            this.metroButton11.Text = traducciones[metroButton11.Tag.ToString()].texto;
-                        }
-                        if (metroButton9.Tag != null && traducciones.ContainsKey(metroButton9.Tag.ToString()))
-                        {
-                            this.metroButton9.Text = traducciones[metroButton9.Tag.ToString()].texto;
-                        }
-                        if (metroButton10.Tag != null && traducciones.ContainsKey(metroButton10.Tag.ToString()))
-                        {
-                            this.metroButton10.Text = traducciones[metroButton10.Tag.ToString()].texto;
-                        }
-                        if (metroButton12.Tag != null && traducciones.ContainsKey(metroButton12.Tag.ToString()))
-                        {
-                            this.metroButton12.Text = traducciones[metroButton12.Tag.ToString()].texto;
-                        }
+                        /*  if (this.Tag != null && traducciones.ContainsKey(this.Tag.ToString()))
+                          {
+                              this.Text = traducciones[this.Tag.ToString()].texto;
+                          }
+                          if (metroButton1.Tag != null && traducciones.ContainsKey(metroButton1.Tag.ToString()))
+                          {
+                              this.metroButton1.Text = traducciones[metroButton1.Tag.ToString()].texto;
+                          }
+                          if (metroButton2.Tag != null && traducciones.ContainsKey(metroButton2.Tag.ToString()))
+                          {
+                              this.metroButton2.Text = traducciones[metroButton2.Tag.ToString()].texto;
+                          }
+                          if (metroButton3.Tag != null && traducciones.ContainsKey(metroButton3.Tag.ToString()))
+                          {
+                              this.metroButton3.Text = traducciones[metroButton3.Tag.ToString()].texto;
+                          }
+                          if (metroButton4.Tag != null && traducciones.ContainsKey(metroButton4.Tag.ToString()))
+                          {
+                              this.metroButton4.Text = traducciones[metroButton4.Tag.ToString()].texto;
+                          }
+                          if (metroButton5.Tag != null && traducciones.ContainsKey(metroButton5.Tag.ToString()))
+                          {
+                              this.metroButton5.Text = traducciones[metroButton5.Tag.ToString()].texto;
+                          }
+                          if (metroButton6.Tag != null && traducciones.ContainsKey(metroButton6.Tag.ToString()))
+                          {
+                              this.metroButton6.Text = traducciones[metroButton6.Tag.ToString()].texto;
+                          }
+                          if (metroButton8.Tag != null && traducciones.ContainsKey(metroButton8.Tag.ToString()))
+                          {
+                              this.metroButton8.Text = traducciones[metroButton8.Tag.ToString()].texto;
+                          }
+                          if (metroLabel1.Tag != null && traducciones.ContainsKey(metroLabel1.Tag.ToString()))
+                          {
+                              this.metroLabel1.Text = traducciones[metroLabel1.Tag.ToString()].texto;
+                          }
+                          if (metroLabel2.Tag != null && traducciones.ContainsKey(metroLabel2.Tag.ToString()))
+                          {
+                              this.metroLabel2.Text = traducciones[metroLabel2.Tag.ToString()].texto;
+                          }
+                          if (groupBox1.Tag != null && traducciones.ContainsKey(groupBox1.Tag.ToString()))
+                          {
+                              this.groupBox1.Text = traducciones[groupBox1.Tag.ToString()].texto;
+                          }
+                          if (metroButton7.Tag != null && traducciones.ContainsKey(metroButton7.Tag.ToString()))
+                          {
+                              this.metroButton7.Text = traducciones[metroButton7.Tag.ToString()].texto;
+                          }
+                          if (metroButton11.Tag != null && traducciones.ContainsKey(metroButton11.Tag.ToString()))
+                          {
+                              this.metroButton11.Text = traducciones[metroButton11.Tag.ToString()].texto;
+                          }
+                          if (metroButton9.Tag != null && traducciones.ContainsKey(metroButton9.Tag.ToString()))
+                          {
+                              this.metroButton9.Text = traducciones[metroButton9.Tag.ToString()].texto;
+                          }
+                          if (metroButton10.Tag != null && traducciones.ContainsKey(metroButton10.Tag.ToString()))
+                          {
+                              this.metroButton10.Text = traducciones[metroButton10.Tag.ToString()].texto;
+                          }
+                          if (metroButton12.Tag != null && traducciones.ContainsKey(metroButton12.Tag.ToString()))
+                          {
+                              this.metroButton12.Text = traducciones[metroButton12.Tag.ToString()].texto;
+                          }
+                          if (metroButton13.Tag != null && traducciones.ContainsKey(metroButton13.Tag.ToString()))
+                          {
+                              this.metroButton13.Text = traducciones[metroButton13.Tag.ToString()].texto;
+                          }
+                          if (metroButton14.Tag != null && traducciones.ContainsKey(metroButton14.Tag.ToString()))
+                          {
+                              this.metroButton14.Text = traducciones[metroButton14.Tag.ToString()].texto;
+                          }
+                          if (metroButton15.Tag != null && traducciones.ContainsKey(metroButton15.Tag.ToString()))
+                          {
+                              this.metroButton15.Text = traducciones[metroButton15.Tag.ToString()].texto;
+                          }
+                          if (metroButton16.Tag != null && traducciones.ContainsKey(metroButton16.Tag.ToString()))
+                          {
+                              this.metroButton16.Text = traducciones[metroButton16.Tag.ToString()].texto;
+                          }
+                          if (metroButton17.Tag != null && traducciones.ContainsKey(metroButton17.Tag.ToString()))
+                          {
+                              this.metroButton17.Text = traducciones[metroButton17.Tag.ToString()].texto;
+                          }
+                          if (metroButton18.Tag != null && traducciones.ContainsKey(metroButton18.Tag.ToString()))
+                          {
+                              this.metroButton18.Text = traducciones[metroButton18.Tag.ToString()].texto;
+                          }
+                          if (metroButton19.Tag != null && traducciones.ContainsKey(metroButton19.Tag.ToString()))
+                          {
+                              this.metroButton19.Text = traducciones[metroButton19.Tag.ToString()].texto;
+                          }
+                          if (metroButton20.Tag != null && traducciones.ContainsKey(metroButton20.Tag.ToString()))
+                          {
+                              this.metroButton20.Text = traducciones[metroButton20.Tag.ToString()].texto;
+                          }
+                          if (metroButton21.Tag != null && traducciones.ContainsKey(metroButton21.Tag.ToString()))
+                          {
+                              this.metroButton21.Text = traducciones[metroButton21.Tag.ToString()].texto;
+                          }
+                          if (metroButton22.Tag != null && traducciones.ContainsKey(metroButton22.Tag.ToString()))
+                          {
+                              this.metroButton22.Text = traducciones[metroButton22.Tag.ToString()].texto;
+                          }
+                          if (metroButton23.Tag != null && traducciones.ContainsKey(metroButton23.Tag.ToString()))
+                          {
+                              this.metroButton23.Text = traducciones[metroButton23.Tag.ToString()].texto;
+                          }
+                          if (metroButton24.Tag != null && traducciones.ContainsKey(metroButton24.Tag.ToString()))
+                          {
+                              this.metroButton24.Text = traducciones[metroButton24.Tag.ToString()].texto;
+                          }
+                          if (metroButton25.Tag != null && traducciones.ContainsKey(metroButton25.Tag.ToString()))
+                          {
+                              this.metroButton25.Text = traducciones[metroButton25.Tag.ToString()].texto;
+                          }
+                          if (metroButton26.Tag != null && traducciones.ContainsKey(metroButton26.Tag.ToString()))
+                          {
+                              this.metroButton26.Text = traducciones[metroButton26.Tag.ToString()].texto;
+                          }
+                          if (metroButton27.Tag != null && traducciones.ContainsKey(metroButton27.Tag.ToString()))
+                          {
+                              this.metroButton27.Text = traducciones[metroButton27.Tag.ToString()].texto;
+                          }
+                          if (metroButton28.Tag != null && traducciones.ContainsKey(metroButton28.Tag.ToString()))
+                          {
+                              this.metroButton28.Text = traducciones[metroButton28.Tag.ToString()].texto;
+                          }*/
+                        RecorrerPanel(panel1, 1);
+                        RecorrerPanel(panel2, 1);
+                        RecorrerPanel(panel3, 1);
+                        RecorrerPanel(panel4, 1);
+                        RecorrerPanel(panel5, 1);
+                        RecorrerPanel(panel6, 1);
+                        RecorrerPanel(panel7, 1);
+                        RecorrerPanel(panel8, 1);
+                        RecorrerPanel(groupBox1,1);
+
+
                     }
 
                 }
@@ -589,89 +671,100 @@ namespace UI
             {
 
                 BLL.BLLTraductor Traductor = new BLL.BLLTraductor();
-                List<string> palabras = Traductor.obtenerIdiomaOriginal();
+                 palabras = Traductor.obtenerIdiomaOriginal();
 
 
-                if (this.Tag != null && palabras.Contains(this.Tag.ToString()))
-                {
-                    string traduccion = palabras.Find(p => p.Equals(this.Tag.ToString()));
-                    this.Text = traduccion;
-                }
-                if (metroButton1.Tag != null && palabras.Contains(metroButton1.Tag.ToString()))
-                {
-                    string traduccion = palabras.Find(p => p.Equals(metroButton1.Tag.ToString()));
-                    this.metroButton1.Text = traduccion;
-                }
-                if (metroButton2.Tag != null && palabras.Contains(metroButton2.Tag.ToString()))
-                {
-                    string traduccion = palabras.Find(p => p.Equals(metroButton2.Tag.ToString()));
-                    this.metroButton2.Text = traduccion;
-                }
-                if (metroButton3.Tag != null && palabras.Contains(metroButton3.Tag.ToString()))
-                {
-                    string traduccion = palabras.Find(p => p.Equals(metroButton3.Tag.ToString()));
-                    this.metroButton3.Text = traduccion;
-                }
-                if (metroButton4.Tag != null && palabras.Contains(metroButton4.Tag.ToString()))
-                {
-                    string traduccion = palabras.Find(p => p.Equals(metroButton4.Tag.ToString()));
-                    this.metroButton4.Text = traduccion;
-                }
-                if (metroButton5.Tag != null && palabras.Contains(metroButton5.Tag.ToString()))
-                {
-                    string traduccion = palabras.Find(p => p.Equals(metroButton5.Tag.ToString()));
-                    this.metroButton5.Text = traduccion;
-                }
-                if (metroLabel1.Tag != null && palabras.Contains(metroLabel1.Tag.ToString()))
-                {
-                    string traduccion = palabras.Find(p => p.Equals(metroLabel1.Tag.ToString()));
-                    this.metroLabel1.Text = traduccion;
-                }
-                if (metroLabel2.Tag != null && palabras.Contains(metroLabel2.Tag.ToString()))
-                {
-                    string traduccion = palabras.Find(p => p.Equals(metroLabel2.Tag.ToString()));
-                    this.metroLabel2.Text = traduccion;
-                }
-                if (groupBox1.Tag != null && palabras.Contains(groupBox1.Tag.ToString()))
-                {
-                    string traduccion = palabras.Find(p => p.Equals(groupBox1.Tag.ToString()));
-                    this.groupBox1.Text = traduccion;
-                }
-                if (metroButton10.Tag != null && palabras.Contains(metroButton10.Tag.ToString()))
-                {
-                    string traduccion = palabras.Find(p => p.Equals(metroButton10.Tag.ToString()));
-                    this.metroButton10.Text = traduccion;
-                }
-                if (metroButton11.Tag != null && palabras.Contains(metroButton1.Tag.ToString()))
-                {
-                    string traduccion = palabras.Find(p => p.Equals(metroButton11.Tag.ToString()));
-                    this.metroButton11.Text = traduccion;
-                }
-                if (metroButton9.Tag != null && palabras.Contains(metroButton9.Tag.ToString()))
-                {
-                    string traduccion = palabras.Find(p => p.Equals(metroButton9.Tag.ToString()));
-                    this.metroButton9.Text = traduccion;
-                }
-                if (metroButton7.Tag != null && palabras.Contains(metroButton7.Tag.ToString()))
-                {
-                    string traduccion = palabras.Find(p => p.Equals(metroButton7.Tag.ToString()));
-                    this.metroButton7.Text = traduccion;
-                }
-                if (metroButton6.Tag != null && palabras.Contains(metroButton6.Tag.ToString()))
-                {
-                    string traduccion = palabras.Find(p => p.Equals(metroButton6.Tag.ToString()));
-                    this.metroButton6.Text = traduccion;
-                }
-                if (metroButton8.Tag != null && palabras.Contains(metroButton8.Tag.ToString()))
-                {
-                    string traduccion = palabras.Find(p => p.Equals(metroButton8.Tag.ToString()));
-                    this.metroButton8.Text = traduccion;
-                }
-                if (metroButton12.Tag != null && palabras.Contains(metroButton12.Tag.ToString()))
-                {
-                    string traduccion = palabras.Find(p => p.Equals(metroButton12.Tag.ToString()));
-                    this.metroButton12.Text = traduccion;
-                }
+                /*   if (this.Tag != null && palabras.Contains(this.Tag.ToString()))
+                   {
+                       string traduccion = palabras.Find(p => p.Equals(this.Tag.ToString()));
+                       this.Text = traduccion;
+                   }
+                   if (metroButton1.Tag != null && palabras.Contains(metroButton1.Tag.ToString()))
+                   {
+                       string traduccion = palabras.Find(p => p.Equals(metroButton1.Tag.ToString()));
+                       this.metroButton1.Text = traduccion;
+                   }
+                   if (metroButton2.Tag != null && palabras.Contains(metroButton2.Tag.ToString()))
+                   {
+                       string traduccion = palabras.Find(p => p.Equals(metroButton2.Tag.ToString()));
+                       this.metroButton2.Text = traduccion;
+                   }
+                   if (metroButton3.Tag != null && palabras.Contains(metroButton3.Tag.ToString()))
+                   {
+                       string traduccion = palabras.Find(p => p.Equals(metroButton3.Tag.ToString()));
+                       this.metroButton3.Text = traduccion;
+                   }
+                   if (metroButton4.Tag != null && palabras.Contains(metroButton4.Tag.ToString()))
+                   {
+                       string traduccion = palabras.Find(p => p.Equals(metroButton4.Tag.ToString()));
+                       this.metroButton4.Text = traduccion;
+                   }
+                   if (metroButton5.Tag != null && palabras.Contains(metroButton5.Tag.ToString()))
+                   {
+                       string traduccion = palabras.Find(p => p.Equals(metroButton5.Tag.ToString()));
+                       this.metroButton5.Text = traduccion;
+                   }
+                   if (metroLabel1.Tag != null && palabras.Contains(metroLabel1.Tag.ToString()))
+                   {
+                       string traduccion = palabras.Find(p => p.Equals(metroLabel1.Tag.ToString()));
+                       this.metroLabel1.Text = traduccion;
+                   }
+                   if (metroLabel2.Tag != null && palabras.Contains(metroLabel2.Tag.ToString()))
+                   {
+                       string traduccion = palabras.Find(p => p.Equals(metroLabel2.Tag.ToString()));
+                       this.metroLabel2.Text = traduccion;
+                   }
+                   if (groupBox1.Tag != null && palabras.Contains(groupBox1.Tag.ToString()))
+                   {
+                       string traduccion = palabras.Find(p => p.Equals(groupBox1.Tag.ToString()));
+                       this.groupBox1.Text = traduccion;
+                   }
+                   if (metroButton10.Tag != null && palabras.Contains(metroButton10.Tag.ToString()))
+                   {
+                       string traduccion = palabras.Find(p => p.Equals(metroButton10.Tag.ToString()));
+                       this.metroButton10.Text = traduccion;
+                   }
+                   if (metroButton11.Tag != null && palabras.Contains(metroButton1.Tag.ToString()))
+                   {
+                       string traduccion = palabras.Find(p => p.Equals(metroButton11.Tag.ToString()));
+                       this.metroButton11.Text = traduccion;
+                   }
+                   if (metroButton9.Tag != null && palabras.Contains(metroButton9.Tag.ToString()))
+                   {
+                       string traduccion = palabras.Find(p => p.Equals(metroButton9.Tag.ToString()));
+                       this.metroButton9.Text = traduccion;
+                   }
+                   if (metroButton7.Tag != null && palabras.Contains(metroButton7.Tag.ToString()))
+                   {
+                       string traduccion = palabras.Find(p => p.Equals(metroButton7.Tag.ToString()));
+                       this.metroButton7.Text = traduccion;
+                   }
+                   if (metroButton6.Tag != null && palabras.Contains(metroButton6.Tag.ToString()))
+                   {
+                       string traduccion = palabras.Find(p => p.Equals(metroButton6.Tag.ToString()));
+                       this.metroButton6.Text = traduccion;
+                   }
+                   if (metroButton8.Tag != null && palabras.Contains(metroButton8.Tag.ToString()))
+                   {
+                       string traduccion = palabras.Find(p => p.Equals(metroButton8.Tag.ToString()));
+                       this.metroButton8.Text = traduccion;
+                   }
+                   if (metroButton12.Tag != null && palabras.Contains(metroButton12.Tag.ToString()))
+                   {
+                       string traduccion = palabras.Find(p => p.Equals(metroButton12.Tag.ToString()));
+                       this.metroButton12.Text = traduccion;
+                   }*/
+
+                RecorrerPanel(panel1,2);
+                RecorrerPanel(panel2,2);
+                RecorrerPanel(panel3, 2);
+                RecorrerPanel(panel4, 2);
+                RecorrerPanel(panel5, 2);
+                RecorrerPanel(panel6, 2);
+                RecorrerPanel(panel7, 2);
+                RecorrerPanel(panel8, 2);
+                RecorrerPanel(groupBox1, 2);
+
 
             }
             catch (NullReferenceException ex)
@@ -688,6 +781,30 @@ namespace UI
             }
 
         }
+        void RecorrerPanel(Control panel, int v)
+        {
+            foreach (Control control in panel.Controls)
+            {
+                if (v == 1)
+                {
+
+                    if (control.Tag != null && traducciones.ContainsKey(control.Tag.ToString()))
+                    {
+                        control.Text = traducciones[control.Tag.ToString()].texto;
+                    }
+                }
+                else
+                {
+                    if (control.Tag != null && palabras.Contains(control.Tag.ToString()))
+                    {
+                        string traduccion = palabras.Find(p => p.Equals(control.Tag.ToString()));
+                        control.Text = traduccion;
+                    }
+                }
+
+            }
+        }
+
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -1050,6 +1167,12 @@ namespace UI
                 formularioAbierto.Close();
                 metroButton28.Visible = false;
             }
+        }
+
+        private void metroButton29_Click(object sender, EventArgs e)
+        {
+            GenerarJSON form = new GenerarJSON();
+            AbrirFormulario(form);
         }
     }
     }
