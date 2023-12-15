@@ -479,5 +479,10 @@ namespace UI
                 throw ex;
             }
         }
+
+        private void form_closing(object sender, FormClosingEventArgs e)
+        {
+            servicios.Observer.eliminarObservador(this);
+        }
     }
 }

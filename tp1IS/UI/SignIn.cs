@@ -502,6 +502,11 @@ namespace UI
                         {
                             this.metroLabel7.Text = traducciones[metroLabel7.Tag.ToString()].texto;
                         }
+                        if (metroButton4.Tag != null && traducciones.ContainsKey(metroButton4.Tag.ToString()))
+                        {
+                            this.metroButton4.Text = traducciones[metroButton4.Tag.ToString()].texto;
+                        }
+
                     }
 
                 }
@@ -588,6 +593,11 @@ namespace UI
                 {
                     string traduccion = palabras.Find(p => p.Equals(metroLabel7.Tag.ToString()));
                     this.metroLabel7.Text = traduccion;
+                }
+                if (metroButton4.Tag != null && palabras.Contains(metroButton4.Tag.ToString()))
+                {
+                    string traduccion = palabras.Find(p => p.Equals(metroButton4.Tag.ToString()));
+                    this.metroButton4.Text = traduccion;
                 }
 
             }

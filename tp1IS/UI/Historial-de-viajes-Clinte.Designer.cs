@@ -156,6 +156,7 @@ namespace UI
             this.Controls.Add(this.dataGridView1);
             this.Name = "Historial_de_viajes_Clinte";
             this.Text = "travel history";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.form_closing);
             this.Load += new System.EventHandler(this.Historial_de_viajes_Clinte_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

@@ -69,6 +69,8 @@ namespace UI
                 if (formularioAbierto != null)
                 {
                     formularioAbierto.Close();
+                    
+                    
                 }
                 formularioAbierto = formulario;
                 if (formulario is InterfazMensajes)
@@ -163,6 +165,7 @@ namespace UI
                 form.Show();
               
                 servicios.Observer.eliminarObservador(this);
+                
             }
             catch (NullReferenceException ex)
             {
@@ -493,7 +496,9 @@ namespace UI
         {
             if (formularioAbierto != null)
             {
+                
                 formularioAbierto.Close();
+               // servicios.Observer.eliminarObservador(formularioAbierto);
                 metroButton1.Visible = false;
             }
         }

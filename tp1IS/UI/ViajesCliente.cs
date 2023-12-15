@@ -26,6 +26,7 @@ namespace UI
             //  dateTimePicker1.Value = null;
             this.Size = new Size(826, 311);
             Listar(null,1);
+            label3.Visible = false;
         }
         BLLviaje oBLLviaje;
         BLLMensaje oBLLmensaje;
@@ -132,9 +133,11 @@ namespace UI
 
             try
             {
-                BEViaje viajeSelect = ((BEViaje)dataGridView1.CurrentRow.DataBoundItem);
+                 viajeSelect = ((BEViaje)dataGridView1.CurrentRow.DataBoundItem);
                 if (viajeSelect.id != 0)
                 {
+                    label3.Visible = true;
+                    label3.Text = viajeSelect.id+" "+viajeSelect.producto.nombre;
                     if (viajeSelect.estado == "En proceso")
                     {
                         label1.Visible = true;
@@ -147,7 +150,7 @@ namespace UI
                     }
                     else
                     {
-                        MessageBox.Show("The status of the travel must be pending, otherwise the action cannot be carried out.");
+                       // MessageBox.Show("The status of the travel must be pending, otherwise the action cannot be carried out.");
                     }
 
                 }
@@ -272,7 +275,7 @@ namespace UI
             {
                 if (dataGridView1.RowCount > 0)
                 {
-                    viajeSelect = (BEViaje)dataGridView1.CurrentRow.DataBoundItem;
+                    //viajeSelect = (BEViaje)dataGridView1.CurrentRow.DataBoundItem;
 
                     if (viajeSelect.id != 0 && viajeSelect.estado == "pendiente" && viajeSelect != null)
                     {
@@ -336,45 +339,54 @@ namespace UI
         {
             try
             {
-                viajeSelect = (BEViaje)dataGridView1.CurrentRow.DataBoundItem;
-                
-                if (camionSelect.patente!=null)
-                {
-                    // camionSelect = (BECamion)dataGridView2.CurrentRow.DataBoundItem;
-                    if (camionSelect != null && viajeSelect != null && dateTimePicker1.Value != null &&dateTimePicker1.Value>DateTime.Now)
+                // viajeSelect = (BEViaje)dataGridView1.CurrentRow.DataBoundItem;
+                if (viajeSelect.fecha != null) {
+
+                    if (camionSelect.patente != null)
                     {
-                        if (viajeSelect.camion != camionSelect)
+                        // camionSelect = (BECamion)dataGridView2.CurrentRow.DataBoundItem;
+                        if (camionSelect != null && viajeSelect != null && dateTimePicker1.Value != null && dateTimePicker1.Value > DateTime.Now)
                         {
-                            BEMensaje mensaje = new BEMensaje(SessionManager.GetInstance.Usuario, viajeSelect.camion.conductor, "Dejaras del ser el conductor del viaje con id: " + viajeSelect.id, DateTime.Now, 2);
-                            oBLLmensaje.GuardarMensaje(mensaje);
-                            viajeSelect.camion = camionSelect;
-                            BEMensaje mensaje2 = new BEMensaje(SessionManager.GetInstance.Usuario, viajeSelect.camion.conductor, "Eres el nuevo conductor del viaje con id: " + viajeSelect.id, DateTime.Now, 2);
-                            oBLLmensaje.GuardarMensaje(mensaje2);
+                            if (viajeSelect.camion != camionSelect)
+                            {
+                                BEMensaje mensaje = new BEMensaje(SessionManager.GetInstance.Usuario, viajeSelect.camion.conductor, "Dejaras del ser el conductor del viaje con id: " + viajeSelect.id, DateTime.Now, 2);
+                                oBLLmensaje.GuardarMensaje(mensaje);
+                                viajeSelect.camion = camionSelect;
+                                BEMensaje mensaje2 = new BEMensaje(SessionManager.GetInstance.Usuario, viajeSelect.camion.conductor, "Eres el nuevo conductor del viaje con id: " + viajeSelect.id, DateTime.Now, 2);
+                                oBLLmensaje.GuardarMensaje(mensaje2);
+                            }
+                            else
+                            {
+                                BEMensaje mensaje = new BEMensaje(SessionManager.GetInstance.Usuario, viajeSelect.camion.conductor, "Se postargo el viaje" + viajeSelect.id + "a la fecha " + dateTimePicker1.Value, DateTime.Now, 2);
+                                oBLLmensaje.GuardarMensaje(mensaje);
+                            }
+
+                            viajeSelect.fecha = dateTimePicker1.Value;
+                            oBLLviaje.Modifica_Viaje(viajeSelect);
+
+
+                            MessageBox.Show("The travel date was postponed to the day " + dateTimePicker1.Value);
+                            panel3.Visible = false;
+                            this.Size = new Size(826, 311);
+                            Listar(null, 1);
                         }
                         else
                         {
-                            BEMensaje mensaje = new BEMensaje(SessionManager.GetInstance.Usuario, viajeSelect.camion.conductor, "Se postargo el viaje" + viajeSelect.id + "a la fecha " + dateTimePicker1.Value, DateTime.Now, 2);
-                            oBLLmensaje.GuardarMensaje(mensaje);
+                            MessageBox.Show("There was an error when trying to postpone the trip");
                         }
-
-                        viajeSelect.fecha = dateTimePicker1.Value;
-                        oBLLviaje.Modifica_Viaje(viajeSelect);
-
-
-                        MessageBox.Show("The travel date was postponed to the day " + dateTimePicker1.Value);
-                        panel3.Visible = false;
-                        this.Size = new Size(826, 311);
-                        Listar(null, 1);
                     }
                     else
                     {
-                        MessageBox.Show("There was an error when trying to postpone the trip");
+                        MessageBox.Show("no truck was selected");
                     }
+
                 }
                 else
                 {
-                    MessageBox.Show("no truck was selected");
+                    MessageBox.Show("no travel was selected");
                 }
+                
+               
                
             }
             catch (NullReferenceException ex)
@@ -500,6 +512,11 @@ namespace UI
             {
                 throw ex;
             }
+        }
+
+        private void form_closing(object sender, FormClosingEventArgs e)
+        {
+            servicios.Observer.eliminarObservador(this);
         }
     }
 }

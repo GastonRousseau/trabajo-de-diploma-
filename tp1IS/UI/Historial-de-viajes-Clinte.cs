@@ -158,7 +158,8 @@ namespace UI
 
         public void CambiarIdioma(Idioma Idioma)
         {
-            throw new NotImplementedException();
+            //  throw new NotImplementedException();
+            traducir();
         }
 
         void traducir()
@@ -236,6 +237,11 @@ namespace UI
             {
                 throw ex;
             }
+        }
+
+        private void form_closing(object sender, FormClosingEventArgs e)
+        {
+            servicios.Observer.eliminarObservador(this);
         }
     }
 }

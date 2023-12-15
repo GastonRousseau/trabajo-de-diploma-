@@ -54,6 +54,8 @@ namespace UI
             dataGridView1.DataSource=oBLLproducto.ListarProductos(SessionManager.GetInstance.Usuario.id);
             dataGridView1.Columns["cliente"].Visible = false;
             dataGridView1.Columns["id"].ReadOnly = true;
+            dataGridView1.Columns["nombre"].ReadOnly = true;
+            dataGridView1.Columns["Estado"].ReadOnly = true;
             DeshabilitarEdicionSiColumnaVacia(dataGridView1, "nombre");
             DeshabilitarEdicionSiColumnaVacia(dataGridView1, "cantPallets");
             dataGridView1.Columns["Cliente"].Visible = false;
@@ -301,6 +303,11 @@ namespace UI
                 label2.Visible = true;
             }
             label2.Text = ProductoSelect.id+" "+ProductoSelect.nombre;
+        }
+
+        private void form_closing(object sender, FormClosingEventArgs e)
+        {
+            servicios.Observer.eliminarObservador(this);
         }
     }
 }

@@ -47,7 +47,6 @@ namespace UI
             this.metroButton5 = new MetroFramework.Controls.MetroButton();
             this.metroButton4 = new MetroFramework.Controls.MetroButton();
             this.metroButton3 = new MetroFramework.Controls.MetroButton();
-            this.barrarProgreso1 = new UI.controles.BarrarProgreso();
             this.metroButton6 = new MetroFramework.Controls.MetroButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.metroButton8 = new MetroFramework.Controls.MetroButton();
@@ -55,6 +54,8 @@ namespace UI
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.barrarProgreso1 = new UI.controles.BarrarProgreso();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -88,11 +89,11 @@ namespace UI
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DarkRed;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(218)))), ((int)(((byte)(220)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.MenuBar;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.IndianRed;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ButtonHighlight;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersWidth = 62;
@@ -168,6 +169,7 @@ namespace UI
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(250)))), ((int)(((byte)(238)))));
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.metroButton10);
             this.panel1.Controls.Add(this.metroButton9);
             this.panel1.Controls.Add(this.metroLabel3);
@@ -285,17 +287,6 @@ namespace UI
             this.metroButton3.UseSelectable = true;
             this.metroButton3.Click += new System.EventHandler(this.metroButton3_Click_1);
             // 
-            // barrarProgreso1
-            // 
-            this.barrarProgreso1.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.barrarProgreso1.Location = new System.Drawing.Point(558, 58);
-            this.barrarProgreso1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.barrarProgreso1.MaximumValue = 3;
-            this.barrarProgreso1.Name = "barrarProgreso1";
-            this.barrarProgreso1.ProgressValue = 0;
-            this.barrarProgreso1.Size = new System.Drawing.Size(243, 32);
-            this.barrarProgreso1.TabIndex = 8;
-            // 
             // metroButton6
             // 
             this.metroButton6.Location = new System.Drawing.Point(204, 3);
@@ -370,6 +361,26 @@ namespace UI
             this.dateTimePicker1.Size = new System.Drawing.Size(225, 20);
             this.dateTimePicker1.TabIndex = 14;
             // 
+            // barrarProgreso1
+            // 
+            this.barrarProgreso1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.barrarProgreso1.Location = new System.Drawing.Point(558, 58);
+            this.barrarProgreso1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.barrarProgreso1.MaximumValue = 3;
+            this.barrarProgreso1.Name = "barrarProgreso1";
+            this.barrarProgreso1.ProgressValue = 0;
+            this.barrarProgreso1.Size = new System.Drawing.Size(243, 32);
+            this.barrarProgreso1.TabIndex = 8;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(33, 258);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "label3";
+            // 
             // ViajesCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -379,6 +390,7 @@ namespace UI
             this.Controls.Add(this.panel1);
             this.Name = "ViajesCliente";
             this.Text = "my travels";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.form_closing);
             this.Load += new System.EventHandler(this.ViajesCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -415,5 +427,6 @@ namespace UI
         private MetroFramework.Controls.MetroComboBox metroComboBox1;
         private MetroFramework.Controls.MetroButton metroButton10;
         private MetroFramework.Controls.MetroButton metroButton9;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -570,6 +570,7 @@ namespace UI
             this.Name = "Crear_viaje";
             this.Padding = new System.Windows.Forms.Padding(20, 60, 20, 20);
             this.Text = "create travel";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.form_closing);
             this.Load += new System.EventHandler(this.Crear_viaje_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

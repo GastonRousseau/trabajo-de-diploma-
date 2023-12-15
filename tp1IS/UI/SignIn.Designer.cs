@@ -339,6 +339,7 @@
             // 
             this.metroButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(123)))), ((int)(((byte)(157)))));
             this.metroButton4.ForeColor = System.Drawing.Color.Honeydew;
+            this.errorProvider1.SetIconAlignment(this.metroButton4, System.Windows.Forms.ErrorIconAlignment.BottomLeft);
             this.metroButton4.Location = new System.Drawing.Point(409, 127);
             this.metroButton4.Margin = new System.Windows.Forms.Padding(2);
             this.metroButton4.Name = "metroButton4";
